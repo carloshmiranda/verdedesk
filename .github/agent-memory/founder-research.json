@@ -1,0 +1,135 @@
+{
+  "business_name": "VerdeDesk",
+  "repo_url": "https://github.com/carloshmiranda/verdedesk",
+  "domain_candidates": ["verdedesk.com", "verdedesk.pt", "verdedesk.io"],
+  "value_proposition": "Issue green receipts, track income, and stay compliant with Portuguese tax law — in plain English.",
+  "one_liner": "The English-friendly recibos verdes tool for digital nomads and expats in Portugal.",
+  "customer": {
+    "primary": "English-speaking digital nomads and expats on D8 visas in Portugal — primarily Lisbon, Porto, Algarve",
+    "secondary": "Portuguese-speaking freelancers (trabalhadores independentes) who find Portal das Finanças UX outdated",
+    "pain": "Must navigate a Portuguese-only government portal (AT/Portal das Finanças) with no English support, no guidance, no automation — and they're hiring accountants at €30-80/month just to emit receipts",
+    "current_workarounds": ["Hiring local accountants", "Struggling with Portal das Finanças directly", "Using ATGO app (Portuguese only)", "Paying Rauva €128/month for a bundled accountant"],
+    "verbatim_pain_language": [
+      "How do I issue green receipts in Portugal?",
+      "Portal das Finanças is all in Portuguese — I have no idea what I'm doing",
+      "My accountant charges me €80/month just to do my recibos verdes",
+      "I don't understand if I need to pay IRS quarterly or annually",
+      "What is this 'retenção na fonte' field?"
+    ]
+  },
+  "market": {
+    "geography": "Portugal (Lisbon, Porto, Algarve primary)",
+    "language": "English-first, Portuguese-supported",
+    "regulatory_context": "AT (Autoridade Tributária e Aduaneira) mandates — paper receipts abolished Jan 2024, B2G e-invoicing Jan 2025, QES requirement Jan 2026, NHR 2.0 active",
+    "addressable_users": {
+      "d8_visa_cumulative": "~9,322 applications through September 2025",
+      "d8_approval_rate": "~95%",
+      "us_residents_in_portugal": "19,258 valid permits (2024)",
+      "total_trabalhadores_independentes": "~30,375 under independent professional status"
+    }
+  },
+  "competitors": [
+    {
+      "name": "ATGO (official AT app)",
+      "url": "https://www.portaldasfinancas.gov.pt",
+      "pricing": "Free",
+      "has_english": false,
+      "handles_recibos_verdes": true,
+      "strengths": ["Free, official, trusted by AT"],
+      "weaknesses": ["Portuguese-only", "Zero guidance or automation", "No client management", "No income tracking", "No reminders"],
+      "threat_level": "low — it's the pain point we solve, not a real competitor"
+    },
+    {
+      "name": "InvoiceXpress",
+      "url": "https://invoicexpress.com",
+      "pricing": "Free (1 doc/mo), €3-24/month by volume",
+      "has_english": true,
+      "handles_recibos_verdes": true,
+      "strengths": ["AT-certified #192", "English available", "Most mature integration"],
+      "weaknesses": ["Per-document pricing confusing for irregular freelancers", "Business/accountant-oriented UI", "No expat/D8 onboarding", "No bundled tax guidance"],
+      "threat_level": "medium — closest real competitor"
+    },
+    {
+      "name": "Moloni",
+      "url": "https://moloni.pt",
+      "pricing": "€3.50-26/month",
+      "has_english": true,
+      "handles_recibos_verdes": true,
+      "strengths": ["AT-certified", "Full invoicing platform", "30-day free trial"],
+      "weaknesses": ["SME/accountant-oriented", "Minimal English marketing", "Complex for solo freelancer", "No expat onboarding"],
+      "threat_level": "low-medium"
+    },
+    {
+      "name": "Cegid Jasmin",
+      "url": "https://jasminsoftware.pt",
+      "pricing": "Free up to €30k revenue, then €5-12/month",
+      "has_english": true,
+      "handles_recibos_verdes": true,
+      "strengths": ["Generous free tier", "AT-certified", "Enterprise backing (Cegid)"],
+      "weaknesses": ["Built for SMEs, not freelancers", "Thin English version", "No AT portal direct workflow guidance", "No expat persona"],
+      "threat_level": "medium — free tier is pricing pressure"
+    },
+    {
+      "name": "Rauva",
+      "url": "https://rauva.com",
+      "pricing": "€8/month (invoicing only) or €128+/month (with accountant)",
+      "has_english": true,
+      "handles_recibos_verdes": true,
+      "strengths": ["Bundled bank account + invoicing", "English-first", "Modern UX"],
+      "weaknesses": ["Requires opening Rauva bank account", "Real value locked at €128+/month", "Targets Lda. companies more than trabalhadores independentes", "Expensive for simple recibos verdes use"],
+      "threat_level": "medium — English-first but misaligned pricing"
+    },
+    {
+      "name": "Cegid Vendus",
+      "url": "https://vendus.pt",
+      "pricing": "Unknown",
+      "has_english": false,
+      "handles_recibos_verdes": true,
+      "strengths": ["AT-certified", "Active compliance content"],
+      "weaknesses": ["Portuguese-only", "POS/retail focus", "Heavy for solo freelancer"],
+      "threat_level": "low"
+    }
+  ],
+  "unfair_advantage": "English-first and expat-native — purpose-built for the D8 visa + NIF registration → first recibo verde journey that no competitor serves. Every competitor is a Portuguese product adapted for English speakers; VerdeDesk is an English product built on Portuguese tax rails.",
+  "monetisation": {
+    "model": "Subscription SaaS",
+    "price": "€9/month",
+    "trial": "14-day free trial, no card required",
+    "rationale": "Accountants charge €30-80/month for the same workflow. At €9/month we are 3-8x cheaper than the incumbent solution. Jasmin free tier is the main pricing pressure — must win on English UX and guided onboarding.",
+    "freemium_verdict": "Not justified at this stage. Free tier creates support burden without driving acquisition. The trial converts better for a tool with a clear compliance job-to-be-done."
+  },
+  "tech_stack": {
+    "frontend": "React + Vite + TypeScript",
+    "styling": "Tailwind CSS",
+    "backend": "Vercel serverless functions (Node.js)",
+    "database": "Prisma + Neon (Postgres)",
+    "auth": "Clerk",
+    "analytics": "PostHog",
+    "payments": "Stripe",
+    "deployment": "Vercel Hobby (free tier)",
+    "constraint": "Max 8 active serverless functions"
+  },
+  "communities": [
+    {"name": "Lisbon Digital Nomads and Expats", "platform": "Facebook", "members": "37,000+"},
+    {"name": "r/portugal", "platform": "Reddit", "notes": "High volume Portugal expat discussion"},
+    {"name": "r/digitalnomad", "platform": "Reddit", "notes": "D8 visa discussions common"},
+    {"name": "Worktugal", "platform": "Website/Newsletter", "notes": "Portugal remote work community"},
+    {"name": "Portugalist", "platform": "Website", "notes": "Portugal expat guide with high search traffic"},
+    {"name": "Digital Nomads & Entrepreneurs in Portugal, Madeira & Azores", "platform": "Facebook/Events", "notes": "Active meetup community"}
+  ],
+  "market_timing": [
+    {"signal": "Paper recibos verdes abolished", "date": "Jan 2024", "impact": "All freelancers must now use electronic tools — demand for good software is mandatory"},
+    {"signal": "B2G e-invoicing mandate", "date": "Jan 2025", "impact": "New compliance layer; freelancers working with government clients need structured e-invoicing"},
+    {"signal": "QES (Qualified Electronic Signature) requirement", "date": "Jan 2026", "impact": "New complexity; freelancers need to understand and implement QES — guidance opportunity"},
+    {"signal": "NHR regime replaced with NHR 2.0", "date": "2024", "impact": "Expat tax incentive restructured; correct categorisation more consequential than before"},
+    {"signal": "D8 visa cumulative 9,322+ applications", "date": "Sept 2025", "impact": "Steady inflow of new English-speaking freelancers who need this from Day 1"},
+    {"signal": "Portal das Finanças UI overhaul", "date": "Sept 2024", "impact": "Caused fresh confusion even for experienced users — new onboarding need"}
+  ],
+  "business_signals": {
+    "waitlist_signups": 0,
+    "validation_threshold": 50,
+    "stage_notes": "Pre-validation. Landing page not yet deployed. No signal data available."
+  },
+  "research_version": 1,
+  "researched_at": "2026-03-18T02:00:00Z"
+}
