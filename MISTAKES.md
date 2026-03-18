@@ -28,6 +28,38 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 
 ---
 
+### Entry 007 — Zernio Twitter: individual API calls post separate tweets, not threads
+- **What happened:** Session 5 posted a 3-tweet thread as 3 separate `POST /v1/posts` API calls. They appeared as individual unconnected tweets on @chgmiranda instead of a thread.
+- **Root cause:** Assumed multiple calls = thread. The Zernio API requires a single call with `platformSpecificData.threadItems` to create a thread.
+- **Prevention:** For Twitter threads, always use a single API call with the `threadItems` array nested inside `platforms[0].platformSpecificData`. Each item in the array = one tweet in the thread, chained automatically.
+  ```json
+  {
+    "platforms": [{
+      "platform": "twitter",
+      "accountId": "69bac1586cb7b8cf4c7f1eb7",
+      "platformSpecificData": {
+        "threadItems": [
+          {"content": "Tweet 1 text"},
+          {"content": "Tweet 2 text"},
+          {"content": "Tweet 3 text"}
+        ]
+      }
+    }],
+    "publishNow": true
+  }
+  ```
+- **Added by:** founder on 2026-03-18
+
+---
+
+### Entry 006 — Vercel free tier: 100 API deploys/day hard limit
+- **What happened:** Triggered too many API gitSource deploys in one day (debugging session). Hit the 100/day free limit. All subsequent deploy attempts return `payment_required`.
+- **Root cause:** Each debugging attempt (rootDirectory fix, rogue project cleanup, SSO fix, etc.) triggered a new deploy. 100 deploys exhausted across sessions 2-6.
+- **Prevention:** Before triggering a deploy, check if HEAD is already deployed (compare `git rev-parse HEAD` to latest READY deploy's `githubCommitSha`). Only deploy if HEAD is not already live. Never trigger a deploy for `[skip ci]` commits — those contain no product code changes.
+- **Added by:** founder on 2026-03-18
+
+---
+
 ### Entry 005 — Forgot to trigger API gitSource deploy after git push
 - **What happened:** Sessions 4–5 pushed multiple commits to main but never triggered an API gitSource deploy. Production ran stale code (commit `a542974f`) while HEAD was 6+ commits ahead. Carlos had to flag that deployments were blocked.
 - **Root cause:** The session routine ended after `git push` without a deploy step. GitHub webhook → production always ERRORs on private Hobby repos so pushes never auto-deploy.

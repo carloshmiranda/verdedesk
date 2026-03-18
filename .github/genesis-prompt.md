@@ -56,13 +56,25 @@ You operate inside a Claude Code CLI session — both the bootstrap session and 
     }'
   ```
   Do NOT use iMessage for agent updates — emoji and special characters (em dashes, arrows) corrupt in transit and make updates unreadable.
-- `zernio` — unified social posting API. ZERNIO_API_KEY in `~/.founder-secrets`. Account IDs in `founder-research.json → zernio`. Post immediately with `publishNow: true`, schedule with `scheduledFor` + `publishNow: false`. Reddit requires `platformSpecificData.title` and `platformSpecificData.subreddit`. Best times: Tue–Thu 8:00–10:00 UTC (9–11am Lisbon).
-  ```bash
-  curl -s -X POST https://zernio.com/api/v1/posts \
-    -H "Authorization: Bearer $ZERNIO_API_KEY" -H "Content-Type: application/json" \
-    -d '{"content":"...","publishNow":true,"platforms":[{"platform":"twitter","accountId":"69bac1586cb7b8cf4c7f1eb7"}]}' \
-    > /tmp/post.json && python3 -c "import json; p=json.load(open('/tmp/post.json')).get('post',{}); print(p.get('platforms',[{}])[0].get('platformPostUrl',''), p.get('status'))"
-  ```
+- `zernio` — unified social posting API. ZERNIO_API_KEY in `~/.founder-secrets`. Account IDs in `founder-research.json → zernio`. Post immediately with `publishNow: true`, schedule with `scheduledFor` + `publishNow: false`. Best times: Tue–Thu 8:00–10:00 UTC (9–11am Lisbon).
+  - **Single tweet:**
+    ```bash
+    curl -s -X POST https://zernio.com/api/v1/posts \
+      -H "Authorization: Bearer $ZERNIO_API_KEY" -H "Content-Type: application/json" \
+      -d '{"content":"...","publishNow":true,"platforms":[{"platform":"twitter","accountId":"69bac1586cb7b8cf4c7f1eb7"}]}' \
+      > /tmp/post.json && python3 -c "import json; p=json.load(open('/tmp/post.json')).get('post',{}); print(p.get('platforms',[{}])[0].get('platformPostUrl',''), p.get('status'))"
+    ```
+  - **Twitter thread** — ONE API call with `threadItems` (NOT multiple calls — multiple calls = unconnected tweets):
+    ```bash
+    curl -s -X POST https://zernio.com/api/v1/posts \
+      -H "Authorization: Bearer $ZERNIO_API_KEY" -H "Content-Type: application/json" \
+      -d '{"publishNow":true,"platforms":[{"platform":"twitter","accountId":"69bac1586cb7b8cf4c7f1eb7","platformSpecificData":{"threadItems":[{"content":"Tweet 1"},{"content":"Tweet 2"},{"content":"Tweet 3"}]}}]}' \
+      > /tmp/post.json && python3 -c "import json; p=json.load(open('/tmp/post.json')).get('post',{}); print(p.get('platforms',[{}])[0].get('platformPostUrl',''), p.get('status'))"
+    ```
+  - **Reddit post** — `platformSpecificData` must be inside the platforms array entry (not top-level):
+    ```bash
+    -d '{"content":"...","publishNow":true,"platforms":[{"platform":"reddit","accountId":"69bac13d6cb7b8cf4c7f1e64","platformSpecificData":{"title":"Post title","subreddit":"digitalnomad"}}]}'
+    ```
 - `read_imessage` — read iMessages from Carlos directly via sqlite3:
   ```bash
   sqlite3 ~/Library/Messages/chat.db "
