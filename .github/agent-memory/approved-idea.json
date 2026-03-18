@@ -1,0 +1,11 @@
+{
+  "name": "VerdeDesk",
+  "problem": "Freelancers and digital nomads in Portugal must navigate a confusing, Portuguese-only government tax portal with high compliance risk, and no modern English-friendly tool wraps this workflow end-to-end.",
+  "customer": "English-speaking digital nomads and expats in Portugal on D8 visas, plus Portuguese-speaking freelancers who find the Portal das Finanças UX outdated — primarily Lisbon, Porto, Algarve",
+  "demand_signals": "Multi-channel: expat community sites (Worktugal, Portugalist) document the pain extensively; r/portugal and r/digitalnomad regularly surface 'how do I issue green receipts' with no good tooling answer; Jan 2025 B2G e-invoicing mandate and Jan 2026 QES requirement created new compliance complexity; 9,322+ D8 visa approvals by Sept 2025 creating a steady stream of new users who need this from day one; no indie-scale SaaS competitor on AppSumo or ProductHunt",
+  "model": "Subscription SaaS",
+  "price": "€9/month, 14-day free trial (no card required)",
+  "portugal_focus": true,
+  "approved_by": "Carlos",
+  "approved_at": "2026-03-18T00:00:00Z"
+}
