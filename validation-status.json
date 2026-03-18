@@ -1,0 +1,101 @@
+{
+  "started_at": "2026-03-18T00:00:00Z",
+  "landing_url": "https://verdedesk.vercel.app",
+  "form_url": "",
+  "target_signups": 50,
+  "current_signups": 0,
+  "last_checked_at": null,
+  "day7_checked": false,
+  "day14_checked": false,
+  "status": "active",
+  "carlos_decision": null,
+  "organic": {
+    "gsc_verified": false,
+    "gsc_property": "https://verdedesk.vercel.app",
+    "ahrefs_connected": false,
+    "first_indexed_at": null,
+    "keywords_tracking": [
+      "portal das financas english",
+      "recibo verde english",
+      "d8 visa portugal taxes",
+      "portuguese freelancer receipt",
+      "recibo verde explained",
+      "portugal vat threshold freelancer",
+      "seguranca social declaration portugal",
+      "portal das financas for expats",
+      "green receipt portugal english",
+      "portugal freelancer tax guide",
+      "recibo verde how to issue",
+      "d8 visa freelance taxes portugal"
+    ],
+    "signal_thresholds": {
+      "gsc_impressions_weekly_go": 100,
+      "gsc_clicks_weekly_go": 10,
+      "organic_signups_go": 5,
+      "build_phase_trigger": "50 total signups OR 20+ organic/week sustained 2 weeks"
+    },
+    "backlinks_acquired": [],
+    "content_published": []
+  },
+  "posts": [
+    {
+      "channel": "reddit/r/digitalnomad",
+      "url": "https://www.reddit.com/r/digitalnomad/comments/1rx76z9/portal_das_financas_issues_if_you_are_freelancing/",
+      "posted_at": "2026-03-18T00:00:00Z",
+      "status": "live"
+    },
+    {
+      "channel": "reddit/r/freelance",
+      "url": "https://www.reddit.com/r/freelance/comments/1rx76mh/anyone_here_freelancing_in_portugal_under_the_d8/",
+      "posted_at": "2026-03-18T00:00:00Z",
+      "status": "live"
+    },
+    {
+      "channel": "twitter",
+      "url": "https://twitter.com/i/web/status/2034292532738166992",
+      "posted_at": "2026-03-18T00:00:00Z",
+      "status": "live"
+    },
+    {
+      "channel": "twitter",
+      "url": "https://twitter.com/i/web/status/2034311534621401339",
+      "posted_at": "2026-03-18T00:00:00Z",
+      "status": "live"
+    },
+    {
+      "channel": "telegram/worktugal",
+      "url": null,
+      "posted_at": "2026-03-18T00:00:00Z",
+      "status": "blocked",
+      "reason": "Post deleted by mods. Engagement-only mode — reply naturally when taxes mentioned."
+    },
+    {
+      "channel": "reddit/r/portugal",
+      "url": null,
+      "posted_at": null,
+      "status": "scheduled",
+      "scheduled_for": "2026-03-20T08:00:00Z"
+    },
+    {
+      "channel": "reddit/r/digitalnomad",
+      "url": null,
+      "posted_at": null,
+      "status": "scheduled",
+      "scheduled_for": "2026-03-19T08:00:00Z"
+    },
+    {
+      "channel": "reddit/r/expats",
+      "url": null,
+      "posted_at": null,
+      "status": "scheduled",
+      "scheduled_for": "2026-03-19T08:00:00Z"
+    },
+    {
+      "channel": "reddit/r/lisboa",
+      "url": null,
+      "posted_at": null,
+      "status": "scheduled",
+      "scheduled_for": "2026-03-20T09:00:00Z"
+    }
+  ]
+}

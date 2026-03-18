@@ -109,6 +109,16 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 
 ---
 
+### Entry 013 — Vercel API functions: @types/node required + separate api/tsconfig.json
+- **What happened:** `api/waitlist.ts` returned 500 because TypeScript failed to compile `process.env.RESEND_API_KEY` — `process` is not typed. The main `tsconfig.json` has `"types": ["vite/client"]` which overrides all type resolution, and `@types/node` was not installed.
+- **Root cause:** The Vite frontend tsconfig correctly only includes `vite/client` types. But `@vercel/node` uses the same tsconfig to compile API routes. Without `@types/node`, `process` has no type definition, causing a compile error that prevents the function from being emitted.
+- **Prevention:** Every project with `api/` serverless functions must have:
+  1. `@types/node` in devDependencies
+  2. `MVP/api/tsconfig.json` with `"types": ["node"]` and `"module": "CommonJS"` — `@vercel/node` picks this up automatically for the api/ directory
+- **Added by:** founder on 2026-03-18
+
+---
+
 ### Entry 004 — Zernio Reddit: platformSpecificData must be nested inside platforms array entry
 - **What happened:** Posted Reddit content with `platformSpecificData` at the top level of the JSON body instead of inside the platforms array entry. Post went to r/freelance (Zernio default) instead of the intended r/digitalnomad.
 - **Root cause:** Misread Zernio API structure. The CLAUDE.md says `platformSpecificData.subreddit` but this must be nested inside the platform entry: `platforms: [{platform: "reddit", accountId: "...", platformSpecificData: {title: "...", subreddit: "..."}}]`.

@@ -14,6 +14,14 @@
 - [x] FOUNDER-002 — Build and deploy static landing page to Vercel (waitlist capture) ✓
 - [ ] FOUNDER-003 — Distribution sprint: r/digitalnomad ✓, r/freelance ✓, Twitter ✓ — Facebook still pending Carlos manual post
 - [x] FOUNDER-003b — Set up analytics on landing page — Vercel Analytics wired, zero-config ✓
+- [x] FOUNDER-003c — SEO FAQ section on landing page — 5 keyword-targeted Q&As targeting long-tail search ✓
+- [ ] FOUNDER-003d — Google Search Console setup — Carlos needs 5 min to create property + share meta tag
+- [ ] FOUNDER-003e — Ahrefs Webmaster Tools — Carlos needs 2 min to verify site
+- [ ] FOUNDER-003f — Dev.to founder article — content ready, blocked on DEVTO_API_KEY
+- [ ] FOUNDER-003g — Worktugal partnership outreach — email drafted, Carlos sends to hello@worktugal.com
+- [ ] FOUNDER-003h — Directory submissions — BetaList, Microlaunch, Uneed, Launching Next (content ready)
+- [ ] FOUNDER-003i — Bluesky distribution — content ready, blocked on account connection
+- [ ] FOUNDER-003j — HackerNews + IndieHackers — content ready, Carlos one-click post
 
 ---
 
