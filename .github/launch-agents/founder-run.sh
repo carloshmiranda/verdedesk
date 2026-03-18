@@ -1,10 +1,22 @@
 #!/bin/bash
 set -e
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH="/Users/carlos.miranda/.npm-global/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 LOG_DIR="$REPO_ROOT/.github/launch-agents/logs"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/founder-$(date +%Y%m%d-%H%M%S).log"
+
+# Overlap guard — exit if a session is already running
+LOCK_FILE="$REPO_ROOT/.github/launch-agents/founder.lock"
+if [ -f "$LOCK_FILE" ]; then
+  PID=$(cat "$LOCK_FILE")
+  if kill -0 "$PID" 2>/dev/null; then
+    echo "$(date): Session PID $PID still running — skipping this run" | tee -a "$LOG_FILE"
+    exit 0
+  fi
+fi
+echo $$ > "$LOCK_FILE"
+trap 'rm -f "$LOCK_FILE"' EXIT
 
 CLAUDE_CMD=""
 for candidate in \

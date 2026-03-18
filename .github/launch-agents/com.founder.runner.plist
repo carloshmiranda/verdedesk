@@ -9,8 +9,9 @@
         <string>/bin/bash</string>
         <string>/Users/carlos.miranda/Developer/founder-os-seed/.github/launch-agents/founder-run.sh</string>
     </array>
+    <!-- Runs every hour. Overlap guard in founder-run.sh prevents concurrent sessions. -->
     <key>StartInterval</key>
-    <integer>14400</integer>
+    <integer>3600</integer>
     <key>StandardOutPath</key>
     <string>/Users/carlos.miranda/Developer/founder-os-seed/.github/launch-agents/logs/founder.log</string>
     <key>StandardErrorPath</key>

@@ -5,13 +5,13 @@
   "needs_carlos": true,
   "status": "pending",
   "created_by": "founder",
-  "created_at": "2026-03-18T02:00:00Z",
+  "created_at": "2026-03-18T00:00:00Z",
   "priority": "high",
   "instructions": {
-    "summary": "Connect the VerdeDesk repo to Vercel and deploy the landing page",
-    "detail": "The MVP landing page with waitlist capture is scaffolded and ready. It needs to be deployed to Vercel so we can start collecting signups. The repo is at https://github.com/carloshmiranda/verdedesk. Deploy from the /MVP subfolder (set Root Directory to MVP in Vercel settings).",
-    "exact_action": "1. Go to vercel.com/new → Import Git Repository → select 'verdedesk'\n2. Set Root Directory to: MVP\n3. Framework preset: Vite\n4. Add environment variable: DATABASE_URL (get from Neon — create a free project at neon.tech if not yet done)\n5. Click Deploy\n6. After deploy succeeds, copy the deployment URL and reply here or send it as an iMessage",
-    "unblocks": "Waitlist signups collection — the validation sprint cannot start until the page is live"
+    "summary": "Authenticate the Vercel CLI once so all future deployments are fully automatic",
+    "detail": "Vercel CLI is installed at ~/.npm-global/bin/vercel. One browser-based login is needed. After that, the Founder deploys autonomously on every run — no dashboard visits ever again.",
+    "exact_action": "Run in Terminal: ~/.npm-global/bin/vercel login — complete the browser OAuth flow. Then run: cd ~/Developer/founder-os-seed/MVP && ~/.npm-global/bin/vercel --yes to create the project and get the live URL. Reply here with the URL.",
+    "unblocks": "All future deployments — Nova will call vercel --prod automatically after every push"
   },
   "result": null
 }
