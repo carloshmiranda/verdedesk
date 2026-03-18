@@ -3,13 +3,12 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.founder.nightly</string>
+    <string>com.founder.runner</string>
     <key>ProgramArguments</key>
     <array>
         <string>/bin/bash</string>
         <string>/Users/carlos.miranda/Developer/founder-os-seed/.github/launch-agents/founder-run.sh</string>
     </array>
-    <!-- Runs every 4 hours. -->
     <key>StartInterval</key>
     <integer>14400</integer>
     <key>StandardOutPath</key>
