@@ -60,10 +60,11 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 
 ---
 
-### Entry 005 — Forgot to trigger API gitSource deploy after git push
-- **What happened:** Sessions 4–5 pushed multiple commits to main but never triggered an API gitSource deploy. Production ran stale code (commit `a542974f`) while HEAD was 6+ commits ahead. Carlos had to flag that deployments were blocked.
-- **Root cause:** The session routine ended after `git push` without a deploy step. GitHub webhook → production always ERRORs on private Hobby repos so pushes never auto-deploy.
-- **Prevention:** After every `git push`, immediately trigger an API gitSource deploy AND poll until READY AND curl the production URL for HTTP 200. No session ends without verifying HEAD is live in production.
+### Entry 005 — GitHub webhook deploys blocked: git user.email was a local hostname
+- **What happened:** All GitHub webhook → production deploys failed with "The Deployment was blocked because GitHub could not associate the committer with a GitHub user." Sessions 4-5 relied on webhook auto-deploys and production went stale.
+- **Root cause:** No global git identity was set. Git fell back to `carlos.miranda@Carloss-MacBook-Pro-2.local` — a local hostname, not a real email. GitHub can't match that to any account. Vercel blocks unverifiable committers on Hobby.
+- **Fix:** `git config --global user.name "Carlos Miranda" && git config --global user.email "carlos.gaspar2011@gmail.com"`. Applied 2026-03-18.
+- **Prevention:** At session start, verify `git config user.email` returns a real email before committing. The gitSource API workaround bypasses the webhook and is still a valid fallback, but the real fix is a valid git identity.
 - **Added by:** founder on 2026-03-18
 
 ---

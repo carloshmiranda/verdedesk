@@ -84,28 +84,29 @@ You operate inside a Claude Code CLI session — both the bootstrap session and 
     ORDER BY m.date DESC LIMIT 5;
   "
   ```
-- `vercel` — **NEVER rely on GitHub auto-deploys or the Vercel CLI** for production. Both fail silently (ERROR, 0ms) on private Hobby repos. The ONLY reliable deploy method is the Vercel REST API with `gitSource`. Vercel project must have `rootDirectory: MVP` set (PATCH /v9/projects/verdedesk). After every `git push`, trigger production deploy:
-  ```bash
-  # VERCEL_TOKEN and VERCEL_SCOPE sourced from ~/.founder-secrets
-  # GitHub repo ID for verdedesk: 1185088680
-  curl -s -X POST "https://api.vercel.com/v13/deployments?teamId=$VERCEL_SCOPE&forceNew=1" \
-    -H "Authorization: Bearer $VERCEL_TOKEN" -H "Content-Type: application/json" \
-    --data-raw '{"name":"verdedesk","gitSource":{"type":"github","repoId":1185088680,"ref":"main"},"target":"production"}' \
-    > /tmp/deploy.json && python3 -c "import json; d=json.load(open('/tmp/deploy.json')); print(d.get('id'), d.get('readyState'))"
-  # MANDATORY: after triggering deploy, poll until READY (check every 15s, timeout 5min):
-  DEPLOY_ID=$(python3 -c "import json; print(json.load(open('/tmp/deploy.json')).get('id',''))")
-  for i in $(seq 1 20); do
-    STATE=$(curl -s "https://api.vercel.com/v13/deployments/$DEPLOY_ID?teamId=$VERCEL_SCOPE" \
-      -H "Authorization: Bearer $VERCEL_TOKEN" | python3 -c "import sys,json; print(json.load(sys.stdin).get('readyState',''))")
-    echo "[$i] $STATE"
-    [ "$STATE" = "READY" ] && break || [ "$STATE" = "ERROR" ] && echo "Deploy failed" && break
-    sleep 15
-  done
-  # MANDATORY: health check — production must return 200
-  HTTP=$(curl -s -o /dev/null -w "%{http_code}" https://verdedesk.vercel.app)
-  echo "Production HTTP: $HTTP"  # must be 200 — if not, investigate immediately
-  ```
-  **Never end a session without confirming production returns 200.** A push without a confirmed deploy leaves production stale.
+- `vercel` — GitHub webhook auto-deploys work as long as **git user identity is correctly set**. Before every session, verify: `git config user.email` must return `carlos.gaspar2011@gmail.com`. If blank, run: `git config --global user.name "Carlos Miranda" && git config --global user.email "carlos.gaspar2011@gmail.com"`. Unrecognised committer emails cause Vercel to block deploys silently ("GitHub could not associate the committer with a GitHub user").
+  - **Vercel CLI (`vercel --prod`)** — do NOT use from repo root (creates rogue projects). Avoid in general.
+  - **gitSource API** — fallback if webhook deploy errors. Vercel project must have `rootDirectory: MVP` set. GitHub repo ID for verdedesk: `1185088680`. Free tier limit: 100 API deploys/day — only use if webhook deploy fails.
+    ```bash
+    source ~/.founder-secrets
+    # Only deploy if HEAD differs from latest READY deploy:
+    curl -s -X POST "https://api.vercel.com/v13/deployments?teamId=$VERCEL_SCOPE&forceNew=1" \
+      -H "Authorization: Bearer $VERCEL_TOKEN" -H "Content-Type: application/json" \
+      --data-raw '{"name":"verdedesk","gitSource":{"type":"github","repoId":1185088680,"ref":"main"},"target":"production"}' \
+      > /tmp/deploy.json && python3 -c "import json; d=json.load(open('/tmp/deploy.json')); print(d.get('id'), d.get('readyState'))"
+    ```
+  - **MANDATORY after any deploy:** poll until READY, then curl for HTTP 200:
+    ```bash
+    DEPLOY_ID=$(python3 -c "import json; print(json.load(open('/tmp/deploy.json')).get('id',''))")
+    for i in $(seq 1 20); do
+      STATE=$(curl -s "https://api.vercel.com/v13/deployments/$DEPLOY_ID?teamId=$VERCEL_SCOPE" \
+        -H "Authorization: Bearer $VERCEL_TOKEN" | python3 -c "import sys,json; print(json.load(sys.stdin).get('readyState',''))")
+      [ "$STATE" = "READY" ] && break || [ "$STATE" = "ERROR" ] && echo "Deploy failed" && break
+      sleep 15
+    done
+    curl -s -o /dev/null -w "Production HTTP: %{http_code}\n" https://verdedesk.vercel.app
+    ```
+  **Never end a session without confirming production returns 200.**
 - `gh` CLI — GitHub CLI for repo operations (rename, set description, view repo info). Always check `gh auth status` before use. If unauthenticated, fall back to a `needs_carlos` queue item.
 
 **Prerequisites (one-time, already on this Mac):**
@@ -267,6 +268,7 @@ Rules: sequential entry number, short title, all four fields required, be specif
 > - If it does **not** exist → skip this sequence entirely and jump to the state detection block at the end of this file.
 > - If it exists → proceed with the sequence below.
 
+0. **Verify git identity** — `git config user.email` must return `carlos.gaspar2011@gmail.com`. If blank or wrong, fix immediately: `git config --global user.name "Carlos Miranda" && git config --global user.email "carlos.gaspar2011@gmail.com"`. A wrong email causes Vercel to block all GitHub webhook deploys silently.
 1. Read `PROGRESS.md` — find the first unchecked item in the backlog
    - If >300 lines: read only the **Backlog** and **Fleet Status** sections — skip Completed history
 2. Read `CLAUDE.md` — refresh your operating rules

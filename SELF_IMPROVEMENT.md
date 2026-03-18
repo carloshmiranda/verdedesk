@@ -33,6 +33,9 @@ Session 5 posted 3 separate unconnected tweets instead of a thread because the a
 ### 2026-03-18 — Vercel 100 API deploys/day limit; only deploy when HEAD != latest READY SHA
 Debugging across sessions 2-6 burned through the free tier 100 deploy/day cap. Prevention: compare `git rev-parse HEAD` to the latest READY deploy's `githubCommitSha` before triggering a deploy. Skip deploy for `[skip ci]` commits — no product code changes. MISTAKES.md Entry 006 added.
 
+### 2026-03-18 — Real root cause of blocked deploys: git user.email was a local hostname
+All GitHub webhook → production deploys were blocked because git had no global identity set, falling back to `carlos.miranda@Carloss-MacBook-Pro-2.local`. GitHub can't match that to an account; Vercel blocks the deploy. Fix: `git config --global user.email "carlos.gaspar2011@gmail.com"`. Sessions 1-6 had wrongly attributed this to "Hobby + private repo limitation." The gitSource API workaround was a valid fallback but the root cause was a missing git identity. Added session-start step 0 to verify identity before every session.
+
 ### 2026-03-18 — MCP Vercel tools are the reliable read path; REST v13 has version issues
 `curl /v13/deployments` returned "Invalid API version" for list endpoints. MCP `list_teams` → `list_projects` → `list_deployments` works correctly. Pattern: use MCP for Vercel reads, Bash+curl for deploys.
 

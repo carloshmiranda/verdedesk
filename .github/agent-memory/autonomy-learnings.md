@@ -7,18 +7,14 @@ Things discovered to be automatable that the genesis prompt assumed were manual,
 ## Was Manual → Now Autonomous
 
 ### 1. Vercel deployment
-- **Original assumption:** Carlos visits dashboard, clicks "Import Git Repository"
-- **Reality:** The ONLY reliable production deploy method is the Vercel REST API with `gitSource`:
-  ```bash
-  curl -X POST "https://api.vercel.com/v13/deployments?teamId=$VERCEL_SCOPE&forceNew=1" \
-    -H "Authorization: Bearer $VERCEL_TOKEN" -H "Content-Type: application/json" \
-    --data-raw '{"name":"verdedesk","gitSource":{"type":"github","repoId":1185088680,"ref":"main"},"target":"production"}'
-  ```
-- **What DOESN'T work on Hobby + private repos:**
-  - `vercel --prod --token ...` CLI → ERROR (0ms, no logs) — both from root and MVP dir
-  - GitHub webhook → production → ERROR (0ms, no logs) — even with GitHub App installed
-  - GitHub webhook → preview → READY ✓ (but not production)
-- **Fix applied:** Use API gitSource deploy after every git push. GitHub repo ID for verdedesk: `1185088680`.
+- **Original assumption:** GitHub webhook auto-deploys on every push
+- **Reality:** GitHub webhook → production was failing because git `user.email` was `carlos.miranda@Carloss-MacBook-Pro-2.local` (local hostname, not a real address). GitHub couldn't associate the committer with a GitHub account. Vercel blocks unverified committers on Hobby. Error: "GitHub could not associate the committer with a GitHub user."
+- **Root cause fix (2026-03-18):** `git config --global user.email "carlos.gaspar2011@gmail.com"` — all future commits will be associable with the GitHub account and webhook deploys should work.
+- **gitSource workaround:** Was used as a fallback while the real cause was unknown. Still a valid fallback if webhook deploys ever fail, but should no longer be the primary deploy method.
+- **What DOESN'T work (for different reasons):**
+  - `vercel --prod --token ...` CLI from repo root → creates rogue project (see agent mistake entry)
+  - `vercel --prod --token ...` CLI from `/MVP` dir → also fails, use API instead
+- **Session start check:** Verify `git config user.email` returns `carlos.gaspar2011@gmail.com` before committing. If blank, run the fix above.
 
 ### 2. Vercel GitHub integration
 - **Original assumption:** requires dashboard
