@@ -139,6 +139,9 @@ Things discovered to be automatable that the genesis prompt assumed were manual,
 
 ## Session 6 — New Patterns Discovered
 
+### [skip ci] is respected by Vercel
+Commits with `[skip ci]` skip Vercel deployments entirely — correct for memory/chore commits. The webhook identity fix (git user.email) can only be confirmed with the next `feat:` or `fix:` commit (no `[skip ci]`). Until then, gitSource API remains the fallback.
+
 ### Vercel REST API version fragmentation
 - `/v13/deployments` (list) returns "Invalid API version" — only works for individual deploy lookup
 - `/v6/deployments` list endpoint returns empty results with team scope
