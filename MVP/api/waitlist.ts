@@ -9,6 +9,7 @@ async function sendConfirmationEmail(email: string): Promise<void> {
   const apiKey = process.env.RESEND_API_KEY
   if (!apiKey) return
 
+  // Use onboarding@resend.dev — works on any Resend account without domain verification
   await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
@@ -16,13 +17,32 @@ async function sendConfirmationEmail(email: string): Promise<void> {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'VerdeDesk <waitlist@verdedesk.com>',
+      from: 'VerdeDesk <onboarding@resend.dev>',
       to: [email],
       subject: "You're on the VerdeDesk waitlist",
       html: `<p>Hi,</p>
 <p>You're on the list. We'll reach out as soon as VerdeDesk opens — you'll be among the first to get access.</p>
 <p>In the meantime, if you have questions about recibos verdes, Portuguese taxes, or the D8 visa process, just reply to this email.</p>
 <p>— The VerdeDesk team</p>`,
+    }),
+  })
+}
+
+async function sendAdminNotification(email: string): Promise<void> {
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey) return
+
+  await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: 'VerdeDesk Waitlist <onboarding@resend.dev>',
+      to: ['carlos.gaspar2011@gmail.com'],
+      subject: `New waitlist signup: ${email}`,
+      html: `<p>New signup: <strong>${email}</strong></p><p>Check total count at Resend dashboard.</p>`,
     }),
   })
 }
@@ -58,9 +78,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     console.error('Waitlist DB error:', err)
   }
 
-  // Send confirmation email via Resend (best-effort)
+  // Send confirmation + admin notification via Resend (best-effort)
   try {
-    await sendConfirmationEmail(normalised)
+    await Promise.all([
+      sendConfirmationEmail(normalised),
+      sendAdminNotification(normalised),
+    ])
   } catch (err) {
     console.error('Resend error:', err)
   }
