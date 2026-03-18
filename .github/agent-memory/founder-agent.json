@@ -2,18 +2,20 @@
   "agent": "founder",
   "founder_name": "Nova",
   "local_path": "/Users/carlos.miranda/Developer/founder-os-seed",
-  "last_run": "",
+  "last_run": "2026-03-18T00:00:00Z",
   "status": "awaiting_approval",
   "bootstrapped": false,
   "stage": "idea_discovery",
   "fleet_health": "green",
   "active_agents": ["founder"],
   "repo_url": "",
+  "session_count": 1,
+  "last_research_session": 1,
   "last_session": {
-    "timestamp": "",
-    "completed": [],
-    "blocked_on_carlos": [],
-    "blocked_on_mac": [],
-    "notes": ""
+    "timestamp": "2026-03-18T00:00:00Z",
+    "completed": ["repo-init", "founder-naming", "idea-research", "infrastructure-files", "imessage-sent"],
+    "blocked_on_carlos": ["carlos-mac-runner-launch-agent", "idea-approval"],
+    "blocked_on_mac": ["listen-idea-reply"],
+    "notes": "Session 1 complete. 3 ideas proposed to Carlos via iMessage. Mac Runner must be installed before Carlos replies. Top pick is VerdeDesk (Portugal D8 visa market)."
   }
 }
