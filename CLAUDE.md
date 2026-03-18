@@ -81,6 +81,6 @@ All product code lives under `/MVP/`.
 - **IRS:** Portuguese income tax. Freelancers file annually.
 - **SS (Segurança Social):** Social security contributions. Quarterly for most freelancers.
 - **NHR 2.0:** Non-Habitual Resident regime — tax incentive popular with expats/D8 visa holders.
-- **QES mandate (Jan 2026):** Qualified Electronic Signature now required on invoices — new compliance layer.
+- **QES mandate (Jan 2027):** Qualified Electronic Signature required on invoices issued outside Portal das Financas — postponed from 2026 in the State Budget. Compliant PDFs accepted until then.
 - **B2G e-invoicing (Jan 2025):** Government contracts require structured electronic invoices.
 - **D8 visa:** Portugal digital nomad visa. 9,322+ approvals by Sept 2025 — steady inflow of new users who need this from day one.

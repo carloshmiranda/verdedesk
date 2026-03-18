@@ -145,13 +145,13 @@ export default function GuideReciboVerde() {
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">
-            QES mandate (January 2026)
+            QES mandate (January 2027)
           </h2>
           <p className="text-gray-700 mb-4">
-            From January 2026, Portugal requires a Qualified Electronic Signature (QES) on invoices
-            issued outside Portal das Financas. A QES is a specific cryptographic certificate — not a
+            From January 2027, Portugal will require a Qualified Electronic Signature (QES) on invoices
+            issued outside Portal das Financas. Originally planned for 2025, then 2026, the mandate was postponed again in the 2026 State Budget. A QES is a specific cryptographic certificate — not a
             simple digital signature or email confirmation. If you use any third-party invoicing tool,
-            verify it is QES-compliant or your invoices may be non-compliant.
+            ensure it will be QES-compliant by January 2027 or your invoices may be non-compliant.
           </p>
           <p className="text-gray-700 mb-4">
             Issuing directly through Portal das Financas is automatically compliant. This is one reason
