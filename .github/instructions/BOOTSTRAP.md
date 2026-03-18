@@ -74,6 +74,17 @@ All product code lives under `/MVP/`. Create:
 - Test scaffold (Vitest for React/Node)
 - `/MVP/CLAUDE.md` — product-level conventions
 
+**TypeScript template fixes (apply to every scaffold):**
+- Add `"types": ["vite/client"]` to `tsconfig.json` compilerOptions — required for `import.meta.env`
+- Add `@vercel/node` to devDependencies — required for serverless function types
+- Add `"type": "module"` to `package.json` to silence Vite CJS deprecation warning
+
+**Global CLI installs — never use sudo, always use `--prefix ~/.npm-global`:**
+```bash
+npm install --prefix ~/.npm-global <package>  # e.g. vercel, neonctl
+```
+Add `~/.npm-global/bin` to PATH in `founder-run.sh` (already done).
+
 Add PostHog analytics immediately:
 ```bash
 cd /MVP && npm install posthog-js
