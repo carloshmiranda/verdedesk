@@ -150,8 +150,8 @@ setEmail('')
               },
               {
                 emoji: '😤',
-                title: 'No idea what you actually owe',
-                body: 'Between IRS, Segurança Social, VAT thresholds, and the new QES rules — impossible to keep up.',
+                title: 'New rules keep changing the picture',
+                body: 'QES mandate (Jan 2026), B2G e-invoicing, NHR 2.0, VAT thresholds — the compliance layer keeps shifting and none of it is explained in English.',
               },
             ].map(({ emoji, title, body }) => (
               <div key={title} className="bg-gray-50 rounded-xl p-6">
@@ -297,6 +297,10 @@ setEmail('')
               {
                 q: 'Can I use VerdeDesk if I\'m on the NHR regime?',
                 a: 'Yes. VerdeDesk is built for both D8 visa holders and NHR (Non-Habitual Resident) regime freelancers. The tax implications differ — VerdeDesk surfaces the relevant rules for your situation in plain English.',
+              },
+              {
+                q: 'What is the QES mandate and does it affect my recibos verdes?',
+                a: 'From January 2026, Portugal requires a Qualified Electronic Signature (QES) on invoices issued outside Portal das Finanças. QES is a specific cryptographic certificate — not a digital signature or email confirmation. If you use any third-party invoicing tool, verify it is QES-compliant or your invoices will be non-compliant. Issuing directly through Portal das Finanças (which VerdeDesk wraps) is automatically compliant.',
               },
             ].map(({ q, a }) => (
               <div key={q} className="border-b border-gray-100 pb-8">
