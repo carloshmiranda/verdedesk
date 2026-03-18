@@ -36,7 +36,7 @@ These are web-form only (no APIs). All content is pre-written. Estimated time: 1
 
 ---
 
-## 3. Uneed — uneed.app
+## 3. Uneed — uneed.best/submit-a-tool
 
 **What it does:** 15,000+ monthly visitors, 10-15 tools launched daily on homepage. Free listing.
 

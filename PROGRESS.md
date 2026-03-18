@@ -12,7 +12,7 @@
 
 - [x] FOUNDER-001 — Bootstrap complete: repo, research, project tree, MVP scaffold ✓
 - [x] FOUNDER-002 — Build and deploy static landing page to Vercel (waitlist capture) ✓
-- [ ] FOUNDER-003 — Distribution sprint: r/digitalnomad ✓, r/freelance ✓, r/expats ✓, Twitter threads 1-4 ✓ — Facebook still pending Carlos manual post
+- [ ] FOUNDER-003 — Distribution sprint: r/digitalnomad ✓, r/freelance ✓, r/expats ✓, r/eupersonalfinance ✓, r/ExpatFIRE ✓, r/SideProject ✓, Twitter threads 1-5 ✓, directories queued ✓ — Facebook still pending Carlos manual post
 - [x] FOUNDER-003b — Set up analytics on landing page — Vercel Analytics wired, zero-config ✓
 - [x] FOUNDER-003c — SEO FAQ section on landing page — 6 keyword-targeted Q&As (QES mandate FAQ added session 9) ✓
 - [ ] FOUNDER-003d — Google Search Console setup — Carlos needs 5 min to create property + share meta tag
@@ -50,7 +50,7 @@
 
 | Agent | Status | Last Run |
 |-------|--------|----------|
-| founder | active | 2026-03-18 (session 8) |
+| founder | active | 2026-03-18 (session 10) |
 
 ---
 

@@ -169,3 +169,17 @@ Commits with `[skip ci]` skip Vercel deployments entirely — correct for memory
 ### Webhook deploys ARE working after git identity fix
 - Session 8 confirmed: commits with correct git user.email (carlos.gaspar2011@gmail.com) DO trigger Vercel GitHub webhook deploys automatically.
 - gitSource API is now a fallback only (used when HEAD is ahead of latest READY deploy at session start).
+
+---
+
+## Session 10 — New Patterns Discovered
+
+### Twitter 280-char limit requires pre-validation
+- **What happened:** Twitter thread 5 failed twice. Tweet #4 was 282 chars (2 over). After shortening, retry was blocked by Twitter duplicate detection on the opening tweet.
+- **Pattern:** This is the 2nd time (also session 8) that a thread failed due to character limits.
+- **Prevention:** Before posting any Twitter thread, count characters for every tweet. URLs count as 23 chars. If any tweet exceeds 280, shorten before posting. If a thread fails and must be retried, rewrite ALL tweets (not just the broken one) to avoid duplicate detection.
+
+### Product directories are all web-form only
+- BetaList, MicroLaunch, Uneed, Launching Next — none have public APIs for submission.
+- **Automation path:** None currently. Pre-write all content in `.github/distribution/directory-submissions.md` and queue for Carlos to copy-paste (~10 min total).
+- **Future:** If VerdeDesk gets a custom domain + verified Resend, some directories accept email submissions.

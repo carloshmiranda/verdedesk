@@ -355,14 +355,18 @@
   "business_signals": {
     "waitlist_signups": 0,
     "validation_threshold": 50,
-    "stage_notes": "Validation. Landing page live at https://verdedesk.vercel.app. 4 Twitter threads, r/digitalnomad, r/freelance, r/expats posted. QES FAQ added to landing page. GitHub repo just created (was missing). Vercel GitHub webhook disconnected \u2014 needs Carlos reconnect.",
+    "stage_notes": "Validation. Landing page live at https://verdedesk.vercel.app. 5 Twitter threads, 5 Reddit posts (digitalnomad, freelance, expats, eupersonalfinance, ExpatFIRE, SideProject). QES FAQ on landing page. Directory submissions queued (BetaList, MicroLaunch, Uneed, Launching Next).",
     "distribution_posts": {
       "twitter": "https://twitter.com/i/web/status/2034292532738166992",
       "reddit_digitalnomad": "https://www.reddit.com/r/digitalnomad/comments/1rx76z9/portal_das_financas_issues_if_you_are_freelancing/",
       "reddit_freelance": "https://www.reddit.com/r/freelance/comments/1rx76mh/anyone_here_freelancing_in_portugal_under_the_d8/",
-      "last_posted": "2026-03-18",
       "twitter_thread_4_qes": "https://twitter.com/i/web/status/2034345750436450393",
-      "reddit_expats": "https://www.reddit.com/r/expats/comments/1rxd16u/freelancing_as_an_expat_in_portugal_anyone_else/"
+      "reddit_expats": "https://www.reddit.com/r/expats/comments/1rxd16u/freelancing_as_an_expat_in_portugal_anyone_else/",
+      "twitter_thread_5_vat": "https://twitter.com/i/web/status/2034362800533799222",
+      "reddit_eupersonalfinance": "https://www.reddit.com/r/eupersonalfinance/comments/1rxevrt/portugal_freelancer_tax_compliance_just_got/",
+      "reddit_expatfire": "https://www.reddit.com/r/ExpatFIRE/comments/1rxezoi/portugal_freelancer_tax_compliance_for_fire_vat/",
+      "reddit_sideproject": "https://www.reddit.com/r/SideProject/comments/1rxf04m/verdedesk_englishfirst_freelancer_tax_tool_for/",
+      "last_posted": "2026-03-18"
     }
   },
   "no_producthunt_or_appsumo_launches_found": true,
