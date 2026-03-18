@@ -1,0 +1,16 @@
+{
+  "id": "carlos-worktugal-slack-webhook",
+  "type": "human_action_required",
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-18T14:00:00Z",
+  "priority": "normal",
+  "instructions": {
+    "summary": "Get a Worktugal Slack webhook URL (or your personal Slack token) so the agent can post the VerdeDesk announcement to #freelancing",
+    "detail": "Worktugal Slack is the highest-quality lead source. If you can get an Incoming Webhook URL for the channel, the agent posts autonomously. If not (community Slack, can't install bots), this stays manual.",
+    "exact_action": "Option A — Incoming Webhook (preferred):\n1. Ask Worktugal Slack admin to create an Incoming Webhook for #freelancing or #tools\n2. They'll give you a URL like: https://hooks.slack.com/services/T.../B.../...\n3. Add to ~/.founder-secrets: export WORKTUGAL_SLACK_WEBHOOK=\"https://hooks.slack.com/...\"\n\nOption B — if you can't get a webhook:\nJust post the Worktugal message manually (Post 3 in .github/distribution/posts-2026-03-18.md). It's one message.",
+    "unblocks": "Autonomous Slack distribution to highest-quality lead pool"
+  },
+  "result": null
+}

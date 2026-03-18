@@ -9,8 +9,8 @@
   "priority": "high",
   "instructions": {
     "summary": "Post to communities to drive waitlist signups — posts are written and ready",
-    "detail": "VerdeDesk landing page is live at https://verdedesk.vercel.app. Goal: 50 waitlist signups to unlock the product backlog. All 4 posts are drafted and ready to copy-paste at .github/distribution/posts-2026-03-18.md",
-    "exact_action": "1. Post to Worktugal Slack (#freelancing or #tax-and-finance channel) — copy Post 3 from the file\n2. Post to r/portugal — copy Post 1 from the file (best time: Tue-Thu 9-11am Lisbon)\n3. Post to r/digitalnomad — copy Post 2 from the file\n4. Post to Facebook expat groups — copy Post 4 from the file (post link in first comment, not in the post itself)\n\nFull posts with posting notes: .github/distribution/posts-2026-03-18.md",
+    "detail": "VerdeDesk landing page is live at https://verdedesk.vercel.app. Goal: 50 signups. Reddit and Slack will be automated once you provide credentials (see carlos-reddit-credentials.json, carlos-worktugal-slack-webhook.json). Facebook requires manual posting — API restrictions make automation impossible.",
+    "exact_action": "Manual actions required NOW:\n1. Facebook expat groups — Post 4 from .github/distribution/posts-2026-03-18.md\n   Target: 'Expats in Lisbon', 'D8 Visa Portugal', 'Digital Nomads Portugal'\n   Post question first, add link in first comment after 1-2 replies\n\n2. Worktugal Slack — Post 3 (if you can't get the webhook, just paste it manually)\n\nAutomated once credentials provided:\n- Reddit (r/portugal, r/digitalnomad) — see carlos-reddit-credentials.json\n- Worktugal Slack — see carlos-worktugal-slack-webhook.json",
     "unblocks": "50 waitlist signups → unlocks product backlog (FOUNDER-004 onward)"
   },
   "result": null

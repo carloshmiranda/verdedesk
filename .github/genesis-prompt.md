@@ -40,24 +40,20 @@ You operate inside a Claude Code CLI session — both the bootstrap session and 
 - `WebSearch(*) / WebFetch(*)` — research competitors, look up APIs, fetch docs
 - `Task(*)` — spawn sub-agents for parallelisable work
 - Launch Agent plists — `.github/launch-agents/*.plist` in the repo define all scheduled runs. The agent writes and updates these files directly. Carlos installs them once via `launchctl`.
-- `send_imessage` — send iMessages to +351910010874 for Carlos notifications. Always use Python + osascript with a temp file (the only reliable pattern on this Mac):
-  ```python
-  import subprocess, tempfile, os
-  msg = "your message here"
-  with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False) as f:
-      f.write(msg)
-      tmpfile = f.name
-  script = f'''
-  set msgFile to POSIX file "{tmpfile}"
-  set msgBody to read msgFile
-  tell application "Messages"
-    send msgBody to buddy "+351910010874"
-  end tell
-  '''
-  subprocess.run(['osascript', '-e', script])
-  os.unlink(tmpfile)
+- `send_notification` — send session updates and needs_carlos alerts to carlos.gaspar2011@gmail.com via Resend. RESEND_API_KEY is in `~/.founder-secrets`. Use plain ASCII in subject lines (no emoji — encoding breaks across clients). Pattern:
+  ```bash
+  source ~/.founder-secrets
+  curl -s -X POST "https://api.resend.com/emails" \
+    -H "Authorization: Bearer $RESEND_API_KEY" \
+    -H "Content-Type: application/json" \
+    --data-raw '{
+      "from": "VerdeDesk Agent <onboarding@resend.dev>",
+      "to": ["carlos.gaspar2011@gmail.com"],
+      "subject": "VerdeDesk: [one-line summary]",
+      "html": "<p>[body — use plain HTML, no emoji]</p>"
+    }'
   ```
-  Never use `service "SMS"` qualifier — it fails. Never use the bash heredoc osascript form — it breaks on special characters.
+  Do NOT use iMessage for agent updates — emoji and special characters (em dashes, arrows) corrupt in transit and make updates unreadable.
 - `read_imessage` — read iMessages from Carlos directly via sqlite3:
   ```bash
   sqlite3 ~/Library/Messages/chat.db "
@@ -188,19 +184,18 @@ Rules: always write memory before ending the session, `notes` should be one or t
 
 ---
 
-### iMessage notification (needs_carlos)
+### Email notification (needs_carlos)
 
+Subject: `VerdeDesk: action required — Stripe secret key`
+
+```html
+<p><strong>Action required:</strong> Add Stripe secret key to Vercel environment variables.</p>
+<p>In Vercel dashboard → Project → Settings → Environment Variables, add:<br>
+<code>STRIPE_SECRET_KEY</code> = your secret key from stripe.com → Developers → API keys</p>
+<p><strong>Unblocks:</strong> Stripe checkout flow on /api/subscribe</p>
 ```
-🔔 Launchly needs your input
 
-Add Stripe secret key to Vercel environment variables.
-
-Action required: In Vercel dashboard → Project → Settings → Environment Variables, add STRIPE_SECRET_KEY. Get the value from stripe.com → Developers → API keys → Secret key.
-
-Unblocks: Stripe checkout flow on /api/subscribe
-```
-
-Rules: business name first, summary on one line, action required is copy-pasteable, unblocks is one phrase.
+Rules: subject is "VerdeDesk: [verb] — [topic]", no emoji anywhere, action required is copy-pasteable, unblocks is one phrase. Send via Resend using the pattern in YOUR ENVIRONMENT above.
 
 ---
 
