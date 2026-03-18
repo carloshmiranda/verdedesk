@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 LOG_DIR="$REPO_ROOT/.github/launch-agents/logs"
 mkdir -p "$LOG_DIR"
