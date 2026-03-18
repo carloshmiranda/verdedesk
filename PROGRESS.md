@@ -11,7 +11,7 @@
 ## Sprint: Validation (Current)
 
 - [x] FOUNDER-001 — Bootstrap complete: repo, research, project tree, MVP scaffold ✓
-- [ ] FOUNDER-002 — Build and deploy static landing page to Vercel (waitlist capture)
+- [x] FOUNDER-002 — Build and deploy static landing page to Vercel (waitlist capture) ✓
 - [ ] FOUNDER-003 — Distribution sprint: post in r/portugal, r/digitalnomad, Worktugal, expat FB groups
 - [ ] FOUNDER-003b — Set up PostHog analytics on landing page (page views, signup events)
 

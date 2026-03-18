@@ -1,0 +1,17 @@
+{
+  "id": "carlos-distribution-sprint",
+  "type": "human_action_required",
+  "needs_mac": false,
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-18T08:00:00Z",
+  "priority": "high",
+  "instructions": {
+    "summary": "Post to communities to drive waitlist signups — posts are written and ready",
+    "detail": "VerdeDesk landing page is live at https://verdedesk.vercel.app. Goal: 50 waitlist signups to unlock the product backlog. All 4 posts are drafted and ready to copy-paste at .github/distribution/posts-2026-03-18.md",
+    "exact_action": "1. Post to Worktugal Slack (#freelancing or #tax-and-finance channel) — copy Post 3 from the file\n2. Post to r/portugal — copy Post 1 from the file (best time: Tue-Thu 9-11am Lisbon)\n3. Post to r/digitalnomad — copy Post 2 from the file\n4. Post to Facebook expat groups — copy Post 4 from the file (post link in first comment, not in the post itself)\n\nFull posts with posting notes: .github/distribution/posts-2026-03-18.md",
+    "unblocks": "50 waitlist signups → unlocks product backlog (FOUNDER-004 onward)"
+  },
+  "result": null
+}
