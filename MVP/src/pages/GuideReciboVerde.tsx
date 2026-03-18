@@ -116,7 +116,11 @@ export default function GuideReciboVerde() {
           </h2>
           <p className="text-gray-700 mb-4">
             Freelancers earning under EUR 15,000 per calendar year are exempt from charging VAT under
-            Article 53 of the CIVA. However, the moment your cumulative invoices cross EUR 15,000, you
+            Article 53 of the CIVA. The 2026 rules tightened significantly — read our{' '}
+            <Link to="/guide/vat-exemption-article-53-portugal" className="text-verde-600 hover:text-verde-700 underline">
+              full VAT Article 53 guide
+            </Link>{' '}
+            for the latest changes. However, the moment your cumulative invoices cross EUR 15,000, you
             must:
           </p>
           <ol className="list-decimal pl-6 text-gray-700 mb-4 space-y-2">
@@ -141,7 +145,11 @@ export default function GuideReciboVerde() {
           </p>
           <p className="text-gray-700 mb-4">
             Missing the declaration deadline triggers automatic penalties. New freelancers are exempt
-            for their first 12 months of activity.
+            for their first 12 months of activity. For a detailed breakdown of rates, deadlines, and
+            the exemption period, read our{' '}
+            <Link to="/guide/social-security-freelancer-portugal" className="text-verde-600 hover:text-verde-700 underline">
+              complete Seguranca Social guide for freelancers
+            </Link>.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">

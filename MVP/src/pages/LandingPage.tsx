@@ -311,13 +311,25 @@ setEmail('')
               </div>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <Link
-              to="/guide/recibo-verde-english"
-              className="text-verde-600 hover:text-verde-700 font-medium text-sm underline"
-            >
-              Read the full guide: How to issue a recibo verde in English (2026)
-            </Link>
+          <div className="mt-12">
+            <h3 className="text-lg font-semibold text-gray-900 text-center mb-6">Free guides for expat freelancers</h3>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {[
+                { to: '/guide/recibo-verde-english', label: 'How to Issue a Recibo Verde in English (2026)' },
+                { to: '/guide/fatura-vs-fatura-recibo-vs-recibo', label: 'Fatura vs Fatura-Recibo vs Recibo Explained' },
+                { to: '/guide/vat-exemption-article-53-portugal', label: 'VAT Exemption Article 53: The EUR 15,000 Threshold' },
+                { to: '/guide/social-security-freelancer-portugal', label: 'Social Security for Freelancers in Portugal' },
+                { to: '/guide/irs-tax-return-freelancer-portugal', label: 'How to File Your IRS Tax Return as a Freelancer' },
+              ].map(({ to, label }) => (
+                <Link
+                  key={to}
+                  to={to}
+                  className="block p-3 rounded-lg border border-gray-100 hover:border-verde-200 hover:bg-verde-50 transition-colors"
+                >
+                  <span className="text-verde-600 text-sm font-medium">{label}</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
