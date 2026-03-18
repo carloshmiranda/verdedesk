@@ -3,7 +3,7 @@
   "type": "human_action_required",
   "needs_mac": false,
   "needs_carlos": true,
-  "status": "pending",
+  "status": "completed",
   "created_by": "founder",
   "created_at": "2026-03-18T00:00:00Z",
   "priority": "high",
@@ -13,5 +13,9 @@
     "exact_action": "Run in Terminal: cp /Users/carlos.miranda/Developer/founder-os-seed/.github/launch-agents/com.founder.mac-runner.plist ~/Library/LaunchAgents/ && launchctl load ~/Library/LaunchAgents/com.founder.mac-runner.plist",
     "unblocks": "iMessage reply handling — without this your idea reply will never be read"
   },
-  "result": null
+  "result": {
+    "status": "completed",
+    "completed_at": "2026-03-18T00:00:00Z",
+    "note": "Installed by Carlos via Claude Code session. launchctl list confirms com.founder.mac-runner is registered."
+  }
 }
