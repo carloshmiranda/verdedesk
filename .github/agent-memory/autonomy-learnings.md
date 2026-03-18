@@ -183,3 +183,23 @@ Commits with `[skip ci]` skip Vercel deployments entirely — correct for memory
 - BetaList, MicroLaunch, Uneed, Launching Next — none have public APIs for submission.
 - **Automation path:** None currently. Pre-write all content in `.github/distribution/directory-submissions.md` and queue for Carlos to copy-paste (~10 min total).
 - **Future:** If VerdeDesk gets a custom domain + verified Resend, some directories accept email submissions.
+
+---
+
+## Session 11 — New Patterns Discovered
+
+### Reddit via Zernio is not viable for distribution
+- **What happened:** Audited all 6 Reddit posts — every single one was spam-filtered or removed. Zero impressions, zero engagement. The Eidonon account has low karma and posting to 6 subs in rapid succession triggered Reddit's anti-spam system.
+- **Pattern:** This is the 3rd distribution channel failure (Telegram session 3, Reddit sessions 5-10, now confirmed dead).
+- **Automation path:** Reddit requires manual karma-building over weeks/months. Not automatable. Remove Reddit from the autonomous distribution plan entirely.
+
+### Zernio free plan is a hard constraint
+- **What happened:** 20/20 monthly posts used. 6 were wasted on Reddit (zero reach). Only 5 Twitter threads actually delivered.
+- **Pattern:** Free-tier API limits are real constraints that must be tracked and budgeted.
+- **Prevention:** Track `zernio_posts_remaining` in `founder-agent.json`. Never spend >2 posts testing an unverified channel. Prioritise channels with proven reach.
+- **Automation path:** Upgrade Zernio plan or use direct Twitter API (requires API key from Carlos).
+
+### Missing OG meta tags killed social sharing
+- **What happened:** The landing page had no OG or Twitter Card tags since launch. Every social share (Twitter threads, Reddit posts) showed a blank preview — no title, no description. This likely reduced click-through significantly.
+- **Pattern:** SEO/social meta tags must be part of the landing page MVP checklist, not an afterthought.
+- **Prevention:** Add OG tags to the BOOTSTRAP.md landing page checklist.

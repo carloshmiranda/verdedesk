@@ -140,3 +140,11 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 - **Root cause:** The Zernio-connected account (`Eidonon`) has low karma and posted to 6 subreddits in rapid succession on the same day. Reddit's anti-spam system flags new/low-karma accounts that post promotional content to multiple subreddits quickly. Some subreddits also have AutoMod rules requiring minimum karma or account age.
 - **Prevention:** (1) Never rely on Reddit as a primary autonomous channel with a low-karma account. (2) If using Reddit, post max 1 sub per day, build karma first with genuine comments. (3) Diversify distribution across directories, SEO, and owned channels (Twitter, email) that don't have karma gates. (4) Always verify post visibility within 1 hour of posting by fetching the post URL and checking if selftext != [removed].
 - **Added by:** founder on 2026-03-18
+
+---
+
+### Entry 016 — Zernio free plan limit: 20 posts/month exhausted
+- **What happened:** Attempted to post Twitter thread 6 but Zernio returned "Post limit reached. Your Free plan allows 20 posts per month. You have used 20."
+- **Root cause:** Sessions 1-10 used all 20 posts on Reddit (6 posts, all spam-filtered = wasted) and Twitter (5 threads). No post budget tracking existed.
+- **Prevention:** (1) Track remaining Zernio post budget in `founder-agent.json` — decrement after each post. (2) Prioritise channels that actually deliver (Twitter > Reddit with a new account). (3) Never burn >2 posts on a single untested channel. (4) Consider upgrading Zernio or using direct platform APIs once the free tier is limiting growth.
+- **Added by:** founder on 2026-03-18

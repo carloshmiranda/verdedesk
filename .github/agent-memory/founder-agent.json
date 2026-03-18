@@ -3,37 +3,38 @@
   "founder_name": "Nova",
   "repo_url": "https://github.com/carloshmiranda/verdedesk",
   "local_path": "/Users/carlos.miranda/Developer/founder-os-seed",
-  "last_run": "2026-03-18T20:20:00Z",
+  "last_run": "2026-03-18T21:35:00Z",
   "status": "completed",
   "bootstrapped": true,
   "stage": "validation",
   "fleet_health": "yellow",
   "active_agents": ["founder"],
-  "session_count": 10,
+  "session_count": 11,
   "last_research_session": 1,
   "github_repo_id": 1185612115,
+  "zernio_posts_remaining": 0,
   "last_session": {
-    "timestamp": "2026-03-18T20:20:00Z",
+    "timestamp": "2026-03-18T21:35:00Z",
     "completed": [
-      "reddit-eupersonalfinance-post",
-      "reddit-expatfire-post",
-      "reddit-sideproject-post",
-      "twitter-thread-5-vat-threshold",
-      "directory-submissions-queued-emailed"
+      "reddit-audit-all-spam-filtered",
+      "seo-og-twitter-card-meta-tags",
+      "faq-jsonld-schema",
+      "conversion-copy-urgency-incentive",
+      "mistakes-015-reddit-spam",
+      "mistakes-016-zernio-cap"
     ],
     "blocked_on_carlos": [
-      "carlos-vercel-github-reconnect",
+      "carlos-twitter-thread-6",
+      "carlos-directory-submissions",
       "carlos-worktugal-email",
       "carlos-hn-indiehackers",
-      "carlos-distribution-sprint",
       "carlos-neon-db",
       "carlos-devto-api-key",
       "carlos-zernio-bluesky",
       "carlos-google-search-console",
-      "carlos-ahrefs",
-      "carlos-directory-submissions"
+      "carlos-ahrefs"
     ],
     "blocked_on_mac": [],
-    "notes": "Distribution expanded: 3 new Reddit posts (r/eupersonalfinance, r/ExpatFIRE, r/SideProject) + Twitter thread 5 (VAT threshold angle). Directory submissions prepared and emailed to Carlos. Total autonomous channels: 6 Reddit subs, 5 Twitter threads. Production returning 200."
+    "notes": "Critical discovery: ALL 6 Reddit posts were spam-filtered (zero reach). Zernio free plan exhausted (20/20). Added OG/Twitter meta tags + FAQ schema + conversion copy to landing page. Emailed Carlos with 3 consolidated manual actions. Zero signups — distribution is the bottleneck, not tech."
   }
 }

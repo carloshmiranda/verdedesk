@@ -1,0 +1,17 @@
+{
+  "id": "carlos-twitter-thread-6",
+  "type": "human_action_required",
+  "needs_mac": false,
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-18T21:30:00Z",
+  "priority": "high",
+  "instructions": {
+    "summary": "Post Twitter thread 6 manually — Zernio free plan exhausted (20/20 posts used)",
+    "detail": "The Zernio free plan hit its 20-post/month cap. Thread 6 is a D8 visa → first recibo verde walkthrough — the most conversion-friendly angle yet. Post it manually from @chgmiranda.",
+    "exact_action": "Go to twitter.com, post this thread from @chgmiranda (reply to each tweet to form a thread):\n\nTweet 1: You just got your D8 visa for Portugal. Congrats!\n\nBut within 90 days, you need to issue your first recibo verde (green receipt).\n\nHere is what nobody tells you about the process:\n\nTweet 2: Step 1: Get your NIF (tax number)\n\nYou cannot do anything tax-related without it. This alone can take 2-4 weeks if you do not have a fiscal representative.\n\nThe entire process is in Portuguese. No English option.\n\nTweet 3: Step 2: Register your activity on Portal das Financas\n\nYou must pick an activity code (CAE/CIRS) from a dropdown -- in Portuguese.\n\nPick the wrong one? You could end up in the wrong tax bracket or trigger VAT obligations you did not expect.\n\nTweet 4: Step 3: Issue your first recibo verde\n\nThe form has 12+ fields, all in Portuguese. You need to know:\n- Your activity code\n- Whether to charge IVA (VAT)\n- The correct tax retention rate\n- Whether your client is domestic or international\n\nOne wrong field = real money consequences.\n\nTweet 5: The EUR 15,000 trap:\n\nIf your cumulative invoices cross EUR 15k in a calendar year, you must register for VAT and charge 23% -- on that invoice.\n\nMost freelancers do not track this until it is too late.\n\nTweet 6: We are building VerdeDesk -- an English-first interface for this entire workflow.\n\nIssue recibos verdes, track income vs the VAT threshold, get compliance reminders.\n\nNo Portuguese required. Launching April 2026.\n\nhttps://verdedesk.vercel.app",
+    "unblocks": "Fresh distribution content on Twitter — our only working autonomous channel"
+  },
+  "result": null
+}
