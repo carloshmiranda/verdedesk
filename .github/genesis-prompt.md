@@ -189,13 +189,29 @@ Rules: always write memory before ending the session, `notes` should be one or t
 Subject: `VerdeDesk: action required — Stripe secret key`
 
 ```html
-<p><strong>Action required:</strong> Add Stripe secret key to Vercel environment variables.</p>
-<p>In Vercel dashboard → Project → Settings → Environment Variables, add:<br>
-<code>STRIPE_SECRET_KEY</code> = your secret key from stripe.com → Developers → API keys</p>
-<p><strong>Unblocks:</strong> Stripe checkout flow on /api/subscribe</p>
+<p><strong>What I need:</strong> Stripe secret key added to Vercel environment variables.</p>
+<p><strong>Why:</strong> Stripe checkout on /api/subscribe is built and tested — it just can't run without the live key.</p>
+<p><strong>Steps (takes ~2 minutes):</strong></p>
+<ol>
+  <li>Go to <a href="https://stripe.com/dashboard/apikeys">stripe.com/dashboard/apikeys</a></li>
+  <li>Copy your <strong>Secret key</strong> (starts with sk_live_...)</li>
+  <li>Open terminal and run:<br>
+  <code>echo 'export STRIPE_SECRET_KEY="sk_live_..."' >> ~/.founder-secrets</code></li>
+  <li>Then add it to Vercel:<br>
+  <code>curl -s -X POST "https://api.vercel.com/v10/projects/verdedesk/env?teamId=eidolons-projects-e72c0917" \<br>
+  -H "Authorization: Bearer $VERCEL_TOKEN" -H "Content-Type: application/json" \<br>
+  --data-raw '{"key":"STRIPE_SECRET_KEY","value":"sk_live_...","type":"encrypted","target":["production","preview"]}'</code></li>
+</ol>
+<p><strong>Unblocks:</strong> Stripe checkout — users can pay once this is in.</p>
 ```
 
-Rules: subject is "VerdeDesk: [verb] — [topic]", no emoji anywhere, action required is copy-pasteable, unblocks is one phrase. Send via Resend using the pattern in YOUR ENVIRONMENT above.
+Rules:
+- Subject: "VerdeDesk: action required — [topic]", no emoji
+- "What I need" = one sentence, outcome not jargon
+- "Why" = business reason, not technical reason
+- "Steps" = numbered, every step is a literal action Carlos can execute without leaving the email. Include URLs, exact commands, exact values. Never reference repo files — paste the content inline.
+- "Unblocks" = one phrase describing the user-facing outcome
+- Send via Resend using the pattern in YOUR ENVIRONMENT above.
 
 ---
 
