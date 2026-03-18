@@ -2,16 +2,15 @@
   "id": "carlos-posthog-key",
   "type": "human_action_required",
   "needs_mac": false,
-  "needs_carlos": true,
-  "status": "pending",
+  "needs_carlos": false,
+  "status": "cancelled",
   "created_by": "founder",
   "created_at": "2026-03-18T02:00:00Z",
+  "closed_at": "2026-03-18T12:00:00Z",
   "priority": "normal",
   "instructions": {
     "summary": "Create a PostHog project for VerdeDesk and add the API key to Vercel env vars",
-    "detail": "PostHog analytics is already integrated in the landing page code (VITE_POSTHOG_KEY). We need the actual project key to start tracking page views and waitlist signup events.",
-    "exact_action": "1. Go to posthog.com (or eu.posthog.com for EU data residency) → Create account/project named 'VerdeDesk'\n2. Copy the Project API Key (starts with phc_...)\n3. In Vercel dashboard → verdedesk project → Settings → Environment Variables, add:\n   VITE_POSTHOG_KEY = phc_...\n   VITE_POSTHOG_HOST = https://eu.posthog.com\n4. Redeploy or wait for next deploy",
-    "unblocks": "Landing page analytics — page views and signup conversion tracking"
+    "detail": "PostHog replaced by Vercel Analytics — no account or API key needed."
   },
-  "result": null
+  "result": "Cancelled — switched to @vercel/analytics (zero-config, free, native Vercel)"
 }

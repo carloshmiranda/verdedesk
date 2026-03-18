@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import posthog from 'posthog-js'
 
 const WAITLIST_API = '/api/waitlist'
 
@@ -21,8 +20,7 @@ export default function LandingPage() {
       })
       if (res.ok) {
         setStatus('success')
-        posthog.capture('waitlist_signup', { email })
-        setEmail('')
+setEmail('')
       } else {
         const data = await res.json().catch(() => ({}))
         setErrorMsg(data.error || 'Something went wrong. Please try again.')
