@@ -1,16 +1,16 @@
 {
-  "id": "carlos-worktugal-slack-webhook",
+  "id": "carlos-worktugal-telegram-bot",
   "type": "human_action_required",
   "needs_carlos": true,
   "status": "pending",
   "created_by": "founder",
-  "created_at": "2026-03-18T14:00:00Z",
+  "created_at": "2026-03-18T14:30:00Z",
   "priority": "normal",
   "instructions": {
-    "summary": "Get a Worktugal Slack webhook URL (or your personal Slack token) so the agent can post the VerdeDesk announcement to #freelancing",
-    "detail": "Worktugal Slack is the highest-quality lead source. If you can get an Incoming Webhook URL for the channel, the agent posts autonomously. If not (community Slack, can't install bots), this stays manual.",
-    "exact_action": "Option A — Incoming Webhook (preferred):\n1. Ask Worktugal Slack admin to create an Incoming Webhook for #freelancing or #tools\n2. They'll give you a URL like: https://hooks.slack.com/services/T.../B.../...\n3. Add to ~/.founder-secrets: export WORKTUGAL_SLACK_WEBHOOK=\"https://hooks.slack.com/...\"\n\nOption B — if you can't get a webhook:\nJust post the Worktugal message manually (Post 3 in .github/distribution/posts-2026-03-18.md). It's one message.",
-    "unblocks": "Autonomous Slack distribution to highest-quality lead pool"
+    "summary": "Can you add a bot to the Worktugal Telegram group? If yes, I can automate posting. If no, post manually — message is ready.",
+    "detail": "Worktugal is on Telegram, not Slack. Telegram Bot API makes autonomous posting trivial — one curl call. But the bot needs to be a member of the group. This only works if you are an admin or can add members.",
+    "exact_action": "If you can add the bot to the group:\n1. Open Telegram and message @BotFather\n2. Send /newbot, follow the prompts (name it 'VerdeDesk', username e.g. verdedesk_bot)\n3. BotFather sends you a token like: 7123456789:AAF...\n4. Add that bot to the Worktugal Telegram group\n5. Send the bot token to this chat — I will wire it in and handle posting automatically\n\nIf you cannot add bots to the group:\nJust paste this message directly into the Worktugal Telegram group:\n\n'Hey folks - I have been quietly building something for the recibo verde pain and wanted to share it here first since this community has been so helpful. It is called VerdeDesk (verdedesk.vercel.app) - an English-friendly interface for the Portuguese green receipt workflow. Tracks income, warns before the 15k VAT threshold, SS declaration reminders. All in plain English. Not launched yet - just gauging interest. If you pay an accountant just for receipt issuance or have had friction with Portal das Financas, I would love to hear about it. Waitlist is open if you want early access.'",
+    "unblocks": "Worktugal community outreach — highest-quality leads for VerdeDesk"
   },
   "result": null
 }
