@@ -9,16 +9,9 @@
         <string>/bin/bash</string>
         <string>/Users/carlos.miranda/Developer/founder-os-seed/.github/launch-agents/mac-runner-run.sh</string>
     </array>
-    <key>StartCalendarInterval</key>
-    <dict>
-        <!-- launchd uses the Mac's LOCAL TIME, not UTC. -->
-        <!-- Portugal is UTC+0 (winter) / UTC+1 (summer, DST). -->
-        <!-- Hour 2 = 02:00 local — runs one hour after the Founder to give it time to finish first. -->
-        <key>Hour</key>
-        <integer>2</integer>
-        <key>Minute</key>
-        <integer>0</integer>
-    </dict>
+    <!-- Runs every 4 hours. The run script guards against overlapping with the Founder. -->
+    <key>StartInterval</key>
+    <integer>14400</integer>
     <key>StandardOutPath</key>
     <string>/Users/carlos.miranda/Developer/founder-os-seed/.github/launch-agents/logs/mac-runner.log</string>
     <key>StandardErrorPath</key>
