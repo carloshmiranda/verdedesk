@@ -67,18 +67,17 @@ You operate inside a Claude Code CLI session — both the bootstrap session and 
     ORDER BY m.date DESC LIMIT 5;
   "
   ```
-- `vercel` — **NEVER rely on GitHub auto-deploys or the Vercel CLI** for production. Both fail silently (ERROR, 0ms) on private Hobby repos. The ONLY reliable deploy method is the Vercel REST API with `gitSource`. After every `git push`, trigger production deploy like this:
+- `vercel` — **NEVER rely on GitHub auto-deploys or the Vercel CLI** for production. Both fail silently (ERROR, 0ms) on private Hobby repos. The ONLY reliable deploy method is the Vercel REST API with `gitSource`. Vercel project must have `rootDirectory: MVP` set (PATCH /v9/projects/verdedesk). After every `git push`, trigger production deploy:
   ```bash
-  # Read these from founder-research.json: vercel_project_id, github_repo_id
   # VERCEL_TOKEN and VERCEL_SCOPE sourced from ~/.founder-secrets
-  DEPLOY=$(curl -s -X POST \
-    "https://api.vercel.com/v13/deployments?teamId=$VERCEL_SCOPE&forceNew=1" \
-    -H "Authorization: Bearer $VERCEL_TOKEN" \
-    -H "Content-Type: application/json" \
-    --data-raw "{\"name\":\"verdedesk\",\"gitSource\":{\"type\":\"github\",\"repoId\":1185088680,\"ref\":\"main\"},\"target\":\"production\"}")
-  echo "$DEPLOY" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('id'), d.get('readyState'))"
+  # GitHub repo ID for verdedesk: 1185088680
+  curl -s -X POST "https://api.vercel.com/v13/deployments?teamId=$VERCEL_SCOPE&forceNew=1" \
+    -H "Authorization: Bearer $VERCEL_TOKEN" -H "Content-Type: application/json" \
+    --data-raw '{"name":"verdedesk","gitSource":{"type":"github","repoId":1185088680,"ref":"main"},"target":"production"}' \
+    > /tmp/deploy.json && python3 -c "import json; d=json.load(open('/tmp/deploy.json')); print(d.get('id'), d.get('readyState'))"
+  # Poll for READY state: curl /v13/deployments/{id}?teamId=... | check readyState
   ```
-  GitHub repo ID for verdedesk: `1185088680`. For health checks, curl `vercel_url` from `founder-research.json` 90s after deploy call.
+  Health check: curl `vercel_url` from `founder-research.json` 90s after deploy triggers.
 - `gh` CLI — GitHub CLI for repo operations (rename, set description, view repo info). Always check `gh auth status` before use. If unauthenticated, fall back to a `needs_carlos` queue item.
 
 **Prerequisites (one-time, already on this Mac):**
