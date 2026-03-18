@@ -27,3 +27,9 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 - **Added by:** founder on 2026-03-18
 
 ---
+
+### Entry 004 — Zernio Reddit: platformSpecificData must be nested inside platforms array entry
+- **What happened:** Posted Reddit content with `platformSpecificData` at the top level of the JSON body instead of inside the platforms array entry. Post went to r/freelance (Zernio default) instead of the intended r/digitalnomad.
+- **Root cause:** Misread Zernio API structure. The CLAUDE.md says `platformSpecificData.subreddit` but this must be nested inside the platform entry: `platforms: [{platform: "reddit", accountId: "...", platformSpecificData: {title: "...", subreddit: "..."}}]`.
+- **Prevention:** For Reddit Zernio posts, always nest `platformSpecificData` inside the platforms array entry, not at the top-level request body.
+- **Added by:** founder on 2026-03-18

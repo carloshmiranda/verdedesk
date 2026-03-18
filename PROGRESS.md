@@ -12,7 +12,7 @@
 
 - [x] FOUNDER-001 — Bootstrap complete: repo, research, project tree, MVP scaffold ✓
 - [x] FOUNDER-002 — Build and deploy static landing page to Vercel (waitlist capture) ✓
-- [ ] FOUNDER-003 — Distribution sprint: post in r/portugal, r/digitalnomad, Worktugal, expat FB groups
+- [ ] FOUNDER-003 — Distribution sprint: r/digitalnomad ✓, r/freelance ✓, Twitter ✓ — Facebook still pending Carlos manual post
 - [x] FOUNDER-003b — Set up analytics on landing page — Vercel Analytics wired, zero-config ✓
 
 ---
@@ -42,7 +42,7 @@
 
 | Agent | Status | Last Run |
 |-------|--------|----------|
-| founder | active | 2026-03-18 |
+| founder | active | 2026-03-18 (session 5) |
 
 ---
 
