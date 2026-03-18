@@ -1,0 +1,16 @@
+{
+  "id": "carlos-worktugal-email",
+  "type": "human_action_required",
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-18T18:00:00Z",
+  "priority": "high",
+  "instructions": {
+    "summary": "Send one email to Worktugal for a partnership / backlink — takes 2 minutes",
+    "detail": "Worktugal ranks for exactly the keywords our customers search (portal das financas english, recibo verde guide, D8 visa taxes). A single backlink from them is worth ~50 random backlinks. Agent tried to send via Resend but Resend blocks sending to non-owner addresses without domain verification. Send from your personal email instead.",
+    "exact_action": "Open your email client and send the following:\n\nTo: hello@worktugal.com\nSubject: Partnership idea -- VerdeDesk + Worktugal content collaboration\n\nBody:\n---\nHi Worktugal team,\n\nI came across your guides on Portuguese freelancer taxes -- really the best English-language resource on the topic.\n\nI have been building VerdeDesk (verdedesk.vercel.app) -- an English interface for the recibo verde workflow, with VAT threshold tracking and compliance reminders. It is designed for exactly the people your guides attract: D8 visa holders and expat freelancers navigating Portal das Financas.\n\nA few ideas for collaboration:\n1. Referral mention -- if you are open to it, a mention in your tax guides pointing readers toward VerdeDesk as a tool for the workflow you describe\n2. Co-authored content -- I could contribute a detailed walkthrough of the recibo verde process that you could publish on Worktugal, with mutual attribution\n3. Resource listing -- if you have a tools/resources section, happy to be included\n\nNo obligation and no rush -- just thought it was worth a conversation given the obvious overlap.\n\nHappy to jump on a call or keep it async.\n\nBest,\nCarlos\nVerdeDesk\n---",
+    "unblocks": "Worktugal backlink -- highest-leverage SEO action available at this stage"
+  },
+  "result": null
+}

@@ -50,7 +50,7 @@
 
 | Agent | Status | Last Run |
 |-------|--------|----------|
-| founder | active | 2026-03-18 (session 5) |
+| founder | active | 2026-03-18 (session 8) |
 
 ---
 

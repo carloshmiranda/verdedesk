@@ -155,3 +155,17 @@ Commits with `[skip ci]` skip Vercel deployments entirely — correct for memory
 - Multiple POST calls = separate unconnected tweets
 - Single POST with `platformSpecificData.threadItems` = connected thread
 - See genesis-prompt.md `zernio` section for full example
+
+---
+
+## Session 8 — New Patterns Discovered
+
+### Resend domain restriction blocks cold outreach
+- **What happened:** Tried to send Worktugal partnership email (hello@worktugal.com) via Resend. Got 403: "You can only send testing emails to your own email address."
+- **Root cause:** Resend free tier + unverified domain — can only send TO carlos.gaspar2011@gmail.com (owner address). Any cold outreach to third parties requires a verified sending domain.
+- **Automation path:** Verify verdedesk.com (or any custom domain) in Resend. One-time Carlos action (~5 minutes in Resend dashboard + DNS). After that, agent can send any outreach email autonomously.
+- **Current workaround:** Queue item for Carlos to send from personal email. Not scalable for ongoing outreach campaigns.
+
+### Webhook deploys ARE working after git identity fix
+- Session 8 confirmed: commits with correct git user.email (carlos.gaspar2011@gmail.com) DO trigger Vercel GitHub webhook deploys automatically.
+- gitSource API is now a fallback only (used when HEAD is ahead of latest READY deploy at session start).

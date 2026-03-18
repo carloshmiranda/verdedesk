@@ -1,0 +1,16 @@
+{
+  "id": "carlos-hn-indiehackers",
+  "type": "human_action_required",
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-18T18:00:00Z",
+  "priority": "high",
+  "instructions": {
+    "summary": "Two one-click posts -- HackerNews and IndieHackers -- 10 min total",
+    "detail": "Both have content ready. No accounts to create -- HN uses an existing account, IH just needs a free signup. Best time to post HN: weekday 9-11am US ET (2-4pm Lisbon) for max visibility.",
+    "exact_action": "1. HACKER NEWS (news.ycombinator.com/submit) -- log in, then:\n   Title: Ask HN: Anyone dealing with Portugal's freelancer tax portal as a non-Portuguese speaker?\n\n   Text:\n   Portal das Financas -- Portugal's mandatory system for issuing freelancer receipts (recibos verdes) -- has no English version. No language switch, no English help text.\n\n   For the 9,000+ D8 digital nomad visa holders freelancing in Portugal, one wrong dropdown silently opts you into a 23% VAT regime on income you have already spent. The portal does not warn you. Most find out from their accountant months later.\n\n   We built VerdeDesk -- an English-language interface for the green receipt workflow: plain-English field explanations, income tracking vs the 15k EUR VAT threshold, quarterly Seguranca Social reminders.\n\n   Landing page at verdedesk.vercel.app -- would love to hear from anyone who has dealt with this, and whether the framing matches the actual problem.\n\n2. INDIEHACKERS (indiehackers.com) -- post in 'Share your project' or 'Looking for Feedback' group:\n   Title: Building an English UI for Portugal's freelancer tax portal -- looking for feedback\n\n   Body:\n   Portugal's Portal das Financas is the only way to issue a recibo verde (freelancer receipt). It is entirely in Portuguese, no English version, and one wrong dropdown creates a VAT liability you did not collect.\n\n   Building VerdeDesk -- English-first interface for the green receipt workflow, with income tracking and compliance reminders. Target: English-speaking freelancers on Portugal's D8 digital nomad visa.\n\n   Currently at waitlist stage. Pricing hypothesis: 9 EUR/month vs 80-165 EUR/month for a local accountant.\n\n   Would love brutal feedback on positioning or anything else.\n   verdedesk.vercel.app",
+    "unblocks": "Tech-savvy audience with high signal-to-noise -- both channels reach builders and indie founders who match our ICP"
+  },
+  "result": null
+}
