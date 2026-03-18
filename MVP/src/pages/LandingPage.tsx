@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const WAITLIST_API = '/api/waitlist'
 
@@ -309,6 +310,14 @@ setEmail('')
                 <p className="text-gray-600 text-sm leading-relaxed">{a}</p>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link
+              to="/guide/recibo-verde-english"
+              className="text-verde-600 hover:text-verde-700 font-medium text-sm underline"
+            >
+              Read the full guide: How to issue a recibo verde in English (2026)
+            </Link>
           </div>
         </div>
       </section>
