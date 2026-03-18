@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Validation stage — waitlist only
+
+model WaitlistEntry {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("waitlist_entries")
+}
+
+// Product stage models (unlocked after validation threshold)
+
+// model User {
+//   id        String   @id @default(cuid())
+//   clerkId   String   @unique
+//   email     String   @unique
+//   name      String?
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+//   receipts  Receipt[]
+//
+//   @@map("users")
+// }
+
+// model Receipt {
+//   id          String        @id @default(cuid())
+//   userId      String
+//   user        User          @relation(fields: [userId], references: [id])
+//   clientName  String
+//   clientNif   String?
+//   description String
+//   amount      Decimal       @db.Decimal(10, 2)
+//   vatRate     Decimal       @default(0) @db.Decimal(5, 2)
+//   issuedAt    DateTime      @default(now())
+//   status      ReceiptStatus @default(DRAFT)
+//   createdAt   DateTime      @default(now())
+//   updatedAt   DateTime      @updatedAt
+//
+//   @@map("receipts")
+// }
+
+// enum ReceiptStatus {
+//   DRAFT
+//   ISSUED
+//   PAID
+// }
