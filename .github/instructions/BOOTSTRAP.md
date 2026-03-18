@@ -85,11 +85,20 @@ npm install --prefix ~/.npm-global <package>  # e.g. vercel, neonctl
 ```
 Add `~/.npm-global/bin` to PATH in `founder-run.sh` (already done).
 
-Add PostHog analytics immediately:
+Add Vercel Analytics (zero-config, no API key needed):
 ```bash
-cd /MVP && npm install posthog-js
+cd /MVP && npm install @vercel/analytics
 ```
-Create a `needs_carlos` queue item for the PostHog project key.
+Import and mount `<Analytics />` in `src/main.tsx`. No queue item needed.
+
+**Important — disable Vercel deployment protection immediately after project creation:**
+```bash
+curl -s -X PATCH "https://api.vercel.com/v9/projects/{projectId}?teamId={teamId}" \
+  -H "Authorization: Bearer $VERCEL_TOKEN" -H "Content-Type: application/json" \
+  --data-raw '{"ssoProtection": null}'
+```
+Verify with: `curl -s -o /dev/null -w "%{http_code}" https://{project-url}` — must return 200, not 401.
+New Vercel projects default to "Standard Protection" (SSO gating) which blocks all public traffic silently.
 
 ### Step 4 — Create the Founder Launch Agent
 

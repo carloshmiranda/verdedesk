@@ -98,6 +98,13 @@ Things discovered to be automatable that the genesis prompt assumed were manual,
 - **Prevention:** Never run `vercel` CLI without first verifying you are in the correct directory AND that `.vercel/project.json` in that directory points to the right project. Always use the API gitSource approach instead.
 - **Cleanup:** Deleted `founder-os-seed` project via API, restored `rootDirectory: MVP`, updated root `.vercel/project.json`.
 
+### 6. Vercel Deployment Protection (SSO gating)
+- **What happened:** Session 4 — site returned 401 to all public visitors. Zero signups, zero runtime logs. The root cause was Vercel's default "Standard Protection" enabling SSO authentication on the project.
+- **Why not caught earlier:** `curl` health check after deploy was not in the session routine; runtime logs returning empty were not flagged as suspicious
+- **Automation path (now fully autonomous):** `PATCH /v9/projects/{id}` with `{"ssoProtection": null}` immediately after project creation — 1 API call, no dashboard needed
+- **Prevention:** After every Vercel project creation, run: `curl -s -o /dev/null -w "%{http_code}" https://{url}` — must return 200. If 401, disable SSO protection immediately.
+- **Updated in:** BOOTSTRAP.md, MISTAKES.md Entry 003
+
 ---
 
 ## To Update in Genesis Prompt
@@ -115,13 +122,15 @@ Things discovered to be automatable that the genesis prompt assumed were manual,
 
 ## Compounding Autonomy Scorecard
 
-| Action | Session 1 | Session 2 | Session 3 |
-|--------|-----------|-----------|-----------|
-| Vercel deploy | manual (dashboard) | CLI (✓ auto) | API gitSource (✓ more reliable) |
-| Analytics | PostHog (needs account) | — | Vercel Analytics (✓ zero config) |
-| Email confirmation | none | none | Resend (✓ auto after key provided) |
-| GitHub App install | blocked | blocked | ✓ done (one-time) |
-| iMessage reading | blocked | blocked | blocked (needs Full Disk Access) |
-| Neon DB | blocked | blocked | blocked (deferred to building stage) |
+| Action | Session 1 | Session 2 | Session 3 | Session 4 |
+|--------|-----------|-----------|-----------|-----------|
+| Vercel deploy | manual (dashboard) | CLI (✓ auto) | API gitSource (✓ more reliable) | ✓ stable |
+| Public access verification | not checked | not checked | not checked | ✓ curl 200 check (auto) |
+| Analytics | PostHog (needs account) | — | Vercel Analytics (✓ zero config) | ✓ stable |
+| Email confirmation | none | none | Resend (✓ but wrong domain) | ✓ fixed (resend.dev) |
+| Admin signup notification | none | none | none | ✓ auto (carlos.gaspar2011@gmail.com) |
+| GitHub App install | blocked | blocked | ✓ done (one-time) | ✓ stable |
+| iMessage reading | blocked | blocked | blocked (needs Full Disk Access) | blocked |
+| Neon DB | blocked | blocked | blocked | pending carlos-neon-db |
 
 **Target:** every session should move at least one row from "blocked/manual" to "✓ auto".

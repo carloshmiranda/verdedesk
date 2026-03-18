@@ -1,0 +1,17 @@
+{
+  "id": "carlos-neon-db",
+  "type": "human_action_required",
+  "needs_mac": false,
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-18T14:30:00Z",
+  "priority": "medium",
+  "instructions": {
+    "summary": "Create a free Neon Postgres database and add DATABASE_URL to Vercel",
+    "detail": "Waitlist signups currently fail-open (return 200 success but do not persist to DB). Admin email notifications are now in place as a fallback, but a real DB prevents data loss if Resend fails.",
+    "exact_action": "1. Go to neon.tech → Create free account → New project named 'verdedesk'\n2. Copy the connection string (DATABASE_URL) from the dashboard\n3. In Vercel dashboard → verdedesk project → Settings → Environment Variables\n   Add: DATABASE_URL = <connection string> for Production\n4. Run the Prisma migration: cd MVP && npx prisma migrate deploy\n   (or just tell me the DATABASE_URL and I'll handle migrations)",
+    "unblocks": "Persistent waitlist storage — every signup saved to Neon Postgres"
+  },
+  "result": null
+}

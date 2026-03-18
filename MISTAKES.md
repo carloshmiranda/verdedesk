@@ -12,6 +12,14 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 
 ---
 
+### Entry 003 — Vercel Deployment Protection blocks public access silently
+- **What happened:** The landing page returned 401 to all visitors. Zero signups, zero runtime logs. The project's SSO/Deployment Protection was enabled (default on new projects) which gates the site behind Vercel authentication.
+- **Root cause:** Vercel enables "Standard Protection" (Vercel Auth) by default on new projects. It's not obvious from the dashboard unless you look at Settings → Deployment Protection.
+- **Prevention:** After every new Vercel project creation, immediately disable protection via `PATCH /v9/projects/{id}` with `{"ssoProtection": null}`. Add this as a step in BOOTSTRAP.md. Verify with a public `curl` check returning 200 (not 401).
+- **Added by:** founder on 2026-03-18
+
+---
+
 ### Entry 002 — gh CLI not in default PATH inside launchd sessions
 - **What happened:** `gh` command returned "command not found" even though it is installed.
 - **Root cause:** launchd sessions and non-interactive shells do not inherit the user's PATH. Homebrew binaries live in `/opt/homebrew/bin` which is not in the default PATH.
