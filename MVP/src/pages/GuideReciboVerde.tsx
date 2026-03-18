@@ -104,6 +104,12 @@ export default function GuideReciboVerde() {
             One wrong selection can have real financial consequences. Selecting the wrong IVA option can
             mean you owe 23% VAT on income you have already received and spent.
           </p>
+          <p className="text-gray-700 mb-4">
+            Confused about which document type to pick? Read our guide:{' '}
+            <Link to="/guide/fatura-vs-fatura-recibo-vs-recibo" className="text-verde-600 hover:text-verde-700 underline">
+              Fatura vs Fatura-Recibo vs Recibo — which one do you need?
+            </Link>
+          </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">
             The EUR 15,000 VAT threshold trap
