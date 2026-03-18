@@ -1,0 +1,16 @@
+{
+  "id": "carlos-zernio-linkedin",
+  "type": "human_action_required",
+  "needs_carlos": true,
+  "status": "cancelled",
+  "created_by": "founder",
+  "created_at": "2026-03-18T18:00:00Z",
+  "priority": "high",
+  "instructions": {
+    "summary": "Connect your LinkedIn account to Zernio so the agent can post autonomously to your professional network — highest quality audience for VerdeDesk.",
+    "why": "LinkedIn is where D8 visa holders and digital nomads in Portugal are most professionally active. No karma gate, no moderation. A single agent post can reach hundreds of relevant people. Once connected, the agent handles all LinkedIn posting permanently.",
+    "exact_action": "1. Go to https://app.zernio.com\n2. Log in with your Zernio account\n3. Go to Accounts → Add Account → LinkedIn\n4. Authorise via LinkedIn OAuth (it will ask for posting permissions)\n5. Once connected, copy the account ID from the accounts list\n6. Reply to the agent with: 'LinkedIn connected, account ID: [id]'\n\nThe agent will store the ID in founder-research.json and start posting immediately.",
+    "unblocks": "Autonomous LinkedIn distribution — agent posts to your professional network without any manual action"
+  },
+  "result": "Cancelled — Carlos's LinkedIn is his professional account (day job), not available for VerdeDesk. Do not create LinkedIn queue items for this project."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "carlos-devto-api-key",
+  "type": "human_action_required",
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-18T18:00:00Z",
+  "priority": "normal",
+  "instructions": {
+    "summary": "Get a Dev.to API key so the agent can publish a founder story article — permanent organic traffic, zero gatekeeping.",
+    "why": "Dev.to founder stories consistently drive 500-2000 organic views with zero distribution effort. The article 'I built an English UI for Portugal's government tax portal' is already drafted and ready to publish. Dev.to has no karma gate, no moderation queue — once the API key exists, the agent publishes immediately via POST /api/articles.",
+    "exact_action": "1. Go to https://dev.to/settings/extensions\n2. Scroll to 'DEV Community API Keys'\n3. Click 'Generate API Key', name it 'verdedesk-agent'\n4. Copy the key\n5. Run in Terminal:\n   echo 'export DEVTO_API_KEY=\"[your-key]\"' >> ~/.founder-secrets\n6. Reply to the agent with: 'Dev.to key added'\n\nThe agent will publish the pre-written article immediately.",
+    "unblocks": "Founder story article on Dev.to — permanent SEO backlink + organic discovery from the dev/indie hacker community"
+  },
+  "result": null
+}

@@ -1,0 +1,16 @@
+{
+  "id": "carlos-zernio-bluesky",
+  "type": "human_action_required",
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-18T18:00:00Z",
+  "priority": "normal",
+  "instructions": {
+    "summary": "Connect a Bluesky account to Zernio — zero gatekeeping, tech/indie audience, no karma requirements.",
+    "why": "Bluesky has no karma gates, no moderation blocks, no approval wait times. The tech-forward and indie hacker community there overlaps heavily with digital nomads. Agent can post immediately after connection.",
+    "exact_action": "1. If you don't have a Bluesky account: go to bsky.app and sign up (free, instant)\n2. Once logged in: go to Settings → App Passwords → Add App Password\n3. Name it 'zernio', click Create\n4. Copy the generated password (format: xxxx-xxxx-xxxx-xxxx)\n5. Go to https://app.zernio.com → Accounts → Add Account → Bluesky\n6. Enter your handle (e.g. yourname.bsky.social) and the app password\n7. Once connected, copy the account ID from the accounts list\n8. Reply to the agent with: 'Bluesky connected, handle: [handle], account ID: [id]'\n\nThe agent will store the ID and post immediately.",
+    "unblocks": "Autonomous Bluesky distribution — zero gatekeeping, posts live instantly"
+  },
+  "result": null
+}

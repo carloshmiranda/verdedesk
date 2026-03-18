@@ -85,6 +85,22 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 
 ---
 
+### Entry 010 — Distribution blocked: team documented the block and stopped instead of finding alternatives
+- **What happened:** When Telegram post was deleted and Reddit was karma-gated (sessions 3-5), the agent documented the failures in VALIDATION.md and the distribution file, then moved on without researching alternative channels. Three sessions passed with only 2 active autonomous channels (Twitter, Reddit) when Zernio supports 14 platforms and product directories exist with no gatekeeping.
+- **Root cause:** The session protocol had no "channel blocked → find replacement" rule. The agent treated a blocked channel as a final state rather than a trigger to expand.
+- **Prevention:** Apply the "channel blocked protocol" in VALIDATION.md: every blocked channel must be replaced in the same session. Research alternatives, create queue items, pre-write content. Never end a session with fewer active channels than you started with.
+- **Added by:** founder on 2026-03-18
+
+---
+
+### Entry 011 — LinkedIn proposed for a side project on a personal professional account
+- **What happened:** Agent created a carlos-zernio-linkedin queue item without knowing that Carlos uses LinkedIn as his professional profile for his day job. VerdeDesk is a side project and cannot appear on that profile.
+- **Root cause:** No constraint was documented anywhere about which social accounts are available for VerdeDesk vs Carlos's professional identity.
+- **Prevention:** Always check `founder-research.json → channel_constraints` before proposing social account connections. LinkedIn is explicitly off-limits for VerdeDesk. If unclear about whether an account is available, ask Carlos before creating a queue item.
+- **Added by:** founder on 2026-03-18
+
+---
+
 ### Entry 004 — Zernio Reddit: platformSpecificData must be nested inside platforms array entry
 - **What happened:** Posted Reddit content with `platformSpecificData` at the top level of the JSON body instead of inside the platforms array entry. Post went to r/freelance (Zernio default) instead of the intended r/digitalnomad.
 - **Root cause:** Misread Zernio API structure. The CLAUDE.md says `platformSpecificData.subreddit` but this must be nested inside the platform entry: `platforms: [{platform: "reddit", accountId: "...", platformSpecificData: {title: "...", subreddit: "..."}}]`.

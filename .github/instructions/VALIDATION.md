@@ -63,12 +63,38 @@ Post in all relevant channels identified during First Run research. Spread acros
 - If Portugal-focused 🇵🇹: Portuguese Facebook groups, LinkedIn Portuguese communities, StartupPortugal, Dinheiro & Negócios forum — post in Portuguese
 - IndieHackers: post in the most relevant group
 
+**Autonomy-first channel priority:**
+
+Always exhaust fully-autonomous channels before escalating anything to Carlos. The hierarchy:
+
+1. **Autonomous via Zernio** (agent acts immediately, no human needed): Twitter/X, Reddit (non-karma-gated), Bluesky, Threads — check `founder-research.json → zernio` for connected account IDs. If a platform account ID is missing, create a queue item AND move immediately to the next channel.
+2. **Autonomous via API** (agent acts if key exists): Dev.to articles (`DEVTO_API_KEY`), HackerNews (no API — but no karma gate, agent drafts post content in `.github/distribution/` and marks it ready for one-click Carlos submission)
+3. **Pre-filled by agent, one-click Carlos**: Product directories (BetaList, Microlaunch, Uneed, Launching Next) — agent writes all content to `.github/distribution/directory-submissions.md`, creates queue item with exact steps
+4. **Manual, lowest priority**: Facebook groups, Telegram community engagement — agent writes the message, Carlos posts
+
+**Channel blocked protocol — run this in the SAME session a block is discovered:**
+
+When any distribution channel is blocked (deleted post, karma gate, API restriction, account not connected):
+1. Document the block in `validation-status.json → posts` with `status: "blocked"` and `reason:`
+2. **Immediately research 2-3 alternative channels** — check what Zernio supports, what APIs exist, what directories accept free submissions
+3. **Create queue items** for any alternatives that need a one-time Carlos action (account connection, API key)
+4. **Pre-write content** for all alternatives — save to `.github/distribution/[channel]-posts.md`
+5. **Post autonomously** to any alternative that is already unblocked
+
+Do not end a session with fewer active channels than you started with. Every block must be replaced by at least one new channel queued or live.
+
+**Channel constraints for VerdeDesk (learned, do not repeat):**
+- LinkedIn: NOT available — Carlos's personal account is his day job. Do not create LinkedIn queue items.
+- Telegram groups: No broadcast posting — engagement only when someone mentions taxes organically
+- Facebook groups: No API — agent writes message, Carlos posts manually
+- r/portugal: Karma gate — comment on 5-10 threads first
+
 **Tone rules (learned from real rejections):**
 - Lead with the problem, not the product. Never paste the same text twice.
 - **Broadcast posts get deleted.** Community moderators (Telegram, Facebook groups, some subreddits) will remove promotional messages. The pattern that works: engage first (answer a question, start a genuine conversation), then mention the product naturally once trust is established.
 - **Karma gates are real.** r/portugal and similar country subreddits require account age and karma. Build karma by commenting genuinely on 5–10 threads before attempting to post.
-- **Channels with no gatekeeping (start here):** Hacker News ("Ask HN: Anyone else dealing with X?"), IndieHackers, Twitter/X, personal LinkedIn. These have no karma requirements and founder stories perform well.
-- **Community channels (patience required):** Telegram groups, Facebook groups, Reddit. Don't post a link on first interaction. Comment/engage for at least one session before mentioning the product.
+- **Channels with no gatekeeping (start here):** Hacker News, IndieHackers, Twitter/X, Bluesky, Threads, product directories. These have no karma requirements.
+- **Community channels (patience required):** Telegram groups, Facebook groups, Reddit. Don't post a link on first interaction.
 
 After each post, append to `validation-status.json → posts`:
 ```json

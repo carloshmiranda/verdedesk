@@ -368,13 +368,23 @@
   "researched_at": "2026-03-18T02:30:00Z",
   "vercel_url": "https://verdedesk.vercel.app",
   "vercel_scope": "eidolons-projects-e72c0917",
+  "channel_constraints": {
+    "linkedin": "NOT AVAILABLE — Carlos's LinkedIn is his professional profile for his day job. Do not propose LinkedIn for VerdeDesk.",
+    "telegram_broadcast": "NOT AVAILABLE — Broadcast posts get deleted by mods. Engagement-only when someone mentions taxes organically.",
+    "facebook_groups": "MANUAL ONLY — Facebook Group API is restricted. Agent writes message, Carlos posts.",
+    "notes": "Always check this object before creating social account queue items."
+  },
   "zernio": {
     "api_key_env": "ZERNIO_API_KEY",
     "reddit_account_id": "69bac13d6cb7b8cf4c7f1e64",
     "reddit_username": "Eidonon",
     "twitter_account_id": "69bac1586cb7b8cf4c7f1eb7",
     "twitter_username": "chgmiranda",
+    "bluesky_account_id": null,
+    "bluesky_handle": null,
+    "threads_account_id": null,
     "post_endpoint": "https://zernio.com/api/v1/posts",
-    "note": "publishNow:true to post immediately, scheduledFor+publishNow:false to schedule. Reddit needs platformSpecificData.title and platformSpecificData.subreddit"
-  }
+    "note": "publishNow:true to post immediately, scheduledFor+publishNow:false to schedule. Reddit needs platformSpecificData.title and platformSpecificData.subreddit inside platforms array entry. Twitter threads use platformSpecificData.threadItems (one call, not multiple)."
+  },
+  "devto_api_key_env": "DEVTO_API_KEY"
 }

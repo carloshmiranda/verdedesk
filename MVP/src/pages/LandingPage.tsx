@@ -270,6 +270,44 @@ setEmail('')
         </div>
       </section>
 
+      {/* SEO FAQ */}
+      <section className="py-20">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-gray-900 text-center mb-12">
+            Common questions from expat freelancers in Portugal
+          </h2>
+          <div className="space-y-8">
+            {[
+              {
+                q: 'What is a recibo verde and how do I issue one in English?',
+                a: 'A recibo verde (green receipt) is the official invoice Portuguese freelancers must issue for every payment received. It must be issued through Portal das Finanças — which has no English version. VerdeDesk provides an English-language interface that translates every field and submits compliant receipts on your behalf.',
+              },
+              {
+                q: 'How does the €15,000 VAT threshold work for D8 visa freelancers?',
+                a: 'Freelancers earning under €15,000/year are exempt from charging VAT on invoices. Once you cross that threshold, you must register for IVA (VAT) and charge 23% — retroactively on that invoice. VerdeDesk tracks your cumulative income and warns you before you cross the line.',
+              },
+              {
+                q: 'Do I need an accountant (contabilista) as a D8 visa freelancer?',
+                a: 'Not necessarily. If you issue fewer than ~150 invoices/year and stay under the simplified tax regime, you can manage your own recibos verdes. Most expats hire accountants (€80–165/month) simply because the portal is in Portuguese — VerdeDesk removes that barrier.',
+              },
+              {
+                q: 'What is the quarterly Segurança Social declaration?',
+                a: 'Every 3 months, freelancers must declare their income to Segurança Social (Portuguese social security) and pay a contribution. Missing the deadline triggers automatic penalties. VerdeDesk sends reminders before each deadline and shows exactly what you owe.',
+              },
+              {
+                q: 'Can I use VerdeDesk if I\'m on the NHR regime?',
+                a: 'Yes. VerdeDesk is built for both D8 visa holders and NHR (Non-Habitual Resident) regime freelancers. The tax implications differ — VerdeDesk surfaces the relevant rules for your situation in plain English.',
+              },
+            ].map(({ q, a }) => (
+              <div key={q} className="border-b border-gray-100 pb-8">
+                <h3 className="font-semibold text-gray-900 mb-2">{q}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-8 text-center text-gray-400 text-sm">
         <p>© 2026 VerdeDesk. Made for freelancers in Portugal.</p>
