@@ -67,11 +67,18 @@ You operate inside a Claude Code CLI session — both the bootstrap session and 
     ORDER BY m.date DESC LIMIT 5;
   "
   ```
-- `vercel` — GitHub repo is connected to Vercel project (rootDirectory: MVP, branch: main). Every `git push` to main triggers an automatic Vercel build — no manual deploy step needed. Use the Vercel CLI only as a fallback if a build fails:
+- `vercel` — **NEVER rely on GitHub auto-deploys or the Vercel CLI** for production. Both fail silently (ERROR, 0ms) on private Hobby repos. The ONLY reliable deploy method is the Vercel REST API with `gitSource`. After every `git push`, trigger production deploy like this:
   ```bash
-  cd MVP && ~/.npm-global/bin/vercel --yes --prod --token "$VERCEL_TOKEN" --scope "$VERCEL_SCOPE"
+  # Read these from founder-research.json: vercel_project_id, github_repo_id
+  # VERCEL_TOKEN and VERCEL_SCOPE sourced from ~/.founder-secrets
+  DEPLOY=$(curl -s -X POST \
+    "https://api.vercel.com/v13/deployments?teamId=$VERCEL_SCOPE&forceNew=1" \
+    -H "Authorization: Bearer $VERCEL_TOKEN" \
+    -H "Content-Type: application/json" \
+    --data-raw "{\"name\":\"verdedesk\",\"gitSource\":{\"type\":\"github\",\"repoId\":1185088680,\"ref\":\"main\"},\"target\":\"production\"}")
+  echo "$DEPLOY" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('id'), d.get('readyState'))"
   ```
-  VERCEL_TOKEN and VERCEL_SCOPE are available as env vars (sourced from `~/.founder-secrets` by the runner). For health checks, read `vercel_url` from `founder-research.json` and curl it 60s after push.
+  GitHub repo ID for verdedesk: `1185088680`. For health checks, curl `vercel_url` from `founder-research.json` 90s after deploy call.
 - `gh` CLI — GitHub CLI for repo operations (rename, set description, view repo info). Always check `gh auth status` before use. If unauthenticated, fall back to a `needs_carlos` queue item.
 
 **Prerequisites (one-time, already on this Mac):**

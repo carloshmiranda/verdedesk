@@ -8,13 +8,22 @@ Things discovered to be automatable that the genesis prompt assumed were manual,
 
 ### 1. Vercel deployment
 - **Original assumption:** Carlos visits dashboard, clicks "Import Git Repository"
-- **Reality:** `vercel --token $VERCEL_TOKEN --scope $VERCEL_SCOPE --yes --prod` — fully headless
-- **Fix applied:** VERCEL_TOKEN stored in `~/.founder-secrets`, sourced by runner, CLI installed at `~/.npm-global/bin/vercel`
+- **Reality:** The ONLY reliable production deploy method is the Vercel REST API with `gitSource`:
+  ```bash
+  curl -X POST "https://api.vercel.com/v13/deployments?teamId=$VERCEL_SCOPE&forceNew=1" \
+    -H "Authorization: Bearer $VERCEL_TOKEN" -H "Content-Type: application/json" \
+    --data-raw '{"name":"verdedesk","gitSource":{"type":"github","repoId":1185088680,"ref":"main"},"target":"production"}'
+  ```
+- **What DOESN'T work on Hobby + private repos:**
+  - `vercel --prod --token ...` CLI → ERROR (0ms, no logs) — both from root and MVP dir
+  - GitHub webhook → production → ERROR (0ms, no logs) — even with GitHub App installed
+  - GitHub webhook → preview → READY ✓ (but not production)
+- **Fix applied:** Use API gitSource deploy after every git push. GitHub repo ID for verdedesk: `1185088680`.
 
 ### 2. Vercel GitHub integration
 - **Original assumption:** requires dashboard
 - **Reality:** fully automatable via `POST /v9/projects/{id}/link` with GitHub repo ID
-- **Caveat:** GitHub App access to private repos still requires one-time browser install at github.com/settings/installations — the API link exists but webhook won't fire until the App is granted repo access. Token-based deploy is the reliable fallback.
+- **Caveat:** GitHub App access to private repos requires one-time browser install at github.com/settings/installations. Once installed, preview deploys work via webhook but production deploys still fail (see #1 above). Use API gitSource as the authoritative deploy method.
 
 ### 3. Vercel project configuration (rootDirectory, branch, build command)
 - **Original assumption:** set via dashboard
