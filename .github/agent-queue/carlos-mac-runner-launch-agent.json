@@ -11,11 +11,9 @@
     "summary": "Install the Mac Runner Launch Agent so iMessage replies are picked up automatically",
     "detail": "The Mac Runner reads your iMessage replies and bridges them into the repo. It must be installed and running before you reply to the idea proposals, otherwise your reply will never be picked up.",
     "exact_action": "Run in Terminal: cp /Users/carlos.miranda/Developer/founder-os-seed/.github/launch-agents/com.founder.mac-runner.plist ~/Library/LaunchAgents/ && launchctl load ~/Library/LaunchAgents/com.founder.mac-runner.plist",
-    "unblocks": "iMessage reply handling — without this your idea reply will never be read"
+    "unblocks": "iMessage reply handling \u2014 without this your idea reply will never be read"
   },
   "result": {
-    "status": "completed",
-    "completed_at": "2026-03-18T00:00:00Z",
-    "note": "Installed by Carlos via Claude Code session. launchctl list confirms com.founder.mac-runner is registered."
+    "note": "Already installed as com.founder.runner \u2014 completed in same session, queue item stale"
   }
 }

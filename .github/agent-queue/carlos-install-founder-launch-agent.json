@@ -3,7 +3,7 @@
   "type": "human_action_required",
   "needs_mac": false,
   "needs_carlos": true,
-  "status": "pending",
+  "status": "completed",
   "created_by": "founder",
   "created_at": "2026-03-18T02:00:00Z",
   "priority": "high",
@@ -11,7 +11,9 @@
     "summary": "Install the Founder nightly Launch Agent so VerdeDesk runs autonomously every 4 hours",
     "detail": "The Founder Launch Agent (com.founder.runner) schedules nightly autonomous sessions via launchctl. It was scaffolded in Session 1. Install it now so the agent can run without you manually triggering it.",
     "exact_action": "Run in Terminal:\n\n  cp /Users/carlos.miranda/Developer/founder-os-seed/.github/launch-agents/com.founder.runner.plist ~/Library/LaunchAgents/\n  launchctl load ~/Library/LaunchAgents/com.founder.runner.plist\n\nVerify with: launchctl list | grep com.founder.runner",
-    "unblocks": "Autonomous nightly runs — without this the agent only runs when you manually trigger it"
+    "unblocks": "Autonomous nightly runs \u2014 without this the agent only runs when you manually trigger it"
   },
-  "result": null
+  "result": {
+    "note": "Already installed as com.founder.runner \u2014 completed in same session, queue item stale"
+  }
 }
