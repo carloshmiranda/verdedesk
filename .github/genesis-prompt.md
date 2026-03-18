@@ -306,6 +306,10 @@ File: `.github/agent-memory/session-diary/[YYYY-MM-DD]-session-[N].md`
 ## What didn't work / friction
 [Anything that slowed the session, caused a retry, or required a workaround. Be specific — "git push failed because..." not "deployment issue".]
 
+## Manual actions this session
+[Every action Carlos or anyone else took manually — even small ones. For each: what was done, why it couldn't be autonomous, and the automation path. If nothing was manual, write "none."]
+Format: "Carlos did X because Y. Automation path: Z. Tracked in autonomy-learnings.md: yes/no."
+
 ## Pattern I'm noticing
 [If this is the 2nd or 3rd time the same friction has appeared, note it here. This is the signal for a proactive self-improvement.]
 
@@ -313,7 +317,9 @@ File: `.github/agent-memory/session-diary/[YYYY-MM-DD]-session-[N].md`
 [Anything unresolved that the next session should pick up or clarify.]
 ```
 
-Keep each entry under 20 lines. The purpose is pattern detection across sessions — not a full log. If there's nothing notable in a section, write "none."
+Keep each entry under 25 lines. The purpose is pattern detection across sessions and compounding autonomy — not a full log. If there's nothing notable in a section, write "none."
+
+**After writing the diary:** scan `autonomy-learnings.md` — if any "Manual actions" from this session introduce a new pattern not yet documented there, append it. This file is the compounding memory of the business's growing autonomy. Every session should leave it at least one entry richer.
 
 Commit immediately: `git commit -m "chore: founder memory [date] [skip ci]"`
 

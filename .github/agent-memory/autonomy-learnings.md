@@ -1,4 +1,4 @@
-# Autonomy Learnings — Session 1 & 2
+# Autonomy Learnings — Sessions 1–3
 
 Things discovered to be automatable that the genesis prompt assumed were manual, plus genuine blockers.
 
@@ -52,9 +52,20 @@ Things discovered to be automatable that the genesis prompt assumed were manual,
 - **When needed:** FOUNDER-005 (DB schema) — not blocking validation
 
 ### 3. PostHog API key
-- **Blocker:** account creation requires email verification
-- **Automation path:** once key exists → add as Vercel env var via API — fully headless after that
-- **When needed:** nice-to-have during validation, required for building stage analytics
+- **Status:** No longer needed — replaced by @vercel/analytics (zero-config, zero credentials)
+- **Learning:** Before creating a `needs_carlos` credential item, always ask: does Vercel have a native equivalent? (@vercel/analytics, Vercel Firewall, etc.)
+
+### 4. RESEND_API_KEY
+- **What happened:** Carlos pasted the key directly in chat (2026-03-18)
+- **Why manual:** Resend account creation requires email verification; key retrieval needs browser login to resend.com dashboard
+- **Automation path:** Once the key exists, adding it to Vercel env is fully autonomous: `POST /v10/projects/{id}/env` with `{"key":"RESEND_API_KEY","value":"...","type":"encrypted","target":["production","preview"]}`
+- **Status:** Done. `RESEND_API_KEY` is now in Vercel env vars for production + preview.
+
+### 5. Vercel GitHub App for private repos
+- **What happened:** Carlos installed the Vercel GitHub App via browser (github.com/settings/installations) — 2026-03-18
+- **Why manual:** GitHub App installation requires browser-based OAuth consent — cannot be done headlessly
+- **Result after installation:** Preview deploys via GitHub webhook now work. Production deploys still fail (see #1 in Was Manual → Now Autonomous). API gitSource is the deploy method.
+- **Automation path:** Nothing to automate — one-time browser action, now permanently done.
 
 ---
 
@@ -82,11 +93,35 @@ Things discovered to be automatable that the genesis prompt assumed were manual,
 
 ---
 
+### Agent mistake: running vercel CLI from repo root created a rogue project
+- **What happened:** `vercel --prod` from repo root created a new `founder-os-seed` project, linking it to the same GitHub repo. This also clobbered `.vercel/project.json` at root to point to the wrong project, and clearing `rootDirectory` to fix CLI deploys then broke API gitSource deploys too.
+- **Prevention:** Never run `vercel` CLI without first verifying you are in the correct directory AND that `.vercel/project.json` in that directory points to the right project. Always use the API gitSource approach instead.
+- **Cleanup:** Deleted `founder-os-seed` project via API, restored `rootDirectory: MVP`, updated root `.vercel/project.json`.
+
+---
+
 ## To Update in Genesis Prompt
 
+- [x] Deploy via API gitSource — CLI and GitHub webhook unreliable on private Hobby (done 2026-03-18)
+- [x] Session diary must include "Manual actions this session" section (done 2026-03-18)
+- [x] After diary: update autonomy-learnings.md if new patterns found (done 2026-03-18)
 - [ ] Add Full Disk Access grant for iMessage reading to setup instructions
 - [ ] Add `~/.npm-global` install pattern for global CLIs (no sudo needed)
 - [ ] Add `vite/client` to tsconfig template
 - [ ] Add `@vercel/node` to devDependencies template
-- [ ] Document that Vercel GitHub App for private repos needs one browser install
-- [ ] Remove `[skip ci]` mention in context of Vercel — Vercel doesn't respect it, only GitHub Actions does
+- [ ] Before creating a `needs_carlos` credential item: check if Vercel/platform has a native zero-config equivalent first
+
+---
+
+## Compounding Autonomy Scorecard
+
+| Action | Session 1 | Session 2 | Session 3 |
+|--------|-----------|-----------|-----------|
+| Vercel deploy | manual (dashboard) | CLI (✓ auto) | API gitSource (✓ more reliable) |
+| Analytics | PostHog (needs account) | — | Vercel Analytics (✓ zero config) |
+| Email confirmation | none | none | Resend (✓ auto after key provided) |
+| GitHub App install | blocked | blocked | ✓ done (one-time) |
+| iMessage reading | blocked | blocked | blocked (needs Full Disk Access) |
+| Neon DB | blocked | blocked | blocked (deferred to building stage) |
+
+**Target:** every session should move at least one row from "blocked/manual" to "✓ auto".
