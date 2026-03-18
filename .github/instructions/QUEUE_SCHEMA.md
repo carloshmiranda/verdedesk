@@ -17,9 +17,8 @@ All queue items live in `.github/agent-queue/` as individual JSON files named `[
 ```
 
 **Rules:**
-- `needs_mac` and `needs_carlos` are mutually exclusive — never set both to `true`; if a task genuinely requires both Mac access and Carlos approval, split it into two sequential queue items
 - Never delete queue items — instead update `status` to `completed` or `failed` and write a `result` summary; completed items serve as an audit trail and pattern source for self-improvement
-- For items requiring external action: always set exactly one of `needs_mac` or `needs_carlos` to `true`. Internal agent-to-agent tasks (`agent_task` type) are the only valid exception where both are `false`.
+- `needs_carlos: true` is for items that require a physical human action (Vercel dashboard, Apple enrollment, DNS records). Everything else the Founder handles directly.
 
 ---
 
@@ -92,22 +91,3 @@ Used when one agent delegates a task to another.
 - Always populate `result` with a brief summary of what was done or why it failed
 - Never reassign a task to a different agent — instead, create a new queue item assigned to the correct agent and mark the original `status: completed` with `result.note: "delegated to [new-item-id]"`
 
----
-
-### needs_mac items
-
-Used when a task requires the Mac Runner (real network, iMessage access, system tools).
-
-```json
-{
-  "id": "mac-[short-description]",
-  "type": "[specific task type, e.g. imessage_reply_listener]",
-  "needs_mac": true,
-  "needs_carlos": false,
-  "status": "pending",
-  "created_by": "[agent name]",
-  "created_at": "[ISO timestamp]",
-  "instructions": {},
-  "result": null
-}
-```

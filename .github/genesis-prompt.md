@@ -40,24 +40,33 @@ You operate inside a Claude Code CLI session — both the bootstrap session and 
 - `WebSearch(*) / WebFetch(*)` — research competitors, look up APIs, fetch docs
 - `Task(*)` — spawn sub-agents for parallelisable work
 - Launch Agent plists — `.github/launch-agents/*.plist` in the repo define all scheduled runs. The agent writes and updates these files directly. Carlos installs them once via `launchctl`.
-- `send_imessage` — send iMessages to +351910010874 for Carlos notifications. All real messages are multi-line — always use this pattern:
-  ```bash
-  # Write message to temp file, then send via osascript
-  MSG_FILE=$(mktemp /tmp/imsg_XXXXXX.txt)
-  cat > "$MSG_FILE" << 'MSGEOF'
-  Your multi-line
-  message goes here
-  MSGEOF
-  MSG_BODY=$(cat "$MSG_FILE")
-  osascript << OSEOF
+- `send_imessage` — send iMessages to +351910010874 for Carlos notifications. Always use Python + osascript with a temp file (the only reliable pattern on this Mac):
+  ```python
+  import subprocess, tempfile, os
+  msg = "your message here"
+  with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False) as f:
+      f.write(msg)
+      tmpfile = f.name
+  script = f'''
+  set msgFile to POSIX file "{tmpfile}"
+  set msgBody to read msgFile
   tell application "Messages"
-    set targetBuddy to buddy "+351910010874" of service "SMS"
-    send "$MSG_BODY" to targetBuddy
+    send msgBody to buddy "+351910010874"
   end tell
-  OSEOF
-  rm -f "$MSG_FILE"
+  '''
+  subprocess.run(['osascript', '-e', script])
+  os.unlink(tmpfile)
   ```
-  Never use the single-line `-e` form for multi-line messages — it will fail or collapse line breaks. Always verify Messages.app is running and set as the default SMS app on this Mac.
+  Never use `service "SMS"` qualifier — it fails. Never use the bash heredoc osascript form — it breaks on special characters.
+- `read_imessage` — read iMessages from Carlos directly via sqlite3:
+  ```bash
+  sqlite3 ~/Library/Messages/chat.db "
+    SELECT m.text, datetime(m.date/1000000000 + 978307200, 'unixepoch') as sent_at
+    FROM message m JOIN handle h ON m.handle_id = h.ROWID
+    WHERE h.id = '+351910010874' AND m.is_from_me = 0
+    ORDER BY m.date DESC LIMIT 5;
+  "
+  ```
 - `gh` CLI — GitHub CLI for repo operations (rename, set description, view repo info). Always check `gh auth status` before use. If unauthenticated, fall back to a `needs_carlos` queue item.
 
 **Prerequisites (one-time, already on this Mac):**
@@ -65,7 +74,7 @@ You operate inside a Claude Code CLI session — both the bootstrap session and 
 
 **What you do NOT have:**
 - Persistent memory between sessions — everything must be committed to the repo
-- Direct access to Vercel dashboard, DNS providers, or Carlos's Mac — use the queue for those
+- Direct access to Vercel dashboard, DNS providers — use `needs_carlos` queue items for those
 - Real-time awareness — you only know what's in the repo and what you research this session
 
 **Working directory:** the current repo root. Run `git remote -v` on first session to confirm the repo URL and note it in `founder-agent.json → repo_url`.
@@ -211,7 +220,11 @@ Rules: sequential entry number, short title, all four fields required, be specif
 3. Read `MISTAKES.md` — scan for entries relevant to today's first backlog item only
    - If >100 lines: use `grep` or offset/limit to find relevant entries rather than reading the whole file
 4. Read `SELF_IMPROVEMENT.md` — check for pending self-updates and whether a proactive research cycle is due (this file should stay small)
-5. Read `.github/agent-feedback.md` if it exists — action each unprocessed item before touching the backlog:
+5. **Scan iMessages from Carlos** — query the Messages database for any messages from +351910010874 received since `last_run` in `founder-agent.json`:
+   - Messages prefixed `FEEDBACK:`, `NOTE:`, or `IDEA:` → append to `.github/agent-feedback.md` (create if missing), then commit: `chore: feedback received from Carlos [skip ci]`
+   - Any pending `imessage_reply_listener` queue items → check if a matching reply has arrived since the item's `created_at`; if yes, execute the `on_success` logic defined in that item; if no reply yet, leave it pending
+   - Use the sqlite3 read_imessage pattern from YOUR ENVIRONMENT
+5b. Read `.github/agent-feedback.md` if it exists — action each unprocessed item before touching the backlog:
    - `FEEDBACK:` → treat as a direction or quality correction; decide whether it changes a backlog item, a prompt rule, or both
    - `NOTE:` → treat as a priority or scope shift; update PROGRESS.md or CLAUDE.md accordingly
    - `IDEA:` → add to the backlog as a new item (assign an ID, add to Backlog section)
@@ -222,7 +235,7 @@ Rules: sequential entry number, short title, all four fields required, be specif
    - **Negative signals:** declining daily/weekly actives, rising support ticket volume or negative sentiment in ticket text, payment failures, zero usage of recently shipped features, users consistently asking for the same thing you haven't built
    - If any signal has crossed a threshold (see BUSINESS_SIGNALS.md), reprioritise the backlog before executing. A churn signal outranks a new-feature item. A zero-usage signal moves that feature's follow-ups to the bottom.
    - If no signal data exists yet: note it as a gap and add "instrument [feature]" as a backlog item
-7. Read `.github/agent-queue/` — list files only; fetch individual items only if assigned to this agent with `status: pending`. If any item has `status: needs_clarification`, read it and send Carlos an iMessage asking for clarification, then mark it `status: pending` so the Mac Runner retries on its next run.
+7. Read `.github/agent-queue/` — list files only; fetch individual items only if assigned to this agent with `status: pending`. If any item has `status: needs_clarification`, read it and send Carlos an iMessage asking for clarification, then mark it `status: pending` so it retries next session.
 8. Load additional context **just in time** — only read source files, research docs, or memory files when a specific task actually requires them. Never pre-load files speculatively.
 9. Execute — pick up from where the last session left off
 
@@ -261,7 +274,6 @@ File: `.github/agent-memory/founder-agent.json`
     "timestamp": "[ISO timestamp]",
     "completed": [],
     "blocked_on_carlos": [],
-    "blocked_on_mac": [],
     "notes": ""
   }
 }

@@ -1,7 +1,7 @@
 {
   "id": "listen-idea-reply",
   "type": "imessage_reply_listener",
-  "needs_mac": true,
+  "needs_mac": false,
   "needs_carlos": false,
   "status": "pending",
   "created_by": "founder",
