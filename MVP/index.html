@@ -4,10 +4,75 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Green receipts and Portuguese tax compliance — in plain English. Built for digital nomads and expats on D8 visas." />
-    <title>VerdeDesk — Green Receipts Made Simple</title>
+    <meta name="description" content="Issue recibos verdes, track income, and stay compliant with Portuguese tax law — in plain English. Built for D8 visa holders and expat freelancers." />
+    <title>VerdeDesk — Green Receipts Made Simple for Expats in Portugal</title>
+    <link rel="canonical" href="https://verdedesk.vercel.app" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://verdedesk.vercel.app" />
+    <meta property="og:title" content="VerdeDesk — Green Receipts in Plain English" />
+    <meta property="og:description" content="Stop fighting Portal das Financas. Issue recibos verdes, track your income vs the EUR 15k VAT threshold, and get compliance reminders — all in English. Built for D8 visa holders." />
+    <meta property="og:site_name" content="VerdeDesk" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@chgmiranda" />
+    <meta name="twitter:title" content="VerdeDesk — Green Receipts in Plain English" />
+    <meta name="twitter:description" content="Issue recibos verdes, track income, and stay tax-compliant in Portugal — without reading Portuguese. Built for D8 visa holders." />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a recibo verde and how do I issue one in English?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A recibo verde (green receipt) is the official invoice Portuguese freelancers must issue for every payment received. It must be issued through Portal das Financas — which has no English version. VerdeDesk provides an English-language interface that translates every field and submits compliant receipts on your behalf."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the EUR 15,000 VAT threshold work for D8 visa freelancers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Freelancers earning under EUR 15,000/year are exempt from charging VAT on invoices. Once you cross that threshold, you must register for IVA (VAT) and charge 23% — retroactively on that invoice. VerdeDesk tracks your cumulative income and warns you before you cross the line."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need an accountant as a D8 visa freelancer in Portugal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not necessarily. If you issue fewer than 150 invoices/year and stay under the simplified tax regime, you can manage your own recibos verdes. Most expats hire accountants (EUR 80-165/month) simply because the portal is in Portuguese — VerdeDesk removes that barrier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the quarterly Seguranca Social declaration?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every 3 months, freelancers must declare their income to Seguranca Social (Portuguese social security) and pay a contribution. Missing the deadline triggers automatic penalties. VerdeDesk sends reminders before each deadline and shows exactly what you owe."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the QES mandate and does it affect my recibos verdes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "From January 2026, Portugal requires a Qualified Electronic Signature (QES) on invoices issued outside Portal das Financas. If you use any third-party invoicing tool, verify it is QES-compliant or your invoices will be non-compliant. Issuing directly through Portal das Financas (which VerdeDesk wraps) is automatically compliant."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

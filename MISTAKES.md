@@ -132,3 +132,11 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 - **Root cause:** Bootstrap session created the git repo locally and set a remote URL, but never ran `gh repo create`. The remote URL pointed to a non-existent repo.
 - **Prevention:** At session start, after verifying git identity, run `gh repo view [repo_url]` and create the repo if it doesn't exist. Add this to the session start sequence as step 0b.
 - **Added by:** founder on 2026-03-18
+
+---
+
+### Entry 015 — All Reddit posts spam-filtered: zero reach from 6 subreddits
+- **What happened:** All 6 Reddit posts (r/digitalnomad, r/freelance, r/expats, r/eupersonalfinance, r/ExpatFIRE, r/SideProject) were removed by Reddit spam filters or moderators. Every post shows score=1, 0 comments, selftext=[removed]. Zero distribution reach from Reddit despite being the primary channel.
+- **Root cause:** The Zernio-connected account (`Eidonon`) has low karma and posted to 6 subreddits in rapid succession on the same day. Reddit's anti-spam system flags new/low-karma accounts that post promotional content to multiple subreddits quickly. Some subreddits also have AutoMod rules requiring minimum karma or account age.
+- **Prevention:** (1) Never rely on Reddit as a primary autonomous channel with a low-karma account. (2) If using Reddit, post max 1 sub per day, build karma first with genuine comments. (3) Diversify distribution across directories, SEO, and owned channels (Twitter, email) that don't have karma gates. (4) Always verify post visibility within 1 hour of posting by fetching the post URL and checking if selftext != [removed].
+- **Added by:** founder on 2026-03-18

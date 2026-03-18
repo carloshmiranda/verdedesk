@@ -53,7 +53,8 @@ setEmail('')
       {/* Hero */}
       <section className="max-w-3xl mx-auto px-6 pt-20 pb-24 text-center">
         <div className="inline-flex items-center gap-2 bg-verde-50 text-verde-700 text-sm font-medium px-3 py-1 rounded-full mb-8">
-          <span>For English-speaking freelancers in Portugal</span>
+          <span className="inline-block w-2 h-2 bg-verde-500 rounded-full animate-pulse" />
+          <span>Launching April 2026 — for English-speaking freelancers in Portugal</span>
         </div>
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6">
           Stop fighting the{' '}
@@ -96,7 +97,7 @@ setEmail('')
           {status === 'error' && (
             <p className="text-red-600 text-sm mt-3">{errorMsg}</p>
           )}
-          <p className="text-gray-400 text-sm mt-3">Free to join. No card required.</p>
+          <p className="text-gray-400 text-sm mt-3">Free to join. No card required. Early access members get their first month free.</p>
         </div>
       </section>
 
@@ -244,7 +245,7 @@ setEmail('')
             Be first in line
           </h2>
           <p className="text-verde-100 mb-8">
-            VerdeDesk is launching soon. Join the waitlist and get early access.
+            VerdeDesk launches April 2026. Waitlist members get their first month free.
           </p>
           {status !== 'success' ? (
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
