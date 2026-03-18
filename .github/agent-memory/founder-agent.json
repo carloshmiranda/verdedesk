@@ -8,14 +8,27 @@
   "bootstrapped": true,
   "stage": "validation",
   "fleet_health": "green",
-  "active_agents": ["founder"],
+  "active_agents": [
+    "founder"
+  ],
   "session_count": 2,
   "last_research_session": 1,
   "last_session": {
     "timestamp": "2026-03-18T02:00:00Z",
-    "completed": ["FOUNDER-001", "repo-rename-verdedesk", "mvp-scaffold", "landing-page", "posthog-integration", "queue-items"],
-    "blocked_on_carlos": ["carlos-connect-vercel", "carlos-install-founder-launch-agent", "carlos-posthog-key"],
+    "completed": [
+      "FOUNDER-001",
+      "repo-rename-verdedesk",
+      "mvp-scaffold",
+      "landing-page",
+      "posthog-integration",
+      "queue-items"
+    ],
+    "blocked_on_carlos": [
+      "carlos-connect-vercel",
+      "carlos-install-founder-launch-agent",
+      "carlos-posthog-key"
+    ],
     "blocked_on_mac": [],
-    "notes": "Bootstrap complete. Repo renamed to verdedesk. Landing page with waitlist form scaffolded. 3 queue items for Carlos: Vercel deploy, Launch Agent install, PostHog key. Awaiting Vercel URL to start validation sprint."
+    "notes": "Bootstrap complete. VerdeDesk live at https://verdedesk.vercel.app. VERCEL_TOKEN stored in ~/.founder-secrets. Awaiting PostHog key and Neon DB URL."
   }
 }

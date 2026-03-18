@@ -1,24 +1,28 @@
 {
   "business_name": "VerdeDesk",
   "repo_url": "https://github.com/carloshmiranda/verdedesk",
-  "domain_candidates": ["verdedesk.com", "verdedesk.io", "verdedesk.app"],
-  "domain_notes": "verdedesk.com appears available — no indexed web presence found. .com preferred over .pt (signals domestic product to international audience).",
-  "value_proposition": "VerdeDesk is the only English-first SaaS that guides D8 visa holders and expat freelancers through every recibos verdes compliance step — from activity code selection to VAT threshold monitoring to social security deadlines — without requiring them to read a single line of Portuguese.",
+  "domain_candidates": [
+    "verdedesk.com",
+    "verdedesk.io",
+    "verdedesk.app"
+  ],
+  "domain_notes": "verdedesk.com appears available \u2014 no indexed web presence found. .com preferred over .pt (signals domestic product to international audience).",
+  "value_proposition": "VerdeDesk is the only English-first SaaS that guides D8 visa holders and expat freelancers through every recibos verdes compliance step \u2014 from activity code selection to VAT threshold monitoring to social security deadlines \u2014 without requiring them to read a single line of Portuguese.",
   "one_liner": "The English-friendly recibos verdes tool for digital nomads and expats in Portugal.",
   "customer": {
-    "primary": "English-speaking digital nomads and expats on D8 visas in Portugal — primarily Lisbon, Porto, Algarve",
-    "secondary": "Portuguese-speaking trabalhadores independentes who find Portal das Finanças UX outdated",
-    "pain": "Must navigate a Portuguese-only government portal with no English support. One wrong dropdown triggers 23% VAT liability or false self-employment penalties. They hire accountants at €80–165/month just to manage receipts they should be able to issue in 30 seconds.",
+    "primary": "English-speaking digital nomads and expats on D8 visas in Portugal \u2014 primarily Lisbon, Porto, Algarve",
+    "secondary": "Portuguese-speaking trabalhadores independentes who find Portal das Finan\u00e7as UX outdated",
+    "pain": "Must navigate a Portuguese-only government portal with no English support. One wrong dropdown triggers 23% VAT liability or false self-employment penalties. They hire accountants at \u20ac80\u2013165/month just to manage receipts they should be able to issue in 30 seconds.",
     "current_workarounds": [
-      "Hiring local accountants (€80+/mo)",
-      "Touchdown Portugal full-service attorney (€165/mo)",
-      "Struggling through Portal das Finanças with Google Translate",
+      "Hiring local accountants (\u20ac80+/mo)",
+      "Touchdown Portugal full-service attorney (\u20ac165/mo)",
+      "Struggling through Portal das Finan\u00e7as with Google Translate",
       "Asking expat Facebook group members for step-by-step help",
       "ATGO app (Portuguese-only, no guidance)"
     ],
     "verbatim_pain_language": [
       "Does anyone know how to access the finances website and issue green receipt for clients? I need step by step details.",
-      "The Finanças portal is only in Portuguese, so freelancers are advised to ask a trusted friend to help if needed.",
+      "The Finan\u00e7as portal is only in Portuguese, so freelancers are advised to ask a trusted friend to help if needed.",
       "One wrong selection on the portal can accidentally trigger a 23% VAT liability you didn't collect, or flag you for 'false self-employment' penalties.",
       "In Portugal, it is a compliance minefield.",
       "When do we need to submit it? May I know if we just pay the income tax before filing the tax return to Portuguese tax authority?",
@@ -30,7 +34,7 @@
   "market": {
     "geography": "Portugal (Lisbon, Porto, Algarve primary)",
     "language": "English-first, Portuguese-supported",
-    "regulatory_context": "AT (Autoridade Tributária) mandates. Paper receipts abolished Jan 2024. B2G e-invoicing Jan 2025–2026 (now includes micro-enterprises). QES mandate delayed to Jan 2027. VAT grace period eliminated Jan 2026.",
+    "regulatory_context": "AT (Autoridade Tribut\u00e1ria) mandates. Paper receipts abolished Jan 2024. B2G e-invoicing Jan 2025\u20132026 (now includes micro-enterprises). QES mandate delayed to Jan 2027. VAT grace period eliminated Jan 2026.",
     "addressable_users": {
       "d8_visa_cumulative": "9,322 applications, ~7,664 approvals through September 2025",
       "d8_approval_rate": "~95%",
@@ -41,77 +45,152 @@
   },
   "competitors": [
     {
-      "name": "ATGO / Portal das Finanças (official)",
+      "name": "ATGO / Portal das Finan\u00e7as (official)",
       "url": "https://www.portaldasfinancas.gov.pt",
       "pricing": "Free",
       "has_english": false,
-      "threat_level": "low — it IS the pain point we solve",
-      "strengths": ["Free, official, trusted by AT"],
-      "weaknesses": ["Portuguese-only", "Zero guidance", "No client management", "No income tracking", "No reminders", "No mobile-first UX"]
+      "threat_level": "low \u2014 it IS the pain point we solve",
+      "strengths": [
+        "Free, official, trusted by AT"
+      ],
+      "weaknesses": [
+        "Portuguese-only",
+        "Zero guidance",
+        "No client management",
+        "No income tracking",
+        "No reminders",
+        "No mobile-first UX"
+      ]
     },
     {
       "name": "InvoiceXpress",
       "url": "https://invoicexpress.com/en/",
-      "pricing": "Free (1 doc/mo); X10 €9/mo; X20 €14/mo; X30 €18/mo; X100 €24/mo",
+      "pricing": "Free (1 doc/mo); X10 \u20ac9/mo; X20 \u20ac14/mo; X30 \u20ac18/mo; X100 \u20ac24/mo",
       "has_english": true,
-      "threat_level": "medium — most mature AT integration, English available",
-      "strengths": ["AT-certified #192", "English available", "API access", "SAF-T export", "Free entry tier"],
-      "weaknesses": ["Per-document pricing confusing for freelancers", "No English-first expat onboarding", "No NHR/IFICI guidance", "No social security deadline reminders", "SME/accountant-oriented UI"]
+      "threat_level": "medium \u2014 most mature AT integration, English available",
+      "strengths": [
+        "AT-certified #192",
+        "English available",
+        "API access",
+        "SAF-T export",
+        "Free entry tier"
+      ],
+      "weaknesses": [
+        "Per-document pricing confusing for freelancers",
+        "No English-first expat onboarding",
+        "No NHR/IFICI guidance",
+        "No social security deadline reminders",
+        "SME/accountant-oriented UI"
+      ]
     },
     {
       "name": "Moloni",
       "url": "https://moloni.pt",
-      "pricing": "Base €6.49/mo; Flex €10.90/mo; Pro €15.90/mo (annual)",
+      "pricing": "Base \u20ac6.49/mo; Flex \u20ac10.90/mo; Pro \u20ac15.90/mo (annual)",
       "has_english": false,
       "threat_level": "low-medium",
-      "strengths": ["Product of Year 2024 Portugal", "36,000+ customers", "Mobile apps", "Low price"],
-      "weaknesses": ["Entirely Portuguese-language", "No expat positioning", "Designed for SMBs", "No compliance guidance"]
+      "strengths": [
+        "Product of Year 2024 Portugal",
+        "36,000+ customers",
+        "Mobile apps",
+        "Low price"
+      ],
+      "weaknesses": [
+        "Entirely Portuguese-language",
+        "No expat positioning",
+        "Designed for SMBs",
+        "No compliance guidance"
+      ]
     },
     {
       "name": "Cegid Jasmin",
       "url": "https://jasminsoftware.pt",
-      "pricing": "Free up to €30k revenue/yr; then €5-12/mo",
+      "pricing": "Free up to \u20ac30k revenue/yr; then \u20ac5-12/mo",
       "has_english": true,
-      "threat_level": "medium — free tier is pricing pressure",
-      "strengths": ["Generous free tier", "AT-certified", "Enterprise backing"],
-      "weaknesses": ["SME-first, thin English version", "No expat/D8 onboarding", "No compliance guidance", "No AT portal workflow guidance"]
+      "threat_level": "medium \u2014 free tier is pricing pressure",
+      "strengths": [
+        "Generous free tier",
+        "AT-certified",
+        "Enterprise backing"
+      ],
+      "weaknesses": [
+        "SME-first, thin English version",
+        "No expat/D8 onboarding",
+        "No compliance guidance",
+        "No AT portal workflow guidance"
+      ]
     },
     {
       "name": "Rauva",
       "url": "https://rauva.com",
-      "pricing": "Charged €8/mo (invoicing only); Supercharged €128+/mo (with accountant)",
+      "pricing": "Charged \u20ac8/mo (invoicing only); Supercharged \u20ac128+/mo (with accountant)",
       "has_english": true,
-      "threat_level": "medium — English-first but massive pricing gap",
-      "strengths": ["Modern UX", "Bundled bank account", "AT-certified", "English website"],
-      "weaknesses": ["€8 plan leaves all compliance to user", "Accountant tier at €128/mo is expensive", "Requires Rauva bank account", "No expat-specific onboarding", "Gap between €8 and €128 is VerdeDesk's opportunity"]
+      "threat_level": "medium \u2014 English-first but massive pricing gap",
+      "strengths": [
+        "Modern UX",
+        "Bundled bank account",
+        "AT-certified",
+        "English website"
+      ],
+      "weaknesses": [
+        "\u20ac8 plan leaves all compliance to user",
+        "Accountant tier at \u20ac128/mo is expensive",
+        "Requires Rauva bank account",
+        "No expat-specific onboarding",
+        "Gap between \u20ac8 and \u20ac128 is VerdeDesk's opportunity"
+      ]
     },
     {
       "name": "Touchdown Portugal",
       "url": "https://www.touchdown.us",
-      "pricing": "€165/mo (full service, up to 5 invoices/mo)",
+      "pricing": "\u20ac165/mo (full service, up to 5 invoices/mo)",
       "has_english": true,
-      "threat_level": "low — competitor but validates high willingness to pay",
-      "strengths": ["Full-service English attorney", "Explicitly targets D8/expats", "End-to-end compliance"],
-      "weaknesses": ["€165/mo too expensive for most freelancers", "5 invoice/mo cap", "Human-dependent, not scalable SaaS", "No self-serve option"],
-      "notes": "Defines the top of market. VerdeDesk at €9/mo can serve 80% of the same needs at 5% of the price."
+      "threat_level": "low \u2014 competitor but validates high willingness to pay",
+      "strengths": [
+        "Full-service English attorney",
+        "Explicitly targets D8/expats",
+        "End-to-end compliance"
+      ],
+      "weaknesses": [
+        "\u20ac165/mo too expensive for most freelancers",
+        "5 invoice/mo cap",
+        "Human-dependent, not scalable SaaS",
+        "No self-serve option"
+      ],
+      "notes": "Defines the top of market. VerdeDesk at \u20ac9/mo can serve 80% of the same needs at 5% of the price."
     },
     {
       "name": "Tytle.io",
       "url": "https://tytle.io",
       "pricing": "Opaque / bespoke",
       "has_english": true,
-      "threat_level": "low — advisor matching, not SaaS",
-      "strengths": ["English-language expat advisory", "Portugal-specific guides"],
-      "weaknesses": ["Not a product — advisor marketplace", "No invoicing", "No pricing transparency"]
+      "threat_level": "low \u2014 advisor matching, not SaaS",
+      "strengths": [
+        "English-language expat advisory",
+        "Portugal-specific guides"
+      ],
+      "weaknesses": [
+        "Not a product \u2014 advisor marketplace",
+        "No invoicing",
+        "No pricing transparency"
+      ]
     },
     {
       "name": "Worktugal",
       "url": "https://worktugal.com",
       "pricing": "Free (content only)",
       "has_english": true,
-      "threat_level": "none — content competitor, potential SEO benchmark and distribution partner",
-      "strengths": ["Best English content on Portugal freelancer tax", "Strong SEO", "Trusted brand in target community"],
-      "weaknesses": ["No product", "No automation", "No compliance workflow"],
+      "threat_level": "none \u2014 content competitor, potential SEO benchmark and distribution partner",
+      "strengths": [
+        "Best English content on Portugal freelancer tax",
+        "Strong SEO",
+        "Trusted brand in target community"
+      ],
+      "weaknesses": [
+        "No product",
+        "No automation",
+        "No compliance workflow"
+      ],
       "notes": "High organic traffic from exact target customer. Potential backlink / partnership target."
     },
     {
@@ -119,18 +198,26 @@
       "url": "https://github.com/franciscobmacedo/remotefreelancept",
       "pricing": "Free, open source",
       "has_english": true,
-      "threat_level": "none — signals unmet demand",
-      "strengths": ["Community-built tax simulator", "Shows net income breakdown"],
-      "weaknesses": ["No invoicing", "Not AT-certified", "Developer-only audience", "No compliance workflow"],
+      "threat_level": "none \u2014 signals unmet demand",
+      "strengths": [
+        "Community-built tax simulator",
+        "Shows net income breakdown"
+      ],
+      "weaknesses": [
+        "No invoicing",
+        "Not AT-certified",
+        "Developer-only audience",
+        "No compliance workflow"
+      ],
       "notes": "Community built this themselves because nothing better existed. Strong demand signal."
     }
   ],
-  "unfair_advantage": "Every competitor was built for Portuguese-speaking business owners and retrofitted (poorly) for expats. VerdeDesk can be architected from day one around the English-speaking freelancer's mental model — with onboarding tied to D8 visa status, NHR/IFICI eligibility checks, foreign-client invoice edge cases, and VAT threshold monitoring that all current competitors treat as out-of-scope.",
+  "unfair_advantage": "Every competitor was built for Portuguese-speaking business owners and retrofitted (poorly) for expats. VerdeDesk can be architected from day one around the English-speaking freelancer's mental model \u2014 with onboarding tied to D8 visa status, NHR/IFICI eligibility checks, foreign-client invoice edge cases, and VAT threshold monitoring that all current competitors treat as out-of-scope.",
   "monetisation": {
     "model": "Subscription SaaS",
-    "price": "€9/month",
+    "price": "\u20ac9/month",
     "trial": "14-day free trial, no card required",
-    "rationale": "Touchdown charges €165/mo for the same outcome. Rauva charges €128/mo for a bundled accountant. Accountants charge €80+/mo. At €9/mo we are 10-18x cheaper while covering 80% of the compliance need with software. Jasmin's €30k free tier is the main pricing pressure — must win on English UX and guided onboarding.",
+    "rationale": "Touchdown charges \u20ac165/mo for the same outcome. Rauva charges \u20ac128/mo for a bundled accountant. Accountants charge \u20ac80+/mo. At \u20ac9/mo we are 10-18x cheaper while covering 80% of the compliance need with software. Jasmin's \u20ac30k free tier is the main pricing pressure \u2014 must win on English UX and guided onboarding.",
     "freemium_verdict": "Not justified. Free tier creates support burden without driving acquisition. Trial converts better for a compliance tool with a clear job-to-be-done."
   },
   "tech_stack": {
@@ -145,29 +232,125 @@
     "constraint": "Max 8 active serverless functions"
   },
   "communities": [
-    {"name": "Lisbon Digital Nomads & Expats", "platform": "Facebook Group", "url": "https://www.facebook.com/groups/532696873566509/", "members": "37,000+"},
-    {"name": "Lisbon Digital Nomads", "platform": "Meetup", "url": "https://www.meetup.com/lisbon-digital-nomads/", "members": "20,000+; 100-300 attend Thursday events"},
-    {"name": "Expats in Portugal", "platform": "Facebook Group", "url": "https://www.facebook.com/groups/expatsinportugal/", "members": "Large"},
-    {"name": "All About Portugal for Expats", "platform": "Facebook Group", "url": "https://www.facebook.com/groups/allaboutportugal/", "members": "Large"},
-    {"name": "Moving 2 Portugal", "platform": "Facebook Group", "url": "https://www.facebook.com/groups/moving2portugal/", "members": "Large"},
-    {"name": "Americans in Portugal – The Expats Group", "platform": "Facebook Group", "url": "https://www.facebook.com/groups/333297476604/", "members": "Mid-size, high-income US demographic"},
-    {"name": "Digital Nomads & Entrepreneurs in Portugal, Madeira & Azores", "platform": "Facebook", "url": "https://www.facebook.com/digitalnomads.pt/", "members": "Mid-size"},
-    {"name": "Expats Portugal Forum", "platform": "Web Forum", "url": "https://expatsportugal.com/new-forum/", "notes": "Red Tape & Business section — active recibos verdes threads"},
-    {"name": "r/portugal", "platform": "Reddit", "url": "https://reddit.com/r/Portugal", "members": "~450,000"},
-    {"name": "r/digitalnomad", "platform": "Reddit", "url": "https://reddit.com/r/digitalnomad", "members": "~2.4M"},
-    {"name": "r/eupersonalfinance", "platform": "Reddit", "url": "https://reddit.com/r/eupersonalfinance", "members": "~350,000"},
-    {"name": "Worktugal", "platform": "Newsletter/Content hub", "url": "https://worktugal.com", "notes": "Dominant SEO for English Portugal freelancer queries — potential distribution partner"}
+    {
+      "name": "Lisbon Digital Nomads & Expats",
+      "platform": "Facebook Group",
+      "url": "https://www.facebook.com/groups/532696873566509/",
+      "members": "37,000+"
+    },
+    {
+      "name": "Lisbon Digital Nomads",
+      "platform": "Meetup",
+      "url": "https://www.meetup.com/lisbon-digital-nomads/",
+      "members": "20,000+; 100-300 attend Thursday events"
+    },
+    {
+      "name": "Expats in Portugal",
+      "platform": "Facebook Group",
+      "url": "https://www.facebook.com/groups/expatsinportugal/",
+      "members": "Large"
+    },
+    {
+      "name": "All About Portugal for Expats",
+      "platform": "Facebook Group",
+      "url": "https://www.facebook.com/groups/allaboutportugal/",
+      "members": "Large"
+    },
+    {
+      "name": "Moving 2 Portugal",
+      "platform": "Facebook Group",
+      "url": "https://www.facebook.com/groups/moving2portugal/",
+      "members": "Large"
+    },
+    {
+      "name": "Americans in Portugal \u2013 The Expats Group",
+      "platform": "Facebook Group",
+      "url": "https://www.facebook.com/groups/333297476604/",
+      "members": "Mid-size, high-income US demographic"
+    },
+    {
+      "name": "Digital Nomads & Entrepreneurs in Portugal, Madeira & Azores",
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/digitalnomads.pt/",
+      "members": "Mid-size"
+    },
+    {
+      "name": "Expats Portugal Forum",
+      "platform": "Web Forum",
+      "url": "https://expatsportugal.com/new-forum/",
+      "notes": "Red Tape & Business section \u2014 active recibos verdes threads"
+    },
+    {
+      "name": "r/portugal",
+      "platform": "Reddit",
+      "url": "https://reddit.com/r/Portugal",
+      "members": "~450,000"
+    },
+    {
+      "name": "r/digitalnomad",
+      "platform": "Reddit",
+      "url": "https://reddit.com/r/digitalnomad",
+      "members": "~2.4M"
+    },
+    {
+      "name": "r/eupersonalfinance",
+      "platform": "Reddit",
+      "url": "https://reddit.com/r/eupersonalfinance",
+      "members": "~350,000"
+    },
+    {
+      "name": "Worktugal",
+      "platform": "Newsletter/Content hub",
+      "url": "https://worktugal.com",
+      "notes": "Dominant SEO for English Portugal freelancer queries \u2014 potential distribution partner"
+    }
   ],
   "market_timing": [
-    {"signal": "Paper recibos verdes abolished", "date": "Jan 2024", "impact": "All freelancers must now use electronic tools — software is mandatory, not optional"},
-    {"signal": "B2G e-invoicing extended to micro-enterprises", "date": "Jan 2026", "impact": "Freelancers doing government work must use structured e-invoicing (CIUS-PT format)"},
-    {"signal": "VAT grace period eliminated — €15k threshold is now a hard line", "date": "Jan 2026", "impact": "Crossing €15k triggers immediate VAT obligations with no transition. Creates demand for real-time threshold monitoring."},
-    {"signal": "QES (Qualified Electronic Signature) mandate delayed to 2027", "date": "Jan 2027", "impact": "18-month window before next compliance cliff — acquire users before urgency peaks"},
-    {"signal": "SAF-T accounting files mandatory for 2026 transactions", "date": "2028 (filing deadline)", "impact": "Freelancers need proper record-keeping starting now for 2026 — creates urgency to adopt a tool"},
-    {"signal": "NHR ended, replaced by IFICI (NHR 2.0) excluding most digital nomads", "date": "Jan 2024", "impact": "D8 cohort now on standard simplified regime. Correct categorisation more consequential, no preferential treatment."},
-    {"signal": "D8 visa 9,322+ cumulative applications", "date": "Sept 2025", "impact": "Steady inflow of English-speaking freelancers who need this from Day 1"},
-    {"signal": "19,258 US citizens with active Portugal residence permits", "date": "End 2024", "impact": "Large, high-income English-speaking cohort — strong SaaS willingness to pay"},
-    {"signal": "Portugal ranked 3rd in 2026 Digital Nomad Visa Index", "date": "2026", "impact": "Pipeline of new arrivals is large and structurally sustained"}
+    {
+      "signal": "Paper recibos verdes abolished",
+      "date": "Jan 2024",
+      "impact": "All freelancers must now use electronic tools \u2014 software is mandatory, not optional"
+    },
+    {
+      "signal": "B2G e-invoicing extended to micro-enterprises",
+      "date": "Jan 2026",
+      "impact": "Freelancers doing government work must use structured e-invoicing (CIUS-PT format)"
+    },
+    {
+      "signal": "VAT grace period eliminated \u2014 \u20ac15k threshold is now a hard line",
+      "date": "Jan 2026",
+      "impact": "Crossing \u20ac15k triggers immediate VAT obligations with no transition. Creates demand for real-time threshold monitoring."
+    },
+    {
+      "signal": "QES (Qualified Electronic Signature) mandate delayed to 2027",
+      "date": "Jan 2027",
+      "impact": "18-month window before next compliance cliff \u2014 acquire users before urgency peaks"
+    },
+    {
+      "signal": "SAF-T accounting files mandatory for 2026 transactions",
+      "date": "2028 (filing deadline)",
+      "impact": "Freelancers need proper record-keeping starting now for 2026 \u2014 creates urgency to adopt a tool"
+    },
+    {
+      "signal": "NHR ended, replaced by IFICI (NHR 2.0) excluding most digital nomads",
+      "date": "Jan 2024",
+      "impact": "D8 cohort now on standard simplified regime. Correct categorisation more consequential, no preferential treatment."
+    },
+    {
+      "signal": "D8 visa 9,322+ cumulative applications",
+      "date": "Sept 2025",
+      "impact": "Steady inflow of English-speaking freelancers who need this from Day 1"
+    },
+    {
+      "signal": "19,258 US citizens with active Portugal residence permits",
+      "date": "End 2024",
+      "impact": "Large, high-income English-speaking cohort \u2014 strong SaaS willingness to pay"
+    },
+    {
+      "signal": "Portugal ranked 3rd in 2026 Digital Nomad Visa Index",
+      "date": "2026",
+      "impact": "Pipeline of new arrivals is large and structurally sustained"
+    }
   ],
   "business_signals": {
     "waitlist_signups": 0,
@@ -176,5 +359,7 @@
   },
   "no_producthunt_or_appsumo_launches_found": true,
   "research_version": 2,
-  "researched_at": "2026-03-18T02:30:00Z"
+  "researched_at": "2026-03-18T02:30:00Z",
+  "vercel_url": "https://verdedesk.vercel.app",
+  "vercel_scope": "eidolons-projects-e72c0917"
 }

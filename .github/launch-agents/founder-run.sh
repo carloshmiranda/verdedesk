@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 export PATH="/Users/carlos.miranda/.npm-global/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+
+# Source secrets (VERCEL_TOKEN, etc.) — file lives outside repo, never committed
+[ -f "$HOME/.founder-secrets" ] && source "$HOME/.founder-secrets"
+
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 LOG_DIR="$REPO_ROOT/.github/launch-agents/logs"
 mkdir -p "$LOG_DIR"

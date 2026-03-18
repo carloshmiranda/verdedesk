@@ -2,16 +2,20 @@
   "id": "carlos-connect-vercel",
   "type": "human_action_required",
   "needs_mac": false,
-  "needs_carlos": true,
-  "status": "pending",
+  "needs_carlos": false,
+  "status": "completed",
   "created_by": "founder",
   "created_at": "2026-03-18T00:00:00Z",
   "priority": "high",
   "instructions": {
     "summary": "Authenticate the Vercel CLI once so all future deployments are fully automatic",
-    "detail": "Vercel CLI is installed at ~/.npm-global/bin/vercel. One browser-based login is needed. After that, the Founder deploys autonomously on every run — no dashboard visits ever again.",
-    "exact_action": "Run in Terminal: ~/.npm-global/bin/vercel login — complete the browser OAuth flow. Then run: cd ~/Developer/founder-os-seed/MVP && ~/.npm-global/bin/vercel --yes to create the project and get the live URL. Reply here with the URL.",
-    "unblocks": "All future deployments — Nova will call vercel --prod automatically after every push"
+    "exact_action": "Completed autonomously using VERCEL_TOKEN",
+    "unblocks": "All future deployments"
   },
-  "result": null
+  "result": {
+    "vercel_url": "https://verdedesk.vercel.app",
+    "scope": "eidolons-projects-e72c0917",
+    "completed_at": "2026-03-18T00:00:00Z",
+    "note": "Deployed autonomously via VERCEL_TOKEN. No dashboard action needed."
+  }
 }

@@ -67,6 +67,11 @@ You operate inside a Claude Code CLI session — both the bootstrap session and 
     ORDER BY m.date DESC LIMIT 5;
   "
   ```
+- `vercel` CLI — available at `~/.npm-global/bin/vercel`. VERCEL_TOKEN and VERCEL_SCOPE are sourced from `~/.founder-secrets` by the runner script and available as env vars. Deploy with:
+  ```bash
+  cd MVP && ~/.npm-global/bin/vercel --yes --prod --token "$VERCEL_TOKEN" --scope "$VERCEL_SCOPE"
+  ```
+  Always run after any `git push` that includes product code changes. Read `vercel_url` from `founder-research.json` for health checks.
 - `gh` CLI — GitHub CLI for repo operations (rename, set description, view repo info). Always check `gh auth status` before use. If unauthenticated, fall back to a `needs_carlos` queue item.
 
 **Prerequisites (one-time, already on this Mac):**
