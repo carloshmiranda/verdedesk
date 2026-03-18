@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "VerdeDesk",
+    "tagline": "AI-Powered Recibos Verdes Assistant for Freelancers in Portugal",
+    "problem": "Freelancers and digital nomads in Portugal must navigate a confusing, Portuguese-only government tax portal with high compliance risk, and no modern English-friendly tool wraps this workflow end-to-end.",
+    "customer": "English-speaking digital nomads and expats in Portugal on D8 visas, plus Portuguese-speaking freelancers who find the Portal das Finanças UX outdated — primarily Lisbon, Porto, Algarve",
+    "demand_signals": "Multi-channel: expat community sites (Worktugal, Portugalist) document the pain extensively; r/digitalnomad and r/portugal regularly surface 'how do I issue green receipts' with no good tooling answer; Jan 2025 B2G e-invoicing mandate and Jan 2026 QES requirement created new compliance complexity; 9,322+ D8 visa approvals by Sept 2025 creating a steady stream of new users who need this from day one; no indie-scale SaaS competitor on AppSumo or ProductHunt",
+    "monthly_cost_estimate": "$12-15/month (Vercel free, Supabase free, OpenAI GPT-4o-mini ~$10-12)",
+    "monetisation": {
+      "model": "Subscription SaaS",
+      "free_tier": "Up to 3 recibos verdes/month, income tracker, VAT threshold alerts",
+      "paid_plan": "€9/month — unlimited receipts, auto-categorisation, quarterly social security reminders, PDF with AT QR codes, English/Portuguese UI, tax year summary",
+      "trial": "14-day free Pro trial, no card required",
+      "rationale": "Accountants charge €30-80/month for freelancer management — undercuts significantly while being self-service"
+    },
+    "why_now": "D8 visa explosion (9,322+ applicants), Jan 2025 B2G e-invoicing mandate, Jan 2026 QES requirement, Portal das Finanças Sept 2024 UI overhaul causing new confusion, NHR tax regime ended making correct categorisation more consequential",
+    "confidence": 7.5,
+    "confidence_reasoning": "Multi-channel demand validated, no direct indie competitor, regulatory tailwinds, clear willingness to pay (people hire accountants at 3-5x the price). Risk: product must be guided assistant not automation bot due to AT portal legal constraints; market is geography-capped",
+    "portugal_focus": true,
+    "top_pick": true
+  },
+  {
+    "id": 2,
+    "name": "ReportBrief",
+    "tagline": "One-Click AI Client Report Generator for Solo Freelancers and Micro-Agencies",
+    "problem": "Freelancers and micro-agencies managing marketing or SEO for multiple clients waste 10-30 hours per month manually assembling client reports, while existing tools like AgencyAnalytics and Whatagraph all start at $12-49 per client per month — unaffordable at solo scale.",
+    "customer": "Freelance digital marketers, SEO consultants, and social media managers with 3-15 clients; small 1-3 person performance marketing agencies; global English-speaking market (US, UK, Australia, growing European base)",
+    "demand_signals": "Multi-channel: Reddit aggregators (BigIdeasDB, GummySearch) rank client reporting in top 20 business pain points across 2024-2025; AgencyAnalytics G2 reviews cite pricing as #1 blocker for solo operators; 12+ 'Looker Studio alternatives' listicle articles signal sustained demand; Indie Hackers revenue stories confirm monetisable niche; AppSumo audience is exactly this budget-conscious solo freelancer",
+    "monthly_cost_estimate": "$12-18/month (Vercel free, Supabase free, OpenAI GPT-4o-mini ~$10-15, all data APIs free)",
+    "monetisation": {
+      "model": "Subscription SaaS + AppSumo lifetime deal launch",
+      "free_tier": "1 client, 3 reports/month, GA4 + Search Console",
+      "starter": "$19/month — 5 clients, PDF + shareable link, white-label logo, Google Ads + Meta Ads",
+      "pro": "$39/month — unlimited clients, AI narrative summaries, custom branding, Slack/email auto-send",
+      "appsumo": "$69 lifetime Starter to acquire first 200-500 users and social proof",
+      "trial": "14-day free Pro trial"
+    },
+    "why_now": "GA4 migration left solo freelancers unable to build reports themselves; AI can now generate coherent narrative summaries cheaply (GPT-4o-mini); solo freelancer market growing as AI enables more 1-person agencies; AppSumo category proven",
+    "confidence": 7.0,
+    "confidence_reasoning": "Strong multi-channel demand, lean stack, real differentiation on AI narrative at budget price. Risk: competitive space with established players — differentiation must be radical simplicity + AI narrative + price. AppSumo launch strategy provides validation path",
+    "portugal_focus": false,
+    "top_pick": false
+  },
+  {
+    "id": 3,
+    "name": "ClipGrid",
+    "tagline": "AI Video Repurposing Tool Built for Non-English Creators (Portuguese, Spanish, French)",
+    "problem": "YouTube and podcast creators who produce content in Portuguese, Spanish, or French cannot use mainstream AI clipping tools effectively because Opus Clip, Klap, and Vidyo.ai are all optimised for English — producing poor captions, wrong viral moment detection, and culturally misaligned hooks for non-English content.",
+    "customer": "Portuguese-language YouTube and podcast creators with 5K-500K subscribers (Portugal + Brazil), with secondary markets in Spanish and French creator communities; Brazil alone has 142M+ YouTube users making it the world's 3rd largest YouTube market",
+    "demand_signals": "Multi-channel: AppSumo shows AI video clipping as a top trending 2025 category (Minvo trending); ProductHunt — Klap, Vidyo.ai, Opus Clip all have thousands of upvotes validating the category; no Portuguese-native equivalent exists on either platform; creator community forums document English-first tools producing poor results for non-English accents and transcription; Whisper (OpenAI) reached production-quality Portuguese transcription in 2024 enabling this to be built now",
+    "monthly_cost_estimate": "$40-50/month at early scale (Whisper API ~$36 at 200 videos/month, GPT-4o-mini ~$5-8)",
+    "monetisation": {
+      "model": "Usage-based subscription (credits)",
+      "free_tier": "30 minutes of video processing/month",
+      "creator": "$19/month — 300 minutes, PT + ES + EN, auto-captions, 3 hook variations per clip",
+      "studio": "$49/month — unlimited minutes, custom brand templates, bulk upload, team seat",
+      "trial": "14-day free Creator trial"
+    },
+    "why_now": "Whisper Portuguese accuracy reached production-quality 2024; short-form video is now mandatory for all creators; Brazil is world's 3rd largest YouTube market (142M users); AppSumo category proven by Minvo/Klap; AI infrastructure cost dropping making video processing economically viable",
+    "confidence": 6.5,
+    "confidence_reasoning": "Category strongly validated across multiple channels; Portuguese-language angle creates blue ocean within competitive space. Risk: most technically intensive build; operating costs scale linearly with video processing volume; Opus Clip adding multilingual support narrows the window; Brazil GTM requires separate community strategy",
+    "portugal_focus": true,
+    "top_pick": false
+  }
+]

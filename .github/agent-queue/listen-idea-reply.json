@@ -1,0 +1,38 @@
+{
+  "id": "listen-idea-reply",
+  "type": "imessage_reply_listener",
+  "needs_mac": true,
+  "needs_carlos": false,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-18T00:00:00Z",
+  "instructions": {
+    "action": "read_imessage_reply",
+    "from": "+351910010874",
+    "context": "Read the most recent iMessage reply from Carlos. Match the reply to the proposals in .github/agent-memory/idea-proposals.json using these rules: if the reply is a number (e.g. 1, 2, 3), select the corresponding proposal; if the reply is none, mark all proposals as rejected; if the reply is unrecognisable, set status to needs_clarification and stop.",
+    "on_success": {
+      "write": ".github/agent-memory/approved-idea.json",
+      "format": {
+        "name": "[matched idea name]",
+        "problem": "[matched idea problem]",
+        "customer": "[matched idea customer]",
+        "demand_signals": "[matched idea demand signals]",
+        "model": "[matched idea model]",
+        "price": "[matched idea price]",
+        "portugal_focus": "[true if this idea had the portugal_focus flag, false otherwise]",
+        "approved_by": "Carlos",
+        "approved_at": "[ISO timestamp]"
+      },
+      "then": "commit and push — message: chore: idea approved by Carlos [skip ci]",
+      "special_case": "After writing approved-idea.json, read founder-agent.json to get the real local_path and founder_name values and send Carlos an iMessage: '✅ Got it — idea approved and saved.\n\nRun me once more in Claude Code from the repo folder to kick off bootstrap:\n\n  cd [local_path]\n  claude --dangerously-skip-permissions -p \"$(cat .github/genesis-prompt.md)\"\n\nI will pick up where we left off and build the business.\n\n— [founder_name]'"
+    },
+    "on_none": {
+      "action": "append all proposals from idea-proposals.json into .github/agent-memory/rejected-proposals.json (create file if it does not exist). Both files use the same array-of-objects format. Add 'rejected_at' (ISO timestamp) and 'rejected_by' (set to 'Carlos') to each entry before appending. Then delete idea-proposals.json so the Founder agent knows to generate a fresh batch. Set this queue item status to completed.",
+      "then": "commit and push — message: chore: idea batch rejected, archived to rejected-proposals [skip ci]"
+    },
+    "on_no_reply": {
+      "action": "exit cleanly — do not modify any files, do not commit",
+      "note": "Reply not yet received. Mac Runner will retry on next scheduled run."
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.founder.mac-runner</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/carlos.miranda/Developer/founder-os-seed/.github/launch-agents/mac-runner-run.sh</string>
+    </array>
+    <key>StartCalendarInterval</key>
+    <dict>
+        <!-- launchd uses the Mac's LOCAL TIME, not UTC. -->
+        <!-- Portugal is UTC+0 (winter) / UTC+1 (summer, DST). -->
+        <!-- Hour 2 = 02:00 local — runs one hour after the Founder to give it time to finish first. -->
+        <key>Hour</key>
+        <integer>2</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+    <key>StandardOutPath</key>
+    <string>/Users/carlos.miranda/Developer/founder-os-seed/.github/launch-agents/logs/mac-runner.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/carlos.miranda/Developer/founder-os-seed/.github/launch-agents/logs/mac-runner-error.log</string>
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>
