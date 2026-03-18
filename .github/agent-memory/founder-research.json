@@ -355,12 +355,14 @@
   "business_signals": {
     "waitlist_signups": 0,
     "validation_threshold": 50,
-    "stage_notes": "Validation. Landing page live at https://verdedesk.vercel.app. Distribution posts live on Twitter, r/digitalnomad, r/freelance. Facebook still pending manual post by Carlos.",
+    "stage_notes": "Validation. Landing page live at https://verdedesk.vercel.app. 4 Twitter threads, r/digitalnomad, r/freelance, r/expats posted. QES FAQ added to landing page. GitHub repo just created (was missing). Vercel GitHub webhook disconnected \u2014 needs Carlos reconnect.",
     "distribution_posts": {
       "twitter": "https://twitter.com/i/web/status/2034292532738166992",
       "reddit_digitalnomad": "https://www.reddit.com/r/digitalnomad/comments/1rx76z9/portal_das_financas_issues_if_you_are_freelancing/",
       "reddit_freelance": "https://www.reddit.com/r/freelance/comments/1rx76mh/anyone_here_freelancing_in_portugal_under_the_d8/",
-      "last_posted": "2026-03-18"
+      "last_posted": "2026-03-18",
+      "twitter_thread_4_qes": "https://twitter.com/i/web/status/2034345750436450393",
+      "reddit_expats": "https://www.reddit.com/r/expats/comments/1rxd16u/freelancing_as_an_expat_in_portugal_anyone_else/"
     }
   },
   "no_producthunt_or_appsumo_launches_found": true,
@@ -369,9 +371,9 @@
   "vercel_url": "https://verdedesk.vercel.app",
   "vercel_scope": "eidolons-projects-e72c0917",
   "channel_constraints": {
-    "linkedin": "NOT AVAILABLE — Carlos's LinkedIn is his professional profile for his day job. Do not propose LinkedIn for VerdeDesk.",
-    "telegram_broadcast": "NOT AVAILABLE — Broadcast posts get deleted by mods. Engagement-only when someone mentions taxes organically.",
-    "facebook_groups": "MANUAL ONLY — Facebook Group API is restricted. Agent writes message, Carlos posts.",
+    "linkedin": "NOT AVAILABLE \u2014 Carlos's LinkedIn is his professional profile for his day job. Do not propose LinkedIn for VerdeDesk.",
+    "telegram_broadcast": "NOT AVAILABLE \u2014 Broadcast posts get deleted by mods. Engagement-only when someone mentions taxes organically.",
+    "facebook_groups": "MANUAL ONLY \u2014 Facebook Group API is restricted. Agent writes message, Carlos posts.",
     "notes": "Always check this object before creating social account queue items."
   },
   "zernio": {

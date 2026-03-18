@@ -124,3 +124,11 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 - **Root cause:** Misread Zernio API structure. The CLAUDE.md says `platformSpecificData.subreddit` but this must be nested inside the platform entry: `platforms: [{platform: "reddit", accountId: "...", platformSpecificData: {title: "...", subreddit: "..."}}]`.
 - **Prevention:** For Reddit Zernio posts, always nest `platformSpecificData` inside the platforms array entry, not at the top-level request body.
 - **Added by:** founder on 2026-03-18
+
+---
+
+### Entry 014 — GitHub repo was missing for all sessions 1-8
+- **What happened:** `git push` failed on every session with "repository not found". The `carloshmiranda/verdedesk` repo didn't exist on GitHub. All commits stayed local only.
+- **Root cause:** Bootstrap session created the git repo locally and set a remote URL, but never ran `gh repo create`. The remote URL pointed to a non-existent repo.
+- **Prevention:** At session start, after verifying git identity, run `gh repo view [repo_url]` and create the repo if it doesn't exist. Add this to the session start sequence as step 0b.
+- **Added by:** founder on 2026-03-18

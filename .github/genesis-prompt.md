@@ -86,13 +86,13 @@ You operate inside a Claude Code CLI session — both the bootstrap session and 
   ```
 - `vercel` — GitHub webhook auto-deploys work as long as **git user identity is correctly set**. Before every session, verify: `git config user.email` must return `carlos.gaspar2011@gmail.com`. If blank, run: `git config --global user.name "Carlos Miranda" && git config --global user.email "carlos.gaspar2011@gmail.com"`. Unrecognised committer emails cause Vercel to block deploys silently ("GitHub could not associate the committer with a GitHub user").
   - **Vercel CLI (`vercel --prod`)** — do NOT use from repo root (creates rogue projects). Avoid in general.
-  - **gitSource API** — fallback if webhook deploy errors. Vercel project must have `rootDirectory: MVP` set. GitHub repo ID for verdedesk: `1185088680`. Free tier limit: 100 API deploys/day — only use if webhook deploy fails.
+  - **gitSource API** — fallback if webhook deploy errors. Vercel project must have `rootDirectory: MVP` set. GitHub repo ID for verdedesk: `1185612115`. Free tier limit: 100 API deploys/day — only use if webhook deploy fails.
     ```bash
     source ~/.founder-secrets
     # Only deploy if HEAD differs from latest READY deploy:
     curl -s -X POST "https://api.vercel.com/v13/deployments?teamId=$VERCEL_SCOPE&forceNew=1" \
       -H "Authorization: Bearer $VERCEL_TOKEN" -H "Content-Type: application/json" \
-      --data-raw '{"name":"verdedesk","gitSource":{"type":"github","repoId":1185088680,"ref":"main"},"target":"production"}' \
+      --data-raw '{"name":"verdedesk","gitSource":{"type":"github","repoId":1185612115,"ref":"main"},"target":"production"}' \
       > /tmp/deploy.json && python3 -c "import json; d=json.load(open('/tmp/deploy.json')); print(d.get('id'), d.get('readyState'))"
     ```
   - **MANDATORY after any deploy:** poll until READY, then curl for HTTP 200:

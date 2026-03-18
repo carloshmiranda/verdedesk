@@ -12,9 +12,9 @@
 
 - [x] FOUNDER-001 — Bootstrap complete: repo, research, project tree, MVP scaffold ✓
 - [x] FOUNDER-002 — Build and deploy static landing page to Vercel (waitlist capture) ✓
-- [ ] FOUNDER-003 — Distribution sprint: r/digitalnomad ✓, r/freelance ✓, Twitter ✓ — Facebook still pending Carlos manual post
+- [ ] FOUNDER-003 — Distribution sprint: r/digitalnomad ✓, r/freelance ✓, r/expats ✓, Twitter threads 1-4 ✓ — Facebook still pending Carlos manual post
 - [x] FOUNDER-003b — Set up analytics on landing page — Vercel Analytics wired, zero-config ✓
-- [x] FOUNDER-003c — SEO FAQ section on landing page — 5 keyword-targeted Q&As targeting long-tail search ✓
+- [x] FOUNDER-003c — SEO FAQ section on landing page — 6 keyword-targeted Q&As (QES mandate FAQ added session 9) ✓
 - [ ] FOUNDER-003d — Google Search Console setup — Carlos needs 5 min to create property + share meta tag
 - [ ] FOUNDER-003e — Ahrefs Webmaster Tools — Carlos needs 2 min to verify site
 - [ ] FOUNDER-003f — Dev.to founder article — content ready, blocked on DEVTO_API_KEY

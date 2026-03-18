@@ -1,0 +1,19 @@
+{
+  "id": "carlos-vercel-github-reconnect",
+  "type": "needs_carlos",
+  "status": "pending",
+  "priority": "high",
+  "created_at": "2026-03-18T19:15:00Z",
+  "title": "Reconnect GitHub repo to Vercel project",
+  "what_i_tried": "gitSource API deploys work as a fallback (used MCP deploy_to_vercel this session). But the Vercel project has no GitHub link configured — so pushes don't auto-trigger deploys. The GitHub repo was missing entirely (carloshmiranda/verdedesk didn't exist) — I just created it and pushed all commits. The repo ID has changed to 1185612115.",
+  "what_carlos_needs_to_do": "Connect the GitHub repo to the Vercel project so push-to-main triggers automatic deployments.",
+  "steps": [
+    "Go to https://vercel.com/eidolons-projects-e72c0917/verdedesk/settings/git",
+    "Click 'Connect Git Repository'",
+    "Select 'carloshmiranda/verdedesk'",
+    "Set root directory to 'MVP' (if not already set)",
+    "Save"
+  ],
+  "unblocks": "Automatic deploy on every git push — no more manual gitSource API calls",
+  "estimated_time": "2 minutes"
+}
