@@ -1,0 +1,16 @@
+{
+  "id": "carlos-deploy-waitlist-fix",
+  "type": "human_action_required",
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-18T16:55:00Z",
+  "priority": "critical",
+  "instructions": {
+    "summary": "Trigger a Vercel redeploy — waitlist API fix is committed but stuck",
+    "detail": "The waitlist signup API was returning 500 on every request (Prisma bundling crash). Fixed in commit 8bee9be — simplified to Resend-only, no DB dependency. RESEND_API_KEY is already set on Vercel. The fix is pushed but: (1) API deploy limit hit (100/day exhausted), (2) GitHub webhook has not triggered despite correct git identity. Production is stuck on broken code. Every signup attempt right now silently fails.",
+    "exact_action": "Open https://vercel.com/eidolons-projects-e72c0917/verdedesk/deployments\n\nClick 'Deploy' button at the top right, select 'main' branch, confirm.\n\nOr alternatively, click the three-dot menu on the latest READY deployment and choose 'Redeploy' — but note that will re-deploy the old code, not the fix. Best option is to trigger a new deploy from the main branch.",
+    "unblocks": "Waitlist signups — every signup attempt currently returns 500 silently"
+  },
+  "result": null
+}

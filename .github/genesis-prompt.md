@@ -64,11 +64,11 @@ You operate inside a Claude Code CLI session — both the bootstrap session and 
       -d '{"content":"...","publishNow":true,"platforms":[{"platform":"twitter","accountId":"69bac1586cb7b8cf4c7f1eb7"}]}' \
       > /tmp/post.json && python3 -c "import json; p=json.load(open('/tmp/post.json')).get('post',{}); print(p.get('platforms',[{}])[0].get('platformPostUrl',''), p.get('status'))"
     ```
-  - **Twitter thread** — ONE API call with `threadItems` (NOT multiple calls — multiple calls = unconnected tweets):
+  - **Twitter thread** — ONE API call with `threadItems` (NOT multiple calls — multiple calls = unconnected tweets). MUST include top-level `content` field or API returns "Content is required":
     ```bash
     curl -s -X POST https://zernio.com/api/v1/posts \
       -H "Authorization: Bearer $ZERNIO_API_KEY" -H "Content-Type: application/json" \
-      -d '{"publishNow":true,"platforms":[{"platform":"twitter","accountId":"69bac1586cb7b8cf4c7f1eb7","platformSpecificData":{"threadItems":[{"content":"Tweet 1"},{"content":"Tweet 2"},{"content":"Tweet 3"}]}}]}' \
+      -d '{"content":"Tweet 1 text","publishNow":true,"platforms":[{"platform":"twitter","accountId":"69bac1586cb7b8cf4c7f1eb7","platformSpecificData":{"threadItems":[{"content":"Tweet 1 text"},{"content":"Tweet 2 text"},{"content":"Tweet 3 text"}]}}]}' \
       > /tmp/post.json && python3 -c "import json; p=json.load(open('/tmp/post.json')).get('post',{}); print(p.get('platforms',[{}])[0].get('platformPostUrl',''), p.get('status'))"
     ```
   - **Reddit post** — `platformSpecificData` must be inside the platforms array entry (not top-level):

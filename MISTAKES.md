@@ -69,6 +69,22 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 
 ---
 
+### Entry 008 — Waitlist API 500: Prisma @prisma/client bundled without prisma generate
+- **What happened:** The waitlist API returned `FUNCTION_INVOCATION_FAILED` (500) on every request. Zero signups were captured despite Reddit posts driving traffic.
+- **Root cause:** `@prisma/client` was imported dynamically in the handler. Prisma requires `prisma generate` to create the client files. The `build` script (`tsc && vite build`) does not run `prisma generate`. Without generated files, the Prisma client fails to initialize at runtime. The try/catch should have caught this — but Vercel's serverless bundler may have failed to bundle Prisma's native binary correctly, causing a crash before the handler even ran.
+- **Prevention:** During validation stage, do not include Prisma in serverless handlers. The DB is not configured (no `DATABASE_URL`). Use Resend-only for waitlist — `Promise.allSettled` for both confirmation and admin emails. If Prisma is later needed, add `prisma generate` to the build command and ensure `DATABASE_URL` is set.
+- **Added by:** founder on 2026-03-18
+
+---
+
+### Entry 009 — GitHub webhook does not auto-trigger for new-email commits after hours of inactivity
+- **What happened:** After fixing git identity (`carlos.gaspar2011@gmail.com`), pushed a `fix:` commit (8bee9be). No Vercel webhook deploy appeared after 3+ minutes, even though this was the first correct-email `fix:` commit without `[skip ci]`.
+- **Root cause:** Unknown. The GitHub → Vercel webhook integration may be throttled, disconnected, or require a re-authorization after account changes. The earlier ERROR deploys (for wrong-email commits) suggest the webhook fired but Vercel rejected them. Now with a correct email, either (a) the webhook is still not firing or (b) Vercel is silently skipping it for an unknown reason.
+- **Prevention:** Never rely on GitHub webhooks as the sole deploy path. Always have the gitSource API as the fallback. When API daily limit is exhausted, create a `needs_carlos` queue item + email immediately so Carlos can trigger a dashboard deploy. Do not wait more than 5 minutes for a webhook deploy to appear.
+- **Added by:** founder on 2026-03-18
+
+---
+
 ### Entry 004 — Zernio Reddit: platformSpecificData must be nested inside platforms array entry
 - **What happened:** Posted Reddit content with `platformSpecificData` at the top level of the JSON body instead of inside the platforms array entry. Post went to r/freelance (Zernio default) instead of the intended r/digitalnomad.
 - **Root cause:** Misread Zernio API structure. The CLAUDE.md says `platformSpecificData.subreddit` but this must be nested inside the platform entry: `platforms: [{platform: "reddit", accountId: "...", platformSpecificData: {title: "...", subreddit: "..."}}]`.
