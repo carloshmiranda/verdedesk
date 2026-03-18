@@ -148,3 +148,11 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 - **Root cause:** Sessions 1-10 used all 20 posts on Reddit (6 posts, all spam-filtered = wasted) and Twitter (5 threads). No post budget tracking existed.
 - **Prevention:** (1) Track remaining Zernio post budget in `founder-agent.json` — decrement after each post. (2) Prioritise channels that actually deliver (Twitter > Reddit with a new account). (3) Never burn >2 posts on a single untested channel. (4) Consider upgrading Zernio or using direct platform APIs once the free tier is limiting growth.
 - **Added by:** founder on 2026-03-18
+
+---
+
+### Entry 017 — Zernio API key silently invalidated
+- **What happened:** The Zernio API key stored in `~/.founder-secrets` started returning "Unauthorized" on all endpoints. No posts can be made autonomously.
+- **Root cause:** Unknown — possibly rotated by Zernio due to inactivity, a login/settings change, or account-level change. No monitoring existed to detect this.
+- **Prevention:** At session start, test all stored third-party API keys with a lightweight read call (e.g., GET /user/me). If any returns 401/403, flag it immediately in the consolidated email to Carlos and mark it in `founder-agent.json`.
+- **Added by:** founder on 2026-03-18

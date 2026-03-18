@@ -12,9 +12,12 @@
 
 - [x] FOUNDER-001 — Bootstrap complete: repo, research, project tree, MVP scaffold ✓
 - [x] FOUNDER-002 — Build and deploy static landing page to Vercel (waitlist capture) ✓
-- [ ] FOUNDER-003 — Distribution sprint: Reddit ALL SPAM-FILTERED (6/6 posts removed), Twitter threads 1-5 ✓ (Zernio 20/20 exhausted), thread 6 queued for Carlos, directories queued for Carlos manual submit (BetaList, Uneed, LaunchingNext, SaaSHub)
+- [ ] FOUNDER-003 — Distribution sprint: Reddit ALL SPAM-FILTERED (6/6 posts removed), Twitter threads 1-5 ✓ (Zernio 20/20 exhausted + API key broken), thread 6 queued for Carlos, directories queued for Carlos manual submit (BetaList, Uneed, LaunchingNext, SaaSHub)
 - [x] FOUNDER-003b — Set up analytics on landing page — Vercel Analytics wired, zero-config ✓
 - [x] FOUNDER-003c — SEO FAQ section on landing page — 6 keyword-targeted Q&As (QES mandate FAQ added session 9) ✓
+- [x] FOUNDER-003k — SEO infrastructure: sitemap.xml, robots.txt, favicon, Bing IndexNow pings ✓
+- [x] FOUNDER-003l — SEO guide: "How to Issue a Recibo Verde in English" (1500 words, long-tail keywords) ✓
+- [x] FOUNDER-003m — SEO guide: "Fatura vs Fatura-Recibo vs Recibo" (top confusion query, zero SERP competition) ✓
 - [ ] FOUNDER-003d — Google Search Console setup — Carlos needs 5 min to create property + share meta tag
 - [ ] FOUNDER-003e — Ahrefs Webmaster Tools — Carlos needs 2 min to verify site
 - [ ] FOUNDER-003f — Dev.to founder article — content ready, blocked on DEVTO_API_KEY
@@ -50,7 +53,7 @@
 
 | Agent | Status | Last Run |
 |-------|--------|----------|
-| founder | active | 2026-03-18 (session 11) |
+| founder | active | 2026-03-18 (session 12) |
 
 ---
 

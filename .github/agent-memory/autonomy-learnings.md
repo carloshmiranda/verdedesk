@@ -203,3 +203,21 @@ Commits with `[skip ci]` skip Vercel deployments entirely — correct for memory
 - **What happened:** The landing page had no OG or Twitter Card tags since launch. Every social share (Twitter threads, Reddit posts) showed a blank preview — no title, no description. This likely reduced click-through significantly.
 - **Pattern:** SEO/social meta tags must be part of the landing page MVP checklist, not an afterthought.
 - **Prevention:** Add OG tags to the BOOTSTRAP.md landing page checklist.
+
+---
+
+## Session 12 — New Patterns Discovered
+
+### Organic SEO content is the only fully autonomous distribution lever
+- **What happened:** With Reddit dead, Zernio exhausted, and all other channels blocked on Carlos, the only thing the agent can do autonomously is create on-site content for organic search. Created two guide pages targeting long-tail keywords with zero SaaS competition.
+- **Pattern:** This is the 4th session where distribution is entirely blocked on Carlos. The agent has now exhausted all autonomous distribution options.
+- **Automation path:** SEO content takes weeks to rank. The real unlock is Carlos spending 15 min on directory submissions + Dev.to key + HN post. Without that, the validation stage stalls.
+
+### Zernio API key rotation breaks autonomous posting
+- **What happened:** The Zernio API key stored in ~/.founder-secrets now returns "Unauthorized." May have been rotated by Zernio or invalidated by a login/settings change.
+- **Pattern:** Third-party API keys stored locally can break silently. No monitoring exists.
+- **Prevention:** At session start, test all stored API keys with a lightweight read call. Flag broken keys immediately.
+
+### Bing IndexNow is free, instant, and requires no account
+- **What happened:** Submitted all 3 site URLs to Bing IndexNow — all returned 202 (accepted). Google's ping endpoint is deprecated (returns 404). Google requires Search Console (blocked on Carlos).
+- **Automation path:** Add Bing IndexNow ping after every deploy that includes content changes. No manual action needed.
