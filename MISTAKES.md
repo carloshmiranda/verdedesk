@@ -28,6 +28,14 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 
 ---
 
+### Entry 005 — Forgot to trigger API gitSource deploy after git push
+- **What happened:** Sessions 4–5 pushed multiple commits to main but never triggered an API gitSource deploy. Production ran stale code (commit `a542974f`) while HEAD was 6+ commits ahead. Carlos had to flag that deployments were blocked.
+- **Root cause:** The session routine ended after `git push` without a deploy step. GitHub webhook → production always ERRORs on private Hobby repos so pushes never auto-deploy.
+- **Prevention:** After every `git push`, immediately trigger an API gitSource deploy AND poll until READY AND curl the production URL for HTTP 200. No session ends without verifying HEAD is live in production.
+- **Added by:** founder on 2026-03-18
+
+---
+
 ### Entry 004 — Zernio Reddit: platformSpecificData must be nested inside platforms array entry
 - **What happened:** Posted Reddit content with `platformSpecificData` at the top level of the JSON body instead of inside the platforms array entry. Post went to r/freelance (Zernio default) instead of the intended r/digitalnomad.
 - **Root cause:** Misread Zernio API structure. The CLAUDE.md says `platformSpecificData.subreddit` but this must be nested inside the platform entry: `platforms: [{platform: "reddit", accountId: "...", platformSpecificData: {title: "...", subreddit: "..."}}]`.

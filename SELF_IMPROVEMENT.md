@@ -27,6 +27,9 @@ Discovered that CLI and GitHub webhook production deploys silently fail (ERROR, 
 ### 2026-03-18 — PostHog replaced with Vercel Analytics
 No account or API key needed. Lesson: before creating a `needs_carlos` credential item, always check if the platform has a native zero-config equivalent.
 
+### 2026-03-18 — Mandatory post-deploy health check + proactive session-start Vercel check
+Carlos flagged that multiple sessions pushed commits without triggering deploys — production was running 6+ commits stale. Two rules added to genesis-prompt.md: (1) after every `git push`, trigger API gitSource deploy, poll until READY, curl for HTTP 200 — no session ends without confirming production is live; (2) session start sequence now includes a proactive Vercel health check (step 7b) that compares HEAD to latest READY deploy and deploys immediately if they diverge. MISTAKES.md Entry 005 added.
+
 ### 2026-03-18 — Session diary now requires "Manual actions" section
 Every session diary entry must list what Carlos did manually, why it couldn't be autonomous, and the automation path. autonomy-learnings.md updated after each session with any new patterns. This compounds autonomy over time rather than losing learnings between sessions.
 

@@ -80,9 +80,20 @@ You operate inside a Claude Code CLI session — both the bootstrap session and 
     -H "Authorization: Bearer $VERCEL_TOKEN" -H "Content-Type: application/json" \
     --data-raw '{"name":"verdedesk","gitSource":{"type":"github","repoId":1185088680,"ref":"main"},"target":"production"}' \
     > /tmp/deploy.json && python3 -c "import json; d=json.load(open('/tmp/deploy.json')); print(d.get('id'), d.get('readyState'))"
-  # Poll for READY state: curl /v13/deployments/{id}?teamId=... | check readyState
+  # MANDATORY: after triggering deploy, poll until READY (check every 15s, timeout 5min):
+  DEPLOY_ID=$(python3 -c "import json; print(json.load(open('/tmp/deploy.json')).get('id',''))")
+  for i in $(seq 1 20); do
+    STATE=$(curl -s "https://api.vercel.com/v13/deployments/$DEPLOY_ID?teamId=$VERCEL_SCOPE" \
+      -H "Authorization: Bearer $VERCEL_TOKEN" | python3 -c "import sys,json; print(json.load(sys.stdin).get('readyState',''))")
+    echo "[$i] $STATE"
+    [ "$STATE" = "READY" ] && break || [ "$STATE" = "ERROR" ] && echo "Deploy failed" && break
+    sleep 15
+  done
+  # MANDATORY: health check — production must return 200
+  HTTP=$(curl -s -o /dev/null -w "%{http_code}" https://verdedesk.vercel.app)
+  echo "Production HTTP: $HTTP"  # must be 200 — if not, investigate immediately
   ```
-  Health check: curl `vercel_url` from `founder-research.json` 90s after deploy triggers.
+  **Never end a session without confirming production returns 200.** A push without a confirmed deploy leaves production stale.
 - `gh` CLI — GitHub CLI for repo operations (rename, set description, view repo info). Always check `gh auth status` before use. If unauthenticated, fall back to a `needs_carlos` queue item.
 
 **Prerequisites (one-time, already on this Mac):**
@@ -267,6 +278,11 @@ Rules: sequential entry number, short title, all four fields required, be specif
    - If any signal has crossed a threshold (see BUSINESS_SIGNALS.md), reprioritise the backlog before executing. A churn signal outranks a new-feature item. A zero-usage signal moves that feature's follow-ups to the bottom.
    - If no signal data exists yet: note it as a gap and add "instrument [feature]" as a backlog item
 7. Read `.github/agent-queue/` — list files only; fetch individual items only if assigned to this agent with `status: pending`. If any item has `status: needs_clarification`, read it and send Carlos an iMessage asking for clarification, then mark it `status: pending` so it retries next session.
+7b. **Proactive Vercel health check** — every session, before touching the backlog:
+   - List the latest deployment for the verdedesk project (MCP `list_deployments` or `curl /v6/deployments?projectId=...`)
+   - If the top production deployment is **not READY**, or if HEAD (`git rev-parse HEAD`) doesn't match the latest READY deploy's `githubCommitSha` → trigger an API gitSource deploy immediately
+   - After deploying, poll until READY and curl https://verdedesk.vercel.app for HTTP 200
+   - Never proceed to the backlog with production behind HEAD or returning non-200
 8. Load additional context **just in time** — only read source files, research docs, or memory files when a specific task actually requires them. Never pre-load files speculatively.
 9. Execute — pick up from where the last session left off
 

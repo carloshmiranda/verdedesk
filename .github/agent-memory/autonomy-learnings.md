@@ -112,6 +112,8 @@ Things discovered to be automatable that the genesis prompt assumed were manual,
 - [x] Deploy via API gitSource — CLI and GitHub webhook unreliable on private Hobby (done 2026-03-18)
 - [x] Session diary must include "Manual actions this session" section (done 2026-03-18)
 - [x] After diary: update autonomy-learnings.md if new patterns found (done 2026-03-18)
+- [x] Mandatory post-deploy health check — poll READY + curl 200 after every push (done 2026-03-18)
+- [x] Proactive session-start Vercel health check — verify HEAD == latest READY deploy (done 2026-03-18)
 - [ ] Add Full Disk Access grant for iMessage reading to setup instructions
 - [ ] Add `~/.npm-global` install pattern for global CLIs (no sudo needed)
 - [ ] Add `vite/client` to tsconfig template
@@ -124,13 +126,15 @@ Things discovered to be automatable that the genesis prompt assumed were manual,
 
 | Action | Session 1 | Session 2 | Session 3 | Session 4 |
 |--------|-----------|-----------|-----------|-----------|
-| Vercel deploy | manual (dashboard) | CLI (✓ auto) | API gitSource (✓ more reliable) | ✓ stable |
-| Public access verification | not checked | not checked | not checked | ✓ curl 200 check (auto) |
-| Analytics | PostHog (needs account) | — | Vercel Analytics (✓ zero config) | ✓ stable |
-| Email confirmation | none | none | Resend (✓ but wrong domain) | ✓ fixed (resend.dev) |
-| Admin signup notification | none | none | none | ✓ auto (carlos.gaspar2011@gmail.com) |
-| GitHub App install | blocked | blocked | ✓ done (one-time) | ✓ stable |
-| iMessage reading | blocked | blocked | blocked (needs Full Disk Access) | blocked |
-| Neon DB | blocked | blocked | blocked | pending carlos-neon-db |
+| Vercel deploy | manual (dashboard) | CLI (✓ auto) | API gitSource (✓ more reliable) | ✓ stable | ✓ stable |
+| Public access verification | not checked | not checked | not checked | ✓ curl 200 check (auto) | ✓ mandatory in session start |
+| Post-deploy health check | none | none | none | none | ✓ poll READY + curl 200 |
+| Analytics | PostHog (needs account) | — | Vercel Analytics (✓ zero config) | ✓ stable | ✓ stable |
+| Social posting (Twitter/Reddit) | manual | manual | manual | manual | ✓ auto via Zernio |
+| Email confirmation | none | none | Resend (✓ but wrong domain) | ✓ fixed (resend.dev) | ✓ stable |
+| Admin signup notification | none | none | none | ✓ auto (carlos.gaspar2011@gmail.com) | ✓ stable |
+| GitHub App install | blocked | blocked | ✓ done (one-time) | ✓ stable | ✓ stable |
+| iMessage reading | blocked | blocked | blocked (needs Full Disk Access) | blocked | blocked |
+| Neon DB | blocked | blocked | blocked | pending carlos-neon-db | pending |
 
 **Target:** every session should move at least one row from "blocked/manual" to "✓ auto".
