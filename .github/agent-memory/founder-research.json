@@ -361,5 +361,14 @@
   "research_version": 2,
   "researched_at": "2026-03-18T02:30:00Z",
   "vercel_url": "https://verdedesk.vercel.app",
-  "vercel_scope": "eidolons-projects-e72c0917"
+  "vercel_scope": "eidolons-projects-e72c0917",
+  "zernio": {
+    "api_key_env": "ZERNIO_API_KEY",
+    "reddit_account_id": "69bac13d6cb7b8cf4c7f1e64",
+    "reddit_username": "Eidonon",
+    "twitter_account_id": "69bac1586cb7b8cf4c7f1eb7",
+    "twitter_username": "chgmiranda",
+    "post_endpoint": "https://zernio.com/api/v1/posts",
+    "note": "publishNow:true to post immediately, scheduledFor+publishNow:false to schedule. Reddit needs platformSpecificData.title and platformSpecificData.subreddit"
+  }
 }
