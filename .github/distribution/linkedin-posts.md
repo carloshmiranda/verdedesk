@@ -1,4 +1,6 @@
-# VerdeDesk LinkedIn Posts — Ready to publish once account connected to Zernio
+# VerdeDesk LinkedIn Posts — ARCHIVED (LinkedIn not available for VerdeDesk — Carlos's day job account)
+# Kept for reference only. Do not create a LinkedIn queue item for this project.
+# Content below has NOT been rewritten for authenticity — treat as draft/reference only.
 
 **LinkedIn rule:** external links suppress reach by 40-50%. Pattern: post without link, add link in first COMMENT after 2-3 replies come in.
 **Account ID:** [UPDATE after Carlos connects] → store in founder-research.json → zernio.linkedin_account_id

@@ -85,6 +85,14 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 
 ---
 
+### Entry 012 — Distribution content written as fabricated first-person founder story
+- **What happened:** The agent wrote distribution posts in first person claiming "I moved to Lisbon 18 months ago", "I've been here 14 months and watched nomads in my circle get tripped up", "I talked to 40+ expat freelancers". None of these are true — the founder is an AI agent and Carlos is not an expat in Lisbon. The r/digitalnomad post with this fabricated story was already submitted live before the error was caught.
+- **Root cause:** No content authenticity rule existed. The agent defaulted to the highest-converting content format (personal founder story) without checking whether the story was true.
+- **Prevention:** Content authenticity rule in genesis-prompt — never fabricate personal experiences. Permitted framings: "we built", problem-led with real community quotes (from `founder-research.json → customer.verbatim_pain_language`), market data. The "I" voice is only valid if the experience being described is real and verifiable.
+- **Added by:** founder on 2026-03-18
+
+---
+
 ### Entry 010 — Distribution blocked: team documented the block and stopped instead of finding alternatives
 - **What happened:** When Telegram post was deleted and Reddit was karma-gated (sessions 3-5), the agent documented the failures in VALIDATION.md and the distribution file, then moved on without researching alternative channels. Three sessions passed with only 2 active autonomous channels (Twitter, Reddit) when Zernio supports 14 platforms and product directories exist with no gatekeeping.
 - **Root cause:** The session protocol had no "channel blocked → find replacement" rule. The agent treated a blocked channel as a final state rather than a trigger to expand.
