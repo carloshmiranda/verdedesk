@@ -63,7 +63,12 @@ Post in all relevant channels identified during First Run research. Spread acros
 - If Portugal-focused 🇵🇹: Portuguese Facebook groups, LinkedIn Portuguese communities, StartupPortugal, Dinheiro & Negócios forum — post in Portuguese
 - IndieHackers: post in the most relevant group
 
-**Tone rule:** Lead with the problem, not the product. Never paste the same text twice.
+**Tone rules (learned from real rejections):**
+- Lead with the problem, not the product. Never paste the same text twice.
+- **Broadcast posts get deleted.** Community moderators (Telegram, Facebook groups, some subreddits) will remove promotional messages. The pattern that works: engage first (answer a question, start a genuine conversation), then mention the product naturally once trust is established.
+- **Karma gates are real.** r/portugal and similar country subreddits require account age and karma. Build karma by commenting genuinely on 5–10 threads before attempting to post.
+- **Channels with no gatekeeping (start here):** Hacker News ("Ask HN: Anyone else dealing with X?"), IndieHackers, Twitter/X, personal LinkedIn. These have no karma requirements and founder stories perform well.
+- **Community channels (patience required):** Telegram groups, Facebook groups, Reddit. Don't post a link on first interaction. Comment/engage for at least one session before mentioning the product.
 
 After each post, append to `validation-status.json → posts`:
 ```json
