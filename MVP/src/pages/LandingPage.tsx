@@ -1,9 +1,15 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useSEO } from '../lib/useSEO'
 
 const WAITLIST_API = '/api/waitlist'
 
 export default function LandingPage() {
+  useSEO({
+    title: 'VerdeDesk — Green Receipts Made Simple for Expats in Portugal',
+    description: 'Issue recibos verdes, track income, and stay compliant with Portuguese tax law — in plain English. Built for D8 visa holders and expat freelancers.',
+    canonical: 'https://verdedesk.vercel.app/',
+  })
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')

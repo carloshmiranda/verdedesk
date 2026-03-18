@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom'
+import { useSEO } from '../lib/useSEO'
 
 export default function GuideReciboVerde() {
+  useSEO({
+    title: 'How to Issue a Recibo Verde in English (2026) — Complete Guide for D8 Visa Holders | VerdeDesk',
+    description: 'Step-by-step English guide to issuing recibos verdes (green receipts) on Portal das Financas. Covers NIF, activity codes, VAT threshold, Seguranca Social, and the QES mandate for expat freelancers in Portugal.',
+    canonical: 'https://verdedesk.vercel.app/guide/recibo-verde-english',
+  })
+
   return (
     <div className="min-h-screen bg-white">
       {/* Nav */}

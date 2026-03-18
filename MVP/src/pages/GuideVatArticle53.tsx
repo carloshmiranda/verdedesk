@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom'
+import { useSEO } from '../lib/useSEO'
 
 export default function GuideVatArticle53() {
+  useSEO({
+    title: 'Portugal VAT Exemption Article 53 (2026) — EUR 15,000 Threshold Explained | VerdeDesk',
+    description: 'Complete English guide to Portugal VAT exemption under Article 53 for freelancers. Covers the EUR 15,000 and EUR 18,750 thresholds, 2026 rule changes, and what happens when you cross the limit.',
+    canonical: 'https://verdedesk.vercel.app/guide/vat-exemption-article-53-portugal',
+  })
+
   return (
     <div className="min-h-screen bg-white">
       {/* Nav */}

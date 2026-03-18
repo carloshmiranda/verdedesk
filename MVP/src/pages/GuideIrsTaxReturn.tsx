@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom'
+import { useSEO } from '../lib/useSEO'
 
 export default function GuideIrsTaxReturn() {
+  useSEO({
+    title: 'How to File Your IRS Tax Return in Portugal as a Freelancer (2026) | VerdeDesk',
+    description: 'Step-by-step English guide to filing your annual IRS tax return in Portugal. Covers Category B income, the simplified regime, tax brackets, deadlines (April 1 - June 30, 2026), and common mistakes.',
+    canonical: 'https://verdedesk.vercel.app/guide/irs-tax-return-freelancer-portugal',
+  })
+
   return (
     <div className="min-h-screen bg-white">
       {/* Nav */}

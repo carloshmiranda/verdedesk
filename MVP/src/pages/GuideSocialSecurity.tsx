@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom'
+import { useSEO } from '../lib/useSEO'
 
 export default function GuideSocialSecurity() {
+  useSEO({
+    title: 'Portugal Social Security for Freelancers (2026) — Rates, Deadlines, Exemption | VerdeDesk',
+    description: 'English guide to Seguranca Social for self-employed workers in Portugal. Covers contribution rates (21.4%), quarterly declaration deadlines, the 12-month exemption, and payment schedule.',
+    canonical: 'https://verdedesk.vercel.app/guide/social-security-freelancer-portugal',
+  })
+
   return (
     <div className="min-h-screen bg-white">
       {/* Nav */}
