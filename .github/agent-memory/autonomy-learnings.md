@@ -138,3 +138,21 @@ Things discovered to be automatable that the genesis prompt assumed were manual,
 | Neon DB | blocked | blocked | blocked | pending carlos-neon-db | pending |
 
 **Target:** every session should move at least one row from "blocked/manual" to "✓ auto".
+
+---
+
+## Session 6 — New Patterns Discovered
+
+### Vercel REST API version fragmentation
+- `/v13/deployments` (list) returns "Invalid API version" — only works for individual deploy lookup
+- `/v6/deployments` list endpoint returns empty results with team scope
+- **Fix:** Use MCP `list_deployments` tool for reads; use `curl /v13/deployments` POST only for triggering new deploys
+
+### Vercel 100 API deploys/day (free tier hard cap)
+- Sessions 2-6 accumulated 100+ deploys through debugging iterations
+- **Prevention:** Before every deploy, compare `git rev-parse HEAD` to latest READY deploy's `githubCommitSha`. If they match, skip the deploy. Never deploy for `[skip ci]` commits.
+
+### Zernio Twitter threads
+- Multiple POST calls = separate unconnected tweets
+- Single POST with `platformSpecificData.threadItems` = connected thread
+- See genesis-prompt.md `zernio` section for full example
