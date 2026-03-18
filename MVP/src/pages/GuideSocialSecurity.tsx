@@ -1,11 +1,19 @@
 import { Link } from 'react-router-dom'
 import { useSEO } from '../lib/useSEO'
+import { useArticleSchema } from '../lib/useArticleSchema'
 
 export default function GuideSocialSecurity() {
   useSEO({
     title: 'Portugal Social Security for Freelancers (2026) — Rates, Deadlines, Exemption | VerdeDesk',
     description: 'English guide to Seguranca Social for self-employed workers in Portugal. Covers contribution rates (21.4%), quarterly declaration deadlines, the 12-month exemption, and payment schedule.',
     canonical: 'https://verdedesk.vercel.app/guide/social-security-freelancer-portugal',
+  })
+  useArticleSchema({
+    title: 'Portugal Social Security for Freelancers (2026) — Rates, Deadlines, Exemption',
+    description: 'English guide to Seguranca Social for self-employed workers in Portugal.',
+    url: 'https://verdedesk.vercel.app/guide/social-security-freelancer-portugal',
+    datePublished: '2026-03-18',
+    dateModified: '2026-03-18',
   })
 
   return (

@@ -1,11 +1,19 @@
 import { Link } from 'react-router-dom'
 import { useSEO } from '../lib/useSEO'
+import { useArticleSchema } from '../lib/useArticleSchema'
 
 export default function GuideFaturaTypes() {
   useSEO({
     title: 'Fatura vs Fatura-Recibo vs Recibo — Which Document Do You Need? | VerdeDesk',
     description: 'Confused about Portuguese invoice types? This English guide explains the difference between fatura, fatura-recibo, and recibo verde. Learn which document to issue as a freelancer in Portugal.',
     canonical: 'https://verdedesk.vercel.app/guide/fatura-vs-fatura-recibo-vs-recibo',
+  })
+  useArticleSchema({
+    title: 'Fatura vs Fatura-Recibo vs Recibo — Which Document Do You Need?',
+    description: 'English guide explaining the difference between Portuguese invoice types for freelancers.',
+    url: 'https://verdedesk.vercel.app/guide/fatura-vs-fatura-recibo-vs-recibo',
+    datePublished: '2026-03-18',
+    dateModified: '2026-03-18',
   })
 
   return (
