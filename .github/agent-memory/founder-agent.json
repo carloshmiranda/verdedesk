@@ -1,0 +1,19 @@
+{
+  "agent": "founder",
+  "founder_name": "Nova",
+  "local_path": "/Users/carlos.miranda/Developer/founder-os-seed",
+  "last_run": "",
+  "status": "idea_discovery",
+  "bootstrapped": false,
+  "stage": "idea_discovery",
+  "fleet_health": "green",
+  "active_agents": ["founder"],
+  "repo_url": "",
+  "last_session": {
+    "timestamp": "",
+    "completed": [],
+    "blocked_on_carlos": [],
+    "blocked_on_mac": [],
+    "notes": ""
+  }
+}
