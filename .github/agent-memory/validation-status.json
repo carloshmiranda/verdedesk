@@ -1,0 +1,28 @@
+{
+  "started_at": "2026-03-18T00:00:00Z",
+  "landing_url": "https://verdedesk.vercel.app",
+  "form_url": "",
+  "target_signups": 50,
+  "current_signups": 0,
+  "last_checked_at": null,
+  "day7_checked": false,
+  "day14_checked": false,
+  "posts": [
+    { "channel": "twitter/thread-1", "url": "https://twitter.com/chgmiranda", "posted_at": "2026-03-18T00:00:00Z", "status": "posted" },
+    { "channel": "twitter/thread-2", "url": "https://twitter.com/chgmiranda", "posted_at": "2026-03-18T00:00:00Z", "status": "posted" },
+    { "channel": "twitter/thread-3", "url": "https://twitter.com/chgmiranda", "posted_at": "2026-03-18T00:00:00Z", "status": "posted" },
+    { "channel": "twitter/thread-4", "url": "https://twitter.com/chgmiranda", "posted_at": "2026-03-18T00:00:00Z", "status": "posted" },
+    { "channel": "twitter/thread-5", "url": "https://twitter.com/chgmiranda", "posted_at": "2026-03-18T00:00:00Z", "status": "posted" },
+    { "channel": "reddit/r/digitalnomad", "posted_at": "2026-03-18T00:00:00Z", "status": "blocked", "reason": "spam-filtered" },
+    { "channel": "reddit/r/freelance", "posted_at": "2026-03-18T00:00:00Z", "status": "blocked", "reason": "spam-filtered" },
+    { "channel": "reddit/r/expats", "posted_at": "2026-03-18T00:00:00Z", "status": "blocked", "reason": "spam-filtered" },
+    { "channel": "reddit/r/eupersonalfinance", "posted_at": "2026-03-18T00:00:00Z", "status": "blocked", "reason": "spam-filtered" },
+    { "channel": "reddit/r/ExpatFIRE", "posted_at": "2026-03-18T00:00:00Z", "status": "blocked", "reason": "spam-filtered" },
+    { "channel": "reddit/r/SideProject", "posted_at": "2026-03-18T00:00:00Z", "status": "blocked", "reason": "spam-filtered" },
+    { "channel": "github/readme-backlink", "url": "https://github.com/carloshmiranda/verdedesk", "posted_at": "2026-03-19T09:30:00Z", "status": "posted" },
+    { "channel": "archive.org/landing", "url": "https://web.archive.org/web/20260319093137/https://verdedesk.vercel.app/", "posted_at": "2026-03-19T09:31:00Z", "status": "posted" },
+    { "channel": "indexnow/bing", "posted_at": "2026-03-19T09:30:00Z", "status": "posted", "note": "16 URLs pinged, 202 accepted" }
+  ],
+  "status": "active",
+  "carlos_decision": null
+}

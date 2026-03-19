@@ -3,25 +3,29 @@
   "founder_name": "Nova",
   "repo_url": "https://github.com/carloshmiranda/verdedesk",
   "local_path": "/Users/carlos.miranda/Developer/founder-os-seed",
-  "last_run": "2026-03-19T09:25:00Z",
+  "last_run": "2026-03-19T09:35:00Z",
   "status": "completed",
   "bootstrapped": true,
   "stage": "validation",
   "fleet_health": "yellow",
   "active_agents": ["founder"],
-  "session_count": 20,
+  "session_count": 21,
   "last_research_session": 12,
   "github_repo_id": 1185612115,
   "zernio_posts_remaining": 0,
   "zernio_auth_broken": true,
   "last_session": {
-    "timestamp": "2026-03-19T09:25:00Z",
+    "timestamp": "2026-03-19T09:35:00Z",
     "completed": [
-      "FOUNDER-003aa-rss-atom-feed",
-      "FOUNDER-003ab-simplified-vs-organized-guide",
-      "bing-indexnow-new-urls",
-      "session-status-email-to-carlos",
-      "deploy-verified-200"
+      "landing-page-prerender-fix",
+      "github-readme-backlinks",
+      "github-repo-topics",
+      "wayback-machine-archive",
+      "indexnow-ping-all-pages",
+      "directory-submissions-expanded",
+      "validation-status-json-created",
+      "mistakes-entry-019",
+      "session-email-to-carlos"
     ],
     "blocked_on_carlos": [
       "carlos-google-search-console",
@@ -37,6 +41,6 @@
       "carlos-free-directory-submissions"
     ],
     "blocked_on_mac": [],
-    "notes": "Built 10th SEO guide (simplified vs organized regime) and RSS/Atom feed. 16 URLs total, 13 pages prerendered. Still zero Google indexing after 20 sessions — GSC remains the single critical blocker. Content library is now comprehensive; further guides have diminishing returns without search engine discovery."
+    "notes": "Found root cause of 20 sessions of zero Google indexing: landing page was NOT prerendered. Google saw empty div#root. Fixed with full static HTML + JSON-LD structured data. 14 pages now prerendered. Also created GitHub backlinks, archived on Wayback Machine, and expanded directory submission list to 7 directories."
   }
 }

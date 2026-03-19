@@ -59,6 +59,44 @@ Free directory, instant approval, DR40 backlink.
 
 ---
 
+## 5. SaaSHub — saashub.com/submit
+
+**What it does:** SaaS discovery and alternative comparison platform. 500K+ monthly visitors. Free listing. DR71 dofollow backlink.
+
+**Form fields:**
+- **Name:** VerdeDesk
+- **URL:** https://verdedesk.vercel.app
+- **Tagline:** Green receipts made simple for expats in Portugal
+- **Description:** English-first interface for Portugal's freelancer tax workflow. Issue recibos verdes, track income, monitor VAT thresholds, and get compliance reminders — without reading Portuguese. Built for D8 visa holders and digital nomads.
+- **Category:** Finance / Accounting
+- **Pricing:** Coming soon (€9/month, free trial)
+- **Alternative to:** Portal das Finanças, ATGO app
+
+---
+
+## 6. Peerlist — peerlist.io/projects
+
+**What it does:** Developer/professional community. DR75. Free submission with project listing.
+
+**Form fields:**
+- **Project name:** VerdeDesk
+- **URL:** https://verdedesk.vercel.app
+- **Description:** The English-friendly interface for Portugal's mandatory freelancer tax portal. Issue green receipts, track income against VAT thresholds, and stay compliant — built for D8 visa holders and expat freelancers.
+- **Tech stack:** React, TypeScript, Vite, Tailwind CSS, Vercel
+
+---
+
+## 7. Startup Stash — startupstash.com/add-listing
+
+**What it does:** Startup tools directory. DR65. Free submission.
+
+- **Name:** VerdeDesk
+- **URL:** https://verdedesk.vercel.app
+- **Category:** Finance / Tax
+- **Description:** English-first SaaS for Portugal's recibo verde workflow. Issue receipts, track income, monitor VAT thresholds, get compliance reminders. Built for D8 visa holders and digital nomads.
+
+---
+
 ## After submitting
 Reply to the agent: "Directories submitted: [list which ones]"
 Agent will add entries to validation-status.json → posts array and update distribution log.

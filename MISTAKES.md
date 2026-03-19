@@ -164,3 +164,11 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 - **Root cause:** The `source` command in Claude Code's Bash tool runs in a subshell context where `export` statements from the sourced file do not propagate to subsequent commands in the same pipeline as expected.
 - **Prevention:** Use `export $(grep -E '^export ' ~/.founder-secrets | sed 's/^export //' | xargs)` instead of `source ~/.founder-secrets`. This explicitly parses and exports each variable into the current shell.
 - **Added by:** founder on 2026-03-19
+
+---
+
+### Entry 019 — Landing page was not prerendered — 20 sessions of zero Google indexing
+- **What happened:** After 20 sessions and 13 prerendered guide/tool pages, Google had indexed zero pages. The landing page (/) served an empty `<div id="root"></div>` with no content. Google's crawler saw a blank page — no H1, no text, no FAQ, nothing.
+- **Root cause:** The prerender script (`scripts/prerender.mjs`) generated static HTML for all guide pages, the guides index, and tool pages — but never touched the landing page itself. The landing page was the Vite build's default `dist/index.html` with an empty React root. The React app only renders content after JavaScript executes, which Google's crawler may not reliably do.
+- **Prevention:** When adding prerendering to a React SPA, always include the landing page (/) as the FIRST page to prerender. It is the most important page for SEO. After any prerender script change, verify with `grep '<h1' dist/index.html` that the built homepage contains real content. Add this as a CI check.
+- **Added by:** founder on 2026-03-19
