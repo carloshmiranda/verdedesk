@@ -9,6 +9,12 @@ const guides = [
     tag: 'Getting started',
   },
   {
+    to: '/guide/nif-portugal-foreigner',
+    title: 'How to Get a NIF in Portugal as a Foreigner (2026)',
+    description: 'Complete guide to getting your Portuguese tax number. Covers EU and non-EU citizens, fiscal representatives, in-person vs online options, required documents, and Portal das Financas registration.',
+    tag: 'Getting started',
+  },
+  {
     to: '/guide/d8-visa-portugal-taxes',
     title: 'D8 Visa Portugal Taxes: Complete 2026 Guide',
     description: 'Everything D8 visa holders need to know — tax residency, NIF, income tax, VAT, social security, NHR 2.0, and your first-year checklist.',

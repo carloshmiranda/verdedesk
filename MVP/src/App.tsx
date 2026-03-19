@@ -16,6 +16,7 @@ import GuideSimplifiedVsOrganized from './pages/GuideSimplifiedVsOrganized'
 import GuidePortalDasFinancas from './pages/GuidePortalDasFinancas'
 import GuideTaxDeductions from './pages/GuideTaxDeductions'
 import GuideEFatura from './pages/GuideEFatura'
+import GuideNifPortugal from './pages/GuideNifPortugal'
 
 export default function App() {
   return (
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/guide/portal-das-financas-english" element={<GuidePortalDasFinancas />} />
         <Route path="/guide/tax-deductions-freelancer-portugal" element={<GuideTaxDeductions />} />
         <Route path="/guide/e-fatura-portugal-english" element={<GuideEFatura />} />
+        <Route path="/guide/nif-portugal-foreigner" element={<GuideNifPortugal />} />
         <Route path="/tools/tax-calculator" element={<TaxCalculator />} />
         <Route path="/tools/nhr-checker" element={<NhrChecker />} />
       </Routes>

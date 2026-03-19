@@ -17,6 +17,12 @@ const FEED_SUBTITLE = 'Plain English guides to Portuguese freelancer taxes, reci
 
 const guides = [
   {
+    slug: 'nif-portugal-foreigner',
+    title: 'How to Get a NIF in Portugal as a Foreigner (2026) — Step-by-Step Guide',
+    summary: 'Complete English guide to getting your Portuguese tax identification number. Covers EU and non-EU citizens, fiscal representatives, in-person vs online options, required documents, and Portal das Financas registration.',
+    updated: '2026-03-19',
+  },
+  {
     slug: 'e-fatura-portugal-english',
     title: 'e-Fatura Portugal in English (2026) — How to Validate Invoices & Claim Deductions',
     summary: 'Complete English guide to Portugal\'s e-Fatura invoice tracking system. Portal access, invoice validation, personal vs professional expenses, the 15% rule, and the February 25 deadline.',

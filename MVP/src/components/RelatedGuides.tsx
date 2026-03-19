@@ -77,6 +77,7 @@ const guides = [
   { to: '/guide/portal-das-financas-english', label: 'Portal das Financas in English' },
   { to: '/guide/tax-deductions-freelancer-portugal', label: 'Freelancer Tax Deductions' },
   { to: '/guide/e-fatura-portugal-english', label: 'e-Fatura Portugal in English' },
+  { to: '/guide/nif-portugal-foreigner', label: 'How to Get a NIF in Portugal' },
 ]
 
 export default function RelatedGuides({ current }: { current: string }) {

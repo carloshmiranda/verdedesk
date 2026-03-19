@@ -306,6 +306,29 @@ const guides = [
       'Monthly e-Fatura checklist',
     ],
   },
+  {
+    slug: 'nif-portugal-foreigner',
+    title: 'How to Get a NIF in Portugal as a Foreigner (2026) — Step-by-Step Guide | VerdeDesk',
+    description: 'Complete English guide to getting your NIF (tax identification number) in Portugal. Covers EU and non-EU citizens, in-person vs online, fiscal representatives, required documents, and Portal das Financas registration.',
+    canonical: 'https://verdedesk.vercel.app/guide/nif-portugal-foreigner',
+    articleTitle: 'How to Get a NIF in Portugal as a Foreigner (2026) — Step-by-Step Guide',
+    datePublished: '2026-03-19',
+    dateModified: '2026-03-19',
+    h1: 'How to Get a NIF in Portugal as a Foreigner: Step-by-Step (2026)',
+    intro: 'The NIF (Numero de Identificacao Fiscal) is your Portuguese tax identification number. It is a unique 9-digit number that you need for virtually everything in Portugal: opening a bank account, signing a rental contract, starting freelance work, paying taxes, and even getting a mobile phone contract. If you are moving to Portugal on a D8 visa, applying for residency, or planning to freelance, getting your NIF is the very first step.',
+    headings: [
+      'What is a NIF and why you need one',
+      'Getting a NIF as an EU/EEA citizen',
+      'Getting a NIF as a non-EU citizen',
+      'Do you need a fiscal representative?',
+      'Required documents',
+      'Getting a NIF online (before arriving)',
+      'Registering for Portal das Financas',
+      'What to do after getting your NIF',
+      'Common mistakes to avoid',
+      'Frequently asked questions',
+    ],
+  },
 ];
 
 function generateHTML(template, guide) {
