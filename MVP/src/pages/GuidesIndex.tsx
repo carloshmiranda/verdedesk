@@ -50,6 +50,12 @@ const guides = [
     description: 'Step-by-step guide to opening your freelance activity on Portal das Financas. Covers NIF, CAE/CIRS codes, tax regime, and VAT selection.',
     tag: 'Getting started',
   },
+  {
+    to: '/guide/withholding-tax-portugal',
+    title: 'Withholding Tax (Retencao na Fonte) Explained',
+    description: 'How withholding tax works on green receipts. Covers the 25% rate, Article 53 exemption, international clients, and which option to choose on your recibo verde.',
+    tag: 'Invoicing',
+  },
 ]
 
 export default function GuidesIndex() {

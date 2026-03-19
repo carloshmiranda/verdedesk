@@ -191,6 +191,28 @@ const guides = [
       'Common mistakes to avoid',
     ],
   },
+  {
+    slug: 'withholding-tax-portugal',
+    title: 'Withholding Tax (Retencao na Fonte) for Freelancers in Portugal (2026) | VerdeDesk',
+    description: 'Complete English guide to withholding tax on green receipts in Portugal. Covers the 25% rate, Article 53 exemption, international clients, reduced rates, and how to choose the right option when issuing a recibo verde.',
+    canonical: 'https://verdedesk.vercel.app/guide/withholding-tax-portugal',
+    articleTitle: 'Withholding Tax (Retencao na Fonte) for Freelancers in Portugal (2026)',
+    datePublished: '2026-03-19',
+    dateModified: '2026-03-19',
+    h1: 'Withholding Tax on Green Receipts in Portugal: Retencao na Fonte Explained (2026)',
+    intro: 'When you issue a green receipt (recibo verde) through Portal das Financas, one of the most confusing fields is retencao na fonte — withholding tax. Choose the wrong option and you will either overpay your taxes throughout the year or face a surprise bill when you file your IRS return. This guide explains every option in plain English so you pick the right one every time.',
+    headings: [
+      'What is retencao na fonte?',
+      'When does withholding tax apply?',
+      'The standard 25% withholding rate',
+      'Reduced withholding rates',
+      'Article 53 exemption: under EUR 15,000 means no withholding',
+      'International clients: no withholding',
+      'Which option to choose on the recibo verde form',
+      'How withholding relates to your annual IRS return',
+      'Common mistakes expats make with withholding tax',
+    ],
+  },
 ];
 
 function generateHTML(template, guide) {

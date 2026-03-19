@@ -11,6 +11,7 @@ import TaxCalculator from './pages/TaxCalculator'
 import NhrChecker from './pages/NhrChecker'
 import GuideTaxDeadlines from './pages/GuideTaxDeadlines'
 import GuideFreelancerRegistration from './pages/GuideFreelancerRegistration'
+import GuideWithholdingTax from './pages/GuideWithholdingTax'
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/guide/d8-visa-portugal-taxes" element={<GuideD8VisaTaxes />} />
         <Route path="/guide/tax-deadlines-2026" element={<GuideTaxDeadlines />} />
         <Route path="/guide/register-freelancer-portugal" element={<GuideFreelancerRegistration />} />
+        <Route path="/guide/withholding-tax-portugal" element={<GuideWithholdingTax />} />
         <Route path="/tools/tax-calculator" element={<TaxCalculator />} />
         <Route path="/tools/nhr-checker" element={<NhrChecker />} />
       </Routes>
