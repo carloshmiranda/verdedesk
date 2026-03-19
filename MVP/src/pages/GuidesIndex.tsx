@@ -81,6 +81,32 @@ export default function GuidesIndex() {
         </p>
       </section>
 
+      {/* Free tools */}
+      <section className="max-w-3xl mx-auto px-6 pb-8">
+        <Link
+          to="/tools/tax-calculator"
+          className="block p-6 rounded-xl border-2 border-verde-200 bg-verde-50 hover:border-verde-300 transition-colors group"
+        >
+          <div className="flex items-center gap-4">
+            <span className="text-3xl">🧮</span>
+            <div className="flex-1">
+              <span className="inline-block text-xs font-medium text-verde-700 bg-verde-100 px-2 py-0.5 rounded-full mb-1">
+                Free tool
+              </span>
+              <h2 className="text-lg font-semibold text-verde-800 group-hover:text-verde-900 transition-colors">
+                Portugal Freelancer Tax Calculator
+              </h2>
+              <p className="text-verde-600 text-sm">
+                Estimate your IRS, social security contributions, VAT status, and take-home pay under the simplified regime.
+              </p>
+            </div>
+            <span className="text-verde-400 group-hover:text-verde-600 transition-colors text-xl flex-shrink-0">
+              &rarr;
+            </span>
+          </div>
+        </Link>
+      </section>
+
       {/* Guide cards */}
       <section className="max-w-3xl mx-auto px-6 pb-20">
         <div className="space-y-4">

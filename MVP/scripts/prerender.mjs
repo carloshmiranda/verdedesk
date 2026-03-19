@@ -328,6 +328,83 @@ function generateGuidesIndexHTML(template) {
   return html;
 }
 
+// Tax calculator page config
+const taxCalculator = {
+  path: 'tools/tax-calculator',
+  title: 'Portugal Freelancer Tax Calculator (2026) — Estimate IRS, Social Security & Net Income | VerdeDesk',
+  description: 'Free tax calculator for freelancers in Portugal. Estimate your IRS income tax, social security contributions, VAT status, and take-home pay under the simplified regime. Built for D8 visa holders and expats.',
+  canonical: 'https://verdedesk.vercel.app/tools/tax-calculator',
+};
+
+function generateToolPageHTML(template, tool) {
+  const jsonLd = JSON.stringify([
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'Portugal Freelancer Tax Calculator',
+      description: tool.description,
+      url: tool.canonical,
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'Any',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'VerdeDesk',
+        url: 'https://verdedesk.vercel.app',
+      },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://verdedesk.vercel.app/' },
+        { '@type': 'ListItem', position: 2, name: 'Tax Calculator', item: tool.canonical },
+      ],
+    },
+  ]);
+
+  const rootContent = `
+    <div style="max-width:48rem;margin:0 auto;padding:1rem 1.5rem">
+      <nav style="padding:1.25rem 0;display:flex;justify-content:space-between;align-items:center">
+        <a href="/" style="font-weight:600;color:#111">VerdeDesk</a>
+        <a href="/#waitlist" style="color:#16a34a;font-weight:500">Join waitlist</a>
+      </nav>
+      <main>
+        <nav aria-label="Breadcrumb"><a href="/">Home</a> / Tax Calculator</nav>
+        <h1>Portugal Freelancer Tax Calculator</h1>
+        <p>Estimate your income tax, social security, and take-home pay as a freelancer in Portugal. Uses the simplified regime (regime simplificado) — the default for most D8 visa holders and expat freelancers.</p>
+        <h2>How freelancer taxes work in Portugal</h2>
+        <h3>The simplified regime (regime simplificado)</h3>
+        <p>Most freelancers in Portugal use the simplified tax regime. Under this regime, only 75% of your service income is considered taxable — the other 25% is a presumed expense deduction.</p>
+        <h3>IRS income tax brackets</h3>
+        <p>Portugal uses progressive tax rates from 12.5% to 48% across nine brackets. Your taxable income is taxed at each bracket rate for the portion within that bracket.</p>
+        <h3>Social security (Seguranca Social)</h3>
+        <p>Freelancers pay 21.4% on 70% of their relevant quarterly income — an effective rate of about 15% of gross income. New freelancers are exempt for their first 12 months.</p>
+        <h3>VAT (IVA) threshold</h3>
+        <p>If your annual income stays below EUR 15,000, you are exempt from charging VAT under Article 53. Once you cross this threshold, you must register for VAT and charge 23%.</p>
+        <h3>NHR 2.0 (Non-Habitual Resident)</h3>
+        <p>If you qualify for the NHR 2.0 regime, you pay a flat 20% rate on Portuguese-source self-employment income for 10 years.</p>
+        <p><strong>Skip the Portuguese paperwork.</strong> <a href="/#waitlist">Join the VerdeDesk waitlist</a> — issue recibos verdes, track your income, and stay compliant in plain English.</p>
+      </main>
+      <footer style="margin-top:3rem;padding:1rem 0;border-top:1px solid #e5e7eb;color:#6b7280;font-size:0.875rem">
+        <a href="/">VerdeDesk</a> — Green receipts made simple for expats in Portugal.
+      </footer>
+    </div>`;
+
+  let html = template.replace(/<title>[^<]*<\/title>/, `<title>${tool.title}</title>`);
+  html = html.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${tool.description}"`);
+  html = html.replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${tool.canonical}"`);
+  html = html.replace(/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${tool.canonical}"`);
+  html = html.replace(/<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${tool.title}"`);
+  html = html.replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${tool.description}"`);
+  html = html.replace(/<meta name="twitter:title" content="[^"]*"/, `<meta name="twitter:title" content="${tool.title}"`);
+  html = html.replace(/<meta name="twitter:description" content="[^"]*"/, `<meta name="twitter:description" content="${tool.description}"`);
+  html = html.replace('</head>', `  <script type="application/ld+json">${jsonLd}</script>\n  </head>`);
+  html = html.replace('<div id="root"></div>', `<div id="root">${rootContent}</div>`);
+
+  return html;
+}
+
 // Main
 const templatePath = join(DIST, 'index.html');
 if (!existsSync(templatePath)) {
@@ -355,5 +432,12 @@ mkdirSync(guidesDir, { recursive: true });
 writeFileSync(join(guidesDir, 'index.html'), generateGuidesIndexHTML(template), 'utf-8');
 count++;
 console.log('  prerendered: /guides');
+
+// Prerender /tools/tax-calculator
+const toolsDir = join(DIST, 'tools', 'tax-calculator');
+mkdirSync(toolsDir, { recursive: true });
+writeFileSync(join(toolsDir, 'index.html'), generateToolPageHTML(template, taxCalculator), 'utf-8');
+count++;
+console.log('  prerendered: /tools/tax-calculator');
 
 console.log(`\nPrerendered ${count} pages for SEO.`);

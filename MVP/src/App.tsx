@@ -7,6 +7,7 @@ import GuideSocialSecurity from './pages/GuideSocialSecurity'
 import GuideIrsTaxReturn from './pages/GuideIrsTaxReturn'
 import GuideD8VisaTaxes from './pages/GuideD8VisaTaxes'
 import GuidesIndex from './pages/GuidesIndex'
+import TaxCalculator from './pages/TaxCalculator'
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/guide/social-security-freelancer-portugal" element={<GuideSocialSecurity />} />
         <Route path="/guide/irs-tax-return-freelancer-portugal" element={<GuideIrsTaxReturn />} />
         <Route path="/guide/d8-visa-portugal-taxes" element={<GuideD8VisaTaxes />} />
+        <Route path="/tools/tax-calculator" element={<TaxCalculator />} />
       </Routes>
     </BrowserRouter>
   )
