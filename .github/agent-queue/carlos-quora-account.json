@@ -1,0 +1,17 @@
+{
+  "id": "carlos-quora-account",
+  "type": "human_action_required",
+  "needs_mac": false,
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-19T18:35:00Z",
+  "priority": "high",
+  "instructions": {
+    "summary": "Create a Quora account so the agent can draft answers to 8+ Portugal freelancer tax questions with VerdeDesk backlinks.",
+    "detail": "Quora has 8+ high-value unanswered or poorly-answered questions about Portugal freelancer taxes, D8 visa taxes, recibos verdes, and VAT exemptions. Each answer can include a helpful link to a relevant VerdeDesk guide. Quora answers get indexed by Google and drive direct referral traffic. This is the highest-value distribution channel available that doesn't require GSC.",
+    "exact_action": "Go to quora.com, sign up with carlos.gaspar2011@gmail.com (or existing account), then share the login credentials by adding them to ~/.founder-secrets as QUORA_EMAIL and QUORA_PASSWORD. Alternatively, answer these questions yourself using the draft answers the agent will prepare in the next session.",
+    "unblocks": "Agent can post substantive answers to 8+ high-intent questions, each linking to a relevant VerdeDesk guide. Expected: indexed backlinks + direct referral traffic from Quora."
+  },
+  "result": null
+}
