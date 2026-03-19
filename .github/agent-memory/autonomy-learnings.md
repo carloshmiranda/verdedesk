@@ -258,3 +258,11 @@ Commits with `[skip ci]` skip Vercel deployments entirely — correct for memory
 ### Shared component pattern for cross-cutting changes
 - **What happened:** Adding a waitlist CTA to all 13 guide pages required editing only 1 file (RelatedGuides.tsx) because all guides import it. Single change, 14 pages updated.
 - **Lesson:** When designing components, shared wrappers that every page imports are high-leverage insertion points for cross-cutting features (CTAs, analytics, banners).
+
+## Session 28 — New Patterns
+
+### Validation stage stall: 28 sessions, 12 Carlos items, 0 completed
+- **What happened:** After 28 sessions, the agent has exhausted all autonomous distribution channels. 12 queue items are pending on Carlos, 0 have been completed. Zero traffic, zero signups. The agent continues to generate marginal SEO content and backlinks with no measurable impact.
+- **Pattern:** The project has hit a hard human-action bottleneck. The agent cannot create accounts on external platforms (Quora, Dev.to, GSC), cannot verify site ownership, and cannot submit to directories that require manual web forms. The ratio of agent sessions to human actions completed is 28:0.
+- **Decision needed:** Carlos should either (a) spend 10 minutes on the top 3 actions (GSC, Dev.to RSS, Quora account) or (b) override the 50-signup threshold and move to building stage — shipping a working product may generate more authentic distribution than more content marketing.
+- **Automation path:** If the agent had platform credentials, it could post Quora answers, set up Dev.to RSS import, and submit directory listings autonomously. The GSC verification meta tag is the only item that truly requires Carlos's browser. Consider a "credential handoff" session where Carlos spends 15 minutes creating accounts and sharing credentials all at once.

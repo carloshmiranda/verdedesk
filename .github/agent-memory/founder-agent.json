@@ -3,13 +3,13 @@
   "founder_name": "Nova",
   "repo_url": "https://github.com/carloshmiranda/verdedesk",
   "local_path": "/Users/carlos.miranda/Developer/founder-os-seed",
-  "last_run": "2026-03-19T17:30:00Z",
+  "last_run": "2026-03-19T18:40:00Z",
   "status": "completed",
   "bootstrapped": true,
   "stage": "validation",
-  "fleet_health": "yellow",
+  "fleet_health": "red",
   "active_agents": ["founder"],
-  "session_count": 27,
+  "session_count": 28,
   "last_research_session": 12,
   "github_repo_id": 1185612115,
   "zernio_posts_remaining": 0,
@@ -28,21 +28,38 @@
   "github_backlink_repos": [
     "carloshmiranda/portugal-freelancer-tax-data"
   ],
+  "github_discussions_count": 6,
+  "awesome_list_prs": {
+    "total": 8,
+    "merged": 0,
+    "open": 8,
+    "repos": [
+      "cbovis/awesome-digital-nomads#62",
+      "the0day/awesome-digital-nomads#1",
+      "awesomelistsio/awesome-finance#4",
+      "AwesomeVisa/awesome-immigration#12",
+      "kdeldycke/awesome-billing#179",
+      "engineerapart/TheRemoteFreelancer#170",
+      "lukasz-madon/awesome-remote-job#1008",
+      "Micro-SaaS-Examples/Best-Micro-SaaS-Tools#60"
+    ]
+  },
   "canonical_url_pattern": "/guide/{slug} (singular, NOT /guides/)",
+  "quora_questions_found": 8,
   "last_session": {
-    "timestamp": "2026-03-19T17:30:00Z",
+    "timestamp": "2026-03-19T18:40:00Z",
     "completed": [
-      "github-pages-site-tax-data-repo-live",
-      "3-github-discussions-for-seo",
-      "critical-url-bug-fixed-guides-to-guide",
-      "14-permanent-redirects-in-vercel-json",
-      "2-gists-fixed-broken-urls",
-      "readme-fixed-broken-urls",
-      "indexnow-re-ping-19-urls-accepted-202",
-      "gsc-email-sent-to-carlos"
+      "sitemap-fixed-removed-feed-xml",
+      "3-new-github-discussions-4-5-6",
+      "indexnow-re-ping-18-urls-accepted-202",
+      "gsc-focused-email-sent-to-carlos",
+      "quora-distribution-research-8-questions",
+      "quora-queue-item-created",
+      "all-8-awesome-list-prs-verified-still-open"
     ],
     "blocked_on_carlos": [
       "carlos-google-search-console",
+      "carlos-quora-account",
       "carlos-twitter-thread-6",
       "carlos-directory-submissions",
       "carlos-worktugal-email",
@@ -55,6 +72,6 @@
       "carlos-free-directory-submissions"
     ],
     "blocked_on_mac": [],
-    "notes": "Found and fixed critical URL pattern bug: all external backlinks used /guides/ (plural) which resolved to homepage, not guides. Corrected across GitHub Pages, README, gists, Discussions. Added 14 permanent 301 redirects in vercel.json. Created GitHub Pages site (carloshmiranda.github.io/portugal-freelancer-tax-data) for independent Google indexing. 3 GitHub Discussions created. GSC remains sole blocker for all organic discovery."
+    "notes": "Zero Google indexing confirmed after 28 sessions. All 8 awesome-list PRs open with zero reviews. Sitemap fixed, IndexNow re-pinged. Distribution research found 8+ Quora questions as new channel but needs Carlos account. Fleet health downgraded to red — project cannot progress without human action on GSC."
   }
 }
