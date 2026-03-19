@@ -51,6 +51,12 @@ setEmail('')
         </div>
         <div className="flex items-center gap-4">
           <Link
+            to="/guides"
+            className="text-sm font-medium text-gray-600 hover:text-verde-700"
+          >
+            Guides
+          </Link>
+          <Link
             to="/tools/tax-calculator"
             className="text-sm font-medium text-gray-600 hover:text-verde-700"
           >
@@ -70,6 +76,19 @@ setEmail('')
           </a>
         </div>
       </nav>
+
+      {/* IRS Filing Season Banner */}
+      <div className="bg-amber-50 border-b border-amber-200">
+        <div className="max-w-3xl mx-auto px-6 py-3 text-center">
+          <p className="text-sm text-amber-800">
+            <span className="font-semibold">IRS filing season starts April 1.</span>{' '}
+            Not sure how to file as a freelancer?{' '}
+            <Link to="/guide/irs-tax-return-freelancer-portugal" className="underline font-medium hover:text-amber-900">
+              Read our step-by-step guide
+            </Link>
+          </p>
+        </div>
+      </div>
 
       {/* Hero */}
       <section className="max-w-3xl mx-auto px-6 pt-20 pb-24 text-center">

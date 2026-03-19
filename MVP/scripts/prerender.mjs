@@ -744,9 +744,12 @@ function generateLandingPageHTML(template) {
 
   const rootContent = `
     <div style="max-width:48rem;margin:0 auto;padding:1rem 1.5rem">
+      <div style="background:#fffbeb;border-bottom:1px solid #fde68a;padding:0.75rem 1.5rem;text-align:center;font-size:0.875rem;color:#92400e">
+        <strong>IRS filing season starts April 1.</strong> Not sure how to file as a freelancer? <a href="/guide/irs-tax-return-freelancer-portugal" style="text-decoration:underline;font-weight:500">Read our step-by-step guide</a>
+      </div>
       <nav style="padding:1.25rem 0;display:flex;justify-content:space-between;align-items:center">
         <a href="/" style="font-weight:600;color:#111">VerdeDesk</a>
-        <a href="#waitlist" style="color:#16a34a;font-weight:500">Join waitlist</a>
+        <div><a href="/guides" style="color:#4b5563;font-weight:500;margin-right:1rem">Guides</a><a href="#waitlist" style="color:#16a34a;font-weight:500">Join waitlist</a></div>
       </nav>
       <main>
         <h1>Stop fighting the Portal das Financas — issue green receipts in plain English</h1>
