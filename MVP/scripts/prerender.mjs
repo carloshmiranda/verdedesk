@@ -585,6 +585,161 @@ function generateNhrCheckerHTML(template, tool) {
   return html;
 }
 
+// Landing page config — the most important page for SEO
+function generateLandingPageHTML(template) {
+  const title = 'VerdeDesk — Green Receipts Made Simple for Expats in Portugal';
+  const description = 'Issue recibos verdes, track income, and stay compliant with Portuguese tax law — in plain English. Built for D8 visa holders and expat freelancers.';
+  const canonical = 'https://verdedesk.vercel.app/';
+
+  const jsonLd = JSON.stringify([
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'VerdeDesk',
+      description,
+      url: canonical,
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'Any',
+      offers: { '@type': 'Offer', price: '9', priceCurrency: 'EUR' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'VerdeDesk',
+        url: canonical,
+      },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'What is a recibo verde and how do I issue one in English?',
+          acceptedAnswer: { '@type': 'Answer', text: 'A recibo verde (green receipt) is the official invoice Portuguese freelancers must issue for every payment received. It must be issued through Portal das Financas which has no English version. VerdeDesk provides an English-language interface that translates every field and submits compliant receipts on your behalf.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'How does the EUR 15,000 VAT threshold work for D8 visa freelancers?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Freelancers earning under EUR 15,000/year are exempt from charging VAT on invoices. Once you cross that threshold, you must register for IVA (VAT) and charge 23%. VerdeDesk tracks your cumulative income and warns you before you cross the line.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'Do I need an accountant as a D8 visa freelancer?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Not necessarily. If you issue fewer than 150 invoices/year and stay under the simplified tax regime, you can manage your own recibos verdes. Most expats hire accountants at EUR 80-165/month simply because the portal is in Portuguese.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'What is the quarterly Seguranca Social declaration?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Every 3 months, freelancers must declare their income to Seguranca Social (Portuguese social security) and pay a contribution. Missing the deadline triggers automatic penalties.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'Can I use VerdeDesk if I am on the NHR regime?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Yes. VerdeDesk is built for both D8 visa holders and NHR (Non-Habitual Resident) regime freelancers.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'What is the QES mandate and does it affect my recibos verdes?',
+          acceptedAnswer: { '@type': 'Answer', text: 'From January 2027, Portugal will require a Qualified Electronic Signature (QES) on invoices issued outside Portal das Financas. VerdeDesk wraps the portal directly, so receipts issued through VerdeDesk are automatically compliant.' },
+        },
+      ],
+    },
+  ]);
+
+  const guideLinks = guides
+    .map((g) => `<li><a href="/guide/${g.slug}">${g.articleTitle}</a></li>`)
+    .join('\n            ');
+
+  const rootContent = `
+    <div style="max-width:48rem;margin:0 auto;padding:1rem 1.5rem">
+      <nav style="padding:1.25rem 0;display:flex;justify-content:space-between;align-items:center">
+        <a href="/" style="font-weight:600;color:#111">VerdeDesk</a>
+        <a href="#waitlist" style="color:#16a34a;font-weight:500">Join waitlist</a>
+      </nav>
+      <main>
+        <h1>Stop fighting the Portal das Financas — issue green receipts in plain English</h1>
+        <p>Issue recibos verdes, track your income, and stay compliant with Portuguese tax law — in plain English. Built for D8 visa holders and expat freelancers in Portugal.</p>
+
+        <h2>What freelancers in Portugal actually say</h2>
+        <blockquote>"The Financas portal is only in Portuguese. I had to ask a friend to help with every step."</blockquote>
+        <blockquote>"One wrong selection can accidentally trigger a 23% VAT liability you didn't collect."</blockquote>
+        <blockquote>"In Portugal, freelancer taxes are a compliance minefield."</blockquote>
+
+        <h2>Sound familiar?</h2>
+        <ul>
+          <li><strong>The portal is entirely in Portuguese</strong> — Portal das Financas has no English version. Every field is a guessing game.</li>
+          <li><strong>Accountants charge EUR 80-165/month</strong> — You end up paying a local accountant for tasks that should take 30 seconds.</li>
+          <li><strong>New rules keep changing the picture</strong> — QES mandate (Jan 2027), B2G e-invoicing, NHR 2.0, VAT thresholds.</li>
+        </ul>
+
+        <h2>How it works</h2>
+        <ol>
+          <li><strong>Fill in an English form</strong> — Enter your client name, amount, and service description. We handle the Portuguese fields automatically.</li>
+          <li><strong>We generate the recibo</strong> — VerdeDesk creates a fully compliant recibo verde with the correct document type, VAT status, and activity code.</li>
+          <li><strong>Track and stay compliant</strong> — Your income dashboard updates. You get alerts before VAT thresholds and social security deadlines.</li>
+        </ol>
+
+        <h2>What VerdeDesk does</h2>
+        <ul>
+          <li><strong>Issue green receipts in seconds</strong> — Fill in a simple English form. No Portuguese required.</li>
+          <li><strong>Income dashboard and VAT tracking</strong> — See monthly totals, YTD, and get a warning before you cross the EUR 15,000 VAT threshold.</li>
+          <li><strong>Compliance reminders</strong> — Never miss a quarterly social security declaration or IRS deadline again.</li>
+          <li><strong>D8 visa and NHR aware</strong> — Built for the journey from D8 visa approval to NIF registration to first recibo verde.</li>
+        </ul>
+
+        <h2>The math is simple</h2>
+        <ul>
+          <li>Local accountant: EUR 80-165/month</li>
+          <li>Full-service English attorney: EUR 165/month</li>
+          <li><strong>VerdeDesk: EUR 9/month</strong> — 14-day free trial, no card required.</li>
+        </ul>
+
+        <h2>Free tools</h2>
+        <ul>
+          <li><a href="/tools/tax-calculator">Portugal Freelancer Tax Calculator</a> — Estimate your IRS, social security, and take-home pay</li>
+          <li><a href="/tools/nhr-checker">NHR 2.0 Eligibility Checker</a> — Find out if you qualify for the 20% flat tax rate</li>
+        </ul>
+
+        <h2>Free guides for expat freelancers</h2>
+        <ul>
+            ${guideLinks}
+        </ul>
+
+        <h2>Common questions from expat freelancers in Portugal</h2>
+        <h3>What is a recibo verde and how do I issue one in English?</h3>
+        <p>A recibo verde (green receipt) is the official invoice Portuguese freelancers must issue for every payment received. It must be issued through Portal das Financas which has no English version. VerdeDesk provides an English-language interface that translates every field and submits compliant receipts on your behalf.</p>
+        <h3>How does the EUR 15,000 VAT threshold work for D8 visa freelancers?</h3>
+        <p>Freelancers earning under EUR 15,000/year are exempt from charging VAT on invoices. Once you cross that threshold, you must register for IVA (VAT) and charge 23%. VerdeDesk tracks your cumulative income and warns you before you cross the line.</p>
+        <h3>Do I need an accountant (contabilista) as a D8 visa freelancer?</h3>
+        <p>Not necessarily. If you issue fewer than 150 invoices/year and stay under the simplified tax regime, you can manage your own recibos verdes. Most expats hire accountants at EUR 80-165/month simply because the portal is in Portuguese — VerdeDesk removes that barrier.</p>
+        <h3>What is the quarterly Seguranca Social declaration?</h3>
+        <p>Every 3 months, freelancers must declare their income to Seguranca Social (Portuguese social security) and pay a contribution. Missing the deadline triggers automatic penalties. VerdeDesk sends reminders before each deadline and shows exactly what you owe.</p>
+        <h3>Can I use VerdeDesk if I am on the NHR regime?</h3>
+        <p>Yes. VerdeDesk is built for both D8 visa holders and NHR (Non-Habitual Resident) regime freelancers.</p>
+        <h3>What is the QES mandate and does it affect my recibos verdes?</h3>
+        <p>From January 2027, Portugal will require a Qualified Electronic Signature (QES) on invoices issued outside Portal das Financas. VerdeDesk wraps the portal directly, so receipts issued through VerdeDesk are automatically compliant.</p>
+      </main>
+      <footer style="margin-top:3rem;padding:1rem 0;border-top:1px solid #e5e7eb;color:#6b7280;font-size:0.875rem">
+        <a href="/">VerdeDesk</a> — Green receipts made simple for expats in Portugal. &copy; 2026
+      </footer>
+    </div>`;
+
+  let html = template;
+
+  // Add JSON-LD before closing </head>
+  html = html.replace(
+    '</head>',
+    `  <script type="application/ld+json">${jsonLd}</script>\n  </head>`
+  );
+
+  // Insert static content inside <div id="root">
+  html = html.replace(
+    '<div id="root"></div>',
+    `<div id="root">${rootContent}</div>`
+  );
+
+  return html;
+}
+
 // Main
 const templatePath = join(DIST, 'index.html');
 if (!existsSync(templatePath)) {
@@ -594,6 +749,12 @@ if (!existsSync(templatePath)) {
 
 const template = readFileSync(templatePath, 'utf-8');
 let count = 0;
+
+// Prerender the landing page (most critical for SEO)
+const landingHTML = generateLandingPageHTML(template);
+writeFileSync(join(DIST, 'index.html'), landingHTML, 'utf-8');
+count++;
+console.log('  prerendered: / (landing page)');
 
 for (const guide of guides) {
   const dir = join(DIST, 'guide', guide.slug);
