@@ -30,6 +30,7 @@
 - [x] FOUNDER-003w — NHR 2.0 / IFICI eligibility checker tool (interactive, prerendered, cross-linked) ✓
 - [x] FOUNDER-003x — SEO guide: "2026 Portugal Freelancer Tax Deadlines" (month-by-month calendar, penalties, first-year info) ✓
 - [x] FOUNDER-003y — SEO guide: "How to Register as a Freelancer in Portugal" (abrir atividade, CAE/CIRS codes, tax regime) ✓
+- [x] FOUNDER-003z — SEO guide: "Withholding Tax (Retencao na Fonte)" (25% rate, Art. 53 exemption, international clients, decision tree) ✓
 - [ ] FOUNDER-003d — Google Search Console setup — Carlos needs 5 min to create property + share meta tag
 - [ ] FOUNDER-003e — Ahrefs Webmaster Tools — Carlos needs 2 min to verify site
 - [ ] FOUNDER-003f — Dev.to founder article — content ready, blocked on DEVTO_API_KEY
@@ -65,7 +66,7 @@
 
 | Agent | Status | Last Run |
 |-------|--------|----------|
-| founder | active | 2026-03-19 (session 18) |
+| founder | active | 2026-03-19 (session 19) |
 
 ---
 
