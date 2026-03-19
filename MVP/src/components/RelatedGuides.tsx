@@ -11,6 +11,8 @@ const guides = [
   { to: '/guide/register-freelancer-portugal', label: 'How to Register as a Freelancer' },
   { to: '/guide/withholding-tax-portugal', label: 'Withholding Tax (Retencao na Fonte)' },
   { to: '/guide/simplified-vs-organized-regime', label: 'Simplified vs Organized Regime' },
+  { to: '/guide/portal-das-financas-english', label: 'Portal das Financas in English' },
+  { to: '/guide/tax-deductions-freelancer-portugal', label: 'Freelancer Tax Deductions' },
 ]
 
 export default function RelatedGuides({ current }: { current: string }) {

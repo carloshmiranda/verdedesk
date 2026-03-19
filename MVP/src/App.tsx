@@ -13,6 +13,8 @@ import GuideTaxDeadlines from './pages/GuideTaxDeadlines'
 import GuideFreelancerRegistration from './pages/GuideFreelancerRegistration'
 import GuideWithholdingTax from './pages/GuideWithholdingTax'
 import GuideSimplifiedVsOrganized from './pages/GuideSimplifiedVsOrganized'
+import GuidePortalDasFinancas from './pages/GuidePortalDasFinancas'
+import GuideTaxDeductions from './pages/GuideTaxDeductions'
 
 export default function App() {
   return (
@@ -30,6 +32,8 @@ export default function App() {
         <Route path="/guide/register-freelancer-portugal" element={<GuideFreelancerRegistration />} />
         <Route path="/guide/withholding-tax-portugal" element={<GuideWithholdingTax />} />
         <Route path="/guide/simplified-vs-organized-regime" element={<GuideSimplifiedVsOrganized />} />
+        <Route path="/guide/portal-das-financas-english" element={<GuidePortalDasFinancas />} />
+        <Route path="/guide/tax-deductions-freelancer-portugal" element={<GuideTaxDeductions />} />
         <Route path="/tools/tax-calculator" element={<TaxCalculator />} />
         <Route path="/tools/nhr-checker" element={<NhrChecker />} />
       </Routes>

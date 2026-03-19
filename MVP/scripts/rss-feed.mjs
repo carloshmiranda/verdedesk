@@ -17,6 +17,18 @@ const FEED_SUBTITLE = 'Plain English guides to Portuguese freelancer taxes, reci
 
 const guides = [
   {
+    slug: 'portal-das-financas-english',
+    title: 'Portal das Financas in English (2026) — Complete Navigation Guide',
+    summary: 'Navigate Portugal\'s tax portal in English. Login, main menu translation, recibo verde form fields, error messages, and IRS filing explained.',
+    updated: '2026-03-19',
+  },
+  {
+    slug: 'tax-deductions-freelancer-portugal',
+    title: 'Freelancer Tax Deductions in Portugal (2026) — What You Can and Cannot Deduct',
+    summary: 'The simplified regime 25% automatic deduction, the 15% e-Fatura rule, organized regime expenses, and common deductible expenses table.',
+    updated: '2026-03-19',
+  },
+  {
     slug: 'simplified-vs-organized-regime',
     title: 'Simplified vs Organized Regime for Freelancers in Portugal (2026)',
     summary: 'Which tax regime should you choose? Comparison of regime simplificado vs contabilidade organizada, the EUR 200k threshold, and when each one wins.',

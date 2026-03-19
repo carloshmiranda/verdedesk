@@ -62,6 +62,18 @@ const guides = [
     description: 'Which tax regime should you choose? Side-by-side comparison of regime simplificado vs contabilidade organizada, the EUR 200k threshold, and when each one wins.',
     tag: 'Tax regime',
   },
+  {
+    to: '/guide/portal-das-financas-english',
+    title: 'Portal das Financas in English (2026)',
+    description: 'Navigate Portugal\x27s tax portal in English. Login, main menu translation, recibo verde form fields, error messages, and IRS filing — all explained step by step.',
+    tag: 'Getting started',
+  },
+  {
+    to: '/guide/tax-deductions-freelancer-portugal',
+    title: 'Freelancer Tax Deductions in Portugal (2026)',
+    description: 'What you can and cannot deduct as a freelancer. The simplified regime 25% automatic deduction, the 15% e-Fatura rule, and organized regime expenses.',
+    tag: 'Tax return',
+  },
 ]
 
 export default function GuidesIndex() {
