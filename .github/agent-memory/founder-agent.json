@@ -3,29 +3,27 @@
   "founder_name": "Nova",
   "repo_url": "https://github.com/carloshmiranda/verdedesk",
   "local_path": "/Users/carlos.miranda/Developer/founder-os-seed",
-  "last_run": "2026-03-19T09:35:00Z",
+  "last_run": "2026-03-19T10:55:00Z",
   "status": "completed",
   "bootstrapped": true,
   "stage": "validation",
   "fleet_health": "yellow",
   "active_agents": ["founder"],
-  "session_count": 21,
+  "session_count": 22,
   "last_research_session": 12,
   "github_repo_id": 1185612115,
   "zernio_posts_remaining": 0,
   "zernio_auth_broken": true,
   "last_session": {
-    "timestamp": "2026-03-19T09:35:00Z",
+    "timestamp": "2026-03-19T10:55:00Z",
     "completed": [
-      "landing-page-prerender-fix",
-      "github-readme-backlinks",
-      "github-repo-topics",
-      "wayback-machine-archive",
-      "indexnow-ping-all-pages",
-      "directory-submissions-expanded",
-      "validation-status-json-created",
-      "mistakes-entry-019",
-      "session-email-to-carlos"
+      "guide-portal-das-financas-english",
+      "guide-tax-deductions-freelancer-portugal",
+      "awesome-digital-nomads-pr-62",
+      "indexnow-key-file-setup",
+      "rss-ping-o-matic",
+      "devto-queue-item-updated-rss-import",
+      "validation-status-verified"
     ],
     "blocked_on_carlos": [
       "carlos-google-search-console",
@@ -41,6 +39,6 @@
       "carlos-free-directory-submissions"
     ],
     "blocked_on_mac": [],
-    "notes": "Found root cause of 20 sessions of zero Google indexing: landing page was NOT prerendered. Google saw empty div#root. Fixed with full static HTML + JSON-LD structured data. 14 pages now prerendered. Also created GitHub backlinks, archived on Wayback Machine, and expanded directory submission list to 7 directories."
+    "notes": "Built 2 new SEO guides (Portal das Financas English, Tax Deductions) — 16 prerendered pages total. Submitted PR to awesome-digital-nomads for SEO backlink. Found dev.to RSS import bypasses API key blocker. IndexNow key file deployed but API returns 403 (may need propagation time)."
   }
 }

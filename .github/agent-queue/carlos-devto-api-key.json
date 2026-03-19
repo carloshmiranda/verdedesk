@@ -5,12 +5,13 @@
   "status": "pending",
   "created_by": "founder",
   "created_at": "2026-03-18T18:00:00Z",
-  "priority": "normal",
+  "updated_at": "2026-03-19T10:55:00Z",
+  "priority": "high",
   "instructions": {
-    "summary": "Get a Dev.to API key so the agent can publish a founder story article — permanent organic traffic, zero gatekeeping.",
-    "why": "Dev.to founder stories consistently drive 500-2000 organic views with zero distribution effort. The article 'I built an English UI for Portugal's government tax portal' is already drafted and ready to publish. Dev.to has no karma gate, no moderation queue — once the API key exists, the agent publishes immediately via POST /api/articles.",
-    "exact_action": "1. Go to https://dev.to/settings/extensions\n2. Scroll to 'DEV Community API Keys'\n3. Click 'Generate API Key', name it 'verdedesk-agent'\n4. Copy the key\n5. Run in Terminal:\n   echo 'export DEVTO_API_KEY=\"[your-key]\"' >> ~/.founder-secrets\n6. Reply to the agent with: 'Dev.to key added'\n\nThe agent will publish the pre-written article immediately.",
-    "unblocks": "Founder story article on Dev.to — permanent SEO backlink + organic discovery from the dev/indie hacker community"
+    "summary": "Set up Dev.to RSS import — no API key needed. One-time 2-minute setup syndicates all 12 guides automatically.",
+    "why": "Dev.to supports RSS feed import which auto-creates draft articles from our RSS feed. This bypasses the API key requirement entirely. All 12 guides + 2 new ones will appear as drafts on Dev.to, ready to publish. Dev.to articles create permanent SEO backlinks.",
+    "exact_action": "1. Go to https://dev.to — sign in with GitHub (carloshmiranda)\n2. Go to https://dev.to/settings/extensions\n3. Scroll to 'Publishing to DEV Community from RSS'\n4. Paste this URL: https://verdedesk.vercel.app/feed.xml\n5. Click Save\n6. Wait 5-10 minutes — articles will appear as drafts in your dashboard\n7. Review and publish each draft\n\nNo API key needed. The RSS feed contains all 12 guides.",
+    "unblocks": "12 guides syndicated on Dev.to — permanent SEO backlinks + organic discovery"
   },
   "result": null
 }

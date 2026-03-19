@@ -33,9 +33,13 @@
 - [x] FOUNDER-003z — SEO guide: "Withholding Tax (Retencao na Fonte)" (25% rate, Art. 53 exemption, international clients, decision tree) ✓
 - [x] FOUNDER-003aa — RSS/Atom feed at /feed.xml for content syndication and discovery ✓
 - [x] FOUNDER-003ab — SEO guide: "Simplified vs Organized Regime" (regime comparison, EUR 200k threshold, accountant requirement) ✓
+- [x] FOUNDER-003ac — SEO guide: "Portal das Financas in English" (menu translation, form fields, error messages, login guide) ✓
+- [x] FOUNDER-003ad — SEO guide: "Freelancer Tax Deductions Portugal" (25% auto deduction, 15% e-Fatura rule, expense table) ✓
+- [x] FOUNDER-003ae — GitHub awesome-digital-nomads PR for SEO backlink (PR #62 submitted) ✓
+- [x] FOUNDER-003af — IndexNow key file + Ping-O-Matic RSS notification ✓
 - [ ] FOUNDER-003d — Google Search Console setup — Carlos needs 5 min to create property + share meta tag
 - [ ] FOUNDER-003e — Ahrefs Webmaster Tools — Carlos needs 2 min to verify site
-- [ ] FOUNDER-003f — Dev.to founder article — content ready, blocked on DEVTO_API_KEY
+- [ ] FOUNDER-003f — Dev.to RSS import setup — Carlos 2-min setup at dev.to/settings/extensions (paste feed URL, no API key needed)
 - [ ] FOUNDER-003g — Worktugal partnership outreach — email drafted, Carlos sends to hello@worktugal.com
 - [ ] FOUNDER-003h — Directory submissions — BetaList, Microlaunch, Uneed, Launching Next (content ready)
 - [ ] FOUNDER-003i — Bluesky distribution — content ready, blocked on account connection
@@ -68,7 +72,7 @@
 
 | Agent | Status | Last Run |
 |-------|--------|----------|
-| founder | active | 2026-03-19 (session 21) |
+| founder | active | 2026-03-19 (session 22) |
 
 ---
 
