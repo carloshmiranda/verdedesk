@@ -38,6 +38,12 @@ const guides = [
     description: 'Category B income, the simplified regime, 2026 tax brackets, deductible expenses, and step-by-step filing instructions.',
     tag: 'Tax return',
   },
+  {
+    to: '/guide/tax-deadlines-2026',
+    title: 'Portugal Freelancer Tax Deadlines 2026',
+    description: 'Month-by-month calendar of every IRS, social security, e-Fatura, and SAFT deadline. Never miss a filing date.',
+    tag: 'Tax calendar',
+  },
 ]
 
 export default function GuidesIndex() {
