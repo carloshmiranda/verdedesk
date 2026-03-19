@@ -2,6 +2,22 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
+  "redirects": [
+    { "source": "/guides/how-to-issue-recibo-verde", "destination": "/guide/recibo-verde-english", "permanent": true },
+    { "source": "/guides/vat-exemption-article-53", "destination": "/guide/vat-exemption-article-53-portugal", "permanent": true },
+    { "source": "/guides/social-security-freelancers-portugal", "destination": "/guide/social-security-freelancer-portugal", "permanent": true },
+    { "source": "/guides/d8-visa-portugal-taxes", "destination": "/guide/d8-visa-portugal-taxes", "permanent": true },
+    { "source": "/guides/freelancer-tax-deadlines-2026", "destination": "/guide/tax-deadlines-2026", "permanent": true },
+    { "source": "/guides/register-freelancer-portugal", "destination": "/guide/register-freelancer-portugal", "permanent": true },
+    { "source": "/guides/withholding-tax-retencao-na-fonte", "destination": "/guide/withholding-tax-portugal", "permanent": true },
+    { "source": "/guides/portal-das-financas-english", "destination": "/guide/portal-das-financas-english", "permanent": true },
+    { "source": "/guides/nif-portugal-foreigners", "destination": "/guide/nif-portugal-foreigner", "permanent": true },
+    { "source": "/guides/freelancer-tax-deductions-portugal", "destination": "/guide/tax-deductions-freelancer-portugal", "permanent": true },
+    { "source": "/guides/efatura-portugal-english", "destination": "/guide/e-fatura-portugal-english", "permanent": true },
+    { "source": "/guides/irs-tax-return-freelancer-portugal", "destination": "/guide/irs-tax-return-freelancer-portugal", "permanent": true },
+    { "source": "/guides/fatura-vs-fatura-recibo", "destination": "/guide/fatura-vs-fatura-recibo-vs-recibo", "permanent": true },
+    { "source": "/guides/simplified-vs-organized-regime", "destination": "/guide/simplified-vs-organized-regime", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }

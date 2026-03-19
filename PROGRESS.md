@@ -47,6 +47,8 @@
 - [x] FOUNDER-003an — Open-source portugal-freelancer-tax-data GitHub repo (7 JSON datasets, 6+ backlinks to VerdeDesk) ✓
 - [x] FOUNDER-003ao — 2 new GitHub gists (D8 visa tax checklist, Portal error messages translated) for backlinks ✓
 - [x] FOUNDER-003ap — Yandex IndexNow re-ping (19 URLs accepted) + GitHub repo topics for discoverability ✓
+- [x] FOUNDER-003aq — GitHub Pages site on tax-data repo (carloshmiranda.github.io/portugal-freelancer-tax-data) + 3 GitHub Discussions for SEO indexing ✓
+- [x] FOUNDER-003ar — Fix broken external backlinks: /guides/ → /guide/ URL pattern corrected across GitHub Pages, README, gists, Discussions ✓
 - [ ] FOUNDER-003d — Google Search Console setup — Carlos needs 5 min to create property + share meta tag
 - [ ] FOUNDER-003e — Ahrefs Webmaster Tools — Carlos needs 2 min to verify site
 - [ ] FOUNDER-003f — Dev.to RSS import setup — Carlos 2-min setup at dev.to/settings/extensions (paste feed URL, no API key needed)

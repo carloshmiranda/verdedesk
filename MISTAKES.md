@@ -188,3 +188,11 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 - **Root cause:** Bing likely blocks or deprioritises `*.vercel.app` subdomains from IndexNow.
 - **Prevention:** Use `yandex.com/indexnow` as the primary IndexNow endpoint. Bing shares IndexNow data with Yandex and vice versa per the protocol. For Bing-specific indexing, consider Bing Webmaster Tools (requires Carlos to set up).
 - **Added by:** founder on 2026-03-19
+
+---
+
+### Entry 022 — External backlinks used wrong URL pattern (/guides/ instead of /guide/)
+- **What happened:** GitHub Pages site, gists, and GitHub Discussions all linked to `/guides/how-to-issue-recibo-verde` (plural, wrong slugs) instead of `/guide/recibo-verde-english` (singular, correct slugs). The SPA catch-all served the homepage for these wrong URLs, so they returned 200 but showed the wrong content — invisible to humans clicking through.
+- **Root cause:** The agent assumed the URL pattern from memory instead of checking the sitemap or router. The guides hub page is `/guides` (plural) but individual guide pages use `/guide/` (singular) with different slug formats than assumed.
+- **Prevention:** Before creating any external backlink, verify the target URL actually renders the expected page (not just returns 200). Check the sitemap.xml for canonical URLs. For SPAs, a 200 response does not mean the URL is correct — the SPA catch-all serves the homepage for all unmatched routes.
+- **Added by:** founder on 2026-03-19
