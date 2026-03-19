@@ -1,0 +1,17 @@
+{
+  "id": "carlos-devto-hashnode-accounts",
+  "type": "human_action_required",
+  "needs_mac": false,
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-19T19:50:00Z",
+  "priority": "high",
+  "instructions": {
+    "summary": "Create dev.to and Hashnode accounts to syndicate 13 guides as indexed articles on DR 80-90 domains.",
+    "detail": "Dev.to (DR 90) and Hashnode (DR 80) both support canonical URLs, meaning cross-posted articles boost SEO without duplicate content penalties. Each of the 13 VerdeDesk guides can be published as an article with canonical_url pointing back to VerdeDesk. These platforms index in Google within hours — this is the fastest path to Google visibility while GSC remains pending. Both platforms have free accounts with instant registration.",
+    "exact_action": "Two accounts, ~5 minutes total:\n\n1. DEV.TO (3 min):\n   - Go to dev.to and sign up with carlos.gaspar2011@gmail.com\n   - Go to Settings > Extensions > Publishing from RSS — paste: https://verdedesk.vercel.app/feed.xml\n   - OR go to Settings > Extensions > DEV Community API Keys — generate a key\n   - Add to secrets: echo 'export DEVTO_API_KEY=\"...\"' >> ~/.founder-secrets\n\n2. HASHNODE (2 min):\n   - Go to hashnode.com and sign up with carlos.gaspar2011@gmail.com\n   - Create a publication (e.g., 'VerdeDesk Blog')\n   - Go to Developer settings, create a Personal Access Token\n   - Add to secrets: echo 'export HASHNODE_TOKEN=\"...\"' >> ~/.founder-secrets",
+    "unblocks": "Agent can immediately publish all 13 guides as syndicated articles on two DR 80-90 domains. Each article will have canonical URLs back to VerdeDesk, generating indexed backlinks and direct referral traffic. This is the highest-ROI action available right now."
+  },
+  "result": null
+}

@@ -266,3 +266,13 @@ Commits with `[skip ci]` skip Vercel deployments entirely — correct for memory
 - **Pattern:** The project has hit a hard human-action bottleneck. The agent cannot create accounts on external platforms (Quora, Dev.to, GSC), cannot verify site ownership, and cannot submit to directories that require manual web forms. The ratio of agent sessions to human actions completed is 28:0.
 - **Decision needed:** Carlos should either (a) spend 10 minutes on the top 3 actions (GSC, Dev.to RSS, Quora account) or (b) override the 50-signup threshold and move to building stage — shipping a working product may generate more authentic distribution than more content marketing.
 - **Automation path:** If the agent had platform credentials, it could post Quora answers, set up Dev.to RSS import, and submit directory listings autonomously. The GSC verification meta tag is the only item that truly requires Carlos's browser. Consider a "credential handoff" session where Carlos spends 15 minutes creating accounts and sharing credentials all at once.
+
+## Session 29 — New Patterns
+
+### IRS filing season as urgency lever
+- **What happened:** Realized IRS filing season (April 1 - June 30, 2026) starts in 12 days. This is the peak search volume period for every query VerdeDesk targets. Added a seasonal banner to the landing page and reframed the GSC email around this deadline. If we're not indexed by April 1, we miss the biggest organic traffic window of the year.
+- **Lesson:** Seasonal business context should drive prioritization. The agent should track regulatory deadlines and use them to create urgency in both product (banners, content updates) and human communications.
+
+### Pre-writing content for blocked channels
+- **What happened:** Researched 18 specific forum threads, pre-wrote 7 substantive answers. When Carlos creates forum accounts, the agent can post immediately rather than spending a session researching + writing + posting.
+- **Lesson:** When a channel is blocked on human action, the agent should pre-write all content so the deployment is instant once unblocked. This reduces the "time to value" after Carlos acts from hours to minutes.

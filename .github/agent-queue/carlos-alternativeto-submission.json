@@ -1,0 +1,17 @@
+{
+  "id": "carlos-alternativeto-submission",
+  "type": "human_action_required",
+  "needs_mac": false,
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-19T19:50:00Z",
+  "priority": "high",
+  "instructions": {
+    "summary": "Submit VerdeDesk on AlternativeTo.net as an alternative to Portal das Financas — DR 80 backlink.",
+    "detail": "AlternativeTo.net has DR 80 and millions of monthly visitors. People searching for alternatives to Portal das Financas will find VerdeDesk. The listing is free and typically approved in 1-2 days. This is a high-authority dofollow backlink.",
+    "exact_action": "Takes ~3 minutes:\n\n1. Go to alternativeto.net and create a free account\n2. Click 'Add Application' or go to alternativeto.net/software/new\n3. Fill in:\n   - Name: VerdeDesk\n   - URL: https://verdedesk.vercel.app\n   - Description: English-language interface for Portuguese freelancer tax compliance. Issue recibos verdes, track income, and stay compliant with Portuguese tax law — without needing to read Portuguese.\n   - Category: Finance / Tax / Invoicing\n   - Tags: portugal, freelancer, tax, invoicing, recibos verdes, expat\n4. After creating, search for 'Portal das Financas' and suggest VerdeDesk as an alternative",
+    "unblocks": "High-authority backlink on DR 80 domain indexed by Google. People searching for Portal das Financas alternatives will discover VerdeDesk."
+  },
+  "result": null
+}

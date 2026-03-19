@@ -1,0 +1,17 @@
+{
+  "id": "carlos-mastodon-account",
+  "type": "human_action_required",
+  "needs_mac": false,
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-19T19:50:00Z",
+  "priority": "normal",
+  "instructions": {
+    "summary": "Create a Mastodon account for VerdeDesk distribution — no karma gates, posts indexed by Google.",
+    "detail": "Mastodon has no karma requirements, no algorithmic suppression, and posts are indexed by Google. Hashtags like #DigitalNomad #Portugal #Expat have active communities. Unlike Twitter (Zernio exhausted) and Reddit (spam-filtered), Mastodon allows unlimited posting from day one.",
+    "exact_action": "Takes ~2 minutes:\n\n1. Go to mastodon.social/auth/sign_up\n2. Sign up with carlos.gaspar2011@gmail.com\n3. Share credentials: echo 'export MASTODON_USER=\"...\" MASTODON_PASS=\"...\"' >> ~/.founder-secrets\n4. Go to Preferences > Development > New Application to create an API access token\n5. Add: echo 'export MASTODON_TOKEN=\"...\"' >> ~/.founder-secrets",
+    "unblocks": "Agent can post guide links with #DigitalNomad #Portugal #FreelancerTax hashtags. No rate limits, no karma gates. Posts are Google-indexed."
+  },
+  "result": null
+}
