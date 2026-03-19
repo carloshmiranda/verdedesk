@@ -86,6 +86,12 @@ const guides = [
     description: 'How to use Portugal\'s invoice tracking system. Access the portal, validate invoices, classify personal vs professional expenses, and meet the February 25 deadline.',
     tag: 'Getting started',
   },
+  {
+    to: '/guide/anexo-b-irs-freelancer-portugal',
+    title: 'Anexo B (Annex B) IRS Portugal: Field-by-Field Guide',
+    description: 'Complete English translation of every field in Anexo B. For freelancers under the simplified regime filing 2025 income in 2026.',
+    tag: 'Tax return',
+  },
 ]
 
 export default function GuidesIndex() {

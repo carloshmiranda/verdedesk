@@ -329,6 +329,30 @@ const guides = [
       'Frequently asked questions',
     ],
   },
+  {
+    slug: 'anexo-b-irs-freelancer-portugal',
+    title: 'Anexo B IRS Portugal: Freelancer Guide in English (2026) | VerdeDesk',
+    description: 'Complete English guide to Anexo B (Annex B) of the Portuguese IRS tax return. Field-by-field walkthrough for freelancers under the simplified regime filing 2025 income in 2026.',
+    canonical: 'https://verdedesk.vercel.app/guide/anexo-b-irs-freelancer-portugal',
+    articleTitle: 'Anexo B IRS Portugal: Freelancer Guide in English (2026)',
+    datePublished: '2026-03-19',
+    dateModified: '2026-03-19',
+    h1: 'Anexo B (Annex B) IRS Portugal: Complete Field-by-Field Guide in English for Freelancers (2026)',
+    intro: 'Anexo B is the tax annex every freelancer in Portugal must submit alongside their IRS Modelo 3 return. It covers Category B income — self-employment and professional activity. The form is entirely in Portuguese on Portal das Financas, and there is no official English translation. This guide translates every field and walks you through filling it out correctly.',
+    headings: [
+      'What is Anexo B?',
+      'Who needs to file Anexo B?',
+      'Before you start: what you need',
+      'How to access Anexo B on Portal das Financas',
+      'Field-by-field guide to Anexo B',
+      'How the simplified regime tax calculation works',
+      'Common mistakes on Anexo B',
+      'Anexo B for international clients only',
+      'After submitting: what happens next',
+      'IRS Automatico: can freelancers use it?',
+      'Quick reference: Anexo B checklist',
+    ],
+  },
 ];
 
 function generateHTML(template, guide) {

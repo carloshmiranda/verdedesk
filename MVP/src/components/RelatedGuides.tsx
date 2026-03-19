@@ -78,6 +78,7 @@ const guides = [
   { to: '/guide/tax-deductions-freelancer-portugal', label: 'Freelancer Tax Deductions' },
   { to: '/guide/e-fatura-portugal-english', label: 'e-Fatura Portugal in English' },
   { to: '/guide/nif-portugal-foreigner', label: 'How to Get a NIF in Portugal' },
+  { to: '/guide/anexo-b-irs-freelancer-portugal', label: 'Anexo B (Annex B) Field-by-Field Guide' },
 ]
 
 export default function RelatedGuides({ current }: { current: string }) {
