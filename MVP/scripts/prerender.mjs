@@ -116,6 +116,29 @@ const guides = [
       'Common mistakes and how to avoid them',
     ],
   },
+  {
+    slug: 'd8-visa-portugal-taxes',
+    title: 'D8 Visa Portugal Taxes (2026) — Complete Tax Guide for Digital Nomads | VerdeDesk',
+    description: 'Everything D8 visa holders need to know about Portuguese taxes in 2026. Covers tax residency, NIF, freelance registration, income tax rates, VAT, social security, NHR 2.0, and your first-year tax checklist.',
+    canonical: 'https://verdedesk.vercel.app/guide/d8-visa-portugal-taxes',
+    articleTitle: 'D8 Visa Portugal Taxes (2026) — Complete Tax Guide for Digital Nomads',
+    datePublished: '2026-03-19',
+    dateModified: '2026-03-19',
+    h1: 'D8 Visa Portugal Taxes: The Complete 2026 Guide for Digital Nomads',
+    intro: 'You have your D8 digital nomad visa. You have arrived in Portugal. Now what? Your visa does not determine your tax obligations — your tax residency status does. If you spend more than 183 days in Portugal in a calendar year, you become a Portuguese tax resident, and you owe taxes on your worldwide income. This guide covers every tax obligation you will face as a D8 visa holder working as a freelancer in Portugal.',
+    headings: [
+      'Tax residency: the 183-day rule',
+      'Step 1: Get your NIF (tax identification number)',
+      'Step 2: Register your freelance activity',
+      'Income tax (IRS): how much will you pay?',
+      'VAT (IVA): the EUR 15,000 threshold',
+      'Social security (Seguranca Social)',
+      'NHR 2.0: the 20% flat tax option',
+      'Issuing invoices: recibos verdes',
+      'Your first-year tax checklist',
+      'Common mistakes D8 holders make',
+    ],
+  },
 ];
 
 function generateHTML(template, guide) {

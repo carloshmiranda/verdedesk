@@ -6,6 +6,7 @@ const guides = [
   { to: '/guide/vat-exemption-article-53-portugal', label: 'VAT Exemption Article 53 Explained' },
   { to: '/guide/social-security-freelancer-portugal', label: 'Social Security for Freelancers' },
   { to: '/guide/irs-tax-return-freelancer-portugal', label: 'How to File Your IRS Tax Return' },
+  { to: '/guide/d8-visa-portugal-taxes', label: 'D8 Visa Portugal Taxes Guide' },
 ]
 
 export default function RelatedGuides({ current }: { current: string }) {

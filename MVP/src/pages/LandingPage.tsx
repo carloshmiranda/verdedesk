@@ -326,6 +326,7 @@ setEmail('')
                 { to: '/guide/vat-exemption-article-53-portugal', label: 'VAT Exemption Article 53: The EUR 15,000 Threshold' },
                 { to: '/guide/social-security-freelancer-portugal', label: 'Social Security for Freelancers in Portugal' },
                 { to: '/guide/irs-tax-return-freelancer-portugal', label: 'How to File Your IRS Tax Return as a Freelancer' },
+                { to: '/guide/d8-visa-portugal-taxes', label: 'D8 Visa Portugal Taxes: Complete 2026 Guide' },
               ].map(({ to, label }) => (
                 <Link
                   key={to}
