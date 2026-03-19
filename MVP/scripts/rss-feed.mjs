@@ -17,6 +17,12 @@ const FEED_SUBTITLE = 'Plain English guides to Portuguese freelancer taxes, reci
 
 const guides = [
   {
+    slug: 'e-fatura-portugal-english',
+    title: 'e-Fatura Portugal in English (2026) — How to Validate Invoices & Claim Deductions',
+    summary: 'Complete English guide to Portugal\'s e-Fatura invoice tracking system. Portal access, invoice validation, personal vs professional expenses, the 15% rule, and the February 25 deadline.',
+    updated: '2026-03-19',
+  },
+  {
     slug: 'portal-das-financas-english',
     title: 'Portal das Financas in English (2026) — Complete Navigation Guide',
     summary: 'Navigate Portugal\'s tax portal in English. Login, main menu translation, recibo verde form fields, error messages, and IRS filing explained.',

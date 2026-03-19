@@ -74,6 +74,12 @@ const guides = [
     description: 'What you can and cannot deduct as a freelancer. The simplified regime 25% automatic deduction, the 15% e-Fatura rule, and organized regime expenses.',
     tag: 'Tax return',
   },
+  {
+    to: '/guide/e-fatura-portugal-english',
+    title: 'e-Fatura Portugal in English (2026)',
+    description: 'How to use Portugal\'s invoice tracking system. Access the portal, validate invoices, classify personal vs professional expenses, and meet the February 25 deadline.',
+    tag: 'Getting started',
+  },
 ]
 
 export default function GuidesIndex() {

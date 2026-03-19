@@ -283,6 +283,29 @@ const guides = [
       'Mistakes to avoid with deductions',
     ],
   },
+  {
+    slug: 'e-fatura-portugal-english',
+    title: 'e-Fatura Portugal in English (2026) — How to Validate Invoices & Claim Deductions | VerdeDesk',
+    description: 'Complete English guide to Portugal\'s e-Fatura system. How to access the portal, validate invoices, classify expenses as personal or professional, the February 25 deadline, and the 15% rule for freelancers on the simplified regime.',
+    canonical: 'https://verdedesk.vercel.app/guide/e-fatura-portugal-english',
+    articleTitle: 'e-Fatura Portugal in English (2026) — How to Validate Invoices & Claim Deductions',
+    datePublished: '2026-03-19',
+    dateModified: '2026-03-19',
+    h1: 'e-Fatura Portugal in English: How to Validate Invoices and Claim Deductions (2026)',
+    intro: 'e-Fatura is Portugal\'s electronic invoice tracking system. Every time you give your NIF (tax number) at a shop, pharmacy, or service provider, that invoice is automatically sent to e-Fatura. As a freelancer, you must log in regularly to validate and classify these invoices — otherwise you lose tax deductions and may face a higher tax bill. The entire portal is in Portuguese. This guide translates every step into English.',
+    headings: [
+      'What is e-Fatura and why it matters for freelancers',
+      'How to access the e-Fatura portal',
+      'Navigating the portal: key pages in English',
+      'How to validate and classify your invoices',
+      'Personal vs professional expenses (critical for freelancers)',
+      'Expense categories explained in English',
+      'The 15% rule for the simplified regime',
+      'The February 25 deadline',
+      'Common mistakes expats make with e-Fatura',
+      'Monthly e-Fatura checklist',
+    ],
+  },
 ];
 
 function generateHTML(template, guide) {

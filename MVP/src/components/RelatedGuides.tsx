@@ -13,6 +13,7 @@ const guides = [
   { to: '/guide/simplified-vs-organized-regime', label: 'Simplified vs Organized Regime' },
   { to: '/guide/portal-das-financas-english', label: 'Portal das Financas in English' },
   { to: '/guide/tax-deductions-freelancer-portugal', label: 'Freelancer Tax Deductions' },
+  { to: '/guide/e-fatura-portugal-english', label: 'e-Fatura Portugal in English' },
 ]
 
 export default function RelatedGuides({ current }: { current: string }) {
