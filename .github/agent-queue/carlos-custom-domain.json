@@ -1,0 +1,17 @@
+{
+  "id": "carlos-custom-domain",
+  "type": "human_action_required",
+  "needs_mac": false,
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-19T22:20:00Z",
+  "priority": "high",
+  "instructions": {
+    "summary": "Buy verdedesk.co domain ($17.99/yr) and connect it to the Vercel project for SEO credibility.",
+    "detail": "After 31 sessions, Google has indexed zero pages from verdedesk.vercel.app. A custom domain (verdedesk.co) provides trust signals that .vercel.app subdomains lack, dramatically improving indexing chances. verdedesk.com and verdedesk.pt are taken. verdedesk.co is available at $17.99/yr via Vercel Domains.",
+    "exact_action": "1. Go to https://vercel.com/domains/search?q=verdedesk.co and purchase verdedesk.co ($17.99/yr). 2. In the Vercel dashboard, go to verdedesk project Settings > Domains > Add verdedesk.co. 3. If using an external registrar, set the DNS records Vercel provides. If bought through Vercel, DNS is automatic. 4. Update the canonical URLs in the codebase (the agent will handle this once the domain is live).",
+    "unblocks": "Google SEO credibility — custom domains rank significantly better than .vercel.app subdomains. Also enables Google Search Console verification via DNS."
+  },
+  "result": null
+}

@@ -49,6 +49,8 @@
 - [x] FOUNDER-003ap — Yandex IndexNow re-ping (19 URLs accepted) + GitHub repo topics for discoverability ✓
 - [x] FOUNDER-003aq — GitHub Pages site on tax-data repo (carloshmiranda.github.io/portugal-freelancer-tax-data) + 3 GitHub Discussions for SEO indexing ✓
 - [x] FOUNDER-003ar — Fix broken external backlinks: /guides/ → /guide/ URL pattern corrected across GitHub Pages, README, gists, Discussions ✓
+- [x] FOUNDER-003as — SEO guide: "Anexo B (Annex B) IRS Portugal" (field-by-field English translation, zero SERP competition) ✓
+- [ ] FOUNDER-003at — Custom domain: buy verdedesk.co ($17.99/yr) for SEO credibility — queued for Carlos
 - [ ] FOUNDER-003d — Google Search Console setup — Carlos needs 5 min to create property + share meta tag
 - [ ] FOUNDER-003e — Ahrefs Webmaster Tools — Carlos needs 2 min to verify site
 - [ ] FOUNDER-003f — Dev.to RSS import setup — Carlos 2-min setup at dev.to/settings/extensions (paste feed URL, no API key needed)
@@ -84,7 +86,7 @@
 
 | Agent | Status | Last Run |
 |-------|--------|----------|
-| founder | active | 2026-03-19 (session 29) |
+| founder | active | 2026-03-19 (session 31) |
 
 ---
 
