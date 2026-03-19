@@ -328,6 +328,15 @@ function generateGuidesIndexHTML(template) {
   return html;
 }
 
+// NHR 2.0 eligibility checker config
+const nhrChecker = {
+  path: 'tools/nhr-checker',
+  title: 'NHR 2.0 Eligibility Checker (IFICI Portugal 2026) — Do You Qualify? | VerdeDesk',
+  description: 'Free interactive tool to check if you qualify for Portugal NHR 2.0 (IFICI) tax regime. Answer 5 questions to find out if you can get the 20% flat tax rate for 10 years. Built for D8 visa holders and expat professionals.',
+  canonical: 'https://verdedesk.vercel.app/tools/nhr-checker',
+  appName: 'NHR 2.0 Eligibility Checker',
+};
+
 // Tax calculator page config
 const taxCalculator = {
   path: 'tools/tax-calculator',
@@ -405,6 +414,80 @@ function generateToolPageHTML(template, tool) {
   return html;
 }
 
+function generateNhrCheckerHTML(template, tool) {
+  const jsonLd = JSON.stringify([
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'NHR 2.0 Eligibility Checker',
+      description: tool.description,
+      url: tool.canonical,
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'Any',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'VerdeDesk',
+        url: 'https://verdedesk.vercel.app',
+      },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://verdedesk.vercel.app/' },
+        { '@type': 'ListItem', position: 2, name: 'NHR 2.0 Eligibility Checker', item: tool.canonical },
+      ],
+    },
+  ]);
+
+  const rootContent = `
+    <div style="max-width:48rem;margin:0 auto;padding:1rem 1.5rem">
+      <nav style="padding:1.25rem 0;display:flex;justify-content:space-between;align-items:center">
+        <a href="/" style="font-weight:600;color:#111">VerdeDesk</a>
+        <a href="/#waitlist" style="color:#16a34a;font-weight:500">Join waitlist</a>
+      </nav>
+      <main>
+        <nav aria-label="Breadcrumb"><a href="/">Home</a> / NHR 2.0 Eligibility Checker</nav>
+        <h1>NHR 2.0 / IFICI Eligibility Checker</h1>
+        <p>Check if you qualify for Portugal's new IFICI tax regime (NHR 2.0) — a 20% flat income tax rate for 10 years. Answer 5 questions to get your result.</p>
+        <h2>What is NHR 2.0 / IFICI?</h2>
+        <h3>The end of the original NHR</h3>
+        <p>Portugal's original Non-Habitual Resident (NHR) tax regime ended on December 31, 2024. It was replaced by the IFICI regime (Incentivo Fiscal a Investigacao Cientifica e Inovacao), commonly called NHR 2.0, which took effect on January 1, 2025.</p>
+        <h3>Who qualifies for IFICI?</h3>
+        <p>IFICI targets professionals in strategic sectors: university professors and researchers, medical doctors, ICT specialists, senior executives, R&D staff, and certified startup employees. Most categories require a Bachelor's degree plus 3 years experience or a PhD.</p>
+        <h3>Key requirements</h3>
+        <ul>
+          <li>Must become a Portuguese tax resident after January 1, 2024</li>
+          <li>Cannot have been a Portuguese tax resident in the previous 5 years</li>
+          <li>Cannot have previously benefited from original NHR or another special regime</li>
+          <li>Must work in a qualifying profession with qualifying education</li>
+        </ul>
+        <h3>Tax benefits</h3>
+        <p>IFICI provides a 20% flat income tax rate on Portuguese-sourced employment and self-employment income for 10 consecutive years. It also offers double taxation relief on certain foreign-sourced income.</p>
+        <h3>IFICI vs original NHR: key differences</h3>
+        <p>Unlike the broad original NHR, IFICI is targeted at specific high-value professions. Pension income and passive investments no longer qualify for preferential treatment.</p>
+        <p><strong>Stay on top of your Portuguese tax obligations.</strong> <a href="/#waitlist">Join the VerdeDesk waitlist</a> — issue recibos verdes, track your income, and stay compliant in plain English.</p>
+      </main>
+      <footer style="margin-top:3rem;padding:1rem 0;border-top:1px solid #e5e7eb;color:#6b7280;font-size:0.875rem">
+        <a href="/">VerdeDesk</a> — Green receipts made simple for expats in Portugal.
+      </footer>
+    </div>`;
+
+  let html = template.replace(/<title>[^<]*<\/title>/, `<title>${tool.title}</title>`);
+  html = html.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${tool.description}"`);
+  html = html.replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${tool.canonical}"`);
+  html = html.replace(/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${tool.canonical}"`);
+  html = html.replace(/<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${tool.title}"`);
+  html = html.replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${tool.description}"`);
+  html = html.replace(/<meta name="twitter:title" content="[^"]*"/, `<meta name="twitter:title" content="${tool.title}"`);
+  html = html.replace(/<meta name="twitter:description" content="[^"]*"/, `<meta name="twitter:description" content="${tool.description}"`);
+  html = html.replace('</head>', `  <script type="application/ld+json">${jsonLd}</script>\n  </head>`);
+  html = html.replace('<div id="root"></div>', `<div id="root">${rootContent}</div>`);
+
+  return html;
+}
+
 // Main
 const templatePath = join(DIST, 'index.html');
 if (!existsSync(templatePath)) {
@@ -439,5 +522,12 @@ mkdirSync(toolsDir, { recursive: true });
 writeFileSync(join(toolsDir, 'index.html'), generateToolPageHTML(template, taxCalculator), 'utf-8');
 count++;
 console.log('  prerendered: /tools/tax-calculator');
+
+// Prerender /tools/nhr-checker
+const nhrDir = join(DIST, 'tools', 'nhr-checker');
+mkdirSync(nhrDir, { recursive: true });
+writeFileSync(join(nhrDir, 'index.html'), generateNhrCheckerHTML(template, nhrChecker), 'utf-8');
+count++;
+console.log('  prerendered: /tools/nhr-checker');
 
 console.log(`\nPrerendered ${count} pages for SEO.`);

@@ -361,6 +361,7 @@ export default function TaxCalculator() {
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Related guides</h3>
           <div className="grid sm:grid-cols-2 gap-3">
             {[
+              { to: '/tools/nhr-checker', label: 'NHR 2.0 Eligibility Checker: Do You Qualify for the 20% Flat Rate?' },
               { to: '/guide/irs-tax-return-freelancer-portugal', label: 'How to File Your IRS Tax Return as a Freelancer' },
               { to: '/guide/social-security-freelancer-portugal', label: 'Social Security for Freelancers in Portugal' },
               { to: '/guide/vat-exemption-article-53-portugal', label: 'VAT Exemption Article 53: The EUR 15,000 Threshold' },

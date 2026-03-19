@@ -56,6 +56,12 @@ setEmail('')
           >
             Tax Calculator
           </Link>
+          <Link
+            to="/tools/nhr-checker"
+            className="text-sm font-medium text-gray-600 hover:text-verde-700"
+          >
+            NHR 2.0 Check
+          </Link>
           <a
             href="#waitlist"
             className="text-sm font-medium text-verde-700 hover:text-verde-800"
@@ -361,8 +367,8 @@ setEmail('')
               </div>
             ))}
           </div>
-          {/* Free tool */}
-          <div className="mt-12 mb-8">
+          {/* Free tools */}
+          <div className="mt-12 mb-8 space-y-3">
             <Link
               to="/tools/tax-calculator"
               className="block p-5 rounded-xl border-2 border-verde-200 bg-verde-50 hover:border-verde-300 transition-colors"
@@ -372,6 +378,18 @@ setEmail('')
                 <div>
                   <span className="font-semibold text-verde-800 block">Free Tax Calculator</span>
                   <span className="text-verde-600 text-sm">Estimate your IRS, social security, and take-home pay as a freelancer in Portugal</span>
+                </div>
+              </div>
+            </Link>
+            <Link
+              to="/tools/nhr-checker"
+              className="block p-5 rounded-xl border-2 border-verde-200 bg-verde-50 hover:border-verde-300 transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">✅</span>
+                <div>
+                  <span className="font-semibold text-verde-800 block">NHR 2.0 Eligibility Checker</span>
+                  <span className="text-verde-600 text-sm">Find out if you qualify for the 20% flat tax rate under Portugal's IFICI regime</span>
                 </div>
               </div>
             </Link>
