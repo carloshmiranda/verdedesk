@@ -1,4 +1,67 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+
+function WaitlistCTA() {
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (!email) return
+    setStatus('loading')
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      setStatus(res.ok ? 'success' : 'error')
+      if (res.ok) setEmail('')
+    } catch {
+      setStatus('error')
+    }
+  }
+
+  if (status === 'success') {
+    return (
+      <div className="bg-verde-50 border border-verde-200 rounded-xl p-6 text-center mt-12">
+        <p className="font-semibold text-verde-800">You're on the list!</p>
+        <p className="text-verde-700 text-sm mt-1">We'll email you when VerdeDesk launches. No spam, ever.</p>
+      </div>
+    )
+  }
+
+  return (
+    <div className="bg-gray-50 rounded-xl p-6 sm:p-8 mt-12 text-center">
+      <h3 className="text-lg font-semibold text-gray-900 mb-2">
+        Tired of navigating Portal das Financas in Portuguese?
+      </h3>
+      <p className="text-gray-600 text-sm mb-4">
+        VerdeDesk handles green receipts, income tracking, and tax compliance — in plain English. Launching April 2026.
+      </p>
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <input
+          type="email"
+          required
+          placeholder="you@example.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="flex-1 px-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-verde-500 focus:border-transparent"
+        />
+        <button
+          type="submit"
+          disabled={status === 'loading'}
+          className="px-5 py-2.5 bg-verde-600 text-white text-sm font-medium rounded-lg hover:bg-verde-700 disabled:opacity-50 transition-colors"
+        >
+          {status === 'loading' ? 'Joining...' : 'Join waitlist'}
+        </button>
+      </form>
+      {status === 'error' && (
+        <p className="text-red-600 text-xs mt-2">Something went wrong. Please try again.</p>
+      )}
+    </div>
+  )
+}
 
 const guides = [
   { to: '/guide/recibo-verde-english', label: 'How to Issue a Recibo Verde in English' },
@@ -39,6 +102,7 @@ export default function RelatedGuides({ current }: { current: string }) {
           </Link>
         ))}
       </div>
+      <WaitlistCTA />
     </div>
   )
 }

@@ -126,6 +126,7 @@ const feed = `<?xml version="1.0" encoding="UTF-8"?>
   <subtitle>${escapeXml(FEED_SUBTITLE)}</subtitle>
   <link href="${SITE_URL}/feed.xml" rel="self" type="application/atom+xml" />
   <link href="${SITE_URL}" rel="alternate" type="text/html" />
+  <link href="https://pubsubhubbub.appspot.com/" rel="hub" />
   <id>${SITE_URL}/</id>
   <updated>${now}</updated>
   <generator>VerdeDesk RSS Generator</generator>
