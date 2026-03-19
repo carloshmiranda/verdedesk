@@ -8,6 +8,7 @@ const guides = [
   { to: '/guide/irs-tax-return-freelancer-portugal', label: 'How to File Your IRS Tax Return' },
   { to: '/guide/d8-visa-portugal-taxes', label: 'D8 Visa Portugal Taxes Guide' },
   { to: '/guide/tax-deadlines-2026', label: 'Tax Deadlines 2026 Calendar' },
+  { to: '/guide/register-freelancer-portugal', label: 'How to Register as a Freelancer' },
 ]
 
 export default function RelatedGuides({ current }: { current: string }) {

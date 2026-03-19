@@ -168,6 +168,29 @@ const guides = [
       'Recurring monthly deadlines',
     ],
   },
+  {
+    slug: 'register-freelancer-portugal',
+    title: 'How to Register as a Freelancer in Portugal (2026) — Abrir Atividade Step-by-Step | VerdeDesk',
+    description: 'Complete English guide to opening your freelance activity (abrir atividade) on Portal das Financas. Covers NIF, CAE/CIRS codes, VAT regime, simplified vs organised accounting, and social security registration.',
+    canonical: 'https://verdedesk.vercel.app/guide/register-freelancer-portugal',
+    articleTitle: 'How to Register as a Freelancer in Portugal (2026) — Abrir Atividade Step-by-Step',
+    datePublished: '2026-03-19',
+    dateModified: '2026-03-19',
+    h1: 'How to Register as a Freelancer in Portugal: Abrir Atividade Step-by-Step (2026)',
+    intro: 'Before you can issue your first invoice (recibo verde) in Portugal, you need to officially register your freelance activity with the tax authority. In Portuguese, this is called abrir atividade (opening an activity). The entire process is done online through Portal das Financas — but the portal is entirely in Portuguese. This guide walks you through every step in English.',
+    headings: [
+      'What is abrir atividade?',
+      'What you need before you start',
+      'Step 1: Log in to Portal das Financas',
+      'Step 2: Choose your activity code (CAE or CIRS)',
+      'Step 3: Choose your tax regime',
+      'Step 4: VAT regime selection',
+      'Step 5: Submit and confirm',
+      'After registration: what happens next',
+      'Social security registration (NISS)',
+      'Common mistakes to avoid',
+    ],
+  },
 ];
 
 function generateHTML(template, guide) {

@@ -44,6 +44,12 @@ const guides = [
     description: 'Month-by-month calendar of every IRS, social security, e-Fatura, and SAFT deadline. Never miss a filing date.',
     tag: 'Tax calendar',
   },
+  {
+    to: '/guide/register-freelancer-portugal',
+    title: 'How to Register as a Freelancer (Abrir Atividade)',
+    description: 'Step-by-step guide to opening your freelance activity on Portal das Financas. Covers NIF, CAE/CIRS codes, tax regime, and VAT selection.',
+    tag: 'Getting started',
+  },
 ]
 
 export default function GuidesIndex() {
