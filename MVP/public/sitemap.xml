@@ -7,6 +7,12 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://verdedesk.vercel.app/guides</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://verdedesk.vercel.app/guide/recibo-verde-english</loc>
     <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>

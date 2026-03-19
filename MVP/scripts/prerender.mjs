@@ -142,22 +142,33 @@ const guides = [
 ];
 
 function generateHTML(template, guide) {
-  // Build the JSON-LD Article structured data
-  const jsonLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: guide.articleTitle,
-    description: guide.description,
-    url: guide.canonical,
-    datePublished: guide.datePublished,
-    dateModified: guide.dateModified,
-    author: { '@type': 'Organization', name: 'VerdeDesk' },
-    publisher: {
-      '@type': 'Organization',
-      name: 'VerdeDesk',
-      url: 'https://verdedesk.vercel.app',
+  // Build the JSON-LD Article + BreadcrumbList structured data
+  const jsonLd = JSON.stringify([
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: guide.articleTitle,
+      description: guide.description,
+      url: guide.canonical,
+      datePublished: guide.datePublished,
+      dateModified: guide.dateModified,
+      author: { '@type': 'Organization', name: 'VerdeDesk' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'VerdeDesk',
+        url: 'https://verdedesk.vercel.app',
+      },
     },
-  });
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://verdedesk.vercel.app/' },
+        { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://verdedesk.vercel.app/guides' },
+        { '@type': 'ListItem', position: 3, name: guide.articleTitle, item: guide.canonical },
+      ],
+    },
+  ]);
 
   // Build article content HTML
   const headingsHTML = guide.headings
@@ -178,6 +189,7 @@ function generateHTML(template, guide) {
         <a href="/#waitlist" style="color:#16a34a;font-weight:500">Join waitlist</a>
       </nav>
       <article>
+        <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/guides">Guides</a> / ${guide.articleTitle}</nav>
         <h1>${guide.h1}</h1>
         <p>${guide.intro}</p>
         <nav aria-label="Table of contents">
@@ -255,6 +267,67 @@ function generateHTML(template, guide) {
   return html;
 }
 
+// Generate the /guides index page
+function generateGuidesIndexHTML(template) {
+  const title = 'Free Tax Guides for Expat Freelancers in Portugal (2026) | VerdeDesk';
+  const description = 'Plain English guides to Portuguese freelancer taxes — recibos verdes, VAT thresholds, social security, IRS filing, and D8 visa tax obligations. Updated for 2026.';
+  const canonical = 'https://verdedesk.vercel.app/guides';
+
+  const jsonLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    description,
+    url: canonical,
+    publisher: {
+      '@type': 'Organization',
+      name: 'VerdeDesk',
+      url: 'https://verdedesk.vercel.app',
+    },
+  });
+
+  const guideLinks = guides
+    .map((g) => `<li><a href="/guide/${g.slug}">${g.articleTitle}</a> — ${g.description.slice(0, 100)}</li>`)
+    .join('\n            ');
+
+  const rootContent = `
+    <div style="max-width:48rem;margin:0 auto;padding:1rem 1.5rem">
+      <nav style="padding:1.25rem 0;display:flex;justify-content:space-between;align-items:center">
+        <a href="/" style="font-weight:600;color:#111">VerdeDesk</a>
+        <a href="/#waitlist" style="color:#16a34a;font-weight:500">Join waitlist</a>
+      </nav>
+      <main>
+        <nav aria-label="Breadcrumb"><a href="/">Home</a> / Guides</nav>
+        <h1>Free Tax Guides for Expat Freelancers in Portugal</h1>
+        <p>Plain English guides to every tax obligation you will face as a freelancer in Portugal. Written for D8 visa holders, NHR regime freelancers, and English-speaking expats. Updated for 2026.</p>
+        <ul>
+            ${guideLinks}
+        </ul>
+        <p>
+          <strong>Skip the Portuguese paperwork.</strong>
+          <a href="/#waitlist">Join the VerdeDesk waitlist</a> — issue recibos verdes, track your income,
+          and stay compliant in plain English.
+        </p>
+      </main>
+      <footer style="margin-top:3rem;padding:1rem 0;border-top:1px solid #e5e7eb;color:#6b7280;font-size:0.875rem">
+        <a href="/">VerdeDesk</a> — Green receipts made simple for expats in Portugal.
+      </footer>
+    </div>`;
+
+  let html = template.replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`);
+  html = html.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${description}"`);
+  html = html.replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${canonical}"`);
+  html = html.replace(/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${canonical}"`);
+  html = html.replace(/<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${title}"`);
+  html = html.replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${description}"`);
+  html = html.replace(/<meta name="twitter:title" content="[^"]*"/, `<meta name="twitter:title" content="${title}"`);
+  html = html.replace(/<meta name="twitter:description" content="[^"]*"/, `<meta name="twitter:description" content="${description}"`);
+  html = html.replace('</head>', `  <script type="application/ld+json">${jsonLd}</script>\n  </head>`);
+  html = html.replace('<div id="root"></div>', `<div id="root">${rootContent}</div>`);
+
+  return html;
+}
+
 // Main
 const templatePath = join(DIST, 'index.html');
 if (!existsSync(templatePath)) {
@@ -276,4 +349,11 @@ for (const guide of guides) {
   console.log(`  prerendered: /guide/${guide.slug}`);
 }
 
-console.log(`\nPrerendered ${count} guide pages for SEO.`);
+// Prerender /guides index
+const guidesDir = join(DIST, 'guides');
+mkdirSync(guidesDir, { recursive: true });
+writeFileSync(join(guidesDir, 'index.html'), generateGuidesIndexHTML(template), 'utf-8');
+count++;
+console.log('  prerendered: /guides');
+
+console.log(`\nPrerendered ${count} pages for SEO.`);

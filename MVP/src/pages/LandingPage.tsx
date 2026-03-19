@@ -318,7 +318,10 @@ setEmail('')
             ))}
           </div>
           <div className="mt-12">
-            <h3 className="text-lg font-semibold text-gray-900 text-center mb-6">Free guides for expat freelancers</h3>
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-lg font-semibold text-gray-900">Free guides for expat freelancers</h3>
+              <Link to="/guides" className="text-sm font-medium text-verde-600 hover:text-verde-700">View all &rarr;</Link>
+            </div>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
                 { to: '/guide/recibo-verde-english', label: 'How to Issue a Recibo Verde in English (2026)' },

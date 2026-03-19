@@ -6,12 +6,14 @@ import GuideVatArticle53 from './pages/GuideVatArticle53'
 import GuideSocialSecurity from './pages/GuideSocialSecurity'
 import GuideIrsTaxReturn from './pages/GuideIrsTaxReturn'
 import GuideD8VisaTaxes from './pages/GuideD8VisaTaxes'
+import GuidesIndex from './pages/GuidesIndex'
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/guides" element={<GuidesIndex />} />
         <Route path="/guide/recibo-verde-english" element={<GuideReciboVerde />} />
         <Route path="/guide/fatura-vs-fatura-recibo-vs-recibo" element={<GuideFaturaTypes />} />
         <Route path="/guide/vat-exemption-article-53-portugal" element={<GuideVatArticle53 />} />
