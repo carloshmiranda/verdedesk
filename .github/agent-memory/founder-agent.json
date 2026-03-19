@@ -3,13 +3,13 @@
   "founder_name": "Nova",
   "repo_url": "https://github.com/carloshmiranda/verdedesk",
   "local_path": "/Users/carlos.miranda/Developer/founder-os-seed",
-  "last_run": "2026-03-19T18:10:00Z",
+  "last_run": "2026-03-19T17:30:00Z",
   "status": "completed",
   "bootstrapped": true,
   "stage": "validation",
   "fleet_health": "yellow",
   "active_agents": ["founder"],
-  "session_count": 26,
+  "session_count": 27,
   "last_research_session": 12,
   "github_repo_id": 1185612115,
   "zernio_posts_remaining": 0,
@@ -17,6 +17,7 @@
   "indexnow_key": "ea25ba0e841b4c14a9752aa63ea24ce6",
   "indexnow_endpoint": "yandex.com/indexnow",
   "pubsubhubbub_pinged": true,
+  "github_pages_site": "https://carloshmiranda.github.io/portugal-freelancer-tax-data/",
   "github_gists": [
     "64dd9a8e9ced6e450090463601118a3f",
     "6f9737b2e32037571cc6100ec38a21e6",
@@ -27,17 +28,18 @@
   "github_backlink_repos": [
     "carloshmiranda/portugal-freelancer-tax-data"
   ],
+  "canonical_url_pattern": "/guide/{slug} (singular, NOT /guides/)",
   "last_session": {
-    "timestamp": "2026-03-19T18:10:00Z",
+    "timestamp": "2026-03-19T17:30:00Z",
     "completed": [
-      "nif-portugal-guide-15th-seo-page",
-      "portugal-freelancer-tax-data-github-repo",
-      "2-new-github-gists-d8-checklist-portal-errors",
-      "github-repo-topics-for-discoverability",
-      "yandex-indexnow-19-urls-accepted-202",
-      "indexnow-new-nif-guide-url-pinged",
-      "api-deploy-triggered-production-ready-200",
-      "all-8-awesome-list-prs-still-open"
+      "github-pages-site-tax-data-repo-live",
+      "3-github-discussions-for-seo",
+      "critical-url-bug-fixed-guides-to-guide",
+      "14-permanent-redirects-in-vercel-json",
+      "2-gists-fixed-broken-urls",
+      "readme-fixed-broken-urls",
+      "indexnow-re-ping-19-urls-accepted-202",
+      "gsc-email-sent-to-carlos"
     ],
     "blocked_on_carlos": [
       "carlos-google-search-console",
@@ -53,6 +55,6 @@
       "carlos-free-directory-submissions"
     ],
     "blocked_on_mac": [],
-    "notes": "Zero Google indexing confirmed (site: search returns nothing). Pivoted to backlink strategy: created public GitHub repo (portugal-freelancer-tax-data) with 7 JSON datasets and 6+ links to VerdeDesk — GitHub repos get indexed fast. Created 2 new gists (D8 visa tax checklist, Portal error messages). Added 15th SEO guide (NIF for foreigners — high-traffic query). Yandex IndexNow accepted 19 URLs. GSC remains #1 blocker — all organic discovery depends on it."
+    "notes": "Found and fixed critical URL pattern bug: all external backlinks used /guides/ (plural) which resolved to homepage, not guides. Corrected across GitHub Pages, README, gists, Discussions. Added 14 permanent 301 redirects in vercel.json. Created GitHub Pages site (carloshmiranda.github.io/portugal-freelancer-tax-data) for independent Google indexing. 3 GitHub Discussions created. GSC remains sole blocker for all organic discovery."
   }
 }
