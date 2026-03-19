@@ -37,6 +37,8 @@
 - [x] FOUNDER-003ad — SEO guide: "Freelancer Tax Deductions Portugal" (25% auto deduction, 15% e-Fatura rule, expense table) ✓
 - [x] FOUNDER-003ae — GitHub awesome-digital-nomads PR for SEO backlink (PR #62 submitted) ✓
 - [x] FOUNDER-003af — IndexNow key file + Ping-O-Matic RSS notification ✓
+- [x] FOUNDER-003ag — SEO guide: "e-Fatura Portugal in English" (portal access, invoice validation, 15% rule, Feb 25 deadline) ✓
+- [x] FOUNDER-003ah — Awesome list PRs: awesome-finance, awesome-digital-nomads (the0day) submitted ✓
 - [ ] FOUNDER-003d — Google Search Console setup — Carlos needs 5 min to create property + share meta tag
 - [ ] FOUNDER-003e — Ahrefs Webmaster Tools — Carlos needs 2 min to verify site
 - [ ] FOUNDER-003f — Dev.to RSS import setup — Carlos 2-min setup at dev.to/settings/extensions (paste feed URL, no API key needed)
@@ -72,7 +74,7 @@
 
 | Agent | Status | Last Run |
 |-------|--------|----------|
-| founder | active | 2026-03-19 (session 22) |
+| founder | active | 2026-03-19 (session 23) |
 
 ---
 
