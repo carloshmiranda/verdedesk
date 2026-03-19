@@ -39,13 +39,17 @@
 - [x] FOUNDER-003af — IndexNow key file + Ping-O-Matic RSS notification ✓
 - [x] FOUNDER-003ag — SEO guide: "e-Fatura Portugal in English" (portal access, invoice validation, 15% rule, Feb 25 deadline) ✓
 - [x] FOUNDER-003ah — Awesome list PRs: awesome-finance, awesome-digital-nomads (the0day) submitted ✓
+- [x] FOUNDER-003ai — Awesome list PRs: awesome-immigration #12, awesome-billing #179, TheRemoteFreelancer #170 submitted ✓
+- [x] FOUNDER-003aj — GitHub Gist with all guide links for Google indexing backlink ✓
+- [x] FOUNDER-003ak — Yandex IndexNow ping (17 URLs accepted, correct key) ✓
+- [x] FOUNDER-003al — Wayback Machine archival of key pages ✓
 - [ ] FOUNDER-003d — Google Search Console setup — Carlos needs 5 min to create property + share meta tag
 - [ ] FOUNDER-003e — Ahrefs Webmaster Tools — Carlos needs 2 min to verify site
 - [ ] FOUNDER-003f — Dev.to RSS import setup — Carlos 2-min setup at dev.to/settings/extensions (paste feed URL, no API key needed)
 - [ ] FOUNDER-003g — Worktugal partnership outreach — email drafted, Carlos sends to hello@worktugal.com
 - [ ] FOUNDER-003h — Directory submissions — BetaList, Microlaunch, Uneed, Launching Next (content ready)
 - [ ] FOUNDER-003i — Bluesky distribution — content ready, blocked on account connection
-- [ ] FOUNDER-003j — HackerNews + IndieHackers — content ready, Carlos one-click post
+- [ ] FOUNDER-003j — HackerNews (posted, 3 pts) + IndieHackers (pending Carlos)
 
 ---
 
@@ -74,7 +78,7 @@
 
 | Agent | Status | Last Run |
 |-------|--------|----------|
-| founder | active | 2026-03-19 (session 23) |
+| founder | active | 2026-03-19 (session 24) |
 
 ---
 

@@ -1,0 +1,17 @@
+{
+  "id": "carlos-google-search-console",
+  "type": "human_action_required",
+  "needs_mac": false,
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-19T14:00:00Z",
+  "priority": "high",
+  "instructions": {
+    "summary": "Set up Google Search Console for verdedesk.vercel.app — this is the #1 blocker for all organic traffic. Zero pages indexed after 24 sessions.",
+    "detail": "Google has indexed zero pages from verdedesk.vercel.app despite 17 prerendered pages, valid sitemap, IndexNow pings, and 8 backlink PRs. Without GSC, we cannot submit URLs for indexing, submit the sitemap, or diagnose crawl issues. This has been the top blocker since session 12.",
+    "exact_action": "Takes 5 minutes:\n\n1. Go to https://search.google.com/search-console\n2. Click 'Add property'\n3. Choose 'URL prefix' and enter: https://verdedesk.vercel.app\n4. Choose 'HTML tag' verification method\n5. Copy the meta tag (looks like: <meta name=\"google-site-verification\" content=\"abc123...\" />)\n6. Run this in Terminal:\n   cd ~/Developer/founder-os-seed\n   # The agent will add the meta tag to the site automatically once you share it\n   # For now, just paste the content value in a reply iMessage or email\n7. After I add the tag and deploy, come back to GSC and click 'Verify'\n8. Then go to Sitemaps (left menu) and submit: https://verdedesk.vercel.app/sitemap.xml\n\nAlternative (faster): Use the 'HTML file' method — GSC will give you a file like google1234abc.html. Share the filename and I'll add it to the site.",
+    "unblocks": "Google indexing of all 17 pages — the only path to organic search traffic and waitlist signups"
+  },
+  "result": null
+}

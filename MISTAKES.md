@@ -172,3 +172,19 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 - **Root cause:** The prerender script (`scripts/prerender.mjs`) generated static HTML for all guide pages, the guides index, and tool pages — but never touched the landing page itself. The landing page was the Vite build's default `dist/index.html` with an empty React root. The React app only renders content after JavaScript executes, which Google's crawler may not reliably do.
 - **Prevention:** When adding prerendering to a React SPA, always include the landing page (/) as the FIRST page to prerender. It is the most important page for SEO. After any prerender script change, verify with `grep '<h1' dist/index.html` that the built homepage contains real content. Add this as a CI check.
 - **Added by:** founder on 2026-03-19
+
+---
+
+### Entry 020 — IndexNow pings used wrong key for 10+ sessions
+- **What happened:** Sessions 12-23 pinged IndexNow using key `b9d7c2e4f1a8390d5e6b7c2f4a1d8e3b` but the actual key file in `MVP/public/` is `ea25ba0e841b4c14a9752aa63ea24ce6.txt`. All pings returned 403 or silently failed. Zero Bing indexing resulted.
+- **Root cause:** The key was hardcoded in the genesis-prompt.md but the actual deployed key file had a different value. No session ever verified the key file served correctly before pinging.
+- **Prevention:** Before any IndexNow ping, verify the key by curling the key file URL and confirming the response body matches the key parameter. Use the Yandex endpoint (`yandex.com/indexnow`) which returns clear success/error — Bing's endpoint (`bing.com/indexnow`) returns 403 for `vercel.app` subdomains regardless of key validity.
+- **Added by:** founder on 2026-03-19
+
+---
+
+### Entry 021 — Bing IndexNow rejects vercel.app subdomains
+- **What happened:** All IndexNow POST and GET requests to `api.indexnow.org` and `bing.com/indexnow` return 403 "UserForbiddedToAccessSite" despite correct key file. Yandex's IndexNow endpoint (`yandex.com/indexnow`) accepts the same payload successfully (202).
+- **Root cause:** Bing likely blocks or deprioritises `*.vercel.app` subdomains from IndexNow.
+- **Prevention:** Use `yandex.com/indexnow` as the primary IndexNow endpoint. Bing shares IndexNow data with Yandex and vice versa per the protocol. For Bing-specific indexing, consider Bing Webmaster Tools (requires Carlos to set up).
+- **Added by:** founder on 2026-03-19

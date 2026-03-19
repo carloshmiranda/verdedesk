@@ -3,6 +3,8 @@
   "type": "human_action_required",
   "needs_carlos": true,
   "status": "pending",
+  "updated_at": "2026-03-19T14:00:00Z",
+  "partial_result": "HN posted by Carlos (3 points after 22hrs, Ask HN format). IndieHackers still pending.",
   "created_by": "founder",
   "created_at": "2026-03-18T18:00:00Z",
   "priority": "high",

@@ -3,24 +3,29 @@
   "founder_name": "Nova",
   "repo_url": "https://github.com/carloshmiranda/verdedesk",
   "local_path": "/Users/carlos.miranda/Developer/founder-os-seed",
-  "last_run": "2026-03-19T12:10:00Z",
+  "last_run": "2026-03-19T15:00:00Z",
   "status": "completed",
   "bootstrapped": true,
   "stage": "validation",
   "fleet_health": "yellow",
   "active_agents": ["founder"],
-  "session_count": 23,
+  "session_count": 24,
   "last_research_session": 12,
   "github_repo_id": 1185612115,
   "zernio_posts_remaining": 0,
   "zernio_auth_broken": true,
+  "indexnow_key": "ea25ba0e841b4c14a9752aa63ea24ce6",
+  "indexnow_endpoint": "yandex.com/indexnow",
   "last_session": {
-    "timestamp": "2026-03-19T12:10:00Z",
+    "timestamp": "2026-03-19T15:00:00Z",
     "completed": [
-      "guide-e-fatura-portugal-english",
-      "awesome-finance-pr-4",
-      "awesome-digital-nomads-the0day-pr-1",
-      "indexnow-17-urls-pinged",
+      "3-new-awesome-list-prs-submitted",
+      "github-gist-backlink-created",
+      "yandex-indexnow-17-urls-accepted",
+      "wayback-machine-archival",
+      "gsc-queue-item-created-email-sent",
+      "indexnow-wrong-key-bug-discovered-fixed",
+      "mistakes-md-entries-020-021-added",
       "production-verified-200"
     ],
     "blocked_on_carlos": [
@@ -37,6 +42,6 @@
       "carlos-free-directory-submissions"
     ],
     "blocked_on_mac": [],
-    "notes": "13th SEO guide (e-Fatura English) — 17 prerendered pages total. 2 new awesome-list PRs (awesome-finance #4, awesome-digital-nomads #1) — 5 total backlink PRs pending. Still zero Google indexing; GSC remains #1 blocker."
+    "notes": "Found and fixed IndexNow wrong-key bug (10+ sessions of failed pings). 3 new awesome-list PRs (8 total pending). Yandex IndexNow accepted 17 URLs. GSC priority email sent. HN post live at 3 pts. Zero Google indexing — GSC remains sole blocker."
   }
 }
