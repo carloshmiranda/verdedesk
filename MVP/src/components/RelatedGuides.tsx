@@ -14,6 +14,13 @@ export default function RelatedGuides({ current }: { current: string }) {
   return (
     <div className="border-t border-gray-100 pt-8 mt-12">
       <h3 className="text-lg font-semibold text-gray-900 mb-4">More guides for expat freelancers</h3>
+      <Link
+        to="/tools/tax-calculator"
+        className="block p-4 rounded-lg border-2 border-verde-200 bg-verde-50 hover:border-verde-300 transition-colors mb-3"
+      >
+        <span className="text-verde-800 text-sm font-semibold">🧮 Free Tax Calculator</span>
+        <span className="text-verde-600 text-xs block mt-0.5">Estimate your IRS, social security, and take-home pay</span>
+      </Link>
       <div className="grid sm:grid-cols-2 gap-3">
         {others.map(({ to, label }) => (
           <Link
