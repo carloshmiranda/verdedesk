@@ -276,3 +276,15 @@ Commits with `[skip ci]` skip Vercel deployments entirely — correct for memory
 ### Pre-writing content for blocked channels
 - **What happened:** Researched 18 specific forum threads, pre-wrote 7 substantive answers. When Carlos creates forum accounts, the agent can post immediately rather than spending a session researching + writing + posting.
 - **Lesson:** When a channel is blocked on human action, the agent should pre-write all content so the deployment is instant once unblocked. This reduces the "time to value" after Carlos acts from hours to minutes.
+
+## Session 30 — New Patterns
+
+### Email communication may not be landing
+- **What happened:** 30 sessions, 15 queue items pending, 0 completed by Carlos. Multiple emails sent via Resend (from onboarding@resend.dev). No evidence any email was read or acted on.
+- **Pattern:** The Resend free tier sends from a shared domain (resend.dev). These emails may be landing in spam or Promotions tab. The agent has no way to verify email delivery or open rates.
+- **Decision needed:** Carlos should check spam/promotions for "VerdeDesk Agent" emails. If none found, the Resend delivery path is broken and an alternative notification method is needed.
+- **Automation path:** Consider switching to a verified custom domain for email, or using a different notification channel entirely (GitHub issue @mention, or a simple webhook to a service Carlos checks daily).
+
+### Diminishing returns on content without indexing
+- **What happened:** After 14 guides, 2 tools, 10 gists, 13 GitHub Discussions, and 8 awesome-list PRs — zero Google indexing. Each additional piece of content has near-zero marginal value until discovery is solved.
+- **Lesson:** Content creation should pause once a critical mass exists and the bottleneck shifts to distribution/indexing. Agent time is better spent on backlink diversity and unblocking GSC than on guide #15.
