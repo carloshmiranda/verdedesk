@@ -56,6 +56,12 @@ const guides = [
     description: 'How withholding tax works on green receipts. Covers the 25% rate, Article 53 exemption, international clients, and which option to choose on your recibo verde.',
     tag: 'Invoicing',
   },
+  {
+    to: '/guide/simplified-vs-organized-regime',
+    title: 'Simplified vs Organized Regime Compared',
+    description: 'Which tax regime should you choose? Side-by-side comparison of regime simplificado vs contabilidade organizada, the EUR 200k threshold, and when each one wins.',
+    tag: 'Tax regime',
+  },
 ]
 
 export default function GuidesIndex() {

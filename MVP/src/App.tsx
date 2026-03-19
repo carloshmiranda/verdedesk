@@ -12,6 +12,7 @@ import NhrChecker from './pages/NhrChecker'
 import GuideTaxDeadlines from './pages/GuideTaxDeadlines'
 import GuideFreelancerRegistration from './pages/GuideFreelancerRegistration'
 import GuideWithholdingTax from './pages/GuideWithholdingTax'
+import GuideSimplifiedVsOrganized from './pages/GuideSimplifiedVsOrganized'
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/guide/tax-deadlines-2026" element={<GuideTaxDeadlines />} />
         <Route path="/guide/register-freelancer-portugal" element={<GuideFreelancerRegistration />} />
         <Route path="/guide/withholding-tax-portugal" element={<GuideWithholdingTax />} />
+        <Route path="/guide/simplified-vs-organized-regime" element={<GuideSimplifiedVsOrganized />} />
         <Route path="/tools/tax-calculator" element={<TaxCalculator />} />
         <Route path="/tools/nhr-checker" element={<NhrChecker />} />
       </Routes>

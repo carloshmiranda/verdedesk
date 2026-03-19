@@ -213,6 +213,29 @@ const guides = [
       'Common mistakes expats make with withholding tax',
     ],
   },
+  {
+    slug: 'simplified-vs-organized-regime',
+    title: 'Simplified vs Organized Regime for Freelancers in Portugal (2026) | VerdeDesk',
+    description: 'Should you choose the simplified or organized accounting regime as a freelancer in Portugal? This English guide compares both tax regimes, explains the EUR 200k threshold, and helps D8 visa holders pick the right one.',
+    canonical: 'https://verdedesk.vercel.app/guide/simplified-vs-organized-regime',
+    articleTitle: 'Simplified vs Organized Regime for Freelancers in Portugal (2026)',
+    datePublished: '2026-03-19',
+    dateModified: '2026-03-19',
+    h1: 'Simplified vs Organized Regime: Which Tax Regime Should You Choose as a Freelancer in Portugal?',
+    intro: 'When you register as a freelancer in Portugal (abrir atividade), you must choose between two tax regimes: regime simplificado (simplified) or contabilidade organizada (organized accounting). This choice determines how your taxable income is calculated and whether you need a certified accountant. Most D8 visa holders should choose the simplified regime — but not always. This guide explains both options in plain English.',
+    headings: [
+      'What is the simplified regime (regime simplificado)?',
+      'What is the organized regime (contabilidade organizada)?',
+      'Side-by-side comparison',
+      'The EUR 200,000 threshold',
+      'When simplified beats organized',
+      'When organized beats simplified',
+      'The 15% deduction rule for goods',
+      'Can you switch between regimes?',
+      'How each regime affects your social security',
+      'Common mistakes D8 visa freelancers make',
+    ],
+  },
 ];
 
 function generateHTML(template, guide) {

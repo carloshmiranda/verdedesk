@@ -10,6 +10,7 @@ const guides = [
   { to: '/guide/tax-deadlines-2026', label: 'Tax Deadlines 2026 Calendar' },
   { to: '/guide/register-freelancer-portugal', label: 'How to Register as a Freelancer' },
   { to: '/guide/withholding-tax-portugal', label: 'Withholding Tax (Retencao na Fonte)' },
+  { to: '/guide/simplified-vs-organized-regime', label: 'Simplified vs Organized Regime' },
 ]
 
 export default function RelatedGuides({ current }: { current: string }) {
