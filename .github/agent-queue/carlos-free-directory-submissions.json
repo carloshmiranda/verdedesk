@@ -1,0 +1,17 @@
+{
+  "id": "carlos-free-directory-submissions",
+  "type": "human_action_required",
+  "needs_mac": false,
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-19T06:05:00Z",
+  "priority": "normal",
+  "instructions": {
+    "summary": "Submit VerdeDesk to free startup directories that provide dofollow backlinks and SEO value",
+    "detail": "Researched 15+ directories. The following accept free submissions via web form and provide meaningful backlinks. Most require a quick account creation + product listing form. Total time: ~20 min for all 5.",
+    "exact_action": "Submit to these 5 free directories (each takes 2-4 min):\n\n1. OpenHunts (openhunts.com) — free, dofollow backlink DR 50, open alt to Product Hunt\n2. SaasHunt (saashunt.com) — free, dofollow backlink DR 48, SaaS-focused\n3. Resource.FYI (resource.fyi) — free, near-instant approval, no account needed\n4. Side Projectors (sideprojectors.com) — free, for bootstrapped startups\n5. Pitchwall (pitchwall.co) — free product submission\n\nFor each, use:\n- Name: VerdeDesk\n- URL: https://verdedesk.vercel.app\n- Tagline: Issue green receipts, track income, stay tax-compliant — in plain English\n- Description: VerdeDesk is a SaaS for English-speaking freelancers in Portugal. It wraps the confusing Portal das Financas workflow with a clean English interface — making recibos verdes, IRS declarations, and quarterly payments simple.\n- Category: Finance / Tax / SaaS",
+    "unblocks": "Backlinks from directories improve domain authority and help Google discover the site even without GSC"
+  },
+  "result": null
+}
