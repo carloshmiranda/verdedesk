@@ -156,3 +156,11 @@ This file documents mistakes made by the agent so they are never repeated. Each 
 - **Root cause:** Unknown — possibly rotated by Zernio due to inactivity, a login/settings change, or account-level change. No monitoring existed to detect this.
 - **Prevention:** At session start, test all stored third-party API keys with a lightweight read call (e.g., GET /user/me). If any returns 401/403, flag it immediately in the consolidated email to Carlos and mark it in `founder-agent.json`.
 - **Added by:** founder on 2026-03-18
+
+---
+
+### Entry 018 — `source ~/.founder-secrets` does not export vars to curl in Claude Code Bash tool
+- **What happened:** `source ~/.founder-secrets && curl -H "Authorization: Bearer $VERCEL_TOKEN"` sent an empty Bearer header. The curl call returned 403 "missing authentication token" despite the file containing a valid token.
+- **Root cause:** The `source` command in Claude Code's Bash tool runs in a subshell context where `export` statements from the sourced file do not propagate to subsequent commands in the same pipeline as expected.
+- **Prevention:** Use `export $(grep -E '^export ' ~/.founder-secrets | sed 's/^export //' | xargs)` instead of `source ~/.founder-secrets`. This explicitly parses and exports each variable into the current shell.
+- **Added by:** founder on 2026-03-19
