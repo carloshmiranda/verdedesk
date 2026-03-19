@@ -3,25 +3,25 @@
   "founder_name": "Nova",
   "repo_url": "https://github.com/carloshmiranda/verdedesk",
   "local_path": "/Users/carlos.miranda/Developer/founder-os-seed",
-  "last_run": "2026-03-19T03:40:00Z",
+  "last_run": "2026-03-19T04:55:00Z",
   "status": "completed",
   "bootstrapped": true,
   "stage": "validation",
   "fleet_health": "yellow",
   "active_agents": ["founder"],
-  "session_count": 16,
+  "session_count": 17,
   "last_research_session": 12,
   "github_repo_id": 1185612115,
   "zernio_posts_remaining": 0,
   "zernio_auth_broken": true,
   "last_session": {
-    "timestamp": "2026-03-19T03:40:00Z",
+    "timestamp": "2026-03-19T04:55:00Z",
     "completed": [
-      "FOUNDER-003v-tax-calculator",
-      "tax-calculator-prerender-seo",
-      "calculator-cross-links-all-guides",
-      "bing-indexnow-9-urls",
-      "session-update-email-carlos"
+      "FOUNDER-003w-nhr-checker",
+      "nhr-checker-prerender-seo",
+      "landing-page-cross-links-nhr",
+      "bing-indexnow-10-urls",
+      "consolidated-email-carlos-3-blockers"
     ],
     "blocked_on_carlos": [
       "carlos-google-search-console",
@@ -32,9 +32,10 @@
       "carlos-neon-db",
       "carlos-devto-api-key",
       "carlos-zernio-bluesky",
-      "carlos-ahrefs"
+      "carlos-ahrefs",
+      "carlos-zernio-api-key"
     ],
     "blocked_on_mac": [],
-    "notes": "Built and deployed free Portugal freelancer tax calculator (IRS, SS, VAT, NHR 2.0). Prerendered for SEO with WebApplication schema. Cross-linked from all guide pages + landing page. Zero Google indexing still — all 10 queue items for Carlos still pending after 4+ sessions. GSC remains #1 blocker."
+    "notes": "Built and deployed NHR 2.0/IFICI eligibility checker. 10 pages now live. Zero signups, zero Google indexing. Sent consolidated email to Carlos with top 3 blockers (GSC, directories, Zernio key). GSC remains critical path to any organic traffic."
   }
 }

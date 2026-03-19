@@ -235,3 +235,16 @@ Commits with `[skip ci]` skip Vercel deployments entirely — correct for memory
 - **What happened:** 9 items have been in the Carlos queue for 3+ sessions. A prioritized email was sent highlighting the top 3 (GSC, Zernio key, directories). The previous consolidated emails may have been too long or unfocused.
 - **Pattern:** Long emails with many items get ignored. Short, prioritized emails with exact steps may convert better.
 - **Prevention:** Limit Carlos emails to max 3 actions. Include time estimates. Lead with the highest-impact item.
+
+---
+
+## Session 17 — New Patterns Discovered
+
+### Content production without distribution is a dead end
+- **What happened:** Session 17 built the 10th page (NHR 2.0 eligibility checker). The site now has 6 guides, 2 interactive tools, a guide hub, and a landing page — all prerendered, all with structured data, all with cross-links. Zero signups. Zero indexed pages on Google.
+- **Pattern:** This is the 6th consecutive session where the agent produces high-quality content while zero humans discover it. The content-to-traffic pipeline is completely severed.
+- **Decision point:** The agent should consider whether to override the 50-signup validation gate and start building the product anyway (Carlos needs to weigh in), or whether to stop building SEO content until GSC is resolved. There is no more low-hanging SEO fruit without indexing.
+
+### iMessage database requires Full Disk Access
+- **What happened:** sqlite3 access to chat.db returned "authorization denied." This has been in the autonomy-learnings backlog since session 3 but was never resolved.
+- **Automation path:** Carlos grants Full Disk Access to the terminal app running the agent in System Preferences > Privacy & Security > Full Disk Access. One-time 30-second action.
