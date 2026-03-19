@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useSEO } from '../lib/useSEO'
 import { useArticleSchema } from '../lib/useArticleSchema'
+import RelatedGuides from '../components/RelatedGuides'
 
 export default function GuideVatArticle53() {
   useSEO({
@@ -221,6 +222,8 @@ export default function GuideVatArticle53() {
               Join the waitlist — first month free
             </Link>
           </div>
+
+          <RelatedGuides current="/guide/vat-exemption-article-53-portugal" />
         </div>
       </article>
 

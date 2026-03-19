@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useSEO } from '../lib/useSEO'
 import { useArticleSchema } from '../lib/useArticleSchema'
+import RelatedGuides from '../components/RelatedGuides'
 
 export default function GuideSocialSecurity() {
   useSEO({
@@ -239,6 +240,8 @@ export default function GuideSocialSecurity() {
               Join the waitlist — first month free
             </Link>
           </div>
+
+          <RelatedGuides current="/guide/social-security-freelancer-portugal" />
         </div>
       </article>
 

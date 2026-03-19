@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useSEO } from '../lib/useSEO'
 import { useArticleSchema } from '../lib/useArticleSchema'
+import RelatedGuides from '../components/RelatedGuides'
 
 export default function GuideFaturaTypes() {
   useSEO({
@@ -170,6 +171,8 @@ export default function GuideFaturaTypes() {
               </Link>
             </div>
           </div>
+
+          <RelatedGuides current="/guide/fatura-vs-fatura-recibo-vs-recibo" />
         </div>
       </article>
 

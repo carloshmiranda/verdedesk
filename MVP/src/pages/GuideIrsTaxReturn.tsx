@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useSEO } from '../lib/useSEO'
 import { useArticleSchema } from '../lib/useArticleSchema'
+import RelatedGuides from '../components/RelatedGuides'
 
 export default function GuideIrsTaxReturn() {
   useSEO({
@@ -273,6 +274,8 @@ export default function GuideIrsTaxReturn() {
               Join the waitlist — first month free
             </Link>
           </div>
+
+          <RelatedGuides current="/guide/irs-tax-return-freelancer-portugal" />
         </div>
       </article>
 
