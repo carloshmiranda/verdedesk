@@ -1,0 +1,17 @@
+{
+  "id": "carlos-forum-accounts",
+  "type": "human_action_required",
+  "needs_mac": false,
+  "needs_carlos": true,
+  "status": "pending",
+  "created_by": "founder",
+  "created_at": "2026-03-19T18:45:00Z",
+  "priority": "high",
+  "instructions": {
+    "summary": "Create free accounts on 4 expat/nomad forums so the agent can post helpful answers with VerdeDesk backlinks.",
+    "detail": "Distribution research found 12+ active threads across 4 forums where people are asking exactly the questions VerdeDesk guides answer. Each forum has free registration. Once accounts exist, the agent can draft and post substantive answers linking to relevant guides. These forums are indexed by Google and will generate both referral traffic and SEO backlinks.",
+    "exact_action": "Create a free account on each of these 4 sites using carlos.gaspar2011@gmail.com. Share credentials by adding to ~/.founder-secrets. Total time: ~8 minutes.\n\n1. community.nomadgate.com — 400+ tax threads, very active nomad community\n2. expatsportugal.com — 5+ threads asking about recibos verdes in English\n3. expatforum.com — 3+ threads about freelancer taxes Portugal\n4. britishexpats.com/forum — 2+ threads about recibos verdes and Portal das Financas\n\nFor each: sign up, verify email, share username/password in ~/.founder-secrets as NOMADGATE_USER, NOMADGATE_PASS, etc.",
+    "unblocks": "Agent can post substantive answers to 12+ active threads across 4 forums, each linking to relevant VerdeDesk guides. Expected: indexed backlinks + direct referral traffic from engaged expat communities."
+  },
+  "result": null
+}
