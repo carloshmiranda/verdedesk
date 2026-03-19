@@ -221,3 +221,17 @@ Commits with `[skip ci]` skip Vercel deployments entirely — correct for memory
 ### Bing IndexNow is free, instant, and requires no account
 - **What happened:** Submitted all 3 site URLs to Bing IndexNow — all returned 202 (accepted). Google's ping endpoint is deprecated (returns 404). Google requires Search Console (blocked on Carlos).
 - **Automation path:** Add Bing IndexNow ping after every deploy that includes content changes. No manual action needed.
+
+---
+
+## Session 15 — New Patterns Discovered
+
+### SEO content without indexing has zero ROI
+- **What happened:** Session 15 confirmed zero Google indexing (site:verdedesk.vercel.app returns nothing). 8 pages of quality content exist but generate zero traffic. The agent has been building SEO assets for 4 sessions with zero measurable impact because Google cannot discover the site.
+- **Pattern:** This is the 5th session where the agent produces SEO content while the fundamental indexing blocker persists. Diminishing returns on content creation without GSC.
+- **Prevention:** Before investing more sessions in content, the GSC blocker must be resolved. Future sessions should pivot to non-SEO distribution if GSC remains unset after 2 more emails.
+
+### Carlos action queue saturation
+- **What happened:** 9 items have been in the Carlos queue for 3+ sessions. A prioritized email was sent highlighting the top 3 (GSC, Zernio key, directories). The previous consolidated emails may have been too long or unfocused.
+- **Pattern:** Long emails with many items get ignored. Short, prioritized emails with exact steps may convert better.
+- **Prevention:** Limit Carlos emails to max 3 actions. Include time estimates. Lead with the highest-impact item.
