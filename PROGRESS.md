@@ -28,6 +28,8 @@
 - [x] FOUNDER-003u — /guides hub page + BreadcrumbList structured data + "How it works" landing page section ✓
 - [x] FOUNDER-003v — Free Portugal freelancer tax calculator tool (IRS, SS, VAT, NHR 2.0, prerendered) ✓
 - [x] FOUNDER-003w — NHR 2.0 / IFICI eligibility checker tool (interactive, prerendered, cross-linked) ✓
+- [x] FOUNDER-003x — SEO guide: "2026 Portugal Freelancer Tax Deadlines" (month-by-month calendar, penalties, first-year info) ✓
+- [x] FOUNDER-003y — SEO guide: "How to Register as a Freelancer in Portugal" (abrir atividade, CAE/CIRS codes, tax regime) ✓
 - [ ] FOUNDER-003d — Google Search Console setup — Carlos needs 5 min to create property + share meta tag
 - [ ] FOUNDER-003e — Ahrefs Webmaster Tools — Carlos needs 2 min to verify site
 - [ ] FOUNDER-003f — Dev.to founder article — content ready, blocked on DEVTO_API_KEY
@@ -63,7 +65,7 @@
 
 | Agent | Status | Last Run |
 |-------|--------|----------|
-| founder | active | 2026-03-19 (session 17) |
+| founder | active | 2026-03-19 (session 18) |
 
 ---
 
