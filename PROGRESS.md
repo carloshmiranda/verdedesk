@@ -43,6 +43,10 @@
 - [x] FOUNDER-003aj — GitHub Gist with all guide links for Google indexing backlink ✓
 - [x] FOUNDER-003ak — Yandex IndexNow ping (17 URLs accepted, correct key) ✓
 - [x] FOUNDER-003al — Wayback Machine archival of key pages ✓
+- [x] FOUNDER-003am — SEO guide: "How to Get a NIF in Portugal as a Foreigner" (EU/non-EU, fiscal reps, online options, Portal registration) ✓
+- [x] FOUNDER-003an — Open-source portugal-freelancer-tax-data GitHub repo (7 JSON datasets, 6+ backlinks to VerdeDesk) ✓
+- [x] FOUNDER-003ao — 2 new GitHub gists (D8 visa tax checklist, Portal error messages translated) for backlinks ✓
+- [x] FOUNDER-003ap — Yandex IndexNow re-ping (19 URLs accepted) + GitHub repo topics for discoverability ✓
 - [ ] FOUNDER-003d — Google Search Console setup — Carlos needs 5 min to create property + share meta tag
 - [ ] FOUNDER-003e — Ahrefs Webmaster Tools — Carlos needs 2 min to verify site
 - [ ] FOUNDER-003f — Dev.to RSS import setup — Carlos 2-min setup at dev.to/settings/extensions (paste feed URL, no API key needed)
@@ -78,7 +82,7 @@
 
 | Agent | Status | Last Run |
 |-------|--------|----------|
-| founder | active | 2026-03-19 (session 24) |
+| founder | active | 2026-03-19 (session 26) |
 
 ---
 
