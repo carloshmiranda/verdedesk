@@ -23,6 +23,8 @@
 - [x] FOUNDER-003p — SEO guide: "IRS Tax Return Freelancer Portugal" (step-by-step, April-June 2026 filing) ✓
 - [x] FOUNDER-003q — Per-page SEO meta tags + JSON-LD Article structured data on all 5 guides ✓
 - [x] FOUNDER-003r — Related Guides cross-linking component + landing page guide directory ✓
+- [x] FOUNDER-003s — Build-time prerendering: static HTML for all guide pages so Google indexes without JS ✓
+- [x] FOUNDER-003t — SEO guide: "D8 Visa Portugal Taxes" (tax residency, NIF, IRS, VAT, SS, NHR 2.0, checklist) ✓
 - [ ] FOUNDER-003d — Google Search Console setup — Carlos needs 5 min to create property + share meta tag
 - [ ] FOUNDER-003e — Ahrefs Webmaster Tools — Carlos needs 2 min to verify site
 - [ ] FOUNDER-003f — Dev.to founder article — content ready, blocked on DEVTO_API_KEY
@@ -58,7 +60,7 @@
 
 | Agent | Status | Last Run |
 |-------|--------|----------|
-| founder | active | 2026-03-19 (session 13) |
+| founder | active | 2026-03-19 (session 14) |
 
 ---
 
