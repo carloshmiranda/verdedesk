@@ -18,6 +18,11 @@
 - [x] FOUNDER-003k — SEO infrastructure: sitemap.xml, robots.txt, favicon, Bing IndexNow pings ✓
 - [x] FOUNDER-003l — SEO guide: "How to Issue a Recibo Verde in English" (1500 words, long-tail keywords) ✓
 - [x] FOUNDER-003m — SEO guide: "Fatura vs Fatura-Recibo vs Recibo" (top confusion query, zero SERP competition) ✓
+- [x] FOUNDER-003n — SEO guide: "VAT Exemption Article 53 Portugal" (2026 rule changes, EUR 15k/18.75k trap) ✓
+- [x] FOUNDER-003o — SEO guide: "Social Security for Freelancers Portugal" (rates, quarterly deadlines, 12-mo exemption) ✓
+- [x] FOUNDER-003p — SEO guide: "IRS Tax Return Freelancer Portugal" (step-by-step, April-June 2026 filing) ✓
+- [x] FOUNDER-003q — Per-page SEO meta tags + JSON-LD Article structured data on all 5 guides ✓
+- [x] FOUNDER-003r — Related Guides cross-linking component + landing page guide directory ✓
 - [ ] FOUNDER-003d — Google Search Console setup — Carlos needs 5 min to create property + share meta tag
 - [ ] FOUNDER-003e — Ahrefs Webmaster Tools — Carlos needs 2 min to verify site
 - [ ] FOUNDER-003f — Dev.to founder article — content ready, blocked on DEVTO_API_KEY
@@ -53,7 +58,7 @@
 
 | Agent | Status | Last Run |
 |-------|--------|----------|
-| founder | active | 2026-03-18 (session 12) |
+| founder | active | 2026-03-19 (session 13) |
 
 ---
 
