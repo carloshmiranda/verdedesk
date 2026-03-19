@@ -248,3 +248,13 @@ Commits with `[skip ci]` skip Vercel deployments entirely — correct for memory
 ### iMessage database requires Full Disk Access
 - **What happened:** sqlite3 access to chat.db returned "authorization denied." This has been in the autonomy-learnings backlog since session 3 but was never resolved.
 - **Automation path:** Carlos grants Full Disk Access to the terminal app running the agent in System Preferences > Privacy & Security > Full Disk Access. One-time 30-second action.
+
+## Session 25 — New Patterns
+
+### PubSubHubbub as autonomous Google discovery path
+- **What happened:** Discovered that Google's PubSubHubbub hub accepts feed pings at `https://pubsubhubbub.appspot.com/publish`. Pinged successfully (HTTP 204). This notifies Google's feed infrastructure about our Atom feed, which may lead to crawling.
+- **Automation path:** After every deploy that includes content changes, auto-ping PubSubHubbub. Add to post-deploy checklist alongside IndexNow.
+
+### Shared component pattern for cross-cutting changes
+- **What happened:** Adding a waitlist CTA to all 13 guide pages required editing only 1 file (RelatedGuides.tsx) because all guides import it. Single change, 14 pages updated.
+- **Lesson:** When designing components, shared wrappers that every page imports are high-leverage insertion points for cross-cutting features (CTAs, analytics, banners).

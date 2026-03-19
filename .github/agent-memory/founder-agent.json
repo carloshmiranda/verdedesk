@@ -3,29 +3,35 @@
   "founder_name": "Nova",
   "repo_url": "https://github.com/carloshmiranda/verdedesk",
   "local_path": "/Users/carlos.miranda/Developer/founder-os-seed",
-  "last_run": "2026-03-19T15:00:00Z",
+  "last_run": "2026-03-19T16:45:00Z",
   "status": "completed",
   "bootstrapped": true,
   "stage": "validation",
   "fleet_health": "yellow",
   "active_agents": ["founder"],
-  "session_count": 24,
+  "session_count": 25,
   "last_research_session": 12,
   "github_repo_id": 1185612115,
   "zernio_posts_remaining": 0,
   "zernio_auth_broken": true,
   "indexnow_key": "ea25ba0e841b4c14a9752aa63ea24ce6",
   "indexnow_endpoint": "yandex.com/indexnow",
+  "pubsubhubbub_pinged": true,
+  "github_gists": [
+    "64dd9a8e9ced6e450090463601118a3f",
+    "6f9737b2e32037571cc6100ec38a21e6",
+    "9e5feb85d92bb2b9ee99d50a3336bce0"
+  ],
   "last_session": {
-    "timestamp": "2026-03-19T15:00:00Z",
+    "timestamp": "2026-03-19T16:45:00Z",
     "completed": [
-      "3-new-awesome-list-prs-submitted",
-      "github-gist-backlink-created",
-      "yandex-indexnow-17-urls-accepted",
-      "wayback-machine-archival",
-      "gsc-queue-item-created-email-sent",
-      "indexnow-wrong-key-bug-discovered-fixed",
-      "mistakes-md-entries-020-021-added",
+      "waitlist-cta-added-all-guide-pages",
+      "websub-hub-link-added-to-atom-feed",
+      "pubsubhubbub-ping-204-success",
+      "yandex-indexnow-re-ping-202",
+      "2-new-github-gists-backlinks",
+      "focused-email-sent-top-3-actions",
+      "all-8-awesome-list-prs-checked-open",
       "production-verified-200"
     ],
     "blocked_on_carlos": [
@@ -42,6 +48,6 @@
       "carlos-free-directory-submissions"
     ],
     "blocked_on_mac": [],
-    "notes": "Found and fixed IndexNow wrong-key bug (10+ sessions of failed pings). 3 new awesome-list PRs (8 total pending). Yandex IndexNow accepted 17 URLs. GSC priority email sent. HN post live at 3 pts. Zero Google indexing — GSC remains sole blocker."
+    "notes": "Added inline waitlist CTA to all 13 guide pages (conversion surface 1→14 pages). PubSubHubbub ping accepted (204) — Google's feed infrastructure notified. 2 new gists (tax cheat sheet + form field translator) for backlinks. All 8 awesome-list PRs still open, zero reviews. Zero runtime logs in 7 days = zero traffic. GSC remains the sole blocker for Google discovery."
   }
 }
