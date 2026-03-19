@@ -20,6 +20,8 @@
       "guide-portal-das-financas-english",
       "guide-tax-deductions-freelancer-portugal",
       "awesome-digital-nomads-pr-62",
+      "best-micro-saas-tools-pr-60",
+      "awesome-remote-job-pr-1008",
       "indexnow-key-file-setup",
       "rss-ping-o-matic",
       "devto-queue-item-updated-rss-import",
@@ -39,6 +41,6 @@
       "carlos-free-directory-submissions"
     ],
     "blocked_on_mac": [],
-    "notes": "Built 2 new SEO guides (Portal das Financas English, Tax Deductions) — 16 prerendered pages total. Submitted PR to awesome-digital-nomads for SEO backlink. Found dev.to RSS import bypasses API key blocker. IndexNow key file deployed but API returns 403 (may need propagation time)."
+    "notes": "Built 2 new SEO guides (Portal das Financas English, Tax Deductions) — 16 prerendered pages total. Submitted 3 PRs to awesome lists for SEO backlinks (awesome-digital-nomads PR#62, Best-Micro-SaaS-Tools PR#60, awesome-remote-job PR#1008 — 44k stars). Found dev.to RSS import bypasses API key blocker."
   }
 }
