@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
+import { db } from '../lib/db'
 
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
@@ -18,8 +19,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     const normalised = email.toLowerCase().trim()
-    const apiKey = process.env.RESEND_API_KEY
 
+    // Store in database (upsert to handle duplicates gracefully)
+    const entry = await db.waitlistEntry.upsert({
+      where: { email: normalised },
+      update: { updatedAt: new Date() },
+      create: { email: normalised },
+    })
+
+    // Send email notifications if RESEND_API_KEY is available
+    const apiKey = process.env.RESEND_API_KEY
     if (apiKey) {
       const headers = {
         Authorization: `Bearer ${apiKey}`,
@@ -47,16 +56,34 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             from: 'VerdeDesk Waitlist <onboarding@resend.dev>',
             to: ['carlos.gaspar2011@gmail.com'],
             subject: `New waitlist signup: ${normalised}`,
-            html: `<p>New signup: <strong>${normalised}</strong></p>`,
+            html: `<p>New signup: <strong>${normalised}</strong></p>
+<p>Entry ID: ${entry.id}</p>
+<p>Total entries: See Hive dashboard for count</p>`,
           }),
         }),
       ])
     }
 
-    return res.status(200).json({ success: true })
+    return res.status(200).json({
+      success: true,
+      message: 'Successfully joined waitlist'
+    })
   } catch (err) {
     console.error('Waitlist handler error:', err)
-    // Fail open — signup is captured via admin email even if something went wrong
-    return res.status(200).json({ success: true })
+
+    // If it's a database constraint error (duplicate email), that's still success
+    if (err instanceof Error && err.message.includes('Unique constraint')) {
+      return res.status(200).json({
+        success: true,
+        message: 'Email already on waitlist'
+      })
+    }
+
+    // For other errors, still return success but log the error
+    // This ensures the user experience isn't broken even if something fails
+    return res.status(200).json({
+      success: true,
+      message: 'Successfully joined waitlist'
+    })
   }
 }
