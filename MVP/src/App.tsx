@@ -19,6 +19,7 @@ import GuideEFatura from './pages/GuideEFatura'
 import GuideNifPortugal from './pages/GuideNifPortugal'
 import GuideAnexoB from './pages/GuideAnexoB'
 import CalculadoraReciboVerde from './pages/CalculadoraReciboVerde'
+import ComparisonPage from './pages/ComparisonPage'
 
 export default function App() {
   return (
@@ -44,6 +45,7 @@ export default function App() {
         <Route path="/tools/tax-calculator" element={<TaxCalculator />} />
         <Route path="/tools/nhr-checker" element={<NhrChecker />} />
         <Route path="/calculadora" element={<CalculadoraReciboVerde />} />
+        <Route path="/comparison" element={<ComparisonPage />} />
       </Routes>
     </BrowserRouter>
   )
