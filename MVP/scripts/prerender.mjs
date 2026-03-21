@@ -559,6 +559,14 @@ const taxCalculator = {
   canonical: 'https://verdedesk.vercel.app/tools/tax-calculator',
 };
 
+// Calculadora recibo verde page config
+const calculadoraReciboVerde = {
+  path: 'calculadora',
+  title: 'Calculadora Recibo Verde — Estimate Your Portuguese Freelancer Taxes | VerdeDesk',
+  description: 'Simple recibo verde tax calculator for freelancers in Portugal. Calculate your IRS income tax and social security contributions based on annual income and tax regime.',
+  canonical: 'https://verdedesk.vercel.app/calculadora',
+};
+
 function generateToolPageHTML(template, tool) {
   const jsonLd = JSON.stringify([
     {
@@ -907,5 +915,12 @@ mkdirSync(nhrDir, { recursive: true });
 writeFileSync(join(nhrDir, 'index.html'), generateNhrCheckerHTML(template, nhrChecker), 'utf-8');
 count++;
 console.log('  prerendered: /tools/nhr-checker');
+
+// Prerender /calculadora
+const calculadoraDir = join(DIST, 'calculadora');
+mkdirSync(calculadoraDir, { recursive: true });
+writeFileSync(join(calculadoraDir, 'index.html'), generateToolPageHTML(template, calculadoraReciboVerde), 'utf-8');
+count++;
+console.log('  prerendered: /calculadora');
 
 console.log(`\nPrerendered ${count} pages for SEO.`);
