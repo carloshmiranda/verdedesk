@@ -1,4 +1,6 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+import { trackPageView } from './lib/tracking'
 import LandingPage from './pages/LandingPage'
 import GuideReciboVerde from './pages/GuideReciboVerde'
 import GuideFaturaTypes from './pages/GuideFaturaTypes'
@@ -21,10 +23,21 @@ import GuideAnexoB from './pages/GuideAnexoB'
 import CalculadoraReciboVerde from './pages/CalculadoraReciboVerde'
 import ComparisonPage from './pages/ComparisonPage'
 
-export default function App() {
+// Component to track page views on route changes
+function PageTracker() {
+  const location = useLocation()
+
+  useEffect(() => {
+    // Track page view whenever the location changes
+    trackPageView(location.pathname)
+  }, [location.pathname])
+
+  return null
+}
+
+function AppRoutes() {
   return (
-    <BrowserRouter>
-      <Routes>
+    <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/guides" element={<GuidesIndex />} />
         <Route path="/guide/recibo-verde-english" element={<GuideReciboVerde />} />
@@ -47,6 +60,14 @@ export default function App() {
         <Route path="/calculadora" element={<CalculadoraReciboVerde />} />
         <Route path="/comparison" element={<ComparisonPage />} />
       </Routes>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <PageTracker />
+      <AppRoutes />
     </BrowserRouter>
   )
 }

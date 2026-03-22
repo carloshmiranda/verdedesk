@@ -21,6 +21,27 @@ model WaitlistEntry {
   @@map("waitlist_entries")
 }
 
+model PageView {
+  id        String   @id @default(cuid())
+  page      String   // e.g., "/", "/guide/recibo-verde-english", "/pricing"
+  userAgent String?
+  ipHash    String?  // Hash of IP for privacy
+  createdAt DateTime @default(now())
+
+  @@map("page_views")
+}
+
+model ClickEvent {
+  id        String   @id @default(cuid())
+  element   String   // e.g., "pricing_cta", "waitlist_signup"
+  page      String   // where the click happened
+  userAgent String?
+  ipHash    String?  // Hash of IP for privacy
+  createdAt DateTime @default(now())
+
+  @@map("click_events")
+}
+
 // Product stage models (unlocked after validation threshold)
 
 // model User {

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSEO } from '../lib/useSEO'
+import { trackClick } from '../lib/tracking'
 
 const WAITLIST_API = '/api/waitlist'
 
@@ -17,6 +18,10 @@ export default function LandingPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!email) return
+
+    // Track waitlist signup as pricing CTA click
+    trackClick('pricing_cta', window.location.pathname)
+
     setStatus('loading')
     setErrorMsg('')
     try {
