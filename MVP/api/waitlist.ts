@@ -12,7 +12,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     const body = req.body ?? {}
-    const { email } = body
+    const { email, utmParams } = body
 
     if (!email || typeof email !== 'string' || !isValidEmail(email)) {
       return res.status(400).json({ error: 'Valid email address required' })
@@ -25,6 +25,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       where: { email: normalised },
       update: { updatedAt: new Date() },
       create: { email: normalised },
+    })
+
+    // Get queue position by counting entries created before or at the same time
+    const queuePosition = await db.waitlistEntry.count({
+      where: {
+        createdAt: {
+          lte: entry.createdAt
+        }
+      }
     })
 
     // Send email notifications if RESEND_API_KEY is available
@@ -58,6 +67,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             subject: `New waitlist signup: ${normalised}`,
             html: `<p>New signup: <strong>${normalised}</strong></p>
 <p>Entry ID: ${entry.id}</p>
+<p>Queue position: ${queuePosition}</p>
+${utmParams && Object.keys(utmParams).length > 0 ? `<p>UTM params: ${JSON.stringify(utmParams)}</p>` : ''}
 <p>Total entries: See Hive dashboard for count</p>`,
           }),
         }),
@@ -66,13 +77,35 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     return res.status(200).json({
       success: true,
-      message: 'Successfully joined waitlist'
+      message: 'Successfully joined waitlist',
+      queuePosition
     })
   } catch (err) {
     console.error('Waitlist handler error:', err)
 
     // If it's a database constraint error (duplicate email), that's still success
     if (err instanceof Error && err.message.includes('Unique constraint')) {
+      // Get the existing entry and its position
+      const existingEntry = await db.waitlistEntry.findUnique({
+        where: { email: normalised }
+      })
+
+      if (existingEntry) {
+        const queuePosition = await db.waitlistEntry.count({
+          where: {
+            createdAt: {
+              lte: existingEntry.createdAt
+            }
+          }
+        })
+
+        return res.status(200).json({
+          success: true,
+          message: 'Email already on waitlist',
+          queuePosition
+        })
+      }
+
       return res.status(200).json({
         success: true,
         message: 'Email already on waitlist'

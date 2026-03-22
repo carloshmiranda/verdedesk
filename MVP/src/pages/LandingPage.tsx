@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSEO } from '../lib/useSEO'
 
@@ -13,6 +13,26 @@ export default function LandingPage() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  const [queuePosition, setQueuePosition] = useState<number | null>(null)
+  const [utmParams, setUtmParams] = useState<Record<string, string>>({})
+
+  // Capture UTM parameters on page load
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    const utmData: Record<string, string> = {}
+
+    // Capture common UTM parameters
+    const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']
+
+    utmKeys.forEach(key => {
+      const value = urlParams.get(key)
+      if (value) {
+        utmData[key] = value
+      }
+    })
+
+    setUtmParams(utmData)
+  }, [])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -23,11 +43,16 @@ export default function LandingPage() {
       const res = await fetch(WAITLIST_API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({
+          email,
+          utmParams: Object.keys(utmParams).length > 0 ? utmParams : undefined
+        }),
       })
       if (res.ok) {
+        const data = await res.json()
+        setQueuePosition(data.queuePosition || null)
         setStatus('success')
-setEmail('')
+        setEmail('')
       } else {
         const data = await res.json().catch(() => ({}))
         setErrorMsg(data.error || 'Something went wrong. Please try again.')
@@ -81,11 +106,15 @@ setEmail('')
       <div className="bg-amber-50 border-b border-amber-200">
         <div className="max-w-3xl mx-auto px-6 py-3 text-center">
           <p className="text-sm text-amber-800">
-            <span className="font-semibold">IRS filing season starts April 1.</span>{' '}
-            Not sure how to file as a freelancer?{' '}
+            <span className="font-semibold">⚠️ IRS filing deadline: June 30, 2026.</span>{' '}
+            Don't wait until panic mode — freelancers who miss deadlines face penalties up to €1,500.{' '}
             <Link to="/guide/irs-tax-return-freelancer-portugal" className="underline font-medium hover:text-amber-900">
-              Read our step-by-step guide
+              Get our free filing checklist
             </Link>
+            {' '}or{' '}
+            <a href="#waitlist" className="underline font-medium hover:text-amber-900">
+              join the waitlist to automate it next year
+            </a>
           </p>
         </div>
       </div>
@@ -111,6 +140,11 @@ setEmail('')
             <div className="bg-verde-50 border border-verde-200 rounded-xl p-6 max-w-md mx-auto">
               <div className="text-2xl mb-2">🎉</div>
               <p className="font-semibold text-verde-800">You're on the list!</p>
+              {queuePosition && (
+                <p className="font-medium text-verde-700 text-sm mt-1">
+                  You're #{queuePosition} in line
+                </p>
+              )}
               <p className="text-verde-700 text-sm mt-1">
                 We'll email you when VerdeDesk opens. No spam, ever.
               </p>
@@ -342,7 +376,12 @@ setEmail('')
               </button>
             </form>
           ) : (
-            <p className="text-verde-100 font-medium">You're on the list!</p>
+            <div className="text-center">
+              <p className="text-verde-100 font-medium">You're on the list!</p>
+              {queuePosition && (
+                <p className="text-verde-200 text-sm mt-1">#{queuePosition} in line</p>
+              )}
+            </div>
           )}
         </div>
       </section>
