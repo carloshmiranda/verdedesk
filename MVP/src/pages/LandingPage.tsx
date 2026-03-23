@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSEO } from '../lib/useSEO'
+import IrsFilingBanner from '../components/IrsFilingBanner'
 
 const WAITLIST_API = '/api/waitlist'
 
@@ -103,21 +104,12 @@ export default function LandingPage() {
       </nav>
 
       {/* IRS Filing Season Banner */}
-      <div className="bg-amber-50 border-b border-amber-200">
-        <div className="max-w-3xl mx-auto px-6 py-3 text-center">
-          <p className="text-sm text-amber-800">
-            <span className="font-semibold">⚠️ IRS filing deadline: June 30, 2026.</span>{' '}
-            Don't wait until panic mode — freelancers who miss deadlines face penalties up to €1,500.{' '}
-            <Link to="/guide/irs-tax-return-freelancer-portugal" className="underline font-medium hover:text-amber-900">
-              Get our free filing checklist
-            </Link>
-            {' '}or{' '}
-            <a href="#waitlist" className="underline font-medium hover:text-amber-900">
-              join the waitlist to automate it next year
-            </a>
-          </p>
-        </div>
-      </div>
+      <IrsFilingBanner onWaitlistClick={() => {
+        const waitlistElement = document.getElementById('waitlist')
+        if (waitlistElement) {
+          waitlistElement.scrollIntoView({ behavior: 'smooth' })
+        }
+      }} />
 
       {/* Hero */}
       <section className="max-w-3xl mx-auto px-6 pt-20 pb-24 text-center">
