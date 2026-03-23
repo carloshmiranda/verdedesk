@@ -164,14 +164,14 @@ export default function LandingPage() {
                 disabled={status === 'loading'}
                 className="px-6 py-3 bg-verde-600 hover:bg-verde-700 disabled:bg-verde-400 text-white font-semibold rounded-lg transition-colors whitespace-nowrap"
               >
-                {status === 'loading' ? 'Joining...' : 'Join waitlist'}
+                {status === 'loading' ? 'Getting checklist...' : 'Get IRS filing checklist — free'}
               </button>
             </form>
           )}
           {status === 'error' && (
             <p className="text-red-600 text-sm mt-3">{errorMsg}</p>
           )}
-          <p className="text-gray-400 text-sm mt-3">Free to join. No card required. Early access members get their first month free.</p>
+          <p className="text-gray-400 text-sm mt-3">Get your free IRS filing checklist + early access to VerdeDesk when it launches.</p>
         </div>
       </section>
 
@@ -372,7 +372,7 @@ export default function LandingPage() {
                 disabled={status === 'loading'}
                 className="px-6 py-3 bg-white hover:bg-verde-50 text-verde-700 font-semibold rounded-lg transition-colors whitespace-nowrap"
               >
-                {status === 'loading' ? 'Joining...' : 'Join waitlist'}
+                {status === 'loading' ? 'Getting checklist...' : 'Get IRS filing checklist — free'}
               </button>
             </form>
           ) : (
