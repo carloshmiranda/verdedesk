@@ -21,6 +21,36 @@ model WaitlistEntry {
   @@map("waitlist_entries")
 }
 
+// Email marketing infrastructure
+model EmailSequence {
+  id            String     @id @default(uuid())
+  name          String
+  triggerEvent  String
+  subject       String
+  body          String
+  delayHours    Int        @default(0)
+  sequenceOrder Int        @default(0)
+  active        Boolean    @default(true)
+  variant       String     @default("A")
+  createdAt     DateTime   @default(now())
+  emailLogs     EmailLog[]
+
+  @@map("email_sequences")
+}
+
+model EmailLog {
+  id         String         @id @default(uuid())
+  sequenceId String
+  sequence   EmailSequence  @relation(fields: [sequenceId], references: [id])
+  recipient  String
+  status     String         @default("sent")
+  openedAt   DateTime?
+  clickedAt  DateTime?
+  sentAt     DateTime       @default(now())
+
+  @@map("email_log")
+}
+
 // Product stage models (unlocked after validation threshold)
 
 // model User {
