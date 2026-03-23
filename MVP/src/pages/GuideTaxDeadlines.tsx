@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useSEO } from '../lib/useSEO'
 import { useArticleSchema } from '../lib/useArticleSchema'
 import RelatedGuides from '../components/RelatedGuides'
+import IrsFilingBanner from '../components/IrsFilingBanner'
 
 const deadlines = [
   {
@@ -150,6 +151,9 @@ export default function GuideTaxDeadlines() {
           Join waitlist
         </Link>
       </nav>
+
+      {/* IRS Filing Season Banner */}
+      <IrsFilingBanner />
 
       {/* Article */}
       <article className="max-w-3xl mx-auto px-6 py-16">

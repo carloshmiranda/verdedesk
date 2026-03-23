@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useSEO } from '../lib/useSEO'
 import { useArticleSchema } from '../lib/useArticleSchema'
 import RelatedGuides from '../components/RelatedGuides'
+import IrsFilingBanner from '../components/IrsFilingBanner'
 
 export default function GuideAnexoB() {
   useSEO({
@@ -42,6 +43,9 @@ export default function GuideAnexoB() {
           </Link>
         </div>
       </nav>
+
+      {/* IRS Filing Season Banner */}
+      <IrsFilingBanner />
 
       {/* Article */}
       <article className="max-w-3xl mx-auto px-6 py-16">

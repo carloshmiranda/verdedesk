@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useSEO } from '../lib/useSEO'
+import IrsFilingBanner from '../components/IrsFilingBanner'
 
 const guides = [
   {
@@ -118,6 +119,9 @@ export default function GuidesIndex() {
           Join waitlist
         </Link>
       </nav>
+
+      {/* IRS Filing Season Banner */}
+      <IrsFilingBanner />
 
       {/* Header */}
       <section className="max-w-3xl mx-auto px-6 pt-16 pb-12">
