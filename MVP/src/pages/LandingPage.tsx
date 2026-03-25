@@ -16,6 +16,24 @@ export default function LandingPage() {
   const [errorMsg, setErrorMsg] = useState('')
   const [queuePosition, setQueuePosition] = useState<number | null>(null)
   const [utmParams, setUtmParams] = useState<Record<string, string>>({})
+  const [waitlistCount, setWaitlistCount] = useState<number | null>(null)
+
+  // Fetch waitlist count on page load
+  useEffect(() => {
+    async function fetchWaitlistCount() {
+      try {
+        const res = await fetch('/api/stats')
+        if (res.ok) {
+          const data = await res.json()
+          setWaitlistCount(data.waitlist.total)
+        }
+      } catch (error) {
+        // Fail silently - count display is not critical
+        console.log('Could not fetch waitlist count')
+      }
+    }
+    fetchWaitlistCount()
+  }, [])
 
   // Capture UTM parameters on page load
   useEffect(() => {
@@ -54,6 +72,10 @@ export default function LandingPage() {
         setQueuePosition(data.queuePosition || null)
         setStatus('success')
         setEmail('')
+        // Update waitlist count optimistically
+        if (waitlistCount !== null) {
+          setWaitlistCount(waitlistCount + 1)
+        }
       } else {
         const data = await res.json().catch(() => ({}))
         setErrorMsg(data.error || 'Something went wrong. Please try again.')
@@ -117,6 +139,11 @@ export default function LandingPage() {
           <span className="inline-block w-2 h-2 bg-verde-500 rounded-full animate-pulse" />
           <span>Launching April 2026 — for English-speaking freelancers in Portugal</span>
         </div>
+        {waitlistCount && waitlistCount > 0 && (
+          <div className="text-gray-600 text-sm mb-4">
+            <span className="font-medium text-verde-700">{waitlistCount}</span> freelancers already on the waitlist
+          </div>
+        )}
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6">
           Stop fighting the{' '}
           <span className="text-verde-600">Portal das Finanças</span>
