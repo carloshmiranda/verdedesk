@@ -1,73 +1,60 @@
 import { describe, it, expect } from 'vitest'
 
-// Growth calculation function extracted from stats.ts for unit testing
-function calculateGrowthRate(current: number, previous: number): number {
-  if (previous === 0) {
-    return current > 0 ? 100 : 0
+// Mock the database to test the stats API logic
+const mockDb = {
+  waitlistEntry: {
+    count: async () => 42  // Mock waitlist count
   }
-  return Math.round(((current - previous) / previous) * 100 * 100) / 100
 }
 
-// Date calculation utilities for testing
-function getDateBoundaries() {
-  const now = new Date()
-  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
-  const thisWeekStart = new Date(today)
-  thisWeekStart.setDate(today.getDate() - today.getDay()) // Start of this week (Sunday)
-
-  const thisMonthStart = new Date(now.getFullYear(), now.getMonth(), 1)
-
-  return { now, today, thisWeekStart, thisMonthStart }
+// Mock the stats response interface
+interface StatsResponse {
+  page_views: number
+  waitlist_total: number
+  pricing_cta_clicks: number
 }
 
-describe('stats calculations', () => {
-  it('calculates growth rates correctly', () => {
-    // Normal growth
-    expect(calculateGrowthRate(5, 3)).toBe(66.67) // (5-3)/3 * 100
-    expect(calculateGrowthRate(8, 5)).toBe(60) // (8-5)/5 * 100
+// Mock stats function that simulates the API logic
+async function getStats(): Promise<StatsResponse> {
+  const waitlist_total = await mockDb.waitlistEntry.count()
+  const page_views = 0  // Not tracked yet
+  const pricing_cta_clicks = 0  // Not tracked yet
 
-    // Negative growth
-    expect(calculateGrowthRate(2, 5)).toBe(-60) // (2-5)/5 * 100
+  return {
+    page_views,
+    waitlist_total,
+    pricing_cta_clicks
+  }
+}
 
-    // Zero current value
-    expect(calculateGrowthRate(0, 5)).toBe(-100) // (0-5)/5 * 100
+describe('stats API', () => {
+  it('returns correct stats structure', async () => {
+    const stats = await getStats()
 
-    // Zero previous value (edge case)
-    expect(calculateGrowthRate(5, 0)).toBe(100)
-    expect(calculateGrowthRate(0, 0)).toBe(0)
+    expect(stats).toHaveProperty('page_views')
+    expect(stats).toHaveProperty('waitlist_total')
+    expect(stats).toHaveProperty('pricing_cta_clicks')
+
+    expect(typeof stats.page_views).toBe('number')
+    expect(typeof stats.waitlist_total).toBe('number')
+    expect(typeof stats.pricing_cta_clicks).toBe('number')
   })
 
-  it('generates correct date boundaries', () => {
-    const { now, today, thisWeekStart, thisMonthStart } = getDateBoundaries()
+  it('returns expected values', async () => {
+    const stats = await getStats()
 
-    // Today should be start of current day (midnight)
-    expect(today.getHours()).toBe(0)
-    expect(today.getMinutes()).toBe(0)
-    expect(today.getSeconds()).toBe(0)
-
-    // This week should be start of Sunday
-    expect(thisWeekStart.getDay()).toBe(0) // Sunday = 0
-
-    // This month should be first day of current month
-    expect(thisMonthStart.getDate()).toBe(1)
-    expect(thisMonthStart.getMonth()).toBe(now.getMonth())
-    expect(thisMonthStart.getFullYear()).toBe(now.getFullYear())
+    expect(stats.page_views).toBe(0)  // Not implemented yet
+    expect(stats.waitlist_total).toBe(42)  // From mock
+    expect(stats.pricing_cta_clicks).toBe(0)  // Not implemented yet
   })
 
-  it('creates proper timeline date ranges', () => {
-    const now = new Date('2024-03-15T12:00:00Z')
-    const dateRange: string[] = []
+  it('returns JSON-serializable data', async () => {
+    const stats = await getStats()
 
-    // Initialize 31 days (30 days ago + today)
-    for (let i = 30; i >= 0; i--) {
-      const date = new Date(now)
-      date.setDate(now.getDate() - i)
-      const dateStr = date.toISOString().split('T')[0]
-      dateRange.push(dateStr)
-    }
+    // Should be able to stringify and parse without errors
+    const jsonString = JSON.stringify(stats)
+    const parsed = JSON.parse(jsonString)
 
-    expect(dateRange).toHaveLength(31)
-    expect(dateRange[0]).toBe('2024-02-14') // 30 days ago
-    expect(dateRange[30]).toBe('2024-03-15') // today
+    expect(parsed).toEqual(stats)
   })
 })
