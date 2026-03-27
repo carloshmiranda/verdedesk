@@ -21,6 +21,20 @@ model WaitlistEntry {
   @@map("waitlist_entries")
 }
 
+// Analytics tracking
+model PageView {
+  id        String   @id @default(cuid())
+  path      String
+  userAgent String?
+  ipAddress String?
+  utmSource String?
+  utmMedium String?
+  utmCampaign String?
+  createdAt DateTime @default(now())
+
+  @@map("page_views")
+}
+
 // Email marketing infrastructure
 model EmailSequence {
   id            String     @id @default(uuid())
