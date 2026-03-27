@@ -1,10 +1,16 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { db } from '../lib/db'
 
-interface StatsResponse {
+interface StatsData {
   page_views: number
+  signups: number
   waitlist_total: number
-  pricing_cta_clicks: number
+  waitlist_signups: number
+}
+
+interface HiveStatsResponse {
+  ok: boolean
+  data: StatsData
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -16,24 +22,34 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Get waitlist total from database
     const waitlist_total = await db.waitlistEntry.count()
 
-    // Page views and pricing CTA clicks are not tracked yet
-    // Return 0 until analytics tracking is implemented
+    // Page views are not tracked yet - return 0 until analytics tracking is implemented
     const page_views = 0
-    const pricing_cta_clicks = 0
 
-    const stats: StatsResponse = {
+    // signups and waitlist_signups both map to waitlist entries for now
+    // In validation stage, all signups go to waitlist
+    const signups = waitlist_total
+    const waitlist_signups = waitlist_total
+
+    const statsData: StatsData = {
       page_views,
+      signups,
       waitlist_total,
-      pricing_cta_clicks
+      waitlist_signups
+    }
+
+    const response: HiveStatsResponse = {
+      ok: true,
+      data: statsData
     }
 
     // Cache response for 5 minutes
     res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=60')
 
-    return res.status(200).json(stats)
+    return res.status(200).json(response)
   } catch (err) {
     console.error('Stats handler error:', err)
     return res.status(500).json({
+      ok: false,
       error: 'Internal server error',
       message: 'Failed to fetch stats'
     })
