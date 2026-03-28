@@ -20,6 +20,7 @@ import GuideNifPortugal from './pages/GuideNifPortugal'
 import GuideAnexoB from './pages/GuideAnexoB'
 import CalculadoraReciboVerde from './pages/CalculadoraReciboVerde'
 import ComparisonPage from './pages/ComparisonPage'
+import BlogIrsFilingGuide2026 from './pages/BlogIrsFilingGuide2026'
 
 export default function App() {
   return (
@@ -46,6 +47,7 @@ export default function App() {
         <Route path="/tools/nhr-checker" element={<NhrChecker />} />
         <Route path="/calculadora" element={<CalculadoraReciboVerde />} />
         <Route path="/comparison" element={<ComparisonPage />} />
+        <Route path="/blog/portugal-freelancer-tax-return-2026" element={<BlogIrsFilingGuide2026 />} />
       </Routes>
     </BrowserRouter>
   )
