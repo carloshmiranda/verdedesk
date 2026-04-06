@@ -1,65 +1,37 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { db } from '../lib/db'
+import { neon } from '@neondatabase/serverless'
 
-interface StatsData {
-  page_views: number
-  signups: number
-  waitlist_total: number
-  waitlist_signups: number
-}
-
-interface HiveStatsResponse {
-  ok: boolean
-  data: StatsData
-}
-
+// GET /api/stats — returns today's metrics for Hive metrics cron
+// Standard format: { ok, views, pricing_clicks, affiliate_clicks }
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
+  const DATABASE_URL = process.env.DATABASE_URL
+  if (!DATABASE_URL) {
+    return res.status(200).json({ ok: true, views: 0, pricing_clicks: 0, affiliate_clicks: 0, source: 'no_db' })
+  }
+
   try {
-    let waitlist_total = 0
+    const sql = neon(DATABASE_URL)
+    const today = new Date().toISOString().split('T')[0]
 
-    // Try to get waitlist total from database, fallback to 0 if connection fails
-    try {
-      waitlist_total = await db.waitlistEntry.count()
-    } catch (dbError) {
-      console.warn('Database connection failed, using fallback values:', dbError)
-      // Use fallback value of 0 - in production this would be replaced with actual DB connection
-      waitlist_total = 0
-    }
+    const [[views], [pricing], [affiliate]] = await Promise.all([
+      sql`SELECT COALESCE(SUM(views), 0) as total FROM page_views WHERE date = ${today}`.catch(() => [{ total: 0 }]),
+      sql`SELECT COUNT(*)::int as total FROM pricing_clicks WHERE date = ${today}`.catch(() => [{ total: 0 }]),
+      sql`SELECT COUNT(*)::int as total FROM affiliate_clicks WHERE date = ${today}`.catch(() => [{ total: 0 }]),
+    ])
 
-    // Page views are not tracked yet - return 0 until analytics tracking is implemented
-    const page_views = 0
-
-    // signups and waitlist_signups both map to waitlist entries for now
-    // In validation stage, all signups go to waitlist
-    const signups = waitlist_total
-    const waitlist_signups = waitlist_total
-
-    const statsData: StatsData = {
-      page_views,
-      signups,
-      waitlist_total,
-      waitlist_signups
-    }
-
-    const response: HiveStatsResponse = {
-      ok: true,
-      data: statsData
-    }
-
-    // Cache response for 5 minutes
     res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=60')
-
-    return res.status(200).json(response)
-  } catch (err) {
-    console.error('Stats handler error:', err)
-    return res.status(500).json({
-      ok: false,
-      error: 'Internal server error',
-      message: 'Failed to fetch stats'
+    return res.status(200).json({
+      ok: true,
+      views: Number(views.total),
+      pricing_clicks: Number(pricing.total),
+      affiliate_clicks: Number(affiliate.total),
     })
+  } catch (err: any) {
+    console.error('[stats] error:', err.message)
+    return res.status(500).json({ ok: false, error: err.message })
   }
 }
