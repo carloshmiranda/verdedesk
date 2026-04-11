@@ -19,6 +19,7 @@
     { "source": "/guides/simplified-vs-organized-regime", "destination": "/guide/simplified-vs-organized-regime", "permanent": true }
   ],
   "rewrites": [
+    { "source": "/sitemap.xml", "destination": "/api/sitemap.xml" },
     { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
