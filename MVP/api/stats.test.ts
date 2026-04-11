@@ -9,10 +9,10 @@ const mockDb = {
 
 // Mock the Hive-compatible stats response interface
 interface StatsData {
-  page_views: number
+  views: number
   signups: number
-  waitlist_total: number
-  waitlist_signups: number
+  waitlist: number
+  revenue: number
 }
 
 interface HiveStatsResponse {
@@ -22,18 +22,15 @@ interface HiveStatsResponse {
 
 // Mock stats function that simulates the API logic
 async function getStats(): Promise<HiveStatsResponse> {
-  const waitlist_total = await mockDb.waitlistEntry.count()
-  const page_views = 0  // Not tracked yet
-  const signups = waitlist_total  // All signups go to waitlist in validation stage
-  const waitlist_signups = waitlist_total
+  const waitlistCount = await mockDb.waitlistEntry.count()
 
   return {
     ok: true,
     data: {
-      page_views,
-      signups,
-      waitlist_total,
-      waitlist_signups
+      views: 0,  // Page views not tracked yet in validation stage
+      signups: waitlistCount,  // All signups go to waitlist in validation stage
+      waitlist: waitlistCount,
+      revenue: 0  // No revenue during validation stage
     }
   }
 }
@@ -47,25 +44,25 @@ describe('stats API', () => {
     expect(response.ok).toBe(true)
 
     const { data } = response
-    expect(data).toHaveProperty('page_views')
+    expect(data).toHaveProperty('views')
     expect(data).toHaveProperty('signups')
-    expect(data).toHaveProperty('waitlist_total')
-    expect(data).toHaveProperty('waitlist_signups')
+    expect(data).toHaveProperty('waitlist')
+    expect(data).toHaveProperty('revenue')
 
-    expect(typeof data.page_views).toBe('number')
+    expect(typeof data.views).toBe('number')
     expect(typeof data.signups).toBe('number')
-    expect(typeof data.waitlist_total).toBe('number')
-    expect(typeof data.waitlist_signups).toBe('number')
+    expect(typeof data.waitlist).toBe('number')
+    expect(typeof data.revenue).toBe('number')
   })
 
   it('returns expected values', async () => {
     const response = await getStats()
     const { data } = response
 
-    expect(data.page_views).toBe(0)  // Not implemented yet
-    expect(data.signups).toBe(42)  // From mock (same as waitlist_total)
-    expect(data.waitlist_total).toBe(42)  // From mock
-    expect(data.waitlist_signups).toBe(42)  // From mock (same as waitlist_total)
+    expect(data.views).toBe(0)  // Not implemented yet
+    expect(data.signups).toBe(42)  // From mock (same as waitlist)
+    expect(data.waitlist).toBe(42)  // From mock
+    expect(data.revenue).toBe(0)  // No revenue during validation stage
   })
 
   it('returns JSON-serializable data', async () => {
