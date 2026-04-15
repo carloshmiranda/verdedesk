@@ -142,6 +142,25 @@ const urls: SitemapUrl[] = [
     changefreq: 'monthly',
     priority: '0.9'
   },
+  {
+    loc: '/guide/invoice-foreign-clients-portugal',
+    lastmod: '2026-04-15',
+    changefreq: 'monthly',
+    priority: '0.8'
+  },
+  {
+    loc: '/guide/accountant-freelancer-portugal',
+    lastmod: '2026-04-15',
+    changefreq: 'monthly',
+    priority: '0.8'
+  },
+  // Comparison pages
+  {
+    loc: '/vs/rauva',
+    lastmod: '2026-04-15',
+    changefreq: 'monthly',
+    priority: '0.8'
+  },
   // Blog posts
   {
     loc: '/blog/portugal-freelancer-tax-return-2026',

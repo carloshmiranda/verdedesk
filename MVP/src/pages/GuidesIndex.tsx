@@ -93,6 +93,18 @@ const guides = [
     description: 'Complete English translation of every field in Anexo B. For freelancers under the simplified regime filing 2025 income in 2026.',
     tag: 'Tax return',
   },
+  {
+    to: '/guide/invoice-foreign-clients-portugal',
+    title: 'Invoicing Foreign Clients as a Portugal Freelancer (2026)',
+    description: 'How to issue recibos verdes for non-Portuguese clients. VAT reverse charge, withholding tax exemption, currency conversion, and social security obligations.',
+    tag: 'Invoicing',
+  },
+  {
+    to: '/guide/accountant-freelancer-portugal',
+    title: 'Do You Need an Accountant as a Freelancer in Portugal?',
+    description: 'When Portuguese law requires a certified accountant, what they cost (€80–200/month), and when the simplified regime lets you manage compliance yourself.',
+    tag: 'Tax regime',
+  },
 ]
 
 export default function GuidesIndex() {

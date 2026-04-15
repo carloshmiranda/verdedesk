@@ -353,6 +353,50 @@ const guides = [
       'Quick reference: Anexo B checklist',
     ],
   },
+  {
+    slug: 'invoice-foreign-clients-portugal',
+    title: 'Invoicing Foreign Clients as a Portugal Freelancer (2026) | VerdeDesk',
+    description: 'How to issue recibos verdes for non-Portuguese clients. VAT reverse charge (Art. 6 CIVA), withholding tax exemption, currency conversion to EUR, and social security — in plain English.',
+    canonical: 'https://verdedesk.vercel.app/guide/invoice-foreign-clients-portugal',
+    articleTitle: 'Invoicing Foreign Clients as a Portugal Freelancer (2026)',
+    datePublished: '2026-04-15',
+    dateModified: '2026-04-15',
+    h1: 'Invoicing Foreign Clients as a Portugal Freelancer (2026)',
+    intro: 'Most D8 visa holders and expat freelancers in Portugal work for clients outside Portugal. You still issue a recibo verde for each payment — but the VAT and withholding tax rules differ significantly from domestic clients. Getting them wrong is one of the most common compliance mistakes expats make.',
+    headings: [
+      'Do you still need to issue a recibo verde?',
+      'VAT on foreign clients: the reverse charge rule',
+      'EU vs non-EU clients',
+      'Article 53 VAT exemption and foreign clients',
+      'Withholding tax (retencao na fonte) for foreign clients',
+      'Currency: receiving payment in USD, GBP, or EUR',
+      'Social security on foreign income',
+      'NHR 2.0 and foreign-sourced professional income',
+      'Step-by-step: issuing a recibo verde for a foreign client',
+      'Common mistakes with foreign client invoicing',
+      'Double tax treaty countries',
+    ],
+  },
+  {
+    slug: 'accountant-freelancer-portugal',
+    title: 'Do You Need an Accountant as a Freelancer in Portugal? (2026) | VerdeDesk',
+    description: 'When Portuguese law requires a certified accountant (contabilista certificado), what they cost, and when the simplified regime lets you handle compliance yourself. English guide for expat freelancers.',
+    canonical: 'https://verdedesk.vercel.app/guide/accountant-freelancer-portugal',
+    articleTitle: 'Do You Need an Accountant as a Freelancer in Portugal? (2026)',
+    datePublished: '2026-04-15',
+    dateModified: '2026-04-15',
+    h1: 'Do You Need an Accountant as a Freelancer in Portugal? (2026)',
+    intro: 'One of the first questions expats ask after registering as a freelancer in Portugal is: do I need to hire an accountant, or can I handle this myself? The answer depends almost entirely on which tax regime you are in. For most freelancers on the simplified regime, Portuguese law does not require a certified accountant.',
+    headings: [
+      'The two tax regimes for Portuguese freelancers',
+      'What does a Portuguese accountant actually do for freelancers?',
+      'How much does an accountant cost in Portugal?',
+      'When an accountant is genuinely worth it',
+      'What you can do yourself in the simplified regime',
+      'Finding an English-speaking accountant in Portugal',
+      'The bottom line',
+    ],
+  },
 ];
 
 function generateHTML(template, guide) {
@@ -922,5 +966,16 @@ mkdirSync(calculadoraDir, { recursive: true });
 writeFileSync(join(calculadoraDir, 'index.html'), generateToolPageHTML(template, calculadoraReciboVerde), 'utf-8');
 count++;
 console.log('  prerendered: /calculadora');
+
+// Prerender /vs/rauva
+const vsRauvaDir = join(DIST, 'vs', 'rauva');
+mkdirSync(vsRauvaDir, { recursive: true });
+const vsRauvaHTML = template
+  .replace(/<title>[^<]*<\/title>/, '<title>VerdeDesk vs Rauva: Which is Better for Expat Freelancers in Portugal? (2026)</title>')
+  .replace(/<meta name="description" content="[^"]*"/, '<meta name="description" content="Honest comparison of VerdeDesk and Rauva for English-speaking freelancers in Portugal. Covers recibos verdes, pricing, English support, and who each tool is built for."')
+  .replace('<div id="root"></div>', '<div id="root"><main><h1>VerdeDesk vs Rauva: Which is Better for Expat Freelancers in Portugal?</h1><p>VerdeDesk is an English-first compliance tool built for D8 visa holders and expat freelancers. Rauva is a Portuguese-language business banking platform. This page compares both tools so you can choose the right fit for your situation.</p></main></div>');
+writeFileSync(join(vsRauvaDir, 'index.html'), vsRauvaHTML, 'utf-8');
+count++;
+console.log('  prerendered: /vs/rauva');
 
 console.log(`\nPrerendered ${count} pages for SEO.`);

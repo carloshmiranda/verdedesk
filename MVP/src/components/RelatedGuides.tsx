@@ -79,6 +79,8 @@ const guides = [
   { to: '/guide/e-fatura-portugal-english', label: 'e-Fatura Portugal in English' },
   { to: '/guide/nif-portugal-foreigner', label: 'How to Get a NIF in Portugal' },
   { to: '/guide/anexo-b-irs-freelancer-portugal', label: 'Anexo B (Annex B) Field-by-Field Guide' },
+  { to: '/guide/invoice-foreign-clients-portugal', label: 'Invoicing Foreign Clients from Portugal' },
+  { to: '/guide/accountant-freelancer-portugal', label: 'Do You Need an Accountant in Portugal?' },
 ]
 
 export default function RelatedGuides({ current }: { current: string }) {
