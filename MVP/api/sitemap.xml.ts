@@ -1,5 +1,3 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node'
-
 interface SitemapUrl {
   loc: string
   lastmod: string
@@ -184,7 +182,7 @@ ${urlsXml}
 </urlset>`
 }
 
-export default function handler(req: VercelRequest, res: VercelResponse) {
+export default function handler(req: any, res: any) {
   try {
     const sitemap = generateSitemap(urls)
 
