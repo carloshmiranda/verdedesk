@@ -1,24 +1,6 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "vite",
-  "functions": {
-    "api/health.ts": {
-      "runtime": "nodejs20.x"
-    },
-    "api/stats.ts": {
-      "runtime": "nodejs20.x"
-    },
-    "api/sitemap.xml.ts": {
-      "runtime": "nodejs20.x"
-    },
-    "api/waitlist.ts": {
-      "runtime": "nodejs20.x"
-    },
-    "api/indexnow.ts": {
-      "runtime": "nodejs20.x"
-    }
-  },
   "redirects": [
     { "source": "/guides/how-to-issue-recibo-verde", "destination": "/guide/recibo-verde-english", "permanent": true },
     { "source": "/guides/vat-exemption-article-53", "destination": "/guide/vat-exemption-article-53-portugal", "permanent": true },
