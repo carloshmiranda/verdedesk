@@ -4,19 +4,19 @@
   "framework": "vite",
   "functions": {
     "api/health.ts": {
-      "runtime": "@vercel/node"
+      "runtime": "nodejs20.x"
     },
     "api/stats.ts": {
-      "runtime": "@vercel/node"
+      "runtime": "nodejs20.x"
     },
     "api/sitemap.xml.ts": {
-      "runtime": "@vercel/node"
+      "runtime": "nodejs20.x"
     },
     "api/waitlist.ts": {
-      "runtime": "@vercel/node"
+      "runtime": "nodejs20.x"
     },
     "api/indexnow.ts": {
-      "runtime": "@vercel/node"
+      "runtime": "nodejs20.x"
     }
   },
   "redirects": [
