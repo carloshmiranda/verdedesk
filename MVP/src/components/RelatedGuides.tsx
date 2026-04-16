@@ -81,6 +81,8 @@ const guides = [
   { to: '/guide/anexo-b-irs-freelancer-portugal', label: 'Anexo B (Annex B) Field-by-Field Guide' },
   { to: '/guide/invoice-foreign-clients-portugal', label: 'Invoicing Foreign Clients from Portugal' },
   { to: '/guide/accountant-freelancer-portugal', label: 'Do You Need an Accountant in Portugal?' },
+  { to: '/guide/moving-to-portugal-freelancer', label: 'Moving to Portugal as a Freelancer' },
+  { to: '/guide/cancel-recibo-verde-portugal', label: 'How to Cancel a Recibo Verde' },
 ]
 
 export default function RelatedGuides({ current }: { current: string }) {

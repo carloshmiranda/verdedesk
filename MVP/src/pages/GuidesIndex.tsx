@@ -105,6 +105,18 @@ const guides = [
     description: 'When Portuguese law requires a certified accountant, what they cost (€80–200/month), and when the simplified regime lets you manage compliance yourself.',
     tag: 'Tax regime',
   },
+  {
+    to: '/guide/moving-to-portugal-freelancer',
+    title: 'Moving to Portugal as a Freelancer: Complete 2026 Guide',
+    description: 'Everything you need to set up as a freelancer in Portugal — NIF, D8 visa, opening your activity, tax regime, social security, NHR 2.0, and your first-year checklist.',
+    tag: 'Getting started',
+  },
+  {
+    to: '/guide/cancel-recibo-verde-portugal',
+    title: 'How to Cancel (Annul) a Recibo Verde in Portugal',
+    description: 'Step-by-step guide to annulling a recibo verde on Portal das Financas — the correct reason codes, what happens after annulment, and how to issue a corrected receipt.',
+    tag: 'Invoicing',
+  },
 ]
 
 export default function GuidesIndex() {

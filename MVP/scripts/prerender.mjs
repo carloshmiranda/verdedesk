@@ -397,6 +397,54 @@ const guides = [
       'The bottom line',
     ],
   },
+  {
+    slug: 'moving-to-portugal-freelancer',
+    title: 'Moving to Portugal as a Freelancer: Complete 2026 Guide | VerdeDesk',
+    description: 'Everything you need to set up as a freelancer in Portugal — NIF, D8 visa, opening your activity, tax regime, social security, NHR 2.0, and your first-year checklist.',
+    canonical: 'https://verdedesk.vercel.app/guide/moving-to-portugal-freelancer',
+    articleTitle: 'Moving to Portugal as a Freelancer: Complete 2026 Guide',
+    datePublished: '2026-04-16',
+    dateModified: '2026-04-16',
+    h1: 'Moving to Portugal as a Freelancer: Complete 2026 Guide',
+    intro: 'Portugal has become one of the most popular destinations for remote workers and freelancers. But the tax setup process is genuinely confusing, and most official guidance exists only in Portuguese. This guide walks you through every step before and after you arrive — NIF, D8 visa, opening your freelance activity, NHR 2.0, and your first-year checklist.',
+    headings: [
+      'Step 1: Get your NIF before you start working',
+      'EU citizens',
+      'Non-EU citizens (D8 visa holders, UK, US)',
+      'Step 2: The D8 visa — what it means for your taxes',
+      'Step 3: Open your bank account',
+      'Step 4: Register your freelance activity (abrir atividade)',
+      'Step 5: Apply for NHR 2.0 (IFICI) — don\'t miss the window',
+      'Step 6: Issuing your first recibo verde',
+      'Social security in your first year',
+      'Your first IRS tax return',
+      'First-year mistakes to avoid',
+      'First-year checklist',
+      'Do you need an accountant?',
+    ],
+  },
+  {
+    slug: 'cancel-recibo-verde-portugal',
+    title: 'How to Cancel (Annul) a Recibo Verde in Portugal | VerdeDesk',
+    description: 'Step-by-step guide to cancelling a recibo verde on Portal das Financas. Covers the annulment process, required reasons, what happens after, and how to avoid common mistakes.',
+    canonical: 'https://verdedesk.vercel.app/guide/cancel-recibo-verde-portugal',
+    articleTitle: 'How to Cancel (Annul) a Recibo Verde in Portugal',
+    datePublished: '2026-04-16',
+    dateModified: '2026-04-16',
+    h1: 'How to Cancel (Annul) a Recibo Verde in Portugal',
+    intro: 'You issued a recibo verde with the wrong amount, the wrong client details, or for a payment that never went through. In Portugal you cannot delete a fiscal document — but you can annul (anular) it. This guide explains the process step by step, what happens to the annulled document, and what to do next.',
+    headings: [
+      'Why you cannot delete a recibo verde',
+      'Common reasons to annul a recibo verde',
+      'Step-by-step: how to annul a recibo verde on Portal das Financas',
+      'Is there a time limit?',
+      'What happens after annulment',
+      'Issuing a corrected receipt after annulment',
+      'What if you cannot find the Anular button?',
+      'Annulment vs correction: a common misconception',
+      'How to avoid needing to annul in the first place',
+    ],
+  },
 ];
 
 function generateHTML(template, guide) {
@@ -977,5 +1025,16 @@ const vsRauvaHTML = template
 writeFileSync(join(vsRauvaDir, 'index.html'), vsRauvaHTML, 'utf-8');
 count++;
 console.log('  prerendered: /vs/rauva');
+
+// Prerender /vs/invoicexpress
+const vsInvoiceXpressDir = join(DIST, 'vs', 'invoicexpress');
+mkdirSync(vsInvoiceXpressDir, { recursive: true });
+const vsInvoiceXpressHTML = template
+  .replace(/<title>[^<]*<\/title>/, '<title>VerdeDesk vs InvoiceXpress: Which Should Expat Freelancers in Portugal Use? (2026)</title>')
+  .replace(/<meta name="description" content="[^"]*"/, '<meta name="description" content="Honest comparison of VerdeDesk and InvoiceXpress for English-speaking freelancers in Portugal. Covers recibos verdes, language, pricing, and who each tool is built for."')
+  .replace('<div id="root"></div>', '<div id="root"><main><h1>VerdeDesk vs InvoiceXpress: Which Should Expat Freelancers in Portugal Use?</h1><p>InvoiceXpress is one of Portugal\'s most established certified billing platforms. VerdeDesk is built specifically for English-speaking expat freelancers. This page compares both tools so you can decide which one fits your situation.</p></main></div>');
+writeFileSync(join(vsInvoiceXpressDir, 'index.html'), vsInvoiceXpressHTML, 'utf-8');
+count++;
+console.log('  prerendered: /vs/invoicexpress');
 
 console.log(`\nPrerendered ${count} pages for SEO.`);

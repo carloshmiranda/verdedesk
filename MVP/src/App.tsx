@@ -24,6 +24,9 @@ import BlogIrsFilingGuide2026 from './pages/BlogIrsFilingGuide2026'
 import GuideInvoiceForeignClients from './pages/GuideInvoiceForeignClients'
 import GuideAccountantPortugal from './pages/GuideAccountantPortugal'
 import VsRauva from './pages/VsRauva'
+import VsInvoiceXpress from './pages/VsInvoiceXpress'
+import GuideCancelReciboVerde from './pages/GuideCancelReciboVerde'
+import GuideMovingPortugalFreelancer from './pages/GuideMovingPortugalFreelancer'
 
 export default function App() {
   return (
@@ -54,6 +57,9 @@ export default function App() {
         <Route path="/guide/invoice-foreign-clients-portugal" element={<GuideInvoiceForeignClients />} />
         <Route path="/guide/accountant-freelancer-portugal" element={<GuideAccountantPortugal />} />
         <Route path="/vs/rauva" element={<VsRauva />} />
+        <Route path="/vs/invoicexpress" element={<VsInvoiceXpress />} />
+        <Route path="/guide/cancel-recibo-verde-portugal" element={<GuideCancelReciboVerde />} />
+        <Route path="/guide/moving-to-portugal-freelancer" element={<GuideMovingPortugalFreelancer />} />
       </Routes>
     </BrowserRouter>
   )
