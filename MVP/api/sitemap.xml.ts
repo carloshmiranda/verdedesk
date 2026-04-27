@@ -152,10 +152,28 @@ const urls: SitemapUrl[] = [
     changefreq: 'monthly',
     priority: '0.8'
   },
+  {
+    loc: '/guide/cancel-recibo-verde-portugal',
+    lastmod: '2026-04-27',
+    changefreq: 'monthly',
+    priority: '0.8'
+  },
+  {
+    loc: '/guide/moving-to-portugal-freelancer',
+    lastmod: '2026-04-27',
+    changefreq: 'monthly',
+    priority: '0.8'
+  },
   // Comparison pages
   {
     loc: '/vs/rauva',
     lastmod: '2026-04-15',
+    changefreq: 'monthly',
+    priority: '0.8'
+  },
+  {
+    loc: '/vs/invoicexpress',
+    lastmod: '2026-04-27',
     changefreq: 'monthly',
     priority: '0.8'
   },
